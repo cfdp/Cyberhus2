@@ -1,0 +1,10 @@
+<markers>
+ <marker name="Cyberhus0" address="33 Sønder Allé, Århus, Danmark" lat="56.1525" lng="10.1094" category="alt_lukket" />
+ <marker name="Cyberhus1" address="33 Sønder Allé, Århus, Danmark" lat="56.1525" lng="10.2094" category="aaben_anonym" />
+ <marker name="Cyberhus2" address="33 Sønder Allé, Århus, Danmark" lat="56.1525" lng="10.3094" category="krop" />
+ <marker name="Cyberhus3" address="33 Sønder Allé, Århus, Danmark" lat="56.1525" lng="10.4094" category="sex" />
+ <marker name="Cyberhus4" address="33 Sønder Allé, Århus, Danmark" lat="56.1525" lng="10.5094" category="alkohol_stoffer" />
+ <marker name="Cyberhus5" address="33 Sønder Allé, Århus, Danmark" lat="56.1525" lng="10.6094" category="doed_syg" />
+ <marker name="Cyberhus6" address="33 Sønder Allé, Århus, Danmark" lat="56.1525" lng="10.7094" category="ikke_rart" />
+
+</markers>

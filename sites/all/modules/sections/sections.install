@@ -1,0 +1,160 @@
+<?php
+/* $Id: sections.install,v 1.10.2.6 2008/06/01 13:12:32 hass Exp $ */
+
+function sections_install() {
+  drupal_install_schema('sections');
+
+  // Set modul weight to negative value to be the first called.
+  db_query("UPDATE {system} SET weight = '-10' WHERE name = 'sections'");
+}
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function sections_uninstall() {
+  drupal_uninstall_schema('sections');
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function sections_schema() {
+  $schema['sections_data'] = array(
+    'description' => t('Stores section settings.'),
+    'fields' => array(
+      'sid' => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => t('Primary Key: Unique section ID.'),
+      ),
+      'name' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => t('The name of this section.'),
+      ),
+      'status' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+        'description' => t('Section enabled status. (1 = enabled, 0 = disabled)'),
+      ),
+      'path' => array(
+        'type' => 'text',
+        'not null' => FALSE,
+        'description' => t('Internal path or URL alias with or without placeholders this section will apply (relative to Drupal root.)'),
+      ),
+      'theme' => array(
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => t('The theme under which the section settings apply.')
+      ),
+      'visibility' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'size' => 'tiny',
+        'description' => t('Flag to indicate how to show sections on pages. (0 = Show on all pages except listed pages, 1 = Show only on listed pages, 2 = Use custom PHP code to determine visibility)'),
+      ),
+      'weight' => array(
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+        'description' => t('Section weight within sections.'),
+      )
+    ),
+    'primary key' => array('sid')
+  );
+
+  $schema['sections_roles'] = array(
+    'description' => t('Sets up access permissions for sections based on user roles'),
+    'fields' => array(
+      'rid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => t("The user's role ID from {users_roles}.rid."),
+      ),
+      'sid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => t("The section's ID from {sections_data}.sid."),
+      ),
+    ),
+    'primary key' => array(
+      'rid',
+      'sid',
+    ),
+    'indexes' => array(
+      'rid' => array('rid'),
+    ),
+  );
+
+  return $schema;
+}
+
+function sections_update_3() {
+  $ret = array();
+  db_change_field($ret, 'sections_data', 'sid', 'sid', array('type' => 'serial', 'not null' => TRUE));
+  db_change_field($ret, 'sections_data', 'name', 'name', array('type' => 'varchar', 'length' => 255, 'not null' => TRUE, 'default' => ''));
+  db_change_field($ret, 'sections_data', 'status', 'status', array('type' => 'int', 'not null' => TRUE, 'default' => 0, 'size' => 'tiny'));
+  db_change_field($ret, 'sections_data', 'template', 'theme', array('type' => 'varchar', 'length' => 255, 'not null' => TRUE, 'default' => ''));
+  db_change_field($ret, 'sections_data', 'visibility', 'visibility', array('type' => 'int', 'not null' => TRUE, 'default' => 0, 'size' => 'tiny'));
+  db_change_field($ret, 'sections_data', 'weight', 'weight', array('type' => 'int', 'not null' => TRUE, 'default' => 0));
+  return $ret;
+}
+
+function sections_update_4() {
+  // Set modul weight to negative value to be the first called.
+  $ret[] = update_sql("UPDATE {system} SET weight = '-10' WHERE name = 'sections'");
+  return $ret;
+}
+
+/**
+ * Add sections per roles feature.
+ */
+function sections_update_6000() {
+
+  $schema['sections_roles'] = array(
+    'description' => t('Sets up access permissions for sections based on user roles'),
+    'fields' => array(
+      'rid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => t("The user's role ID from {users_roles}.rid."),
+      ),
+      'sid' => array(
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => t("The section's ID from {sections_data}.sid."),
+      ),
+    ),
+    'primary key' => array(
+      'rid',
+      'sid',
+    ),
+    'indexes' => array(
+      'rid' => array('rid'),
+    ),
+  );
+
+  db_create_table($ret, 'sections_roles', $schema['sections_roles']);
+  return $ret;
+}
+
+/**
+ * Clear menu cache for menu changes (commit #109196).
+ */
+function sections_update_6001() {
+  $ret = array();
+  cache_clear_all();
+  menu_rebuild();
+  return $ret;
+}

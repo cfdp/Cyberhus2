@@ -1,0 +1,91 @@
+<?php
+/*
+  By Kasper Skov-Nielsen
+  Provides helper functions to Cyberhus.
+ */
+
+function oushelper_form_faq_node_form_alter(&$form, &$form_state) {
+    $form['#submit'][] = 'my_submit'; 
+/*
+    //var_dump($form);
+//    $status = $form['#node']->status;
+    $publish = $form['#node']->field_publish[0]['value'];
+    print('Status : '.$status.' Publish : '.$publish);
+    if ($publish == 'Yes' OR $publish == 'Ja') {
+      $form['#node']->status = 1;
+    } else {
+      $form['#node']->status = 0;
+    }
+*/    
+}
+
+/**
+ * oushelper_submit() - two examples
+ */
+ 
+ function my_form_submit($form, &$form_state) {
+  // processing code goes here...
+  var_dump($form);
+  
+//  $form_state['redirect'] = 'admin/my_page';
+//  $form_state['nid'] = $node->nid;
+}
+ 
+function my_submit($form_id, $form_values) {
+//  var_dump($form_values);
+  
+//  $publish = $form_values['values']['field_publish'][0]['value']; 
+  $nid = $form_values['values']['nid'];
+//  $form_values['values']['status'] = 1;
+  $status = $form_values['values']['status'];
+/*
+  if ($publish == 'Yes' OR $publish == 'Ja') {
+//  drupal_set_message('Node-id : '.$nid. ' Publish : '.$publish.' Status : '.$status, 'status');
+//    $form_values['values']['status']['value'] = '1';
+    db_query("UPDATE {node} SET status=1 WHERE nid=%d", $nid); 
+  } else {
+//    $form_values['values']['status']['value'] = '0';
+  }
+*/  
+  if ($status == 1) {
+// find the email of the asker
+  $result = db_query('SELECT faq_nid, email FROM {oushelper_email} WHERE faq_nid=%d', $nid);
+      while ($asker = db_fetch_array($result)) {
+        $email = $asker['email'];
+		$params['nid'] = $nid;
+        /**now we decrypt the e-mail
+        $iv_size = mcrypt_get_iv_size(MCRYPT_XTEA, MCRYPT_MODE_ECB);
+        $iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+        $key = "Thisisakey";
+        $text = "Meet me at 11 o'clock behind the monument.";
+
+        $email = mcrypt_decrypt(MCRYPT_XTEA, $key, $enc, MCRYPT_MODE_ECB, $iv);        
+        */  
+        $mail_sent = drupal_mail('faq_ask', 'notify_asker', $email, 'da', $params/*, $from*/);
+        if ($mail_sent) {
+          watchdog('FAQ_Ask', 'Expert notification email sent to hidden asker',
+            array('@to' => $account->mail), WATCHDOG_NOTICE);
+        }
+        else {
+          watchdog('FAQ_Ask', 'Expert notification email to hidden asker failed for the "@cat" category.',
+            array('@to' => $account->mail, '@cat' => $term->name), WATCHDOG_ERROR);
+          drupal_set_message($msg, 'status');
+        }
+        db_query('DELETE FROM {oushelper_email} WHERE faq_nid=%d', $nid);
+      }
+   }   
+}
+/**
+ * Implementation of hook_mail().
+ */
+function oushelper_guestbook_mail($key, &$message, $params) {
+  $language = $message['language'];
+  $variables = user_mail_tokens($params['account'], $language);
+  switch($key) {
+    case 'notification':
+      $message['subject'] = t('Ne guestbook entry at !site', $variables, $language->language);
+      $message['body'] = drupal_html_to_text($params['body']);
+      break;
+  }
+}
+?>

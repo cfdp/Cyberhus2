@@ -1,0 +1,275 @@
+# $Id: es.po,v 1.1.2.1 2008/03/06 16:29:21 nancyw Exp $
+#
+# LANGUAGE translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  faq_ask.module,v 1.11 2007/12/20 04:19:37 nancyw
+#  faq_ask.install,v 1.1 2007/11/16 15:20:39 nancyw
+#  faq_ask.info,v 1.1 2007/11/16 15:20:39 nancyw
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"POT-Creation-Date: 2007-12-20 13:51+0100\n"
+"PO-Revision-Date: 2008-11-11 11:59+0100\n"
+"Last-Translator: Jens Jakob <jensjakob@cyberhus.dk>\n"
+"Language-Team: España <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Language: Spanish\n"
+"X-Poedit-Country: SPAIN\n"
+
+#: faq_ask.module:19
+msgid "This module is an add-on to the FAQ module that allows users with the 'ask question' permission to create a question which will be queued for an 'expert' to answer."
+msgstr "Dette modul er et tillægsmodul til FAQ-modulet. FAQ_ASK gør det muligt for besøgende på sitet at stille spørgsmål, som vil blive besvaret af en vejleder."
+
+#: faq_ask.module:20
+msgid "The module shows an abbreviated version of the FAQ form without an answer field. The node is created without the 'published' attribute. There is a block that will show the unanswered questions to the 'expert' (generally, this requires a separate role)."
+msgstr "Modulet viser en forenklet version af FAQ-formularen uden et \"svar\"-felt. Den pågældende node dannes uden standardattributten \"published\". Der er en block, der vil vise det ubesvarede spørgsmål til vejlederen (generelt vil dette kræve en seperat rolle):"
+
+#: faq_ask.module:21
+msgid "Viewing of the completed question and answer pair is done by the FAQ module."
+msgstr "Viewing af det komplette spørgsmål/svar-par klares af FAQ-modulet."
+
+#: faq_ask.module:25
+msgid "Add a question for our expert to answer. After being answered, your question and the answer will be displayed in the FAQ pages. If the question will not fit in the box below, please try to rephrase it."
+msgstr "Stil et spørgsmål til vores vejledere. Når det er blevet besvaret vil dit spørgsmål+svar kunne findes i brevkassesektionen. Hvis spørgsmålet ikke kan være i boksen, så kan du prøve at omformulere det."
+
+#: faq_ask.module:42
+msgid "ask_question"
+msgstr "ask_question"
+
+#: faq_ask.module:51
+msgid "The Faq_Ask module has been enabled."
+msgstr "Modulet Faq_Ask er blevet aktiveret."
+
+#: faq_ask.module:51;135;303
+msgid "Please go to the <a href=\"!url\">settings page</a> to configure this module."
+msgstr "Gå til <a href=\"!url\">indstillinger</a> for at konfigurere modulet."
+
+#: faq_ask.module:63
+msgid "Experts"
+msgstr "Vejledere"
+
+#: faq_ask.module:67
+msgid "Allows the user to configure the Ask_FAQ module."
+msgstr "Giv brugere lov til at konfigurere Faq_Ask-modulet."
+
+#: faq_ask.module:74
+msgid "Ask a question"
+msgstr "Spørg en vejleder"
+
+#: faq_ask.module:82
+msgid "Answer a question"
+msgstr "Besvar et spørgsmål"
+
+#: faq_ask.module:90
+msgid "Edit a question"
+msgstr "Rediger et spørgsmål"
+
+#: faq_ask.module:98
+msgid "List more unanswered questions"
+msgstr "Vis flere ubesvarede spørgsmål"
+
+#: faq_ask.module:135
+msgid "Currently, there are no experts defined. "
+msgstr "På nuværende tidspunkt er der ikke defineret nogle vejledere. "
+
+#: faq_ask.module:156
+msgid "Category"
+msgstr "Kategori"
+
+#: faq_ask.module:162
+msgid "Please select the correct category for your question."
+msgstr "Vælg den rigtige kategori til dit spørgsmål."
+
+#: faq_ask.module:170
+msgid "Question"
+msgstr "Spørgsmål"
+
+#: faq_ask.module:178
+msgid "Enter your question here. It will be answered as soon as possible. The maximum length for the question is !len characters."
+msgstr "Skriv dit spørgsmål her. Det vil blive besvaret så hurtigt som muligt. Spørgsmålet må maks. fylde !len karakterer/bogstaver."
+
+#: faq_ask.module:183
+msgid "Send my question"
+msgstr "Send mit spørgsmål"
+
+#: faq_ask.module:242
+msgid "The following question has been posted in the \"!cat\" category."
+msgstr "Følgende spørgsmål er blevet postet i \"!cat\" kategorien."
+
+#: faq_ask.module:245
+msgid "In order to answer it you will first need to <a href=\"!url\">login</a> to the site."
+msgstr "For at besvare spørgsmålet skal du først <a href=\"!url\">logge ind</a> på cyberhus.dk."
+
+#: faq_ask.module:246
+msgid "Once logged in, you may proceed <a href=\"!url\">directly to the question</a> to answer it."
+msgstr "Når du er logget ind kan du gå <a href=\"!url\">direkte til spørgsmålet</a> og besvare det."
+
+#: faq_ask.module:250
+msgid "Expert notification email sent."
+msgstr "Der er sendt en notifikations-e-mail til vejlederen."
+
+#: faq_ask.module:253
+msgid "Expert notification email failed for the \"!cat\" category."
+msgstr "Det lykkedes ikke at sende en notifikations-e-mail for \"!cat\" kategorien."
+
+#: faq_ask.module:266
+msgid "left side"
+msgstr "venstre side"
+
+#: faq_ask.module:269
+msgid "right side"
+msgstr "højre side"
+
+#: faq_ask.module:272
+msgid "top"
+msgstr "top"
+
+#: faq_ask.module:275
+msgid "bottom"
+msgstr "bund"
+
+#: faq_ask.module:282
+msgid "It should appear in the list at the @region of the screen momentarily."
+msgstr "Det vil blive vist i listen i @region på skærmen om et øjeblik."
+
+#: faq_ask.module:285
+msgid "It should appear in the list momentarily."
+msgstr "Det vil vil blive vist på listen om et øjeblik."
+
+#: faq_ask.module:289
+msgid "Your question has been submitted."
+msgstr "Dit spørgsmål er blevet indsendt."
+
+#: faq_ask.module:303
+msgid "The Faq_Ask module requires that FAQ \"Categorize questions.\""
+msgstr "Modulet Faq_Ask kræver at FAQ \"Kategoriserer spørgsmål.\""
+
+#: faq_ask.module:308
+msgid "Notify experts"
+msgstr "Underret vejledere"
+
+#: faq_ask.module:309
+msgid "If this box is checked, the expert(s) for the question will be notified via email that a question awaits them."
+msgstr "Hvis denne boks er markeret, vil den tilknyttede vejleder blive noticeret via e-mail om at der afventer dem et spørgsmål."
+
+#: faq_ask.module:317
+msgid "Question Box Length"
+msgstr "Længde på spørgsmålsboksen"
+
+#: faq_ask.module:318
+msgid "This sets the length of the question box (not the question itself). This affects only the FAQ_Ask module, not the FAQ display. The recommendation is to set it as wide as your theme will allow it. Note: If resizable textareas are enabled, this setting will have no effect."
+msgstr "Dette definerer længden på spørgsmålsboksen (ikke selve spørgsmålet). Dette påvirker kun modulet Faq_Ask, og ikke FAQ-visningen. Det anbefales at sætte værdien (bredden) så højt som dit theme tillader det. Note: Hvis \"resizable textareas\" er aktiveret, vil denne indstilling ikke have nogen betydning."
+
+#: faq_ask.module:330
+msgid "No roles with \"answer question\" permission were found. Please go to the <a href=\"!access\">Access Control page</a> to update your permissions."
+msgstr "Der blev ikke fundet nogen roller med \"besvar spørgsmål\" tilladelse. Gå til <a href=\"!access\">Tilladelser</a> for at opdatere brugernes tilladelser."
+
+#: faq_ask.module:340
+msgid "No vocabularies or terms were found for the \"faq\" content type . Please go to the <a href=\"!access\">Categories page</a> to update your vocabulary."
+msgstr "Der blev ikke fundet nogle ordforråd eller ord for denne \"faq\" indholdstype. Gå til <a href=\"!access\">Ordforråd</a> for at opdatere sidens ordforråd."
+
+#: faq_ask.module:369
+msgid "Expert Roles"
+msgstr "Vejlederroller"
+
+#: faq_ask.module:373
+msgid "If you select different roles, you must save the configuration BEFORE selecting users below."
+msgstr "Hvis du vælger forskellige roller, skal du gemme konfigurationen FØR du vælger brugere her nedenfor."
+
+#: faq_ask.module:422
+msgid "!name doesn't exist. If you have just changed your role selections this may be okay."
+msgstr "!name eksisterer ikke. Hvis du lige har ændret rolleselektionerne, er dette muligvis okay."
+
+#: faq_ask.module:427
+msgid "Save configuration"
+msgstr "Gem konfiguration"
+
+#: faq_ask.module:466
+msgid "Configuration has been updated."
+msgstr "Konfigurationen er opdateret."
+
+#: faq_ask.module:489
+msgid "Unanswered Questions"
+msgstr "Ubesvarede spørgsmål"
+
+#: faq_ask.module:508
+msgid "Number of questions to show"
+msgstr "Antal spørgsmål du vil vise"
+
+#: faq_ask.module:509
+msgid "This controls the number of questions that appear in the 'Unanswered Questions' block."
+msgstr "Dette kontrollerer antallet af spørgsmål, der bliver vist i \"Ubesvarede spørgsmål\"-blokken."
+
+#: faq_ask.module:576
+msgid "more..."
+msgstr "mere..."
+
+#: faq_ask.module:595
+msgid "All Unanswered Questions"
+msgstr "Alle ubesvarede spørgsmål"
+
+#: faq_ask.module:598
+msgid "You may go <a href=\"!setting\">here</a> to change the block limit."
+msgstr "Du kan gå <a href=\"!setting\">hertil</a> for at ændre blokkens begrænsning."
+
+#: faq_ask.module:624
+msgid "For some strange reason, I couldn't find any categories for you."
+msgstr "Af uforklarlige årsager kunne jeg ikke finde nogle kategorier til dig."
+
+#: faq_ask.module:659
+msgid "Currently there are no unanswered questions for you to view."
+msgstr "Der er p.t. ingen ubesvarede spørgsmål at vise dig."
+
+#: faq_ask.module:250;254
+msgid "FAQ_Ask"
+msgstr "FAQ_Ask"
+
+#: faq_ask.module:34
+msgid "ask question"
+msgstr "stil spørgsmål"
+
+#: faq_ask.module:34
+msgid "answer question"
+msgstr "besvar spørgsmål"
+
+#: faq_ask.module:0
+msgid "faq_ask"
+msgstr "faq_ask"
+
+#: faq_ask.install:9
+msgid "Contact form log table."
+msgstr "log-tabel for kontaktformular."
+
+#: faq_ask.install:12
+msgid "User identifier for the expert."
+msgstr "bruger-id for vejlederen."
+
+#: faq_ask.install:18
+msgid "Taxonomy identifier of the terms for the expert."
+msgstr "Taksonomi-id for ordene til vejlederen."
+
+#: faq_ask.install:57
+msgid "faq_ask module installed."
+msgstr "modulet faq_ask er installeret."
+
+#: faq_ask.install:58
+msgid "faq_ask table creation failed. Please \"uninstall\" the module and retry."
+msgstr "faq_ask tabel blev ikke dannet. Du kan evt. \"afinstallere\" modulet og prøve forfra."
+
+#: faq_ask.install:70
+msgid "faq_ask module uninstalled."
+msgstr "modulet faq_ask er afinstalleret."
+
+#: faq_ask.info:0
+msgid "Ask an FAQ"
+msgstr "Spørg en vejleder"
+
+#: faq_ask.info:0
+msgid "Allows an unanswered question 'queue' for the FAQ module."
+msgstr "Tillad en kø af ubesvared spørgsmål til FAQ-modulet."
+

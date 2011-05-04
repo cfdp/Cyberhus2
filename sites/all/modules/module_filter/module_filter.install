@@ -1,0 +1,9 @@
+<?php
+// $Id: module_filter.install,v 1.1.2.1 2009/01/14 19:15:13 greenskin Exp $
+
+/**
+ * Implementation of hook_uninstall().
+ */
+function module_filter_uninstall() {
+  variable_del('module_filter_autocomplete');
+}

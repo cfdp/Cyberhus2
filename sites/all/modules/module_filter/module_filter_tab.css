@@ -1,0 +1,79 @@
+/* $Id: module_filter_tab.css,v 1.1.2.8 2009/01/19 16:11:57 greenskin Exp $ */
+
+#module-filter-left {
+  float: left;
+  background-color: #F6F6F6;
+  border: 1px solid #D6DBDE;
+  margin-right: -1px;
+  width: 167px;
+}
+#module-filter-left ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+#module-filter-left ul li {
+  background: #EFEFEF none repeat scroll 0 0;;
+  border-bottom: 1px solid #D6DBDE;
+  margin: 0px;
+  padding: 0px;
+  list-style-image: none;
+}
+#module-filter-left ul li.active {
+  margin-right: -1px;
+  width: 168px;
+  background-color: #FFFFFF;
+  position: relative;
+}
+#module-filter-left ul li a {
+  color: #777777;
+  display: block;
+  padding: 0.5em;
+  line-height: 100%;
+  font-size: 90%;
+  outline: none;
+}
+#module-filter-left ul li.active a {
+  background-color: #FFFFFF;
+  color: #000000;
+  font-weight: bold;
+}
+#module-filter-left ul li a:hover {
+  background-color: #F6F6F6;
+  text-decoration: none;
+}
+#module-filter-left ul li.active a:hover {
+  background-color: #FFFFFF;
+}
+#module-filter-submit {
+  text-align: center;
+}
+#module-filter-submit input {
+  margin: 2em 0.5em 1em 0;
+}
+#module-filter-spacer {
+  float: left;
+  width: 3px;
+  height: 600px;
+  background-color: #FFFFFF;
+  border: 1px solid #D6DBDE;
+  margin-right: -1px;
+}
+#module-filter-right {
+  display: block;
+}
+#module-filter-squeeze {
+  margin-left: 173px;
+  background-color: #FFFFFF;
+  border-top: 1px solid #D6DBDE;
+  border-bottom: 1px solid #D6DBDE;
+  border-right: 1px solid #D6DBDE;
+  position: relative;
+  left: -1px;
+}
+#edit-module-filter-wrapper {
+  text-align: center;
+}
+#edit-module-filter-wrapper label {
+  display: inline;
+}

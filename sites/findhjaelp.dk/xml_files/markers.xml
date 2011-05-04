@@ -1,0 +1,8 @@
+<markers>
+     <marker lat="43.65654" lng="-79.90138" label="Marker One">
+      <infowindow><![CDATA[Some stuff to display in the<br>First Info Window]]></infowindow>
+     </marker>
+     <marker lat="56.1525" lng="10.2094" label="Cyberhus">
+      <infowindow><![CDATA[<a href="http://www.cyberhus.dk" target="_blank">Cyberhus!!</a> wohoo! <img src="http://www.itforum.dk/span/cyberhus_logo.jpg"]]></infowindow>
+     </marker>
+</markers>

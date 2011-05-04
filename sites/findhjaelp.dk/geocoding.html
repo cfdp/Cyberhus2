@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>Google Maps JavaScript API Example</title>
+    <script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAbma0EtBcKlwKZK-W54o2ixRDo8J9-qNMHSYdk0qFyHPGqQcYjBT8IAILDK3y3nDs6h0C2nNN-XkezQ"
+      type="text/javascript"></script>
+    <script type="text/javascript">
+
+    //<![CDATA[
+
+   var geocoder;
+   var map;
+
+   var restaurant = "The Old Mohawk Restaurant";
+   var address = "50 Tretommervej, 8240 Risskov";
+
+   // On page load, call this function
+
+   function load()
+   {
+      // Create new map object
+      map = new GMap2(document.getElementById("map"));
+
+      // Create new geocoding object
+      geocoder = new GClientGeocoder();
+
+      // Retrieve location information, pass it to addToMap()
+      geocoder.getLocations(address, addToMap);
+   }
+
+   // This function adds the point to the map
+
+   function addToMap(response)
+   {
+      // Retrieve the object
+      place = response.Placemark[0];
+
+      // Retrieve the latitude and longitude
+      point = new GLatLng(place.Point.coordinates[1],
+                          place.Point.coordinates[0]);
+
+      // Center the map on this point
+      map.setCenter(point, 13);
+
+      // Create a marker
+      marker = new GMarker(point);
+
+      // Add the marker to map
+      map.addOverlay(marker);
+
+      // Add address information to marker
+      marker.openInfoWindowHtml(place.address);
+   }
+
+    //]]>
+    </script>
+  </head>
+  <body onload="load()" onunload="GUnload()">
+    <div id="map" style="width: 400px; height: 300px"></div>
+  </body>
+</html>

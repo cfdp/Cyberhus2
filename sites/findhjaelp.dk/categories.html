@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="da">
+<head>
+<title>Google Maps</title>
+    <script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAbma0EtBcKlwKZK-W54o2ixRDo8J9-qNMHSYdk0qFyHPGqQcYjBT8IAILDK3y3nDs6h0C2nNN-XkezQ" type="text/javascript"></script>
+	<link href="http://ny.cyberhus.dk/files/styles/style_findhjaelp.css" type="text/css" rel="stylesheet">
+</head>
+<body onunload="GUnload()" style="background-color:#ffffff">
+
+<table width="100%" border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td width="49%" valign="top"><p class="checkbokse_kat">Alt er lukket og jeg har brug for hj&aelig;lp her og nu:
+        <input name="checkbox" type="checkbox" id="alt_lukketbox" onclick="boxclick(this,'alt_lukket')" />
+&nbsp;<br />
+&Aring;ben, anonom r&aring;dgivning:
+      <input name="checkbox2" type="checkbox" id="aaben_anonymbox" onclick="boxclick(this,'aaben_anonym')" />
+      <br />
+      Jeg har sp&oslash;rgsm&aring;l om min krop:
+      <input name="checkbox3" type="checkbox" id="kropbox" onclick="boxclick(this,'krop')" />
+      &nbsp;<br />
+      Jeg har sp&oslash;rgsm&aring;l om sex:
+      <input name="checkbox4" type="checkbox" id="sexbox" onclick="boxclick(this,'sex')" />
+&nbsp;</p>    </td>
+    <td width="51%" valign="top"><p class="checkbokse_kat">For meget alkohol og stoffer:
+        <input name="checkbox5" type="checkbox" id="alkohol_stofferbox" onclick="boxclick(this,'alkohol_stoffer')" />
+        <br />
+        En jeg holder meget af er d&oslash;d, eller blevet alvorligt syg:
+        <input name="checkbox6" type="checkbox" id="doed_sygbox" onclick="boxclick(this,'doed_syg')" />
+        <br />
+        Jeg har oplevet noget, der ikke var rart! - nogen har gjort noget ved mig, jeg ikke kunne lide:
+        <input name="checkbox7" type="checkbox" id="ikke_rartbox" onclick="boxclick(this,'ikke_rart')" />
+      </p>    </td>
+  </tr>
+</table>
+
+    <!-- you can use tables or divs for the overall layout -->
+
+    <table border=0>
+      <tr>
+        <td>
+           <div id="map" style="width: 550px; height: 450px"></div>        </td>
+        <td width = 150 valign="top" style="text-decoration: underline; color: #4444ff;">
+           <div id="side_bar"></div>        </td>
+      </tr>
+    </table>
+
+
+    <noscript><b>JavaScript must be enabled in order for you to use Google Maps.</b> 
+      However, it seems JavaScript is either disabled or not supported by your browser. 
+      To view Google Maps, enable JavaScript by changing your browser options, and then 
+      try again.
+    </noscript>
+
+
+    <script type="text/javascript">
+    //<![CDATA[
+
+    if (GBrowserIsCompatible()) {
+      var gmarkers = [];
+      var gicons = [];
+
+      gicons["alt_lukket"] = new GIcon(G_DEFAULT_ICON,"colour086.png");
+      gicons["aaben_anonym"] = new GIcon(G_DEFAULT_ICON,"colour086.png");
+      gicons["krop"] = new GIcon(G_DEFAULT_ICON,"colour086.png");
+      gicons["sex"] = new GIcon(G_DEFAULT_ICON,"colour086.png");
+      gicons["alkohol_stoffer"] = new GIcon(G_DEFAULT_ICON,"colour086.png");
+      gicons["doed_syg"] = new GIcon(G_DEFAULT_ICON,"colour086.png");
+	  gicons["ikke_rart"] = new GIcon(G_DEFAULT_ICON,"colour086.png");
+	  
+      // A function to create the marker and set up the event window
+      function createMarker(point,name,html,category) {
+        var marker = new GMarker(point,gicons[category]);
+        // === Store the category and name info as a marker properties ===
+        marker.mycategory = category;                                 
+        marker.myname = name;
+        GEvent.addListener(marker, "click", function() {
+          marker.openInfoWindowHtml(html);
+        });
+        gmarkers.push(marker);
+        return marker;
+      }
+
+      // == shows all markers of a particular category, and ensures the checkbox is checked ==
+      function show(category) {
+	  //alert ("show kaldes");
+        for (var i=0; i<gmarkers.length; i++) {
+          if (gmarkers[i].mycategory == category) {
+            gmarkers[i].show();
+          }
+        }
+        // == check the checkbox ==
+        document.getElementById(category+"box").checked = true;
+      }
+
+      // == hides all markers of a particular category, and ensures the checkbox is cleared ==
+      function hide(category) {
+	  //alert ("hide kaldes");
+        for (var i=0; i<gmarkers.length; i++) {
+          if (gmarkers[i].mycategory == category) {
+            gmarkers[i].hide();
+          }
+        }
+        // == clear the checkbox ==
+        document.getElementById(category+"box").checked = false;
+        // == close the info window, in case its open on a marker that we just hid
+        map.closeInfoWindow();
+      }
+
+      // == a checkbox has been clicked ==
+      function boxclick(box,category) {
+        if (box.checked) {
+          show(category);
+        } else {
+          hide(category);
+        }
+        // == rebuild the side bar
+        makeSidebar();
+      }
+
+      function myclick(i) {
+        GEvent.trigger(gmarkers[i],"click");
+      }
+
+
+      // == rebuilds the sidebar to match the markers currently displayed ==
+      function makeSidebar() {
+        var html = "";
+        for (var i=0; i<gmarkers.length; i++) {
+          if (!gmarkers[i].isHidden()) {
+            html += '<a class = "links_kat" href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '</a><br>';
+          }
+        }
+        document.getElementById("side_bar").innerHTML = html;
+      }
+
+
+      // create the map
+      var map = new GMap2(document.getElementById("map"));
+      map.addControl(new GLargeMapControl());
+      map.addControl(new GMapTypeControl());
+      map.setCenter(new GLatLng(56.1525,10.2094), 9);
+
+
+      // Read the data from xml-file
+      GDownloadUrl("categories.xml", function(doc) {
+        var xmlDoc = GXml.parse(doc);
+        var markers = xmlDoc.documentElement.getElementsByTagName("marker");
+          
+        for (var i = 0; i < markers.length; i++) {
+          // obtain the attribues of each marker
+          var lat = parseFloat(markers[i].getAttribute("lat"));
+          var lng = parseFloat(markers[i].getAttribute("lng"));
+          var point = new GLatLng(lat,lng);
+          var address = markers[i].getAttribute("address");
+          var name = markers[i].getAttribute("name");
+          var html = "<b>"+name+"</b><p>"+address;
+          var category = markers[i].getAttribute("category");
+          // create the marker
+          var marker = createMarker(point,name,html,category);
+          map.addOverlay(marker);
+        }
+
+        // == show or hide the categories initially ==
+        show("alt_lukket");
+        hide("aaben_anonym");
+        hide("krop");
+		hide("sex");
+		hide("alkohol_stoffer");
+		hide("doed_syg");
+		hide("ikke_rart");
+        // == create the initial sidebar ==
+        makeSidebar();
+      });
+    }
+
+    else {
+      alert("Sorry, the Google Maps API is not compatible with this browser");
+    }
+    // This Javascript is based on code provided by the
+    // Blackpool Community Church Javascript Team
+    // http://www.commchurch.freeserve.co.uk/   
+    // http://econym.googlepages.com/index.htm
+
+    //]]>
+    </script>
+	
+    <span class="checkbokse_kat">Log paa som Administrator</span>
+</body>
+
+</html>
+
+
+

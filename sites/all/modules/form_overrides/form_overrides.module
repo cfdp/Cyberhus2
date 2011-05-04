@@ -1,0 +1,118 @@
+<?php  
+/** 
+*  Implementation of hook_form_alter().
+*  To find the form_id, look in the page source of the form for 
+*   <input type="hidden" name="form_id" id="xxx" 
+*   value="yyy" - it is the "yyy" value you need />
+*/
+
+function form_overrides_form_alter(&$form, $form_state, $form_id) {  
+  switch($form_id) {
+	  /*we would like to remove the additional information about filters under the comment box*/
+  	  /*case 'comment_form':
+  		foreach ($form['comment_filter']['format'] as $i => $filter) {
+			if (is_int($i) && !$filter['#type']) {
+				$form['comment_filter']['format'][$i]['#value'] = �;
+				$form['comment_filter']['format'] = �;
+				unset($form['preview']);
+				unset($form['_author']);
+			}
+  		}
+	  break;  */
+  	  /*cleaning up the enter-blog-form*/
+  	  case 'enter_blog_node_form':
+	  break;  
+      case 'postkort_node_form': //postkortet skal kun have et begrænset antal termer tilknyttet
+        // your customizations go here  
+		//$form['taxonomy']['#pre_render'] = array(pre_ren_postkort);
+		//drupal_set_message('Hej! Sikke en dejlig sommerdag!!! Det kan godt være at du ikke kan oploade postkort i dag, fordi vi er ved at arbejde på dem.');
+		//$form['taxonomy'][2]["#default_value"][0]['value']='Om Cyberhus';  
+		//var_dump($form['taxonomy'][2]["#default_value"]);
+      break;
+	  /*Skriveværkstedets historier skal kun have et begrænset antal termer tilknyttet*/
+	  case 'historie_node_form':
+		//drupal_set_message('Hej!! Det kan godt være at du ikke kan oploade din historie i dag, fordi vi er ved at arbejde på dem. Lige nu tester vi default values! OJOJ');	
+		//$form['taxonomy']['#pre_render'] = array(pre_ren_fortael);
+	  break;
+	  case 'simplenews_subscription_manager_form':
+		  //if($form_state["submitted"]==true){
+		      $form['#redirect'] = 'node/6479';  //Redirect to confirmation page
+		  //}
+	  break;
+      
+	  /*Here you can remove FAQ's from the selection drop down in the form - useful for e.g. vacation closing*/
+      case 'faq_ask_form':
+		/*Sundhed og sygdom:*/
+        //unset($form['category']['#options']['74']);
+        /*Sorg:*/
+        //unset($form['category']['#options']['62']);
+        /*Skrivning og l�sning:*/
+        unset($form['category']['#options']['627']);
+        /*Voldt�gt og seksuelle overgreb:*/
+        //unset($form['category']['#options']['883']);
+        /*Musik og talentudvikling:*/
+        //unset($form['category']['#options']['64']);
+      break;
+      
+      /*anonymous users should not be presented for the tema-vocabulary, kunst-, the room- or the frie tags vocabulary on the mentioned content types*/
+      case 'anmeldelse_bog_node_form':
+      case 'forum_node_form':
+        global $user; 
+		/*debugging*/
+		if (in_array('Superadmin',$user->roles)){
+          	dpm($form);
+        }     
+
+        if (in_array('anonymous user',$user->roles)){
+          unset($form['taxonomy']['2']);
+		  unset($form['taxonomy']['9']);
+		  unset($form['taxonomy']['24']);
+          unset($form['taxonomy']['tags']['25']);
+		  	if ($form_id == 'anmeldelse_bog_node_form'){
+				unset($form['taxonomy']);
+			}
+        }
+		
+
+		unset($form['body_field']['teaser_include']);
+    	unset($form['body_field']['format'][2]);
+      break;
+      
+      /*we would like to remove the additional information about filters in comment forms*/ 
+      case 'comment_form':
+        foreach ($form['comment_filter']['format'] as $i => $filter) {
+          if (is_int($i) && !$filter['#type']) {
+            $form['comment_filter']['format'][$i]['#value'] ='';
+            $form['comment_filter']['format'] ='';
+          }
+        }
+      break; 
+	   
+      /*a nice and simple node add form*/ 
+
+      case 'song_node_form':
+    		unset($form['body_field']['teaser_include']);
+    		unset($form['body_field']['format'][2]);
+      break;
+	}
+}  
+
+
+function pre_ren_postkort($element) {
+	$element[2]['#options'] = array(736 => 'Abstrakt', 731 => 'Cyberspace', 732 => 'Manga og andre figurer', 733 => 'Himmel og jord', 730 => 'Fantasy');
+    return $element;
+}
+
+function pre_ren_fortael($element) {
+	$element[2]['#default_value'][0] = 'Skriveværksted'; //array('Skriveværksted');
+	//var_dump($element[2]['#default_value']);
+	$element[2]['#options'] = array(1073 => 'Det gør mig glad', 8 => 'Teenageliv', 5 => 'Sex, lyst og erotik', 10 => 'Når det gør ondt inderst inde',  445 => 'Skriveværksted', 859 => 'Oplevelser på nettet', 4=> 'Når ude er hjemme');
+    return $element; 
+}
+
+/*Gæstebogsmail overwrite*/
+function form_overrides_mail_alter(&$message, $params) {
+  if ($message['id'] == 'guestbook_notification') {
+    $message['body'] = drupal_html_to_text($message['body']).PHP_EOL.'Gå til gæstebogen:'.PHP_EOL.'http://www.cyberhus.dk/user/'.arg(1).'/guestbook';
+  }
+}

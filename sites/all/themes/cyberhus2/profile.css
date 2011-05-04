@@ -1,0 +1,113 @@
+#profile-left {
+	position:relative;
+	float:left;
+	width: 200px;
+	margin: 10px;
+}
+
+#profile-center {
+	position:relative;
+	float:left;
+	width: 300px;
+	margin: 10px;
+}
+
+#profile-center.wide {
+	width: 500px;
+}
+
+#profile-right {
+	position:relative;
+	float:left;
+	width: 200px;
+	margin: 10px;
+	background-color:#FFF3D8;
+	padding: 5px;
+
+}
+
+#profile-left-high {
+	background-color:#F8F4ED;
+	border:1px solid #EBE2CF;
+	margin-bottom:10px;
+	padding:5px;
+	text-align:center;
+}
+
+#profile-left-low {
+	background-color:#F8F4ED;
+	border:1px solid #EBE2CF;
+	margin-bottom:10px;
+	padding:5px;
+}
+
+#profile-right-low {
+	background-color:#F8F4ED;
+	border:1px solid #EBE2CF;
+	margin-bottom:10px;
+	padding:5px;
+}
+
+#profile-center-high {
+
+	margin-bottom: 20px;
+}
+
+#profile-center-low {
+
+	margin-bottom: 20px;
+}
+
+#profile-image {
+	margin: 5px;
+}
+
+#profile-status {
+	padding: 10px;
+}
+
+#profile-hobbies {
+	background-color:#F8F4ED;
+	border:1px solid #EBE2CF;
+	margin-bottom:10px;
+	padding:5px;
+}
+
+#profile-about {
+    position:relative;
+	float:left;
+	padding: 10px;
+
+}
+
+#profile-blogs {
+	background-color:#F8F4ED;
+	border:1px solid #EBE2CF;
+	margin-bottom:10px;
+	padding:5px;
+}
+
+#profile-blog {
+    position:relative;
+	float:left;
+	padding: 10px;
+
+}
+
+#profile-activity {
+	background-color:#F8F4ED;
+	border:1px solid #EBE2CF;
+	margin-bottom:10px;
+	padding:5px;	
+}
+#profile-online {
+	background-color:#F8F4ED;
+	border:1px solid #EBE2CF;
+	margin-bottom:10px;
+	padding:5px;
+}
+
+#profile-online-view {
+    padding: 5px;
+
+}

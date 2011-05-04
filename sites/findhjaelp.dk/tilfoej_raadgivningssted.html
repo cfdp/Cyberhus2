@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>Tilf&oslash;j nyt r&aring;dgivningssted</title>
+
+<script src="findhjaelp.js" language="JavaScript" type="text/javascript"></script>
+<script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAbma0EtBcKlwKZK-W54o2ixQnB7lDpw3SVSVfCmKRz33X9VKqjhSMZuzOYvcedyzK6HqGLlX4an1E3g" type="text/javascript"></script>
+
+<link href="http://ny.cyberhus.dk/files/styles/style_findhjaelp.css" rel="stylesheet" type="text/css" media="screen"><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><style type="text/css">
+<!--
+body {
+	background-color: #FFFFFF;
+}
+-->
+</style></head>
+<body>
+<div id="container_frame">
+
+<p>Felter markeret med * <em>skal</em> udfyldes, tak ;) </p>
+<form method="POST" action="tilfoej_marker.php" onSubmit="return checkform(this);">
+
+<input type="hidden" name="action_marker" value="tilfoej">
+<input type="hidden" name="automatic_geocoding" value="true">
+<input type="hidden" name="xmlfileName" value="SAVE">
+<table class="form_table" cellspacing="0">          
+
+  <tr>
+    <td valign="top" colspan="2" class="form_table_header">Tilf&oslash;j nyt r&aring;dgivningssted</td>
+  </tr>
+  <tr>
+
+    <td width="22%" valign="top">R&aring;dgivningssted:</td>
+
+    <td width="78%" valign="top">*
+      <input type="text" name="navn" size="73"></td>
+  </tr>
+
+  <tr>
+
+    <td width="22%" valign="top">Adresse</td>
+
+    <td width="78%" valign="top">
+      *
+      <input type="text" name="adresse" size="73">
+      <br>
+      F.eks.
+      : <i>Sj&aelig;llandsgade 4 8600 Silkeborg Danmark</i>
+	  <br>
+	  Der skal ikke kommaer el. lign. med. R&aelig;kkef&oslash;lgen af input er vigtig. </td>
+  </tr>
+
+  <tr>
+
+    <td width="22%" valign="top">Kategori</td>
+
+    <td width="78%" valign="top">
+ 
+        *
+        <select name="kategori">
+          <option value="alt_lukket">Alt lukket</option>
+          <option value="aaben_anonym">&Aring;ben, anonym r&aring;dgivning</option>
+          <option value="krop">Jeg har sp&oslash;rgsm&aring;l om min krop</option>
+          <option value="sex">Jeg har sp&oslash;rgsm&aring;l om sex</option>
+          <option value="alkohol_stoffer">For meget alkohol og stoffer</option>
+          <option value="doed_syg">D&oslash;d, alvorlig sygdom</option>
+          <option value="ikke_rart">Nogen har gjort noget...</option>
+		  <option value="vaeresteder">Leder efter andre unge...</option>
+        </select></td>
+  </tr>
+  <tr>
+    <td valign="top">&Aring;bningstider/<br>
+      tr&aelig;ffetider   </td>
+    <td valign="top">*
+      <textarea name="aabningstider" rows="3" cols="35" value="aabningstider"></textarea></td>
+  </tr>
+
+  <tr>
+    <td valign="top">M&aring;lgruppe</td>
+    <td valign="top">*
+      <textarea name="maalgruppe" rows="3" cols="35" value="maalgruppe"></textarea></td>
+  </tr>
+  <tr>
+
+    <td width="22%" valign="top">Beskrivelse</td>
+
+    <td width="78%" valign="top">*
+      <textarea name="beskrivelse" rows="7" cols="35" value="beskrivelse"></textarea></td>
+  </tr>
+
+  <tr>
+    <td valign="top">Telefon</td>
+    <td valign="top"><input type="text" name="telefon" size="30"></td>
+  </tr>
+  <tr>
+
+    <td width="22%" valign="top">Website</td>
+
+    <td width="78%" valign="top"><input type="text" name="website" size="30"></td>
+  </tr>
+   <tr>
+     <td valign="top">Evt. r&aring;dgivningsemail </td>
+     <td valign="top"><input type="text" name="email_raadgivning" size="30"></td>
+   </tr>
+     <td width="22%" valign="top">Email p&aring; relevant kontaktperson </td>
+
+    <td width="78%" valign="top">*
+      <input type="text" name="email_opdatering" size="30"></td>
+  </tr>
+  <tr valign="top">
+    <td>  <p align="center">&nbsp;</p></td>
+    <td><input type="submit" value="Tilf&oslash;j r&aring;dgivningssted" onClick="document.pressed='Gem'"  name="Gem"></td>
+  </tr>
+</table>
+
+
+
+</form>
+</div>
+</body>
+
+</html>

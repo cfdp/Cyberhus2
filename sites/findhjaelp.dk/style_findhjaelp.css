@@ -1,0 +1,231 @@
+/* CSS Document - style_findhjaelp.css */
+
+body {
+	font-style:normal; 
+	font-variant:normal; 
+	font-weight:normal; 
+	line-height:1.5; font-size:0.5em; 
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+.fpedit {
+	position: absolute;
+	left: -23px;
+}
+
+.table_header {
+	border: 0px;
+	width: 100%;
+}
+
+.header_content_right {
+	padding-top:8px;
+	padding-right:14px;
+	text-align:right;
+}
+div#container {
+	position: absolute;
+	width: 100%;
+	margin-top: 0px;
+	/*
+	border:1px solid #F4874B;*/
+
+}
+/*
+div#container table{
+	padding: 10px;
+	font-size: 10px;
+	font-size:x-small;
+}
+*/
+div#logo_holder1 {
+	margin-right: 20px;
+	float:left;
+	clear:none;
+}
+
+div#logo_holder2 {
+	padding-top:4px;
+}
+
+.fh_logo {
+	text-align: left;
+	margin-left: 10px;
+	margin-top: 10px;
+}
+
+.cyberhus_logo {
+	text-align: right;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+
+div#container_frame {
+	padding: 5px;
+	padding-top:0px;
+	margin-top:0px;
+	background-color: #ffffff;
+	font-size:x-small;
+	font-size: 10px;
+}
+div#container_frame p {
+	font-family: Verdana;
+	font-weight: normal;
+	font-size:x-small;
+	font-size: 11px;
+	padding-top:2px;
+	padding-bottom:2px;
+} 
+
+div#container_frame_tekst {
+	width: 580px;
+	padding: 5px;
+	padding-top:0px;
+	padding-left:14px;
+	margin-top:0px;
+	background-color: #ffffff;
+	font-size:x-small;
+	font-size: 10px;
+	text-align: justify;
+}
+
+div#container_frame_tekst p {
+	font-family: Verdana;
+	font-weight: normal;
+	font-size:x-small;
+	font-size: 10px;
+	padding-top:2px;
+	padding-bottom:2px;
+} 
+
+.checkbokse_kat {
+	font-family: Verdana;
+	font-weight: normal;
+	font-size: 8px;
+	font-size:xx-small;
+	padding-left: 0px;
+}
+
+.checkbox_red {
+	background-color: #FB7274;
+}
+
+.checkbox_blue {
+	background-color: #8FAEFD;
+}
+
+.checkbox_yellow {
+	background-color: #F8E380;
+}
+
+.checkbox_green {
+	background-color: #95FE92;
+}
+
+.checkbox_grey {
+	background-color: #DDDDDD;
+}
+
+.checkbox_purple {
+	background-color: #DA9AFF;
+}
+
+.checkbox_brown {
+	background-color: #A18056;
+
+}
+
+.vejledning_boks {
+	/*border:1px solid #F4874B;*/
+	padding:3px;
+	width:300px;
+}
+
+.form {
+	margin-top:0px;
+}
+
+
+.form_table {
+	border:3px solid #4792C1;
+	background-color: #DDDDDD;
+	width: 700px;
+}
+
+.form_table_smal {
+	border:3px solid #4792C1;
+	background-color: #DDDDDD;
+	width: 450px;
+}
+
+.form_table td, form_table_smal td{
+	border:1px solid #4792C1;
+	font-size: 10px;
+	font-size:x-small;
+	text-align:left;
+	border-collapse:collapse;
+	padding: 3px;
+}
+
+.form_table_smal td{
+	border:1px solid #4792C1;
+	font-size: 10px;
+	font-size:x-small;
+	border-collapse:collapse;
+	padding: 3px;
+}
+
+.form_table_header {
+	background-color: #4792C1;
+	font-family: Verdana;
+	font-weight: bold;
+	color:#FFFFFF;
+	padding: 3px;
+}
+
+#container p {
+	/*margin-left: 10px;*/
+}
+div#cybertop {
+	width: 100%;
+	height: 25px;
+	background-color: #4792C1;
+	background-image:url(http://www.cyberhus.dk/files/findhjaelp/images/striber.gif);
+	background-repeat:repeat-x;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+	color:white;
+	font-weight:bold;
+	display:none;
+}
+
+a img {
+	border: none;
+}
+
+#raad_map {
+	margin: 10px;
+}
+
+#map {
+	height: 100%;
+	width: 100%;	
+}
+
+.kategorier_tabel {
+	margin-left: 14px;
+	margin-right: 5px;
+	border:0px solid #4792C1;
+}
+
+.kategorier_tabel_header {
+
+}
+
+
+/*
+div#cyberbund {
+	width: 100%;
+	height: 20px;
+	background-color: #ffffff;
+}
+*/	

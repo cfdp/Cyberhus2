@@ -1,0 +1,552 @@
+# Danish translation of Calendar (all releases)
+# Copyright (c) 2010 by the Danish translation team
+# Generated from files:
+#  calendar.module,v 1.20.2.114 2007/10/25 16:59:39 karens
+#  calendar.module,v 1.102.2.42 2009/05/06 11:23:14 karens
+#  calendar_admin.inc,v 1.3.2.31 2009/05/03 13:24:56 karens
+#  calendar.theme,v 1.1.2.31 2007/10/19 19:09:38 karens
+#  calendar.theme,v 1.37.2.62 2009/03/27 13:39:06 karens
+#  calendar_api.inc,v 1.15.2.20 2007/10/07 10:11:02 karens
+#  calendar_ical.module,v 1.3.2.35 2007/10/26 02:43:23 karens
+#  calendar/calendar_admin.inc: n/a
+#  calendar.module,v 1.121.2.38 2009/03/17 18:03:36 karens
+#  calendar_ical.module,v 1.25.2.26 2009/05/06 11:55:13 karens
+#  calendar.info,v 1.1.2.3 2007/06/18 23:06:32 dww
+#  calendar_ical.info,v 1.1.2.3 2007/06/18 23:06:32 dww
+#  calendar_ical_admin.inc,v 1.1.2.7 2008/08/30 13:57:57 karens
+#  calendar.install,v 1.4.2.13 2008/07/08 13:26:00 karens
+#  calendar.install,v 1.13.2.11 2009/03/17 18:03:36 karens
+#  calendar.info,v 1.7 2008/01/27 12:33:19 karens
+#  calendar.info,v 1.8 2008/04/23 23:42:53 karens
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Calendar (all releases)\n"
+"POT-Creation-Date: 2010-03-29 12:54+0000\n"
+"PO-Revision-Date: 2009-08-29 11:33+0000\n"
+"Language-Team: Danish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: calendar.module:36,53
+msgid "Setup"
+msgstr "Indstillinger"
+
+#: calendar.module:1123,491
+msgid "Nodes"
+msgstr "Indhold"
+
+#: calendar_admin.inc:406
+msgid "Display options"
+msgstr "Indstillinger for visning"
+
+#: calendar.theme:309,305
+msgid "next"
+msgstr "næste"
+
+#: calendar_api.inc:420,423,426,429,432,435,438
+msgid "Mon"
+msgstr "man"
+
+#: calendar_api.inc:420,423,426,429,432,435,438
+msgid "Tue"
+msgstr "tir"
+
+#: calendar_api.inc:420,423,426,429,432,435,438
+msgid "Wed"
+msgstr "ons"
+
+#: calendar_api.inc:420,423,426,429,432,435,438
+msgid "Thu"
+msgstr "tor"
+
+#: calendar_api.inc:420,423,426,429,432,435,438
+msgid "Fri"
+msgstr "fre"
+
+#: calendar_api.inc:420,423,426,429,432,435,438
+msgid "Sat"
+msgstr "lør"
+
+#: calendar_api.inc:420,423,426,429,432,435,438
+msgid "Sun"
+msgstr "søn"
+
+#: calendar.theme:498,539
+msgid "all day"
+msgstr "hele dagen"
+
+#: calendar_ical.module:248,249
+msgid "All day"
+msgstr "Hele dagen"
+
+#: calendar_admin.inc:244,402
+msgid "Full Nodes"
+msgstr "Komplette indholdselementer"
+
+#: calendar_admin.inc:184,270
+msgid "You can only set on Default Sort on one field."
+msgstr "Du kan kun vælge standardsortering på ét felt."
+
+#: calendar_admin.inc:176
+msgid "The Calendar View requires at least one field."
+msgstr "Kalenderen kræver mindst ét felt."
+
+#: calendar_admin.inc:198,284
+msgid "Calendar arguments must be set to 'Display All Values'."
+msgstr "Kalender-argumenter skal sættes til 'Vis alle værdier'."
+
+#: calendar_admin.inc:205
+msgid ""
+"The Calendar requres as arguments Calendar: Year, Calendar: Month, and "
+"Calendar: Day, or Calendar: Year and Calendar: Week"
+msgstr ""
+"Kalenderen kræver følgende argumenter: \"Kalender: År\", "
+"\"Kalender: Måned\" og \"Kalender: Dag\" eller \"Kalender: År\" og "
+"\"Kalender: Uge\"."
+
+#: calendar_admin.inc:211,308
+msgid ""
+"Calendar CCK Date fields must be set to 'Do not group multiple "
+"values'."
+msgstr ""
+"Kalender CCK dato-felter skal sættes til 'gruppér ikke på "
+"forskellige værdier'."
+
+#: calendar_admin.inc:238,345
+msgid "Time format"
+msgstr "Tidsformat"
+
+#: calendar_admin.inc:242,349
+msgid "The format to use for the time-only date display."
+msgstr "Tidsormat når kun tidspunktet vises."
+
+#: calendar_admin.inc:247,410
+msgid "Year display"
+msgstr "Årsvisning"
+
+#: calendar_admin.inc:253,416
+msgid "Month display"
+msgstr "Månedsvisning"
+
+#: calendar_admin.inc:259,422
+msgid "Week display"
+msgstr "Ugevisning"
+
+#: calendar_admin.inc:265,428
+msgid "Day display"
+msgstr "Dagsvisning"
+
+#: calendar_admin.inc:271,434
+msgid "Block display"
+msgstr "Blokvisning"
+
+#: calendar_admin.inc:277,447
+msgid "Wildcard argument"
+msgstr "Joker argument"
+
+#: calendar_admin.inc:280,450
+msgid ""
+"A character or short text string to use for empty calendar arguments. "
+"For instance, 'all' would create the url 2007/12/all to show all days "
+"in December of 2007. Note that non-ASCII characters will not display "
+"correctly in urls."
+msgstr ""
+"Et tegn eller en kort streng der bruges som tomt argument. F.eks. vil "
+"'all' resultere i URLen 2007/12/all for at vise alle dage i december "
+"2007. Bemærk at ikke-ASCII tegn ikke vises korrekt i URLer."
+
+#: calendar_admin.inc:342,599
+msgid "Calendar: Year"
+msgstr "Kalender: År"
+
+#: calendar_admin.inc:344,601
+msgid "Filter by the calendar year (YYYY)."
+msgstr "Filtrér efter årstal (ÅÅÅÅ)."
+
+#: calendar_admin.inc:347,604
+msgid "Calendar: Month"
+msgstr "Kalender: Måned"
+
+#: calendar_admin.inc:349,606
+msgid ""
+"Filter by the calendar month (1-12). Place this argument after a "
+"'Year' argument."
+msgstr "Filtrér efter måned (1-12). Placeres efter argumentet 'år'."
+
+#: calendar_admin.inc:352,609
+msgid "Calendar: Day"
+msgstr "Kalender: Dag"
+
+#: calendar_admin.inc:354,611
+msgid ""
+"Filter by the calendar day (1-31). Place this argument after a 'Year' "
+"and a 'Month' argument."
+msgstr ""
+"Filtrér efter kalenderdag (1-31). Placeres efter argumenterne 'år' "
+"og 'måned'."
+
+#: calendar_admin.inc:357,614
+msgid "Calendar: Week"
+msgstr "Kalender: Uge"
+
+#: calendar_admin.inc:359,616
+msgid ""
+"Filter by the week number (1-52). Place this argument after a 'Year' "
+"argument and use a 'W' in front of the week number in the url."
+msgstr ""
+"Filtrér efter ugenummer (1-52). Placeres efter argumentet 'år'. "
+"Indsæt et 'W' før ugenummeret i URLen."
+
+#: calendar_admin.inc:367,380,624,637
+msgid "calendar"
+msgstr "kalendar"
+
+#: calendar_admin.inc:368,625
+msgid ""
+"Calendar view of any date field, add a date field to the view to use "
+"it."
+msgstr ""
+"Kalendervisning af datofelter. Aktivers ved at tilføje et datofelt "
+"til en oversigt."
+
+#: calendar.module:14,15,28
+msgid "<p>View complete documentation at !link.</p>"
+msgstr "<p>Se den komplette dokumentation på !link.</p>"
+
+#: calendar.module:37
+msgid "Calendar setup."
+msgstr "Kalenderindstillinger"
+
+#: calendar.module:1097,463,138
+msgid "Calendar Legend."
+msgstr "Kalendermærkat."
+
+#: calendar.module:1098
+msgid "Switch Calendar."
+msgstr "Skift kalender"
+
+#: calendar.module:1104,470,144
+msgid "Calendar Legend"
+msgstr "Kalendermærkat"
+
+#: calendar.module:1108
+msgid "Switch Calendar"
+msgstr "Skift kalender"
+
+#: calendar.module:1137,505
+msgid "Switch"
+msgstr "Skift"
+
+#: calendar_ical.module:27,20
+msgid "iCal"
+msgstr "iCal"
+
+#: calendar_ical.module:28,21
+msgid "iCal setup."
+msgstr "iCal indstillinger."
+
+#: calendar_ical.module:84,276,292,86,171,187
+msgid "Calendar: iCal Feed"
+msgstr "Kalender: iCal feed"
+
+#: calendar_ical.module:101
+msgid "<h3>Stripe options</h3>"
+msgstr "<h3>Egenskaber for stribe</h3>"
+
+#: calendar_ical.module:142
+msgid "Stripe"
+msgstr "Stribe"
+
+#: calendar_ical.module:146
+msgid "The color stripe to use for this feed (not working yet)."
+msgstr "Farvestriben der bruges i dette feed (virker ikke endnu)."
+
+#: calendar_ical.module:294,189
+msgid ""
+"Add this as the last argument to a calendar view to provide an iCal "
+"feed of the view."
+msgstr ""
+"Tilføje dette som det sidste argument til en kalendervisning for at "
+"lave et iCal feed af visningen."
+
+#: calendar.theme:233
+msgid "Week @week @year"
+msgstr "Uge @week @year"
+
+#: calendar.theme:264,253,343
+msgid "Week of @date"
+msgstr "Uge af @date"
+
+#: calendar.theme:319,292
+msgid "prev"
+msgstr "forrige"
+
+#: calendar.theme:457,502,542
+msgid "view this item"
+msgstr "vis dette element"
+
+#: calendar.theme:570
+msgid "!month / !day"
+msgstr "!month / !day"
+
+#: calendar.info:0
+msgid ""
+"Adds date calendar themes to views that can display any type of date "
+"field, and creates default calendar views."
+msgstr ""
+"Tilføjer kalendervisninger af datofelter og opretter "
+"standardvisninger."
+
+#: calendar_ical.info:0
+msgid "Adds ical functionality to calendar views."
+msgstr "Tilføjer iCal-funktionalitet til kalendervisninger."
+
+#: calendar.module:1052,431
+msgid " is not a valid hex color"
+msgstr " er ikke en gyldig hexadecimal farve"
+
+#: calendar_ical.module:374
+msgid "Dates"
+msgstr "Datoer"
+
+#: calendar_admin.inc:262
+msgid "The Calendar View requires at least one date field."
+msgstr "Kalenderoversigten kræver mindst et datofelt."
+
+#: calendar_admin.inc:291
+msgid ""
+"The Calendar requires as arguments Calendar: Year, Calendar: Month, "
+"and Calendar: Day, or Calendar: Year and Calendar: Week"
+msgstr ""
+"Kalenderen kræver følgende argumenter: Kalender: År, Kalender: "
+"Måned og Kalender: Dag, eller Kalender År og Kalender: Uge."
+
+#: calendar_admin.inc:352
+msgid "Mini day name size"
+msgstr "Størrelse af mini dagnavn"
+
+#: calendar_admin.inc:356
+msgid "The way day of week names should be displayed in a mini calendar."
+msgstr "Hvordan ugedagenes navne vises i minikalenderen."
+
+#: calendar_admin.inc:359
+msgid "Full day name size"
+msgstr "Størrelse af fuldt navn"
+
+#: calendar_admin.inc:363
+msgid "The way day of week names should be displayed in a full size calendar."
+msgstr "Hvordan ugedagenes navne vises i den fulde kalender."
+
+#: calendar_admin.inc:370
+msgid ""
+"Whether or not to display a clickable week number link on the left "
+"side of each calendar week."
+msgstr ""
+"Hvorvidt der skal vises et klikbart ugenummer-link i venstre side af "
+"hver kalenderuge."
+
+#: calendar_admin.inc:373
+msgid "Popup date selector"
+msgstr "Popup datovælger"
+
+#: calendar_admin.inc:377
+msgid ""
+"Whether or not to display a popup date selector to change the calendar "
+"period. (Only works when the Date Popup module is enabled.)"
+msgstr ""
+"Hvorvidt der skal vises en popup datovælger til at ændre "
+"kalenderperioden. (Virker kun når dato popup modulet er aktiveret.)"
+
+#: calendar_admin.inc:394
+msgid "Truncate length"
+msgstr "Afkortningslængde"
+
+#: calendar_admin.inc:397
+msgid ""
+"Truncate size for titles in month and week view so things fit better "
+"into the calendar cell. For instance, change the title from 'Very Very "
+"Very Long Name' to something like 'Very Very...'."
+msgstr ""
+"Afskæringspunkt for titler i måneds- og ugevisning, så ting passer "
+"bedre ind i kalendercellen. Ændrer f.eks. titlen fra 'Meget meget "
+"meget langt navn' til 'Meget meget...'."
+
+#: calendar_admin.inc:407
+msgid ""
+"Choose the way the calendar entries should be displayed. Selecting "
+"'None' will hide links to that option."
+msgstr ""
+"Vælg hvordan kalenderindgangde skal vises. Vælger du 'ingen' skjules "
+"links til den mulighed."
+
+#: calendar_admin.inc:440
+msgid "Date year range"
+msgstr "Dato årsinterval"
+
+#: calendar_admin.inc:443
+msgid ""
+"Set the allowable minimum and maximum year range for this view, either "
+"a -X:+X offset from the current year, like '-3:+3' or an absolute "
+"minimum and maximum year, like '2005:2010'.  When the argument is set "
+"to a date outside the range, the page will be returned as 'Page not "
+"found (404)'."
+msgstr ""
+"Sæt det tilladte minimale og maksimale årsinterval for visningen, "
+"enten en -X:+X forskydning fra det nuværende år, f.eks. '-3:+3' "
+"eller et absolut minimum- og maksimumår, f.eks. '2005:2010'. Når "
+"argumentet sættes til en dato uden for intervallet returneres 'Siden "
+"ikke fundet (404)'."
+
+#: calendar_admin.inc:471
+msgid ""
+"<h3>Content Type</h3><p>Set a hex color value (like #ffffff) to use in "
+"the calendar legend for each content type. Types with empty values "
+"will have no stripe in the calendar and will not be added to the "
+"legend.</p>"
+msgstr ""
+"<h3>Indholdstype</h3><p>Vælg en hexadecimal farveværdi (f.eks. "
+"#ffffff) til brug i kalenderforklaringen for hver indholdstype. Typer "
+"med tomme værdier vil ikke have en stribe i kalenderen, og bliver "
+"ikke tilføjet til forklaringen.</p>"
+
+#: calendar_admin.inc:479
+msgid "Legend colors"
+msgstr "Farve på beskrivelse"
+
+#: calendar_admin.inc:517
+msgid "Date year range must be in the format -9:+9 or 2005:2010."
+msgstr "Dato årsinterval skal være på formen -9:+9 eller 2005:2010."
+
+#: calendar_admin.inc:560
+msgid "Calendar settings have been updated."
+msgstr "Kalenderindstillinger opdateret."
+
+#: calendar_admin.inc:569
+msgid "Calendar legend settings have been updated."
+msgstr "Indstillinger for beskrivelse opdateret."
+
+#: calendar_ical_admin.inc:46
+msgid "Feed @delta"
+msgstr "Feed @delta"
+
+#: calendar_ical_admin.inc:61
+msgid "iCal url"
+msgstr "iCal URL"
+
+#: calendar_ical_admin.inc:65
+msgid ""
+"The ical url, either an external feed url or internal file path and "
+"name. Change 'webcal://' to 'http://'."
+msgstr ""
+"Ical URLen, enten en ekstern feed URL eller en intern filsti og navn. "
+"Udskift 'webcal://' med 'http://'."
+
+#: calendar_ical_admin.inc:68
+msgid "Default link"
+msgstr "Standard link"
+
+#: calendar_ical_admin.inc:72
+msgid ""
+"A url to use to link back to ical items without a url, generally the "
+"public link to the calendar these items are coming from."
+msgstr ""
+"URL som bruges til at linke til elementer uden en URL, normalt det "
+"offentlige link til kalenderen som disse elementer stammer fra."
+
+#: calendar.module:35
+msgid "Calendar Setup"
+msgstr "Indstillinger for kalender"
+
+#: calendar.module:36
+msgid "Customize calendar settings options."
+msgstr "Tilpas kalenderindstillinger"
+
+#: calendar.module:62
+msgid "Legend"
+msgstr "Beskrivelse"
+
+#: calendar.module:464
+msgid "Calendar Switcher."
+msgstr "Kalenderskifter."
+
+#: calendar.module:475
+msgid "Calendar Switcher"
+msgstr "Kalenderskifter"
+
+#: calendar.module:956,336
+msgid "Change date"
+msgstr "Skift dato"
+
+#: calendar.theme:294
+msgid "‹ !period  "
+msgstr "‹ !period  "
+
+#: calendar.theme:307
+msgid "  !period  ›"
+msgstr "  !period ›"
+
+#: calendar.theme:639,678
+msgid "more»"
+msgstr "mere»"
+
+#: calendar.install:26,35,26,35
+msgid "Calendar requirements"
+msgstr "Forudsætninger"
+
+#: calendar.install:27,27
+msgid ""
+"The Calendar module requires a more current version of the Date API. "
+"Please check for a newer version."
+msgstr ""
+"Calendar-modulet kræver en nyere version af Date API. Tjek venligst "
+"om der findes en nyere version."
+
+#: calendar.install:36,36
+msgid ""
+"The Calendar module requires the latest version of the Date API, be "
+"sure you are installing the latest versions of both modules."
+msgstr ""
+"Kalendermodulet kræver den seneste version af Date API. Du skal "
+"installere den seneste version af begge moduler."
+
+#: calendar.info:0,0
+msgid "Views plugin to display views containing dates as Calendars."
+msgstr "Views-plugin som viser oversigter med datoer som kalendre."
+
+#: calendar.module:394
+msgid ""
+"The Date argument in this view must be set up to provide a default "
+"value set to the current date. Edit the argument, find 'Action to take "
+"if argument is not present.', choose 'Provide default argument', then "
+"select 'Current date'."
+msgstr ""
+"Datoargumentet i denne visning skal sættes op til at give dags dato "
+"som standardværdi. Redgiér argumentet, find 'handling når argument "
+"ikke er tilstede', vælg 'Standardargument' og vælg derefter 'Dags "
+"dato'."
+
+#: calendar.module:474
+msgid "View the calendar."
+msgstr "Vis kalenderen"
+
+#: calendar.install:147,170,186
+msgid ""
+"Calendar module cannot be updated until after Views has been updated. "
+"Please return to <a href=\"@update-php\">update.php</a> and run the "
+"remaining updates."
+msgstr ""
+"Calendar-modulet kan ikke opdateres før Views er blevet opdateret. "
+"Gå venligst tilbage til <a href=\"@update-php\">update.php</a> og "
+"kør de resterende opdateringer."
+
+#: calendar.install:148,171,187
+msgid ""
+"calendar.module has updates, but cannot be updated until views.module "
+"is updated first."
+msgstr ""
+"Der er opdateringer til Calendar-modulet, men det kan ikke opdateres "
+"før Views-modulet er blevet opdateret."
+

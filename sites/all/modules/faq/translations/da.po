@@ -1,0 +1,458 @@
+# $Id$
+#
+# Danish translation of Drupal (general)
+# Copyright YEAR NAME <EMAIL@ADDRESS>
+# Generated from files:
+#  faq.admin.inc,v 1.1.2.1 2008/06/12 11:16:29 snpower
+#  faq.module,v 1.1.4.52.2.69 2008/06/12 11:16:29 snpower
+#  faq.info,v 1.1.2.3.2.1 2007/09/05 14:05:48 snpower
+#  faq.install,v 1.1.4.16.2.16 2008/04/16 16:14:45 snpower
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Cyberhus 2.0\n"
+"POT-Creation-Date: 2008-11-12 09:26+0100\n"
+"PO-Revision-Date: 2008-11-20 16:24+0100\n"
+"Last-Translator: Jens Jakob <jjkristensen@gmail.com>\n"
+"Language-Team: Danish <EMAIL@ADDRESS>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: faq.admin.inc:36
+msgid "Title"
+msgstr "Titel"
+
+#: faq.admin.inc:42
+msgid "FAQ Description"
+msgstr "Beskrivelse af brevkasse."
+
+#: faq.admin.inc:44
+msgid "Your FAQ description.  This will be placed at the top of the page, above the questions and can serve as an introductory text."
+msgstr "Brevkassebeskrivelsen. Dette vil blive placeret på toppen af siden over spørgsmålene og kan fungere som en introduktionstekst."
+
+#: faq.admin.inc:51;432
+msgid "Save configuration"
+msgstr "Gem indstillinger"
+
+#: faq.admin.inc:69
+msgid "Questions inline"
+msgstr "Spørgsmål inline"
+
+#: faq.admin.inc:70
+msgid "Clicking on question takes user to answer further down the page"
+msgstr "Ved at klikke på spørgsmålet sendes vejlederen til bunden af siden for at besvare spørgsmålet. "
+
+#: faq.admin.inc:71
+msgid "Clicking on question opens/hides answer under question"
+msgstr "Ved at klikke på spørgsmålet åbnes/gemmes svaret under spørgsmålet."
+
+#: faq.admin.inc:72
+msgid "Clicking on question opens the answer in a new page"
+msgstr "Ved at klikke på spørgsmålet åbnes svaret på en ny side."
+
+#: faq.admin.inc:77
+msgid "Page layout"
+msgstr "Side-layout"
+
+#: faq.admin.inc:78
+msgid "This controls how the questions and answers are displayed on the page and what happens when someone clicks on the question."
+msgstr "Dette kontrollerer hvordan spørgsmålene og svarene præsenteres på siden, og hvad der sker når nogle klikker på et spørgsmål."
+
+#: faq.admin.inc:84;195
+msgid "Miscellaneous layout settings"
+msgstr "Diverse layout-indstillinger"
+
+#: faq.admin.inc:90;201
+msgid "Ordered list"
+msgstr "Ordnet liste (nummereret)"
+
+#: faq.admin.inc:90;201
+msgid "Unordered list"
+msgstr "Uordnet liste"
+
+#: faq.admin.inc:91
+msgid "Questions listing style"
+msgstr "Visning af spørgsmål"
+
+#: faq.admin.inc:92
+msgid "This allows to select how the questions listing is presented.  It only applies to the layouts: 'Clicking on question takes user to answer further down the page' and 'Clicking on question opens the answer in a new page'.  An ordered listing would number the questions, whereas an unordered list will have a bullet to the left of each question."
+msgstr "Dette giver lov til at vælge hvordan spørgsmålene præsenteres. Det gælder kun for disse layouts: 'Ved at klikke på spørgsmålet sendes vejlederen til bunden af siden for at besvare spørgsmålet' og 'Ved at klikke på spørgsmålet åbnes svaret på en ny side'. En ordnet liste vil nummerere spørgsmål, hvor en uordnet liste vil have en bullet til venstre for hvert spørgsmål."
+
+#: faq.admin.inc:98
+msgid "Label questions and answers"
+msgstr "Label questions and answers"
+
+#: faq.admin.inc:99
+msgid "This option is only valid for the \"Questions Inline\" layout.  It labels all questions on the faq page with the \"question label\" setting and all answers with the \"answer label\" setting.  For example these could be set to \"Q:\" and \"A:\"."
+msgstr "Denne mulighed er kun gældende for layoutet \"Questions Inline\". Det betegner alle spørgsmål på brevkassesiden med indstillingen \"spørgsmål-betegnelse\" og alle svar med indstillingen \"svar-label\". F.eks. kunne disse sættes til \"Q:\" and \"A:\"."
+
+#: faq.admin.inc:105
+msgid "Question Label"
+msgstr "Spørgsmål-betegnelse"
+
+#: faq.admin.inc:106
+msgid "The label to pre-pend to the question text in the \"Questions Inline\" layout if labelling is enabled."
+msgstr "Betegnelsen som bliver sat på spørgsmålsteksten i \"Questions Inline\" layoutet, hvis 'Betegnelser (labelling)' er aktiveret."
+
+#: faq.admin.inc:112
+msgid "Answer Label"
+msgstr "Svar-betegnelse"
+
+#: faq.admin.inc:113
+msgid "The label to pre-pend to the answer text in the \"Questions Inline\" layout if labelling is enabled."
+msgstr "Betegnelsen, som bliver sat på svarteksten i \"Questions Inline\" layoutet, hvis 'Betegnelser (labelling)' er aktiveret."
+
+#: faq.admin.inc:119
+msgid "Use answer teaser"
+msgstr "Vis teaser til svaret"
+
+#: faq.admin.inc:120
+msgid "This enables the display of the answer teaser text instead of the full answer when using the 'Questions inline' or 'Clicking on question takes user to answer further down the page' display options.  This is useful when you have long descriptive text.  The user can see the full answer by clicking on the question."
+msgstr "Dette aktiverer visningen af svarets teaser-tekst i stedet for hele svaret, når man bruger visningerne 'Questions inline' eller 'Ved at klikke på spørgsmålet sendes vejlederen til bunden af siden for at besvare spørgsmålet'. Dette er brugbart når du har en lang deskribtiv tekst. Brugeren kan se hele svaret ved at klikke på spørgsmålet."
+
+#: faq.admin.inc:126
+msgid "Show node links"
+msgstr "Vis node links"
+
+#: faq.admin.inc:127
+msgid "This enables the display of links under the answer text on the faq page.  Examples of these links include \"Read more\", \"Add comment\"."
+msgstr "Dette aktiverer visningen af links under svarteksten på brevkassesiden. Eksempler på dette er \"Læs mere\", \"Tilføj kommentar\"."
+
+#: faq.admin.inc:133
+msgid "\"Back to Top\" link text"
+msgstr "\"Til toppen\" link tekst"
+
+#: faq.admin.inc:134
+msgid "This allows the user to change the text displayed for the links which return the user to the top of the page on certain page layouts.  Defaults to \"Back to Top\".  Leave blank to have no link."
+msgstr "Dette giver brugeren tilladelser til at ændre link-teksten, på de links, der returnerer brugeren til toppen af siden på bestemte sidelayouts. Default er \"Til toppen\". Lad feltet være tomt for ikke at vise noget link."
+
+#: faq.admin.inc:140
+msgid "Disable question links to nodes"
+msgstr "Deaktiver spørgsmål-links til nodes"
+
+#: faq.admin.inc:141
+msgid "This allows the user to prevent the questions being links to the faq node in all layouts except \"Clicking on question opens the answer in a new page\"."
+msgstr "Dette giver brugeren tilladelse til at forhindre spørgsmål-links til brevkassesiden i alle layouts, pånær \"Ved at klikke på spørgsmålet åbnes svaret på en ny side\"."
+
+#: faq.admin.inc:147
+msgid "Default Sorting for Non-Weighted FAQs"
+msgstr "Default sortering af ikke-vægtede spørgsmål"
+
+#: faq.admin.inc:148
+msgid "Date Descending"
+msgstr "Dato (faldende)"
+
+#: faq.admin.inc:148
+msgid "Date Ascending"
+msgstr "Dato (stigende)"
+
+#: faq.admin.inc:149
+msgid "This controls the default weighting behaviour for new FAQ nodes which haven't been assigned a weight."
+msgstr "Dette kontrollerer default-vægtningen for nye spørgsmål, der ikke er tilskrevet vægtning."
+
+#: faq.admin.inc:164
+msgid "Categorization of questions will not work without the \"taxonomy\" module being enabled."
+msgstr "Kategorisering af spørgsmål vil ikke fungere, hvis ikke modulet \"taxonomy\" er aktiveret."
+
+#: faq.admin.inc:176
+msgid "Categorize questions"
+msgstr "Kategoriser spørgsmål"
+
+#: faq.admin.inc:177
+msgid "This allows the user to display the questions according to the categories configured on the add/edit FAQ page.  Use of sub-categories is only recommended for large lists of questions.  The Taxonomy module must be enabled."
+msgstr "Dette giver brugeren tilladelse til at præsentere spørgsmålene i forhold til de kategorier, der er konfigureret på siden 'tilføj/rediger Brevkasse'. Brugen af underkategorier anbefales kun for en omfattende liste af spørgsmål. Taksonomi-modulet skal være aktiveret."
+
+#: faq.admin.inc:181
+msgid "Categories inline"
+msgstr "Kategorier inline"
+
+#: faq.admin.inc:182
+msgid "Clicking on category opens/hides questions and answers under category"
+msgstr "Ved at klikke på en kategori åbnes/gemmes spørgsmål og svar under kategorien"
+
+#: faq.admin.inc:183
+msgid "Clicking on category opens the questions/answers in a new page"
+msgstr "Ved at klikke på kategorien åbnes spørgsmål/svar på en ny side"
+
+#: faq.admin.inc:188
+msgid "Categories layout"
+msgstr "Kategori-layout"
+
+#: faq.admin.inc:189
+msgid "This controls how the categories are displayed on the page and what happens when someone clicks on the category."
+msgstr "Dette kontrollerer hvordan kategorierne præsenteres på siden og hvad, der sker når man klikker på en kategori."
+
+#: faq.admin.inc:202
+msgid "Categories listing style"
+msgstr "Måden kategorier listes på"
+
+#: faq.admin.inc:203
+msgid "This allows to select how the categories listing is presented.  It only applies to the 'Clicking on category opens the questions/answers in a new page' layout.  An ordered listing would number the categories, whereas an unordered list will have a bullet to the left of each category."
+msgstr "Dette giver tilladelse til at vælge hvordan listen af kategorier præsenteres. Det gælder kun for layoutet: 'Ved at klikke på kategorien åbnes spørgsmål/svar på en ny side'. En ordnet liste nummererer kategorien, hvor en uordnet liste viser en bullet til venstre for hver kategori."
+
+#: faq.admin.inc:209
+msgid "Show FAQ count"
+msgstr "Vis spørgsmål-count."
+
+#: faq.admin.inc:210
+msgid "This displays the number of questions in a category after the category name."
+msgstr "Dette viser antallet af spørgsmål i en kategori efter kategorinavnet."
+
+#: faq.admin.inc:216
+msgid "Display category name for answers"
+msgstr "Vis kategorinavnet for svar"
+
+#: faq.admin.inc:217
+msgid "This allows the user to toggle the visibility of the category name above each answer section for the 'Clicking on question takes user to answer further down the page' question/answer display."
+msgstr "Dette giver brugeren tilladelse til at indstille synligheden af kategorinavnet ovenover hver svar-sektion med 'Ved at klikke på spørgsmålet sendes vejlederen til bunden af siden for at besvare spørgsmålet'-spørgsmål/svar-præsentation."
+
+#: faq.admin.inc:223
+msgid "Group questions and answers for 'Categories inline'"
+msgstr "Grupper spørgsmål og svar for 'Kategorier inline'"
+
+#: faq.admin.inc:224
+msgid "This controls how categories are implemented with the 'Clicking on question takes user to answer further down the page' question/answer display."
+msgstr "Dette kontrollerer hvordan kategorier implementeres med 'Ved at klikke på spørgsmålet sendes vejlederen til bunden af siden for at besvare spørgsmålet'-spørgsmål/svar-præsentation."
+
+#: faq.admin.inc:230
+msgid "Only show sub-categories when parent category is selected"
+msgstr "Vis kun underkategorier når parent-kategorien er valgt"
+
+#: faq.admin.inc:231
+msgid "This allows the user more control over how and when sub-categories are displayed.  It does not affect the 'Categories inline' display."
+msgstr "Dette giver brugerne tilladelse til øget kontrol over hvordan og hvornår underkategorier præsenteres. Det påvirker ikke præsentationen 'Kategorier inline'."
+
+#: faq.admin.inc:237
+msgid "Show sub-categories on FAQ category pages"
+msgstr "Vis underkategorier på brevkassens kategorisider"
+
+#: faq.admin.inc:238
+msgid "Sub-categories with 'faq' nodes will be displayed on the per category FAQ page.  This will also happen if 'Only show sub-categories when parent category is selected' is set."
+msgstr "Underkategorier med 'brevkasse'-nodes vil blive præsenteret på den pågældende brevkasseside. Dette sker også ved aktivering af 'Underkategorier vises kun hvis parent-kategorien er valgt'."
+
+#: faq.admin.inc:244
+msgid "Advanced category settings"
+msgstr "Avancerede kategoriindstillinger"
+
+#: faq.admin.inc:256
+msgid "Omit vocabulary"
+msgstr "Udelad ordforråd"
+
+#: faq.admin.inc:257
+msgid "Terms from these vocabularies will be excluded from the FAQ pages."
+msgstr "Ord fra disse ordforråd vil blive ekskluderet fra brevkassesiderne."
+
+#: faq.admin.inc:310
+msgid "Choose a category"
+msgstr "Vælg en kategori"
+
+#: faq.admin.inc:311
+msgid "Choose a category that you wish to order the questions for."
+msgstr "Vælg en kategori som du ønsker at sortere spørgsmålene efter."
+
+#: faq.admin.inc:318
+msgid "Search"
+msgstr "Søg"
+
+#: faq.admin.inc:391
+msgid "Question Order"
+msgstr "Rækkefølge"
+
+#: faq.admin.inc:392
+msgid "This determines the order of the questions and answers on the FAQ page.  Just select one or more questions and use the arrows to change their position in the list.  You can also order the list by the question creation date !desc or !asc."
+msgstr "Dette bestemmer rækkefølgen for spørgsmålene og svarene på brevkassesiden. Vælg et eller flere spørgsmål og brug pilene til at ændre deres position på listen. Man kan også ændre rækkefølgen i listen i forhold til oprettelsesdato !desc eller !asc."
+
+#: faq.admin.inc:412;466
+msgid "Save order"
+msgstr "Gem rækkefølge"
+
+#: faq.admin.inc:438;485
+msgid "Configuration has been updated."
+msgstr "Konfigurationen er opdateret."
+
+#: faq.module:19
+msgid "This module allows users with the 'administer faq' permission to create question and answer pairs which will be displayed on the 'faq' page.  The 'faq' page is automatically generated from the FAQ nodes configured and the layout of this page can be modified on the settings page.  Users will need the 'view faq' permission in order to view the 'faq' page."
+msgstr "Dette modul giver brugere med 'administrer brevkasse (FAQ)' tilladelse til at oprette spørgsmål-&-svar-par, der vil blive vist på brevkassesiden. Brevkassesiden bliver automatisk genereret fra Brevkasse-nodes og sidens layout kan modificeres under 'indstillinger'. Brugere skal have 'se brevkasse'-tilladelse for at kunne se brevkassesiden."
+
+#: faq.module:20
+msgid "To create a question and answer, the user must create a 'FAQ' node (Create content >> FAQ).  This screen allows the user to edit the question and answer text.  If the 'Taxonomy' module is enabled and there are some terms configured for the FAQ node type, it will also be possible to put the questions into different categories when editing."
+msgstr "For at oprette et spørgsmål + svar, skal brugeren oprette en 'brevkasse' node (Opret indhold -> Brevkasse). Dette giver brugeren lov til at redigere teksten i spørgsmål og svar. Hvis modulet 'Taksonomi' er aktiveret og der er konfigureret nogle ord til node-typen 'brevkasse', vil det også være muligt at anbringe spørgsmål i forskellige kategorier under redigering."
+
+#: faq.module:21
+msgid "The 'Frequently Asked Questions' settings configuration screen will allow users with 'administer faq' permissions to specify different layouts of the questions and answers."
+msgstr "Giver brugere med \"administrer brevkasse\"-tilladelse lov til at specificere forskellige layouts på spørgsmål og svar via konfiggurationssiden i \"Indstilllinger for brevkasse\"."
+
+#: faq.module:22
+msgid "All users with 'view faq' permissions will be able to view the generated FAQ page at 'www.example.com/faq'."
+msgstr "Alle brugere med tilladelse til at \"se brevkasse\" kan se den genererede brevkasseside på  'www.example.com/faq'"
+
+#: faq.module:25;87;106
+msgid "Allows the user to configure the layout of questions and answers on a FAQ page."
+msgstr "Giver brugeren lov til at konfigurere layoutet på spørgsmål og svar på en brevkasseside."
+
+#: faq.module:27
+msgid "Add a question and answer to a FAQ list."
+msgstr "Tilføj spørgsmål og svar til en brevkasse."
+
+#: faq.module:151;164
+msgid "FAQ"
+msgstr ""
+
+#: faq.module:153
+msgid "A frequently asked question and its answer."
+msgstr "Et brevkassespørgsmål og tilhørende svar."
+
+#: faq.module:154
+msgid "Question"
+msgstr "Spørgsmål"
+
+#: faq.module:155
+msgid "Answer"
+msgstr "Svar"
+
+#: faq.module:189
+msgid "Question to be answered"
+msgstr "Ubesvaret spørgsmål"
+
+#: faq.module:194
+msgid "This is that answer to the question.  It will be filtered according to the input format."
+msgstr "Dette er svaret til spørgsmålet. Det vil blive filtreret til det gældende input-format."
+
+#: faq.module:294;337
+msgid "Home"
+msgstr "Hjem"
+
+#: faq.module:316;71;78;86
+#: faq.info:0
+msgid "Frequently Asked Questions"
+msgstr "Brevkasser"
+
+#: faq.module:316
+msgid "Back to Top"
+msgstr "Til toppen"
+
+#: faq.module:316
+msgid "Q:"
+msgstr "Q:"
+
+#: faq.module:316
+msgid "A:"
+msgstr "A:"
+
+#: faq.module:645;668
+msgid "FAQ Categories"
+msgstr "Kategorier"
+
+#: faq.module:646;682
+msgid "Recent FAQs"
+msgstr "Seneste spørgsmål"
+
+#: faq.module:647;688
+msgid "Random FAQs"
+msgstr "Tilfældige spørgsmål"
+
+#: faq.module:706;716
+msgid "Number of FAQs to show"
+msgstr "Antallet af viste spørgsmål"
+
+#: faq.module:707
+msgid "This controls the number of FAQs that appear in the 'Recent FAQs' block"
+msgstr "Dette kontrollerer antallet af spørgsmål, der præsenteres i blokken 'Seneste spørgsmål'."
+
+#: faq.module:717
+msgid "This controls the number of FAQs that appear in the 'Random FAQs' block"
+msgstr "Dette kontrollerer antallet af spørgsmål, der præsenteres i blokken 'Tilfældige spørgsmål'."
+
+#: faq.module:766;793
+msgid "All FAQs"
+msgstr "Alle spørgsmål"
+
+#: faq.module:1090
+msgid "Go back to the top of the page."
+msgstr "Til toppen af siden."
+
+#: faq.module:36
+msgid "administer faq"
+msgstr "administrer brevkasse"
+
+#: faq.module:36
+msgid "view faq"
+msgstr "se brevkasse"
+
+#: faq.module:36
+msgid "edit own faq"
+msgstr "rediger egne spørgsmål"
+
+#: faq.module:36
+msgid "edit faq"
+msgstr "rediger spørgsmål"
+
+#: faq.module:36
+msgid "create faq"
+msgstr "Opret spørgsmål"
+
+#: faq.module:94
+msgid "General"
+msgstr "Generelt"
+
+#: faq.module:95
+msgid "Allows the user to configure the header and descriptive text for the FAQ page."
+msgstr "Giver brugeren lov til at konfigurere headeren samt den beskrivende tekst på brevkassesiden."
+
+#: faq.module:105
+msgid "Questions"
+msgstr "Spørgsmål"
+
+#: faq.module:116
+msgid "Categories"
+msgstr "Kategorier"
+
+#: faq.module:117
+msgid "Allows the user to configure the layout of questions and answers using categories on a FAQ page."
+msgstr "Giver brugeren lov til at konfigurere layoutet på spørgsmålene ved at bruge kategorierne i en brevkasse."
+
+#: faq.module:127
+msgid "Weight"
+msgstr "Vægt"
+
+#: faq.module:128
+msgid "Allows the user to configure the order of questions and answers on a FAQ page."
+msgstr "Giver brugeren lov til at konfigurere rækkeføølgen af spørgsmål og svar i en brevkasse."
+
+#: faq.module:0
+msgid "faq"
+msgstr ""
+
+#: faq.install:17;105
+msgid "A table containing the weight of each faq node by category."
+msgstr "Et tabel, der indeholder vægtningen af hver brevkasse-node i forhold til kategori."
+
+#: faq.install:19
+msgid "The primary identifier for a term or category.  This will be 0 for non-categorized nodes."
+msgstr "Den primære identifier for et ord eller en kategori. Dette vil være 0 for ikke-kategoriserede nodes."
+
+#: faq.install:20;29;131
+msgid "The primary identifier for a node."
+msgstr "Primær identifikation af et indholdselement."
+
+#: faq.install:21
+msgid "A number representing the weight of a node.  Nodes with lower weight values will appear above those with higher weight values."
+msgstr "Et tal, der repræsenterer vægtningen af en node. Nodes med lav vægt-værdi vil blive vist over dem med høj vægtværdi."
+
+#: faq.install:27;129
+msgid "A table containing the long question text of each faq node revision."
+msgstr "En tabel, der indeholder den lange spørgsmålstekst for hver node revision i brevkassen."
+
+#: faq.install:30;132
+msgid "The primary identifier for a node revision."
+msgstr "Den primære identifier for en node revision."
+
+#: faq.install:31;133
+msgid "The faq long question text."
+msgstr "Den lange spørgsmålstekst til brevkassen"
+
+#: faq.info:0
+msgid "Manages configuration of questions for a FAQ page."
+msgstr "Håndterer konfigurationen af spørgsmål for en brevkasseside."
+

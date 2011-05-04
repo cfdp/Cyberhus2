@@ -1,0 +1,48 @@
+<?php 
+// $Id: oushelper.install,v 1.6 2008/10/01 19:17:03 mbutcher Exp $
+
+/**
+ * @file
+ * oushelper Install (a quiz question type)
+ */
+
+/**
+ * Implementation of hook_install()
+ */
+function oushelper_install() {
+  drupal_install_schema('oushelper');
+}
+
+/**
+ * Implementation of hook_schema().
+ */
+function oushelper_schema() {
+  /**
+   * Stores email's for oushelper.
+   */
+  // Create the oushelper table.
+  $schema['oushelper_email'] = array(
+    'fields' => array(
+      'faq_nid' => array( 'type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE),
+      'email' => array( 'type' => 'varchar', 'length' => 255, 'not null' => TRUE),
+    ),
+    'primary key' => array(
+      'faq_nid',
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Implementation of hook_uninstall()
+*/
+function oushelper_uninstall() {
+  drupal_uninstall_schema('oushelper');
+  // Truncate the cache so users don't run into any unexpected errors.
+  cache_clear_all('variables', 'cache');
+  
+  // Inform the user that uninstall was sucessful.
+  drupal_set_message(t("The oushelper module, it's settings, and all saved questions were successfully removed."));
+}
+       

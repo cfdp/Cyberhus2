@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CSS Document */
+
+body.social-pejling, 
+body.social-pejling p, 
+body.social-pejling *  {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #ffffff;
+}
+
+body.social-pejling .form-textarea,
+body.social-pejling .form-text,
+body.social-pejling .tabs * {
+	color: #333333;
+}
+
+body.social-pejling .form-submit  {
+
+	color: #333333;
+}
+
+body.social-pejling .messages.notice *,
+body.social-pejling .messages.error * {
+	color:#333333;
+}
+body.social-pejling {
+	background-color: #ff7000;
+}
+
+body.social-pejling tr.odd 	{
+	background-color: #874000;
+}
+
+body.social-pejling tr.even {
+	background-color:#A74000;
+}
+
+body.social-pejling td {
+	padding-top: 5px;
+}
+body.social-pejling #content-area  {
+	border: 2px solid #ffffff;
+	background-color: #874000;
+	padding: 10px;
+}
+body.social-pejling .links a {
+	color: #ffffff;
+}
+#social-pejling-container {
+	width: 800px;
+	height: 600px;
+	background-image: url('http://www.cyberhus.dk/sites/default/files/social_pejling/baggrund.png');
+}
+
+#social-pejling-content  {
+	padding: 10px;
+	padding-right: 20px;
+}
+body.social-pejling #footer  {
+	clear:left;
+}
+
+
+#right-enter-column {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: small;
+	width: 424px;
+	float: left;
+	margin: 5px;
+}

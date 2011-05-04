@@ -1,0 +1,368 @@
+# $Id: sv.po,v 1.1.2.2 2008/04/21 07:48:46 sun Exp $
+#
+# Swedish translation of Drupal (guestbook)
+# Copyright 2008 Magnus Gunnarsson <seals@passagen.se>
+# Generated from files:
+#  guestbook.module,v 1.3.2.2 2008/04/06 23:22:31 sun
+#  guestbook.info,v 1.3 2008/02/23 09:54:21 hba
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2008-04-07 01:26+0200\n"
+"PO-Revision-Date: 2008-11-14 11:32+0100\n"
+"Last-Translator: Jens Jakob <jjkristensen@gmail.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: guestbook.module:67;178;183;305;803
+msgid "Site guestbook"
+msgstr "Site-gæstebog"
+
+#: guestbook.module:93
+msgid "Read @username's guestbook."
+msgstr "Vis @username's gæstebog."
+
+#: guestbook.module:94
+msgid "View recent guestbook entries"
+msgstr "Vis seneste indlæg i gæstebogen"
+
+#: guestbook.module:97;33
+#: guestbook.info:0
+msgid "Guestbook"
+msgstr "Gæstebog"
+
+#: guestbook.module:108;216;47
+msgid "User guestbook"
+msgstr "Personlig gæstebog"
+
+#: guestbook.module:112
+msgid "Status"
+msgstr "Status"
+
+#: guestbook.module:114
+msgid "Enabled"
+msgstr "Aktiveret"
+
+#: guestbook.module:114
+msgid "Disabled"
+msgstr "Deaktiveret"
+
+#: guestbook.module:118
+msgid "Send email notification"
+msgstr "Send notifikation via e-mail"
+
+#: guestbook.module:119
+msgid "Uncheck if you don't wish to be notified of new entries to your guestbook."
+msgstr "Lad denne være deaktiveret, hvis du ikke ønsker at blive underrettet vedr. nye indlæg i din gæstebog."
+
+#: guestbook.module:124;190
+msgid "Intro text"
+msgstr "Introduktionstekst"
+
+#: guestbook.module:128
+msgid "The text that appears on top of your guestbook."
+msgstr "Teksten vises i toppen af din gæstebog."
+
+#: guestbook.module:155
+msgid "Adds a site guestbook and individual user guestbooks."
+msgstr "Opretter en site-gæstebog og personlige gæstebøger."
+
+#: guestbook.module:166
+msgid "Mode"
+msgstr ""
+
+#: guestbook.module:169
+msgid "Site and user guestbooks"
+msgstr "Site- og personlige gæstebøger"
+
+#: guestbook.module:170
+msgid "Site guestbook only"
+msgstr "Kun site-gæstebog"
+
+#: guestbook.module:171
+msgid "User guestbooks only"
+msgstr "Kun personlige gæstebøger"
+
+#: guestbook.module:182
+msgid "Title"
+msgstr "Titel"
+
+#: guestbook.module:186
+msgid "The site guestbook's page title."
+msgstr "Titel på site-gæstebog."
+
+#: guestbook.module:194
+msgid "The text that appears on top of the site guestbook."
+msgstr "Teksten, der vises i toppen af site-gæstebogen."
+
+#: guestbook.module:198
+msgid "Send an notification to the following e-mail address about new guestbook entries"
+msgstr "Send en notificering vedr. nye indlæ via e-mail til følgende mailadresse."
+
+#: guestbook.module:199
+msgid "Leave blank if you don't wish to be notified"
+msgstr "Lad feltet være tomt, hvis du ikke ønsker at blive underrettet"
+
+#: guestbook.module:208;809
+msgid "User guestbooks"
+msgstr "Personlige gæstebøger"
+
+#: guestbook.module:209
+msgid "Users can individually disable their guestbook or add an intro text on the user account page."
+msgstr "Brugere kan deaktivere deres gæstebog eller tilføje en introduktionstekst på profilsiden."
+
+#: guestbook.module:214
+msgid "User link to profile or guestbook"
+msgstr "Brugerlink til profil eller gæstebog"
+
+#: guestbook.module:215
+msgid "When displaying a user should the link show the user profile or the user guestbook?"
+msgstr "Vælg om der skal linkes til brugerens profil eller gæstebog, når brugeren vises i en liste."
+
+#: guestbook.module:216
+msgid "User profile"
+msgstr "Brugerprofil"
+
+#: guestbook.module:223
+msgid "Display options"
+msgstr "Visninger"
+
+#: guestbook.module:227
+msgid "Entries per page"
+msgstr "Indlæg pr. side"
+
+#: guestbook.module:231
+msgid "The number of guestbook entries per page."
+msgstr "Antallet af indlæg pr. side."
+
+#: guestbook.module:235
+msgid "Toggle display"
+msgstr "juster visning"
+
+#: guestbook.module:238
+msgid "Submission date"
+msgstr "Dato for indlæg"
+
+#: guestbook.module:239
+msgid "Anonymous poster e-mail"
+msgstr "E-mail for indlæg"
+
+#: guestbook.module:240
+msgid "Anonymous poster website"
+msgstr "Hjemmeside for indlæg"
+
+#: guestbook.module:241
+msgid "Comments"
+msgstr "Kommentarer"
+
+#: guestbook.module:246
+msgid "Position of pager"
+msgstr "Placering af sideskift"
+
+#: guestbook.module:249
+msgid "Above the entries"
+msgstr "over indlæg"
+
+#: guestbook.module:250
+msgid "Below the entries"
+msgstr "Under indlæg"
+
+#: guestbook.module:251
+msgid "Above and below the entries"
+msgstr "Over og under indlæg"
+
+#: guestbook.module:258
+msgid "Posting settings"
+msgstr "Indstillinger for indlæg"
+
+#: guestbook.module:264
+msgid "Display filter tips"
+msgstr "Vis tips til filtrering"
+
+#: guestbook.module:266
+msgid "If enabled filter tips are displayed below the message textarea."
+msgstr "Hvis dette er aktiveret vil filter-tips blive vist undet beskedens tekstområde."
+
+#: guestbook.module:270
+msgid "Anonymous poster fields"
+msgstr "Felt til indlæg"
+
+#: guestbook.module:272
+msgid "Additional information that anonymous posters may supply."
+msgstr "Supplerende information til indlæg."
+
+#: guestbook.module:280
+msgid "Location of entry submission form"
+msgstr "Placering af indlægsformular"
+
+#: guestbook.module:283
+msgid "Above entries"
+msgstr "Over indlæg"
+
+#: guestbook.module:284
+msgid "Below entries"
+msgstr "Under indlæg"
+
+#: guestbook.module:285
+msgid "Separate page"
+msgstr "Separat side"
+
+#: guestbook.module:372
+msgid "user"
+msgstr "brugernavn"
+
+#: guestbook.module:373
+msgid "entries"
+msgstr "antal indlæg"
+
+#: guestbook.module:374;804
+msgid "last update"
+msgstr "seneste opdateringer"
+
+#: guestbook.module:415
+msgid "Name"
+msgstr "Navn"
+
+#: guestbook.module:421;700
+msgid "E-mail"
+msgstr "E-mail"
+
+#: guestbook.module:427
+msgid "Homepage"
+msgstr "Hjemmeside"
+
+#: guestbook.module:434
+msgid "Message"
+msgstr "Besked"
+
+#: guestbook.module:438
+msgid "Send"
+msgstr "Send"
+
+#: guestbook.module:550;553;57;73
+msgid "Add guestbook entry"
+msgstr "Skriv indlæg i gæstebogen"
+
+#: guestbook.module:563
+msgid "You must be logged in to post a comment."
+msgstr "Du skal være logget ind for at skrive en kommentar."
+
+#: guestbook.module:567
+msgid "You are not allowed to post in this guestbook."
+msgstr "Du har ikke tilladelse til at skrive i denne gæstebog."
+
+#: guestbook.module:587
+msgid "Comment"
+msgstr "Publicer"
+
+#: guestbook.module:627
+msgid "Are you sure you want to delete this guestbook entry?"
+msgstr "Er du sikker på at du vil slette dette indlæg?"
+
+#: guestbook.module:630
+msgid "Delete"
+msgstr "Slet"
+
+#: guestbook.module:630
+msgid "Cancel"
+msgstr "Cancel"
+
+#: guestbook.module:707
+msgid "Website"
+msgstr "Hjemmeside"
+
+#: guestbook.module:726
+msgid "Delete entry"
+msgstr "Slet indlæg"
+
+#: guestbook.module:727
+msgid "Add comment"
+msgstr "Tilføj kommentar"
+
+#: guestbook.module:727
+msgid "Edit comment"
+msgstr "Rediger kommentar"
+
+#: guestbook.module:753;757;871
+msgid "View user profile."
+msgstr "Se profil"
+
+#: guestbook.module:761
+msgid "View user guestbook."
+msgstr "Se gæstebog"
+
+#: guestbook.module:765
+msgid "View guestbooks."
+msgstr "Se gæstebøger"
+
+#: guestbook.module:771
+msgid "@user's picture"
+msgstr "@user's billede"
+
+#: guestbook.module:793
+msgid "Comment by"
+msgstr "Kommentar fra"
+
+#: guestbook.module:845
+msgid "@username's guestbook"
+msgstr "@username's gæstebog"
+
+#: guestbook.module:851
+msgid "My guestbook"
+msgstr "Min gæstebog"
+
+#: guestbook.module:872
+msgid "Visit !username's profile"
+msgstr "Vis !username's profil"
+
+#: guestbook.module:933
+msgid "never"
+msgstr "aldrig"
+
+#: guestbook.module:958
+msgid "Entry is spam: "
+msgstr "Indlæg er spam:"
+
+#: guestbook.module:804;814
+msgid "1 entry"
+msgid_plural "@count entries"
+msgstr[0] "1 indlæg"
+msgstr[1] "@count indlæg"
+
+#: guestbook.module:141
+msgid "access site guestbook"
+msgstr "adgang til site-gæstebog"
+
+#: guestbook.module:142
+msgid "access user guestbooks"
+msgstr "adgang til personlig gæstebog"
+
+#: guestbook.module:143
+msgid "post in site guestbook"
+msgstr "skriv i site-gæstebog"
+
+#: guestbook.module:144
+msgid "post in user guestbooks"
+msgstr "skriv i personlig gæstebog"
+
+#: guestbook.module:145
+msgid "administer all guestbooks"
+msgstr "administrer alle gæstebøger"
+
+#: guestbook.module:42
+msgid "Guestbooks"
+msgstr "Gæstebøger"
+
+#: guestbook.module:0
+msgid "guestbook"
+msgstr "gæstebog"
+
+#: guestbook.info:0
+msgid "A guestbook for Drupal"
+msgstr "En gæstebog for Drupal"
+

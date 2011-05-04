@@ -1,0 +1,18 @@
+<markers>
+ <marker>
+ 	<navn><![CDATA[Cyberhus0]]></navn>
+ 	<adresse><![CDATA[Sønder Allé 33, Århus, Danmark]]></adresse>
+ 	<lat>56.1525</lat>
+ 	<lng>10.2094</lng>
+ 	<kategori>alt_lukket</kategori>
+	<beskrivelse><![CDATA[Some stuff to display in the<br>First Info Window]]></beskrivelse>
+ </marker>
+ <marker>
+ 	<navn><![CDATA[Cyberhus1]]></navn>
+ 	<adresse><![CDATA[Sønder Allé 33, Århus, Danmark]]></adresse>
+ 	<lat>56.1525</lat>
+ 	<lng>10.3094</lng>
+ 	<kategori>aaben_anonym</kategori>
+ 	<beskrivelse><![CDATA[Some stuff to display in the<br>First Info Window]]></beskrivelse>
+ </marker>
+</markers>

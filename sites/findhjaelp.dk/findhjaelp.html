@@ -1,0 +1,298 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="da">
+<head>
+<title>Rådgivningssteder for børn og unge</title>
+    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAAbma0EtBcKlwKZK-W54o2ixQeuJqCPZk8psOXxvsm71QdcufF1hRxY5Q5NqHMRnVyRLDYAH4Kd8F3Ig" type="text/javascript"></script>
+	<link href="style_findhjaelp.css" type="text/css" rel="stylesheet">
+	<link href="style_findhjaelp2.css" type="text/css" rel="stylesheet">
+</head>
+<body onunload="GUnload()" style="background-color:#ffffff">
+	<div class="topcontainer">
+	  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" width="720px" ><table class = "kategorier_tabel" width="715px" cellspacing="0" cellpadding="5">          
+
+            
+            <tr>
+              <td width="43%" valign="top" class="checkbox_red"><span class="checkbokse_kat"><img src="images/katmarker_red.png" alt="kategorimark&oslash;r" width="9" height="14" /> Alt er lukket og jeg har brug for hj&aelig;lp her og nu:</span> </td>
+              <td width="6%" valign="top" class="checkbox_red"><span class="checkbokse_kat">
+              <input name="checkbox" type="checkbox" id="alt_lukketbox" onclick="boxclick(this,'alt_lukket')" />
+                </span></td>
+              <td width="46%" valign="top" class="checkbox_green"><span class="checkbokse_kat"><img src="images/katmarker_green.png" alt="kategorimark&oslash;r" width="9" height="14" /> For meget alkohol og stoffer:</span> </td>
+              <td width="5%" valign="top" class="checkbox_green"><span class="checkbokse_kat">
+              <input name="checkbox5" type="checkbox" id="alkohol_stofferbox" onclick="boxclick(this,'alkohol_stoffer')" />
+              </span></td>
+            </tr>
+            <tr>
+              <td valign="top" class="checkbox_blue"><span class="checkbokse_kat"><img src="images/katmarker_blue.png" alt="kategorimark&oslash;r" width="9" height="14" /> &Aring;ben, anonym r&aring;dgivning:</span></td>
+              <td valign="top" class="checkbox_blue"><span class="checkbokse_kat">
+              <input name="checkbox2" type="checkbox" id="aaben_anonymbox" onclick="boxclick(this,'aaben_anonym')" />
+              </span></td>
+              <td width="46%" valign="top" class="checkbox_grey"><span class="checkbokse_kat"><img src="images/katmarker_grey.png" alt="kategorimark&oslash;r" width="9" height="14" /> En jeg holder meget af er d&oslash;d, eller blevet alvorligt syg:</span></td>
+              <td width="5%" valign="top" class="checkbox_grey"><span class="checkbokse_kat">
+              <input name="checkbox6" type="checkbox" id="doed_sygbox" onclick="boxclick(this,'doed_syg')" />
+              </span></td>
+            </tr>
+            <tr>
+              <td valign="top"><span class="checkbokse_kat"><img src="images/katmarker_white.png" alt="kategorimark&oslash;r" width="9" height="14" /> Jeg har sp&oslash;rgsm&aring;l om min krop:</span></td>
+              <td valign="top" ><span class="checkbokse_kat">
+              <input name="checkbox3" type="checkbox" id="kropbox" onclick="boxclick(this,'krop')" />
+               </span></td>
+              <td width="46%" valign="top" class="checkbox_purple"><span class="checkbokse_kat"><img src="images/katmarker_purple.png" alt="kategorimark&oslash;r" width="9" height="14" /> Jeg har oplevet noget, der ikke var rart! - Nogen har gjort noget ved mig, jeg ikke kunne lide:</span></td>
+              <td width="5%" valign="top" class="checkbox_purple"><span class="checkbokse_kat">
+              <input name="checkbox7" type="checkbox" id="ikke_rartbox" onclick="boxclick(this,'ikke_rart')" />
+              </span></td>
+            </tr>
+            <tr>
+              <td valign="top" class="checkbox_yellow"><span class="checkbokse_kat"><img src="images/katmarker_yellow.png" alt="kategorimark&oslash;r" width="9" height="14" />Jeg har sp&oslash;rgsm&aring;l om sex/sexualitet:</span></td>
+              <td valign="top" class="checkbox_yellow"><span class="checkbokse_kat">
+              <input name="checkbox4" type="checkbox" id="sexbox" onclick="boxclick(this,'sex')" />
+               </span></td>
+              <td width="46%" valign="top" class="checkbox_brown"><span class="checkbokse_kat"><img src="images/katmarker_brown.png" alt="kategorimark&oslash;r" width="9" height="14" /> Jeg vil gerne finde et sted, hvor der er andre unge at v&aelig;re sammen med:</span></td>
+              <td width="5%" valign="top" class="checkbox_brown"><span class="checkbokse_kat">
+              <input name="checkbox8" type="checkbox" id="vaerestederbox" onclick="boxclick(this,'vaeresteder')" />
+              </span></td>
+            </tr>
+            
+      </table></td>
+    <td align="left" valign="top" width="305px">
+<div class="vejledning_boks">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td><img src="images/vejledning1.jpg" alt="pil" /></td>
+                  <td><span class="checkbokse_kat">1. V&aelig;lg kategori(er) </span></td></tr><tr>
+                  <td width="30"><img src="images/vejledning2.jpg" alt="h&aring;nd" /></td>
+                  <td><span class="checkbokse_kat">2. Zoom ind p&aring; dit omr&aring;de (dobbeltklik p&aring; kortet) </span></td></tr><tr>
+                  <td><img src="images/vejledning3.jpg" alt="mark&oslash;r"  /></td>
+                  <td><span class="checkbokse_kat">3. Klik p&aring; h&aelig;nderne for information </span></td>
+                </tr>
+      </table></div>
+	  </td>
+    <td align="left" valign="top">
+
+	<table width="106px" border="0" cellspacing="0" cellpadding="3">
+
+
+  <tr>
+   <td width="184" align="right" valign="top" bgcolor="#F4874B">
+   <div align="center"><strong>Se video:</strong></div>
+   <div align="center">
+<A HREF="findhjaelpvideo.html" onclick="window.open('findhjaelpvideo.html', 'Instruktionsvideo','width=380,height=318'); return false" target="_blank"><img src="images/findhjaelp_video_screen.jpg" /></A>
+        </div></td>
+  </tr>
+
+</table></td>
+  </tr>
+</table>
+
+</div>
+    <p>
+      <!-- you can use tables or divs for the overall layout -->
+    </p>
+
+    <div id="map"></div>     
+		   <!--
+        <td width = 150 valign="top" style="text-decoration: underline; color: #4444ff;">
+           <div id="side_bar"></div>     </td>-->   
+
+
+
+    <noscript>
+    <b>JavaScript skal v&aelig;re sl&aring;et til f&oslash;r du kan bruge dette site. </b> 
+      Sl&aring; Javascript til, og pr&oslash;v igen..
+    </noscript>
+
+
+    <script type="text/javascript">
+    //<![CDATA[
+	
+
+    if (GBrowserIsCompatible()) {
+      var gmarkers = [];
+      var gicons = [];
+
+      gicons["alt_lukket"] = new GIcon(G_DEFAULT_ICON,"images/marker_red.png");
+      gicons["aaben_anonym"] = new GIcon(G_DEFAULT_ICON,"images/marker_blue.png");
+      gicons["krop"] = new GIcon(G_DEFAULT_ICON,"images/marker_white.png");
+      gicons["sex"] = new GIcon(G_DEFAULT_ICON,"images/marker_yellow.png");
+      gicons["alkohol_stoffer"] = new GIcon(G_DEFAULT_ICON,"images/marker_green.png");
+      gicons["doed_syg"] = new GIcon(G_DEFAULT_ICON,"images/marker_grey.png");
+	  gicons["ikke_rart"] = new GIcon(G_DEFAULT_ICON,"images/marker_purple.png");
+	  gicons["vaeresteder"] = new GIcon(G_DEFAULT_ICON,"images/marker_brown.png");
+	  
+      // A function to create the marker and set up the event window
+      function createMarker(point,name,html,category) {
+        var marker = new GMarker(point,gicons[category]);
+        // === Store the category and name info as a marker properties ===
+        marker.mycategory = category;                                 
+        marker.myname = name;
+		html = "<div class='marker_popup'>"+html+"</div>";
+        GEvent.addListener(marker, "click", function() {
+          marker.openInfoWindowHtml(html);
+        });
+        gmarkers.push(marker);
+        return marker;
+      }
+
+      // == shows all markers of a particular category, and ensures the checkbox is checked ==
+      function show(category) {
+	  //alert ("show kaldes");
+        for (var i=0; i<gmarkers.length; i++) {
+          if (gmarkers[i].mycategory == category) {
+            gmarkers[i].show();
+          }
+        }
+        // == check the checkbox ==
+        document.getElementById(category+"box").checked = true;
+      }
+
+      // == hides all markers of a particular category, and ensures the checkbox is cleared ==
+      function hide(category) {
+	  //alert ("hide kaldes");
+        for (var i=0; i<gmarkers.length; i++) {
+          if (gmarkers[i].mycategory == category) {
+            gmarkers[i].hide();
+          }
+        }
+        // == clear the checkbox ==
+        document.getElementById(category+"box").checked = false;
+        // == close the info window, in case its open on a marker that we just hid
+        map.closeInfoWindow();
+      }
+
+      // == a checkbox has been clicked ==
+      function boxclick(box,category) {
+        if (box.checked) {
+          show(category);
+        } else {
+          hide(category);
+        }
+        // == rebuild the side bar - deactivated
+        //makeSidebar();
+      }
+
+      function myclick(i) {
+        GEvent.trigger(gmarkers[i],"click");
+      }
+
+
+      // == rebuilds the sidebar to match the markers currently displayed ==
+      function makeSidebar() {
+        var html = "";
+        for (var i=0; i<gmarkers.length; i++) {
+          if (!gmarkers[i].isHidden()) {
+            html += '<a class = "links_kat" href="javascript:myclick(' + i + ')">' + gmarkers[i].myname + '</a><br>';
+          }
+        }
+        document.getElementById("side_bar").innerHTML = html;
+      }
+
+
+      // create the map
+      var map = new GMap2(document.getElementById("map"));
+      map.setCenter(new GLatLng(56.1525,10.2094), 8);
+	  map.addControl(new GLargeMapControl());
+      map.addControl(new GMapTypeControl());
+	  map.addControl(new GOverviewMapControl()); 
+	  
+	  //alert ("vi holder en lille pause før vi henter xmlfilen... ");
+	  var xmlfileNameURL = getUrlVars();
+	  var xml_url = "xml_files/" + xmlfileNameURL['filnavn'];
+	  //alert ("xmlurl er " + xml_url);
+
+      // Read the data from xml-file
+	  
+      GDownloadUrl(xml_url, function(doc) {
+        var xmlDoc = GXml.parse(doc);
+        var markers = xmlDoc.documentElement.getElementsByTagName("marker");
+          
+        for (var i = 0; i < markers.length; i++) {
+          // obtain the attribues of each marker
+			var lat =  parseFloat(GXml.value(markers[i].getElementsByTagName("lat")[0]));
+			var lng =  parseFloat(GXml.value(markers[i].getElementsByTagName("lng")[0]));
+         	var point = new GLatLng(lat,lng);
+			var address = GXml.value(markers[i].getElementsByTagName("adresse")[0]);
+			var name = GXml.value(markers[i].getElementsByTagName("navn")[0]);
+			var aabningstider = GXml.value(markers[i].getElementsByTagName("aabningstider")[0]);
+			var maalgruppe = GXml.value(markers[i].getElementsByTagName("maalgruppe")[0]);
+			//alert ("markers l?ngde er:" + markers.length);
+			var description = GXml.value(markers[i].getElementsByTagName("beskrivelse")[0]);
+			var telefon = GXml.value(markers[i].getElementsByTagName("telefon")[0]);
+			if (telefon != '') {
+				telefon = "<p>Tlf: "+telefon+"</p>";
+			}
+			var webaddress = GXml.value(markers[i].getElementsByTagName("website")[0]);
+			var web = '';
+			if (webaddress != '') {
+				web = "<a href='"+webaddress+"' target='_blank'>G&aring; til hjemmeside.</a>";
+			}
+			var emailaddress_opdatering = GXml.value(markers[i].getElementsByTagName("emailopdatering")[0]);
+			var emailaddress_raadgivning = GXml.value(markers[i].getElementsByTagName("emailraadgivning")[0]);
+			if (emailaddress_opdatering != '') {
+				//emailaddress_opdatering = "<p>E-mail kontaktperson: <a href='mailto:"+emailaddress_opdatering+"'>"+emailaddress_opdatering+"</a></p>";
+			}
+			if (emailaddress_raadgivning != '') {
+				emailaddress_raadgivning = "<p>E-mail: <a href='mailto:"+emailaddress_raadgivning+"'>"+emailaddress_raadgivning+"</a></p>";
+			}
+			var dato = GXml.value(markers[i].getElementsByTagName("dato")[0]);
+          	var html = "<b>"+name+"</b><p>"+description+"</p><p>Hvem er det for?<br>"+maalgruppe+"</p><p>Hvorn\u00E5r er der \u00E5bent?<br>"+aabningstider+"</p><p>Kontakt:\u000A"+address+telefon+"</p><p>"+emailaddress_raadgivning+web+"<p class='dato'>Sidst redigeret: "+dato+"</p>";
+			var category = GXml.value(markers[i].getElementsByTagName("kategori")[0]);
+			// create the marker
+        	var marker = createMarker(point,name,html,category);
+        	map.addOverlay(marker);
+        }
+
+        // == show or hide the categories initially ==
+        hide("alkohol_stoffer");
+        hide("aaben_anonym");
+        hide("krop");
+		hide("sex");
+		hide("alt_lukket");
+		hide("doed_syg");
+		hide("ikke_rart");
+		hide("vaeresteder");
+        // == create the initial sidebar - deactivated==
+        //makeSidebar();
+      });
+    }
+
+    else {
+      alert("Sorry, the Google Maps API is not compatible with this browser");
+    }
+    // This Javascript is based on code provided by the
+    // Blackpool Community Church Javascript Team
+    // http://www.commchurch.freeserve.co.uk/   
+    // http://econym.googlepages.com/index.htm
+	
+
+
+      // Read a page's GET URL variables and return them as an associative array.
+
+      function getUrlVars()
+      {
+	    var vars = [], hash;
+    	var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+      	for(var i = 0; i < hashes.length; i++)
+      		{
+      			hash = hashes[i].split('=');
+      			vars.push(hash[0]);
+      			vars[hash[0]] = hash[1];
+      		}
+		return vars;
+
+	  }
+
+
+    //]]>
+    </script>
+
+  
+
+</body>
+
+</html>
+
+
+
+
+

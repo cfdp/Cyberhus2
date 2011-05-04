@@ -1,0 +1,54 @@
+/* $Id: faq.css,v 1.1.2.6.2.2 2007/11/05 11:50:08 snpower Exp $ */
+.faq_category_indent {
+  padding-left: 20px;
+}
+
+.faq_more_link {
+  font-size: 0.85em;
+  margin-left: 30em;
+  margin-top: 0;
+  margin-bottom: -1.25em;
+  text-align: right;
+}
+
+.faq_top_link {
+  font-size: 0.8em;
+  margin-top:0;
+  margin-bottom: 0;
+  padding-bottom: 1.0em;
+}
+
+.faq_question {
+  padding-top: 5px;
+  padding-left: 20px;
+}
+
+.faq_answer {
+  padding-left: 40px;
+}
+
+.faq_dl_hide_answer {
+  padding-bottom: 15px;
+}
+
+img.faq_tax_image {
+  float: left;
+  padding: 0px 3px 0px 3px;
+}
+
+.faq_created {
+	float: right;
+	clear: right;
+}
+
+.faq_title  {
+	width: 300px;
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+.faq_sex, .faq_age {
+	width: 50px;
+	float: left;
+	margin: 0 5px 0 0;
+}

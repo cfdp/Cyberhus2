@@ -1,0 +1,93 @@
+/* $Id: alternate.css,v 1.1.2.7 2010/11/11 09:28:47 marvil07 Exp $  */
+/* Alternate widget CSS files */
+
+.vud-widget-cyberlike {
+
+}
+
+.up-inactive,.up-active {
+	background:url('like_button_a.png') no-repeat scroll top right ;
+	color:#4d4d4d;
+	display:block;
+	float:right;
+	font:12px verdana;
+	line-height:24px;
+	height:26px;
+	padding-right:6px;
+	text-decoration:none;
+	margin-right:10px;
+
+}
+.up-inactive span,.up-active span{
+	background:transparent url('like_button_span.png') no-repeat scroll top left;
+	display:block;
+	height:26px;
+	padding-left:29px;
+}
+
+.up-inactive:hover span,.up-active:hover span {
+	background:transparent url('like_button_span.png') no-repeat scroll bottom left;
+	display:block;
+	height:26px;
+	padding-left:29px;
+}
+
+
+
+.up-active {
+    cursor: default;
+}
+.up-inactive:hover {
+    cursor: pointer;
+}
+
+.cyberlike-votes-display {
+    font-family: Verdana, serif;
+	float:right;
+    height: 26px;
+    font-size: 12px;
+    padding: 2px;
+	float:right;
+	color:#703f2e;
+	
+}
+.cyberlike-votes-text {
+    font-family: Verdana, serif;
+	float:right;
+    height: 26px;
+    font-size: 12px;
+	float:right;   
+}
+#forum-comments div.cyberlike-votes-display,#content-area div.cyberlike-votes-display {
+	padding-top:5px;
+}
+
+.ctools-ajaxing {
+  padding-right: 0 !important;
+  display: block;
+  width: 50px;
+  height: 22px;
+  background-position: center;
+  float: left;
+}
+
+.ctools-ajaxing div {
+  display: none;
+}
+
+/**
+ * Hide elements visually, but keep them available for screen-readers.
+ *
+ * Used for information required for screen-reader users to understand and use
+ * the site where visual display is undesirable. Information provided in this
+ * manner should be kept concise, to avoid unnecessary burden on the user. Must
+ * not be used for focusable elements (such as links and form elements) as this
+ * causes issues for keyboard only or voice recognition users. "!important" is
+ * used to prevent unintentional overrides.
+ */
+.element-invisible {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  width:100%;
+}

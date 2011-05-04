@@ -1,0 +1,287 @@
+# Danish translation of Calendar (all releases)
+# Copyright (c) 2010 by the Danish translation team
+# Generated from files:
+#  calendar/calendar_admin.inc: n/a
+#  calendar_ical.module,v 1.3.2.35 2007/10/26 02:43:23 karens
+#  calendar_admin.inc,v 1.3.2.31 2009/05/03 13:24:56 karens
+#  calendar_ical_admin.inc,v 1.1.2.7 2008/08/30 13:57:57 karens
+#  calendar_ical_admin.inc,v 1.1.2.2 2008/10/02 20:23:49 karens
+#  calendar.theme,v 1.1.2.31 2007/10/19 19:09:38 karens
+#  calendar.theme,v 1.37.2.62 2009/03/27 13:39:06 karens
+#  theme.inc,v 1.10.2.72 2009/07/02 14:42:08 karens
+#  calendar.module,v 1.20.2.114 2007/10/25 16:59:39 karens
+#  calendar.module,v 1.102.2.42 2009/05/06 11:23:14 karens
+#  jcalendar.module,v 1.1.2.12 2008/11/17 18:01:44 karens
+#  jcalendar.module,v 1.1.4.16 2009/07/28 21:38:07 karens
+#  calendar-month-multiple-node.tpl.php,v 1.1.2.5 2009/02/14 16:51:50 karens
+#  calendar-week-multiple-node.tpl.php,v 1.1.2.4 2008/11/20 12:29:14 karens
+#  calendar_plugin_display_page.inc,v 1.1.2.20 2009/07/24 19:44:09 karens
+#  calendar_view_plugin_style.inc,v 1.1.2.19 2009/02/17 18:09:35 karens
+#  calendar_plugin_display_ical.inc,v 1.1.2.5 2008/11/25 16:12:36 karens
+#  calendar-day.tpl.php,v 1.7.2.9 2009/07/28 21:50:50 karens
+#  calendar-week.tpl.php,v 1.5.2.6 2009/02/16 23:46:22 karens
+#  calendar.info,v 1.1.2.3 2007/06/18 23:06:32 dww
+#  calendar_ical.info,v 1.1.2.3 2007/06/18 23:06:32 dww
+#  calendar.module,v 1.121.2.38 2009/03/17 18:03:36 karens
+#  calendar.info,v 1.7 2008/01/27 12:33:19 karens
+#  calendar.info,v 1.8 2008/04/23 23:42:53 karens
+#  calendar.views.inc,v 1.1.2.9 2009/01/23 21:05:41 karens
+#  calendar_ical.module,v 1.25.2.26 2009/05/06 11:55:13 karens
+#  calendar_ical.module,v 1.1.2.6 2008/11/24 15:48:15 karens
+#  calendar_ical.info,v 1.4 2007/12/20 00:05:57 karens
+#  calendar_ical.info,v 1.1.2.1 2008/09/05 11:03:42 karens
+#  jcalendar.info,v 1.1.2.1 2008/06/23 14:53:59 karens
+#  jcalendar.info,v 1.1.4.2 2008/06/23 14:55:01 karens
+#  calendar_plugin_display_attachment.inc,v 1.1.2.17 2009/03/17 18:03:36 karens
+#  calendar_plugin_style_ical.inc,v 1.1.2.17 2009/04/28 22:47:29 karens
+#  calendar_plugin_style.inc,v 1.1.2.15 2009/05/11 23:52:15 karens
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Calendar (all releases)\n"
+"POT-Creation-Date: 2010-03-29 12:54+0000\n"
+"PO-Revision-Date: 2009-08-29 11:32+0000\n"
+"Language-Team: Danish\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: calendar_admin.inc:288,458,507; calendar_ical.module:157; calendar_ical_admin.inc:92; calendar_ical/calendar_ical_admin.inc:77
+msgid "Submit"
+msgstr "Indsend"
+
+#: calendar.theme:348,436; theme/theme.inc:674
+msgid "Item"
+msgstr "Element"
+
+#: calendar_admin.inc:244,402; calendar.module:1121,489
+msgid "List"
+msgstr "Vis"
+
+#: jcalendar/jcalendar.module:83,90; theme/calendar-month-multiple-node.tpl.php:25; theme/calendar-week-multiple-node.tpl.php:24
+msgid "more"
+msgstr "mere"
+
+#: calendar_admin.inc:368,375; includes/calendar_plugin_display_page.inc:116; includes/calendar_view_plugin_style.inc:65
+msgid "Yes"
+msgstr "Ja"
+
+#: calendar_admin.inc:368,375; includes/calendar_plugin_display_page.inc:116; includes/calendar_view_plugin_style.inc:65
+msgid "No"
+msgstr "Nej"
+
+#: calendar_admin.inc:402; calendar_ical/calendar_plugin_display_ical.inc:103; includes/calendar_view_plugin_style.inc:87
+msgid "None"
+msgstr "Ingen"
+
+#: calendar_ical.module:129; calendar_ical_admin.inc:55; calendar_ical/calendar_ical_admin.inc:47
+msgid "Name"
+msgstr "Navn"
+
+#: theme/calendar-day.tpl.php:41; theme/calendar-week.tpl.php:36
+msgid "Time"
+msgstr "Tid"
+
+#: calendar.info:0; calendar_ical.info:0
+msgid "Views"
+msgstr "Views"
+
+#: calendar_admin.inc:380; includes/calendar_view_plugin_style.inc:69
+msgid "Maximum items"
+msgstr "Maksimum elementer"
+
+#: calendar.theme:287,382,403; calendar.module:156
+msgid "Year"
+msgstr "År"
+
+#: calendar_ical.module:135; calendar_ical/calendar_ical_admin.inc:53
+msgid "Url"
+msgstr "URL"
+
+#: calendar_ical.module:124; calendar_ical_admin.inc:50; calendar_ical/calendar_ical_admin.inc:42
+msgid "Feed type"
+msgstr "Feed-type"
+
+#: calendar.theme:288,385,407; calendar.module:156
+msgid "Month"
+msgstr "Måned"
+
+#: calendar_admin.inc:382; includes/calendar_view_plugin_style.inc:71
+msgid "Unlimited"
+msgstr "Ubegrænset"
+
+#: calendar_admin.inc:17,244,321,372,384,18,402,578,629,641; calendar.module:1120,488,472; calendar.info:0,0,0; includes/calendar.views.inc:195
+msgid "Calendar"
+msgstr "Kalender"
+
+#: calendar.theme:388,411; calendar.module:156
+msgid "Week"
+msgstr "Uge"
+
+#: calendar.theme:294,391,415; calendar.module:156
+msgid "Day"
+msgstr "Dag"
+
+#: calendar_admin.inc:244,402; calendar.module:1124,492
+msgid "Table"
+msgstr "Tabel"
+
+#: calendar_admin.inc:355,362; includes/calendar_view_plugin_style.inc:58
+msgid "Full name"
+msgstr "Fulde navn"
+
+#: calendar.theme:349,437; theme/theme.inc:675
+msgid "Key"
+msgstr "Nøgle"
+
+#: calendar_admin.inc:244,402; calendar.module:1122,490
+msgid "Teasers"
+msgstr "Smagsprøver"
+
+#: calendar_ical.module:104; calendar_ical_admin.inc:28; calendar_ical/calendar_ical_admin.inc:22
+msgid "Expire iCal cache"
+msgstr "Nulstil iCal cache"
+
+#: calendar_ical.module:106; calendar_ical_admin.inc:30; calendar_ical/calendar_ical_admin.inc:24
+msgid ""
+"iCal feeds are cached to improve performance. Set an expiration time "
+"for cached feeds."
+msgstr ""
+"iCal feeds caches for at forbedre ydeevnen. Angiv en udløbstid for "
+"cachede feeds."
+
+#: calendar_ical.module:112; calendar_ical_admin.inc:36; calendar_ical/calendar_ical_admin.inc:30
+msgid "iCal Feeds"
+msgstr "iCal feed"
+
+#: calendar_ical.module:113; calendar_ical_admin.inc:37; calendar_ical/calendar_ical_admin.inc:31
+msgid ""
+"Use this section to set up iCal feeds that should be displayed in this "
+"calendar. They will be shown along with any internal items that match "
+"the calendar criteria."
+msgstr ""
+"Brug denne sektion til at indstille iCal feeds, der vises i "
+"kalenderen. De vises sammen med interne elementer, der matcher "
+"kalenderkriterierne."
+
+#: calendar_ical.module:132; calendar_ical_admin.inc:58; calendar_ical/calendar_ical_admin.inc:50
+msgid "The name of a feed to include in this calendar."
+msgstr "Navnet på et feed, der skal inkluderes i kalenderen."
+
+#: calendar_ical.module:139; calendar_ical/calendar_ical_admin.inc:57
+msgid ""
+"The external feed url or internal file path and name. Change "
+"'webcal://' to 'http://'."
+msgstr ""
+"Ekstern feed URL eller intern sti og navn. Udskift  'webcal://' med "
+"'http://'."
+
+#: calendar_ical.module:406,303; calendar_ical/calendar_ical.module:29
+msgid "Add to calendar"
+msgstr "Tilføj til kalender"
+
+#: calendar_ical.info:0,0; calendar_ical/calendar_ical.info:0
+msgid "Calendar iCal"
+msgstr "Calendar iCal"
+
+#: calendar.info:0,0; calendar_ical.info:0; jcalendar/jcalendar.info:0,0; calendar_ical/calendar_ical.info:0
+msgid "Date/Time"
+msgstr "Dato/tid"
+
+#: includes/calendar_plugin_display_attachment.inc:219; includes/calendar_plugin_display_page.inc:79
+msgid "Calendar settings"
+msgstr "Kalenderindstillinger"
+
+#: calendar_admin.inc:355,362; includes/calendar_view_plugin_style.inc:58
+msgid "First letter of name"
+msgstr "Første bogstav i navnet"
+
+#: calendar_admin.inc:355,362; includes/calendar_view_plugin_style.inc:58
+msgid "First two letters of name"
+msgstr "Første to bogstaver i navnet"
+
+#: calendar_admin.inc:355,362; includes/calendar_view_plugin_style.inc:58
+msgid "Abbreviated name"
+msgstr "Forkortet navn"
+
+#: calendar_admin.inc:366; includes/calendar_view_plugin_style.inc:62
+msgid "Show week numbers"
+msgstr "Vis ugenumre"
+
+#: calendar_admin.inc:382; includes/calendar_view_plugin_style.inc:71
+msgid "3 items"
+msgstr "3 elementer"
+
+#: calendar_admin.inc:382; includes/calendar_view_plugin_style.inc:71
+msgid "5 items"
+msgstr "5 elementer"
+
+#: calendar_admin.inc:382; includes/calendar_view_plugin_style.inc:71
+msgid "10 items"
+msgstr "10 elementer"
+
+#: calendar_admin.inc:384; includes/calendar_view_plugin_style.inc:73
+msgid ""
+"Maximum number of items to show in calendar cells, used to keep the "
+"calendar from expanding to a huge size when there are lots of items in "
+"one day. "
+msgstr ""
+"Det maksimale antal elementer som vises i kalenderceller, bruges til "
+"at forhindre at kalenderen bliver kæmpestor når der er mange "
+"elementer på en enkelt dag. "
+
+#: calendar_admin.inc:387; includes/calendar_view_plugin_style.inc:76
+msgid "Too many items"
+msgstr "For mange elementer"
+
+#: calendar_admin.inc:389; includes/calendar_view_plugin_style.inc:78
+msgid "Show maximum, add 'more' link"
+msgstr "Vis maksimum, tilføj 'mere' link"
+
+#: calendar_admin.inc:389; includes/calendar_view_plugin_style.inc:78
+msgid "Hide all, add link to day"
+msgstr "Skjul alle, tilføj link til dag"
+
+#: calendar_admin.inc:391; includes/calendar_view_plugin_style.inc:80
+msgid ""
+"Behavior when there are more than the above number of items in a "
+"single day. When there more items than this limit, a link to the day "
+"view will be displayed."
+msgstr ""
+"Opførsel når der er flere end det ovennævnte antal elementer på en "
+"enkelt dag. Når der er flere elementer end denne grænseværdi vises "
+"et link til dagsvisningen."
+
+#: calendar_ical_admin.inc:76; calendar_ical/calendar_ical_admin.inc:61
+msgid "Stripe color"
+msgstr "Stribefarve"
+
+#: calendar_ical_admin.inc:82; calendar_ical/calendar_ical_admin.inc:67
+msgid ""
+"The hex color value (like #ffffff) to use for this feed's calendar "
+"stripe."
+msgstr ""
+"Den hexadecimale farveværdi (f.eks. #ffffff) der bruges til feedets "
+"kalenderstribe."
+
+#: calendar.theme:636,675; theme/calendar-month-multiple-node.tpl.php:21; theme/calendar-week-multiple-node.tpl.php:20
+msgid "Click to see all @count events"
+msgstr "Klik for at se alle @count arrangementer"
+
+#: calendar_ical.info:0; calendar_ical/calendar_ical.info:0
+msgid "Adds ical functionality to Calendar views."
+msgstr "Tilføjer iCal-funktionalitet til kalenderoversigter."
+
+#: calendar_ical/calendar_plugin_style_ical.inc:134; includes/calendar_plugin_style.inc:106
+msgid ""
+"The date field '@field' used by the display '@display_title' cannot be "
+"set to 'Group multiple values'."
+msgstr ""
+"Datofeltet '@field' brugt af displayet '@display_title' kan ikke "
+"sættes til 'Gruppér flere værdier'."
+
+#: includes/calendar.views.inc:154; includes/calendar_plugin_display_attachment.inc:185,224
+msgid "Calendar period"
+msgstr "Kalender periode"
+

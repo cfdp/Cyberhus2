@@ -1,0 +1,13 @@
+; $Id: mimemail_css_combiner.info,v 1.1 2009/02/22 00:04:10 jerdavis Exp $
+name = Mime Mail CSS Combiner
+description = Converts CSS to inline styles in an html message. Requires PHP 5.x
+package = Mail
+dependencies[] = mimemail
+core = 6.x
+
+; Information added by drupal.org packaging script on 2009-02-22
+version = "6.x-1.x-dev"
+core = "6.x"
+project = "mimemail"
+datestamp = "1235304657"
+

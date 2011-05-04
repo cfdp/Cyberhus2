@@ -1,0 +1,6 @@
+name = openUsource helper module
+description = Provides helper functions and hook implementations for openUsource installations
+package = "openUsource"
+version = "6.x-1.0"
+dependencies[] = faq
+core = 6.x

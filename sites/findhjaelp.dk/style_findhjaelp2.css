@@ -1,0 +1,21 @@
+/* CSS Document			 */
+html, body {
+			width:100%; height:100%;
+			}
+		html {
+			overflow: hidden
+			}
+		body {
+			margin:0px 0px 0px 0px; padding:0px;
+			font-family: verdana, helvetica, arial, sans-serif;
+			font-size:8pt;
+			/* background-color matched to panel, to hide small gap below it */
+			/*background-color:#D6E7EF;*/
+			background-image:none;
+			}
+			.marker_popup {
+			width: 40em;
+			font-size:0.9em;
+			}
+			.dato {
+			font-style:italic;}

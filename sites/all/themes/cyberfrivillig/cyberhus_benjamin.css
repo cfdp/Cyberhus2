@@ -1,0 +1,528 @@
+/*
+Stylingen herunder kan flyttes til Lykkes stylesheet efterhånden
+*/
+
+/*brevkassesvar-hack - visning af Svar: over svaret på node-visning*/
+div.field-field-answer-label {
+	font-weight:bold;
+}
+
+
+/*visning af boganmeldelser og hjælp online - term-navne styles som h3*/
+div#panel_node_boganmeldelser .views-field-name .field-content, div#panel_node_hjaelp_online .views-field-name .field-content {
+	font-weight: bold;
+	font-size:1.3em;
+	line-height:1.3em;
+	margin-bottom:0.769em;
+	margin-top:0.5em;
+	float: left;
+	clear:right;
+}
+
+/*override af grid-stylingen nødv. ellers bliver det kasse i kasse i panel panes...*/
+div#panel_node_hjaelp_online table.views-view-grid td.col-1, div#panel_node_hjaelp_online table.views-view-grid td.col-2, div#panel_node_hjaelp_online table.views-view-grid td.col-3 {
+	background-color: transparent;
+	border: none;
+	padding:0px;
+	vertical-align:top;
+
+}
+
+div#panel_node_hjaelp_online .taxonomy_image_wrapper, 
+div#panel_node_boganmeldelser .taxonomy_image_wrapper {
+	float: left;
+}
+
+/*visning af boganmeldelser og online hjælp- felterne skal floate til venstre*/
+div#panel_node_hjaelp_online .views-field-changed, 
+div#panel_node_hjaelp_online .views-field-title, 
+div#panel_node_hjaelp_online .views-field-field-anmeldelse-billede-fid, 
+div#panel_node_boganmeldelser .views-field-changed, 
+div#panel_node_boganmeldelser .views-field-field-anmeldelse-billede-fid, 
+div#panel_node_boganmeldelser .views-field-title, 
+div#panel_node_boganmeldelser  .views-field-field-anmeldelse-karakter-rating {
+	float: left;
+	clear: left;
+	width: 95%;
+}
+
+/*visning af ndgoii-titlen - den skal lidt på skrump for at blive floate op ved siden af term-billedet i Firefox*/
+div#panel_node_boganmeldelser div#boeger_ngoii  .views-field-name .field-content, div#panel_node_hjaelp_online .views-field-name .field-content {
+	width: 213px;
+	margin-top:0.1em;
+}
+
+
+
+/**********************************TEMASIDER**********************************************/
+/*OVERSIGT*/
+table.temaside_oversigt td.tema {
+	background-color:#F4EEE3;
+	border:1px solid #E1D5B9;
+	border-spacing: 10px;
+	padding:10px;
+	vertical-align:top;
+	width: 115px;
+	text-align:center;
+}
+
+/*DE ENKELTE TEMASIDER*/
+div.views-field-field-textsnippet2-value {
+	width: 100%;
+}
+div.views-field-field-textsnippet2-value span.field-content p {
+	float:left;	
+	width: 200px;
+}
+/*vi viser dette felt via views så fjern det fra noden*/
+div.field-field-textsnippet2 {
+	display:none;
+}
+/*læs mere-linket skal ned i bunden af panel panes - men hvordan?? - udkommenteret indtil videre
+div.panel-2col-bricks .panel-col-first .panel-pane .view-footer {
+	position: relative;
+	
+}
+div.panel-2col-bricks .panel-col-first .panel-pane .view-footer .laes_mere {
+	position: absolute;
+	height:100%;
+	bottom: 0;
+
+}
+*/
+
+/**********************************TEMASIDER - SLUT*******************************************/
+
+
+
+/**********************************VIEWS - UDTRÆK - OVERORDNET***************************************/
+
+/*visning af datoer*/
+span.views-field-created .field-content, span.views-field-timestamp .field-content, div.views-field-created .field-content, div.views-field-timestamp .field-content, div.views-field-changed .field-content {
+	font-size: 10px;
+	color: #666666;
+}
+
+
+/**********************************VIEWS - UDTRÆK - OVERORDNET - SLUT********************************/
+/*styling af forum-svar efter opdatering af advanced forum*/
+
+div#forum-comments div.comment {
+	background-color:#FBF9F4;
+	border:1px solid #EBE2CF;
+	margin-bottom:25px;
+	padding:10px;	
+} 
+
+/*links i venstre sidebjælke*/
+div#sidebar-left a, div.panel-flexible div.panel-col-1 a {
+	color:#B56811;
+	text-decoration:none !important;
+}
+
+div#sidebar-left a:visited, div.panel-flexible div.panel-col-1 a:visited {
+	color:#B56811;
+	text-decoration:none !important;
+}
+
+
+/*om cyberhus-siderne*/
+div.om_cyberhus table.for_boern {
+
+}
+
+div.om_cyberhus table.for_voksne {
+
+}
+
+/**********************************FCKTEMPLATES************************************************/
+div.template1_wrapper {
+	
+}
+div.fcktemplate_standard_wrapper td {
+	padding:5px;
+	padding-left:0px;
+}
+
+div.fcktemplate_standard_wrapper div.media_beskrivelse {
+	font-size:10px;
+	color:#444444;
+}
+/*standard farve til voksensider*/
+div.fcktemplate_standard_wrapper div.title h3{
+	background-color: #dcd9d9;
+	color: #ffffff;
+	padding: 2px;
+}
+
+div.fcktemplate_kedelig_wrapper div.title h3{
+	background-color: #dcd9d9;
+	color: #333333;
+	padding: 2px;
+}
+body.section-lovstue div.fcktemplate_standard_wrapper div.title h3{
+	background-color: #a46b3c;
+}
+body.section-lystrum div.fcktemplate_standard_wrapper div.title h3{
+	background-color: #d95ebe;
+
+}
+body.section-badevaerelse div.fcktemplate_standard_wrapper div.title h3{
+	background-color: #31a6c7;
+
+}
+body.section-gaestevaerelse div.fcktemplate_standard_wrapper div.title h3{
+	background-color: #d9ca9d;
+}
+body.section-bibliotek div.fcktemplate_standard_wrapper div.title h3{
+	background-color: #cf7f00;
+}
+body.section-koekken div.fcktemplate_standard_wrapper div.title h3{
+	background-color: #c6dd2c;
+}
+
+body.section-stue div.fcktemplate_standard_wrapper div.title h3{
+	background-color: #d13737;
+}
+body.section-it-vaerksted div.fcktemplate_standard_wrapper div.title h3{
+	background-color: #336633;
+}
+body.section-filmvaerksted div.fcktemplate_standard_wrapper div.title h3{
+	background-color: #580000;
+}
+body.section-kunstvaerksted div.fcktemplate_standard_wrapper div.title h3{
+	background-color: #97b383;
+}
+body.section-kunstvaerksted div.fcktemplate_kedelig_wrapper div.title h3{
+	background-color: #97b383;
+}
+body.section-aktiv-fritid div.fcktemplate_standard_wrapper div.title h3{
+	background-color: #73ca5e;
+}
+body.section-musikvaerksted div.fcktemplate_standard_wrapper div.title h3{
+	background-color: #82bce7;
+}
+
+body.section-musikvaerksted div.fcktemplate_kedelig_wrapper div.title h3{
+	background-color: #82bce7;
+}
+
+
+/*forside*/
+body.node-type-cyberflash div#flash_forside{
+background-image:url(http://server.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/forside_foraar_dag.jpg);
+}
+
+/*imce file browser: overfør-knappen gøres fri af hjælp-knappen*/
+body.section-user #ops-wrapper {
+	margin-top: 30px;
+}
+
+/*styling af flickr-albums*/
+body.node-type-fotoalbum-flickr div#content-inner img.flickr-photo-img {
+	padding: 5px;
+}
+
+/*styling af læs mere link*/
+div.laes_mere {
+	display:block;
+	clear:left;
+}
+
+div.laes_mere a {
+	display:block;
+	clear:left;
+	font-weight: bold;
+}
+
+a.laes_mere {
+	font-weight: bold;
+}
+/*styling af panel nodes med kun en kolonne (f.eks. filmværkstedets filmoversigt)  div.panel-1col div.panel-panel div.panel-pane*/
+div#panel_filmv_oversigt div.panel-pane {
+
+}
+
+div#panel_filmv_oversigt table.views-view-grid td.col-1, div#panel_filmv_oversigt table.views-view-grid td.col-2, div#panel_filmv_oversigt table.views-view-grid td.col-3 {
+	background-color:#F4EEE3;
+	border:1px solid #E1D5B9;
+	padding:10px;
+	vertical-align:top;
+	width:183px;
+}
+
+/*styling af udtræks-undersider i rummene - se alle <indholdstype> i kategorien <kategori>*/
+body.node-type-views-embedding-page div.panel-col-2 div.views-row-odd, body.node-type-views-embedding-page div.panel-col-2 div.views-row-even {
+	background-color:#F8F4ED;
+	border:1px solid #EBE2CF;
+	margin-bottom:10px;
+	padding:5px;
+	width:97%;
+	float:left;
+}
+
+body.node-type-views-embedding-page div.panel-col-2 td {
+	background-color:#F8F4ED;
+	border:1px solid #EBE2CF;
+	margin:2px;
+	margin-bottom:10px;
+	padding:5px;
+	vertical-align:top;
+}
+
+body.node-type-views-embedding-page div.views-field-field-anmeldelse-billede-fid, body.node-type-views-embedding-page div.views-field-field-billede-fid  {
+	float:left;
+	clear:left;
+	padding-right:5px;
+}
+
+body.node-type-views-embedding-page div.panel-col-2 div.views-field-title {
+	font-weight:bold;	
+}
+body.node-type-views-embedding-page h2 {
+	display:none;
+}
+body.node-type-views-embedding-page h1 {
+	background-color:transparent;
+	background-image:none;
+	border:medium none;
+	color:#9D630B;
+	font-size:22px;
+	font-weight:lighter;
+	height:inherit;
+	margin:0;
+	min-width:50px;
+	padding-bottom:0;
+	padding-right:0;
+}
+
+/*styling af afstemningsboks i rumpaneler*/
+div#afstemning-blok div.node div.content {
+	background-color:#ffd07e;
+}
+div#afstemning-blok div.panel-pane div.content div.node div.meta {
+	border-bottom:none;
+	border-left:none;
+	border-right:none;
+}
+div#sidebar-left #afstemning-blok h2 a, div.panel-flexible div.panel-col-1 #afstemning-blok h2 a {
+	line-height:1.0em;
+}
+/*udtræksside-indholdstypen - submitted skal væk*/
+body.node-type-views-embedding-page span.submitted{
+	display:none;
+}
+
+
+/*body.section-cyberskole div#content-inner {
+	background-color:#FFFFFF;
+	border-bottom:1px solid #77ACD3;
+	border-left:1px solid #77ACD3;
+	border-right:1px solid #77ACD3;
+	margin:0;
+	padding:15px;
+	width:620px;
+}
+*/
+
+/*styling af cyberhus siders baggrunde*/
+body.section-blogs div#content-inner, body.section-newsletter div#content-inner, body.section-lystvaerelse div#content-inner, body.section-kontaktos div#content-inner, body.section-afstemninger div#content-inner, body.section-hvem_er_vi div#content-inner {
+	background-color:#FFFFFF;
+	border-bottom:1px solid #77ACD3;
+	border-left:1px solid #77ACD3;
+	border-right:1px solid #77ACD3;
+	margin:0;
+	padding:15px;
+	width:620px;
+}
+
+
+/*brugersider inkl. imce file browser - skal være 800 i bredden ellers bliver imce noget klemt...*/
+body.section-user div#content-inner, body.section-users div#content-inner {
+	background-color:#FFFFFF;
+	border-bottom:1px solid #77ACD3;
+	border-left:1px solid #77ACD3;
+	border-right:1px solid #77ACD3;
+	margin:0;
+	padding:15px;
+	width:800px;
+}
+
+/*profilsiderne - den blå blok i toppen skal være samme bredde som content*/
+body.section-user div#content div.kol_top_center, body.section-users div#content div.kol_top_center {
+	width:830px;
+}
+
+body.section-user div#content #browse-wrapper {
+	clear:left;
+}
+
+body.section-user div#help-box-title {
+	margin-bottom:10px;
+	padding-bottom:10px;
+}
+/*profilsiderne - den blå blok i toppen skal være samme bredde som content*/
+body.section-user .guestbook div.comment .guestbook-entry, .guestbook .comment {
+	background-color:#F4EEE3;
+	border:1px solid #E1D5B9;
+	padding:10px;
+	vertical-align:top;
+	margin-bottom: 10px;
+}
+
+/*specialindstilling for billederne i rummene*/
+body.node-type-cyberflash div.node-inner {
+	border-bottom:0px;
+	border-left:0px;
+	border-right:0px;
+	padding:0px;
+	width:650px;
+	margin:0;
+}
+/*etagenavigationen med flash (visuel navigation)*/
+body.page-node-647 div#content-inner {
+	background-color:#FFFFFF;
+	padding:0px;
+	width:650px;
+	margin:0;	
+}
+/*etagenavigationen med flash (visuel navigation)*/
+body.page-node-647 div#flashcontent {
+	border-bottom:0px;
+	border-left:0px;
+	border-right:0px;
+	padding:0px;
+	margin:0;	
+}
+/*grundlæggende styling af elementer i diverse views-lister*/
+body.section-stue .node-type-page .view-temasorteret-udtraek div.views-row-even, body.section-stue .node-type-page .view-temasorteret-udtraek div.views-row-odd{
+	padding: 10px;
+	margin-bottom: 15px;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #CCCCCC;
+	min-height: 100px;
+	clear: both;
+}
+
+
+/*sekundærmenuplacering - snuppet fra lykkes testtema*/
+div#block-menu-secondary-links div.block-inner ul.menu {
+	display:block;
+	height:25px;
+	left:430px;
+	list-style-type:none;
+	margin:0 0 -25px;
+	padding:0 5px 0 0;
+	position:relative;
+	top:-120px;
+	width:550px;
+	z-index:100;
+}
+/*PLACERING AF SKOLESKILT - indhold ikke implementeret pt
+div#SkolelightContent{
+	width:153px;
+	height:40px;
+	position: absolute;
+	top: 20px;
+	left: 490px;
+	margin:0;
+	padding:0;
+	border:1px #FF0000 solid;
+}
+*/
+/****Basic LINK style*****/
+a{
+	text-decoration: none;
+	color:#823f0a;
+	}
+a:visited{
+	color:#823f0a;
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: none;
+	color:#a36b0d;
+}
+a:active{}
+
+/****CYBERHUS-TEMA IKONERNES PLACERING*****/
+.taxonomy_image_wrapper {
+	display:inline;
+}
+/****debatforum*****/
+div.forum-post-wrapper .author-pane .author-name {
+	font-size:12px;
+}
+/****brevkasser - bl.a. ie fix: hver brevkasse + redaktører skal vises i nyt afsnit*****/
+body.section-faq div#content-inner .clear-block {
+	clear:both;
+}
+.faq_qa div.faq_answer div.taxonomy_image_wrapper{
+	display:none;
+}
+/*
+.faq_qa div.faq_answer  {
+	background-color:#ffe7e7;
+}
+*/
+body.section-faq div#content-inner div.item-list a {
+	text-decoration: none;
+	color:#823f0a;
+	font-weight:bold;
+}
+
+div.faq div.item-list ul li {
+	margin-bottom:10px;
+	padding-left:15px;
+	padding-right:15px;
+	padding-bottom:15px;
+	border-bottom-width: 1px;
+	border-bottom-style: dashed;
+	border-bottom-color: #CCCCCC;
+}
+/*.faq_qa div.faq_answer {
+	background-color:#f4eac7;
+	padding-left:5px;
+}
+*/
+/*man kan ikke slå kommentaerer fra i modulet, så here goes again*/
+.faq_qa div.faq_answer ul.links li.comment_add {
+	display:none;
+}
+body.node-type-faq ul.links li.comment_add {
+	display:none;
+}
+/*oversigtssiderne - bredde af teasers...*/
+div.faq_question div.faq_dt_hide_answer div.clear-block {
+	width: 97%;
+}
+/*skal være alm. skriftsstørrelse indtil vi får brevkasse med flere cck-felter*/
+body.node-type-faq div#content-inner h1{
+	font-size:12px;
+	font-weight: normal;
+}
+
+/**************************LEFT BLOCK TITLES************************/
+
+
+/*BREVKASSEN*/
+div#sidebar-left div#block-views-rum_udtraek-block_1 h2{
+	background-image: url(images/overskrift_spsm.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+/**************************panel page - fortæl din historie************************/
+/*der skal ligge 4x2 panels på række på oversigtssiden med kategorier*/
+div#fortael_historie div.panel-pane {
+
+
+}
+div#fortael_historie div.panel-pane div.views-field-name {
+	display:none;	
+}
+/**************************TAXONOMI************************/
+/*vi gemmer termerne indtil vi får dem fjernet fra template node.tpl.php*/
+.terms {
+	display:none;
+}

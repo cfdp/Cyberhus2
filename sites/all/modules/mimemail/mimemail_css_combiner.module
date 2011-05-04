@@ -1,0 +1,78 @@
+<?php
+error_reporting(0);
+
+class mimemail_css_combiner {
+  private $html = '';
+  private $css  = '';
+
+  public function mimemail_css_combiner($html = '', $css = '') {
+    $this->html = $html;
+    $this->css  = $css;
+  }
+
+  public function combine() {
+    $doc = new DOMDocument('1.0', 'utf8');
+    $doc->strictErrorChecking = false;
+    $doc->formatOutput = true;
+    $doc->loadHTML($this->html);
+    $doc->normalizeDocument();
+    $xpath = new DOMXPath($doc);
+    $css = preg_replace('/\/\*.*\*\//sU', '', $this->css);
+    preg_match_all('/^\s*([^{]+){([^}]+)}/mis', $css, $matches);
+
+    foreach ($matches[1] as $key => $selector_string) {
+      if (!strlen(trim($matches[2][$key]))) continue;
+      $selectors = explode(',',$selector_string);
+      foreach ($selectors as $selector) {
+        if (strpos($selector,':') !== false) continue;
+        $nodes = $xpath->query($this->css_to_xpath(trim($selector)));
+        foreach($nodes as $node) {
+          if ($node->hasAttribute('style')) {
+            $style = $node->getAttribute('style');
+            $old_style = $this->css_style_to_array($node->getAttribute('style'));
+            $new_style = $this->css_style_to_array($matches[2][$key]);
+            $combined = array_merge($old_style,$new_style);
+            $style = '';
+            foreach ($combined as $k => $v) $style .= ($k . ':' . $v . ';');
+          }
+          else {
+            $style = trim($matches[2][$key]);
+          }
+          $node->setAttribute('style',$style);
+        }
+      }
+    }
+    $nodes = $xpath->query('//*[contains(translate(@style," ",""),"display:none;")]');
+    foreach ($nodes as $node) $node->parentNode->removeChild($node);
+    return $doc->saveHTML();
+  }
+
+  private function css_to_xpath($selector) {
+    $search = array(
+      '/\s+>\s+/',
+      '/(\w+)\s+\+\s+(\w+)/',
+      '/\s+/',
+      '/(\w+)?\#([\w\-]+)/e',
+      '/(\w+)?\.([\w\-]+)/e',
+    );
+    $replace = array(
+      '/',
+      '\\1/following-sibling::*[1]/self::\\2',
+      '//',
+      "(strlen('\\1') ? '\\1' : '*').'[@id=\"\\2\"]'",
+      "(strlen('\\1') ? '\\1' : '*').'[contains(concat(\" \",@class,\" \"),concat(\" \",\"\\2\",\" \"))]'",
+    );
+    return '//'.preg_replace($search, $replace, trim($selector));
+  }
+
+  private function css_style_to_array($style) {
+    $definitions = explode(';',$style);
+    $css_styles = array();
+    foreach ($definitions as $def) {
+      list($key,$value) = explode(':',$def);
+      if (empty($key) || empty($value)) continue;
+      $css_styles[trim($key)] = trim($value);
+    }
+    return $css_styles;
+  }
+}

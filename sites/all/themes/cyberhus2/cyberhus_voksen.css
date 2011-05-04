@@ -1,0 +1,470 @@
+/*secondary links menu at the top left of the page*/
+/********************************************************************** Ekstra top menu ******************************************************************/
+
+
+
+div#block-menu-menu-menu-adults-secondary-links div.block-inner ul {
+	list-style-type:none;
+}
+	
+
+div#block-menu-menu-menu-adults-secondary-links div.block-inner ul.menu {
+	display: block;
+	position:relative;
+	margin:0;
+	margin-bottom: -25px;
+	list-style-type:none;
+	padding-top: 0;
+	padding-right: 5px;
+	padding-bottom: 0;
+	padding-left: 0;
+	top: -120px;
+	left: 430px;
+	z-index: 100;
+	width:550px;
+	height:25px;
+}
+
+div#block-menu-menu-menu-adults-secondary-links div.block-inner ul.menu li.leaf {
+	float: right;
+	list-style-type:none;
+	list-style-image:none;
+	list-style:none;
+}
+
+div#block-menu-menu-menu-adults-secondary-links div.block-inner ul.menu li.leaf a, 
+div#block-menu-menu-menu-adults-secondary-links div.block-inner ul.menu li.leaf a:visited  
+{
+	display: block;
+	height: 20px;
+	min-width: 50px;
+	padding-right: 10px;
+	list-style-type:none;
+	color: #000000;
+	text-decoration: none;
+	padding-top: 5px;
+}
+
+div#block-menu-menu-menu-adults-secondary-links div.block-inner ul.menu li.leaf a:hover {
+	color: #FFF;
+	text-decoration: none;
+}
+
+div#block-menu-menu-menu-adults-secondary-links div.block-inner ul.menu li.leaf a.active {
+	color: #FFF;
+	text-decoration: none;
+}
+/*end of secondary links menu*/
+
+body.section-voksne div#page div#main{
+	margin-top:0px;
+}
+body#body.front.section-voksne, body#body.not-front.section-voksne {
+	background-color:#d7d4d4;
+	background-image:url("images/voksne/bg_stripes_voksen.png");
+}
+
+body.section-voksne #repeatbanner {
+	background-image:url("images/voksne/top_bg_tile_voksen.png");
+}
+
+body.section-voksne #repeatnavbar {
+	background-image:url("images/voksne/navbar_voksen.gif");
+}
+body.section-voksne #page #main #navbar #primary{
+	margin-left: 325px;
+}
+
+body.section-voksne div.panels-flexible-region-inside-first, body.section-voksne #sidebar-left-inner {
+	background-image:url("images/rightbar.png");
+}
+
+body.section-voksne div.panels-flexible-region-first, body.section-voksne div#sidebar-left {
+	background-color:#E7E7E7;
+	background-image:url("images/koltop_right.png");
+	border:1px solid #aaaaaa;
+}
+
+/*terms - tags*/
+body.section-voksne div.termsbeskrivelse .terms ul.links li a span {
+	color:#A36B0D;
+	font-size: 10px;
+}
+
+body.section-voksne div.termsbeskrivelse !important {
+	display: none;
+}
+
+/*new image title for the blog*/
+body.section-voksne div#vejleder-blok h2 {
+	background-image:url("images/voksne/cyberblog_voksne_panel.png");
+	background-position:left center;
+	background-repeat:no-repeat;
+	display:block;
+	font-size:12px;
+	height:25px;
+	padding-top:2px;
+}
+body.section-voksne  div#voksne-cyberskole div#vejleder-blok h2 {
+	background-image:url("images/voksne/overskrift_voksne_cyberskoleblog.png");
+	}
+body.section-voksne  div#voksne-english div#vejleder-blok h2 {
+	background-image:url("images/voksne/overskrift_english_blog.png");
+	}
+/*styling for blogpost listing in left sidebar*/
+body.section-voksne .panels-flexible-region-first .views-row {
+	margin-bottom: 10px;
+}
+
+/*styling for the blogs latest posts views listing in main content*/
+body.section-voksne .vaerelse-center .views-row {
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #AAAAAA;
+	clear: right;
+	float: left;
+}
+
+/*styling for the blogs latest posts views listing in main content*/
+body.section-voksne .vaerelse-center .views-field-title {
+	font-weight: bold;
+}
+
+body.section-voksne .vaerelse-center .authorname {
+	color:#666666;
+	font-size:10px;
+	margin-bottom: 10px;
+}
+body.section-voksne div.panels-flexible-region-last, body.section-voksne #sidebar-right {
+	border:1px solid #aaaaaa;
+}
+
+body.section-voksne div#header-inner {
+	height:121px;
+}
+/*the voksen banner is a bit wider...*/
+body.section-voksne div#header-inner a.homelink {
+	background-image:url("images/voksne/topbanner_voksen.png");
+	width: 1050px;
+}
+/*the right part of the banner should link to the main page*/
+body.section-voksne div#page div#header-inner-backlink {
+	left:850px;
+	position:relative;
+	top:-121px;
+	width: 250px;
+	
+}
+
+body.section-voksne #page {
+	overflow-y:visible;
+}
+
+/* voksen menu */
+
+
+/*we want fancy headers for our adult section - picture background etc*/
+div.title-image.voksen-header {
+	height: 180px;
+	/*margin-top: 10px;*/
+}
+
+body.section-voksne .panels-flexible-region-118-row_2_3-inside p {
+	margin:0px;
+}
+
+/* voksne bottom menu */
+body.section-voksne .pane-block-22 .pane-content {
+	margin: 15px;
+	border-top: 1px solid #666666;
+}
+
+body.section-voksne .pane-block-22 .pane-content strong {
+	color: #666666;
+}
+
+body.section-voksne .pane-block-22 .pane-content ul {
+	padding-left: 0px;
+}
+
+body.section-voksne .pane-block-22 .pane-content li {
+	list-style: none;
+}
+
+/*** Right sidebar ***/
+body.section-voksne div.panels-flexible-region-inside-last div.pane-views-voksensiderne-block-1 h2.pane-title {
+	background-image: url(images/se_ogsaa_voksne_panel.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+
+body.section-voksne div.panels-flexible-region-inside-last div.pane-views-voksensiderne-block-2 h2.pane-title {
+	background-image: url(images/bornene_voksne_panel.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+}
+body.section-voksne div.panels-flexible-region-inside-last div.pane-search-0 h2.pane-title {
+	background-image: url(images/soeg_voksne_panel.png);
+}
+
+body.section-voksne div.vaerelse-center h2.pane-title{
+	background-color:#000000;
+	opacity:0.8;
+	padding:5px;
+	color:#34a1cf;
+	/*position:absolute;*/
+	top:95px;
+	width: 609px;
+}
+body.section-voksne div.vaerelse-center div.title-image.voksen-header h2{
+	background-color:#000000;
+	opacity:0.8;
+	padding:5px;
+	color:#34a1cf;
+	position:absolute;
+	top:243px;
+	width: 609px;
+}
+body.section-voksne div.vaerelse-center div.pane-content div.voksne_blogs_overskrift h2{
+	background-color:#000000;
+	opacity:0.8;
+	padding:5px;
+	color:#34a1cf;
+	position:absolute;
+	top:95px;
+	width: 609px;
+}
+body.section-voksne div.vaerelse-center div.pane-content div.content div.view-blogs{
+	margin-top:50px;
+}
+/*name of users*/
+body.section-voksne div.vaerelse-center .views-field-name .field-content {
+	color:#666666;
+	font-size:10px;
+}
+
+body.section-voksne div.vaerelse-center div.pane-content div.voksne_blogs_overskrift span div{
+	padding-top:25px;
+}
+
+	
+/*div.title-image.voksen-header{
+	border-left:1px solid #3d3a3a;
+	border-top:1px solid #3d3a3a;
+}*/
+
+body.section-voksne table.voksen-header h1{
+	background-color:#000000;
+	color:#FFFFFF;
+	opacity:0.5;
+	padding:10px 10px 10px 40px;
+}
+/*We dont want feed icon on the subscriptionform node/8414*/
+body.section-voksne #page #main div.panels-flexible-region.vaerelse-center #node-8414 table.fcktemplate_smaabilleder a.feed-icon{
+	display:none;
+}
+
+
+body.section-voksne div.vaerelse-center .panel-separator{
+	margin-top:21px;
+}
+
+/*The "follow us" icons need a bit of adjusting"*/
+
+body.section-voksne div#fanlinks{
+	margin-top:-16px;
+}
+body.section-voksne div#fanlinks #fanlinks-images{
+	margin-top:3px;
+}
+
+/* The "changed" div is placed higher if the page doesn't have a picture */
+body.section-voksne.page-without-picture div#content div.vaerelse-center div.pane-content div.changed{
+	margin-top:-69px;
+}
+
+body.section-voksne div#content div.vaerelse-center div.pane-content div.changed{
+	float:right;
+	margin-right:5px;
+	margin-top:-36px;
+	position:relative;
+	color:#8f8f8f;
+	text-align:right;
+	width:615px;	
+}
+
+/*Lets see those pretty tabs appear!!*/
+ body.section-voksne div#voksen_tab
+  {
+    margin: 0 0 5px 0;
+	margin-left:5px;
+  }
+
+ body.section-voksne ul.menu_items
+  {
+    margin: 0;
+    padding: 0 0 0 10px;
+    border-width: 0;
+    list-style: none;
+    white-space: nowrap;
+    line-height: normal;
+    background: url(images/tab-bar.png) repeat-x left bottom;
+  }
+
+ body.section-voksne ul.menu_items li
+  {
+    float: left;
+    margin: 0;
+    padding: 0;
+  }
+
+ body.section-voksne ul.menu_items li a
+  {
+    display: block;
+    height: 24px;
+    margin: 0;
+    /*padding: 0 0 0 5px; */ /* width of tab-left.png */
+    border-width: 0;
+    font-weight: bold;
+    text-decoration: none;
+    color: #005577;
+    background-color: #333333;
+	background-color: transparent
+	background-image: none;
+    background: url(images/voksne/voksne_tab-left.png) no-repeat left -38px;
+  }
+
+ body.section-voksne ul.menu_items li a span
+  {
+    display: block;
+    height: 20px; /* 24px (parent) - 4px (padding) */
+    margin-top: 1px;
+    padding: 4px 13px 0 6px;
+    border-width: 0;
+    line-height: 20px;
+	background-image: none;
+    background: url(images/voksne/voksne_tab-right.png) no-repeat right -38px;
+	font-size:10px;
+  }
+
+ body.section-voksne ul.menu_items li a:hover
+  {
+    border-width: 0;
+    background-color: #ffffff;
+	background-color: transparent;
+    background-image: none;
+	background: url(images/voksne/voksne_tab-left.png) no-repeat left -76px;
+  }
+
+ body.section-voksne ul.menu_items li a:hover span
+  {
+    background-image: none;
+	background: url(images/voksne/voksne_tab-right.png) no-repeat right -76px;
+  }
+
+ body.section-voksne ul.menu_items li.active a,
+ body.section-voksne ul.menu_items li.active a:hover
+  {
+    border-width: 0;
+    color: #000;
+    background-color: transparent;
+	background-color: transparent;
+    background-image: none;
+	background: url(images/voksne/voksne_tab-left.png) no-repeat left 0;
+	
+  }
+
+ body.section-voksne ul.menu_items li.active a span,
+ body.section-voksne ul.menu_items li.active a:hover span
+  {
+  	background-image: none;
+    background: url(images/voksne/voksne_tab-right.png) no-repeat right 0;
+	color:#34a1cf;
+  }
+  
+/*tabs for user presentation*/
+body.section-voksne ul.quicktabs_tabs li {
+
+	border:1px solid #999999;
+
+}
+
+ body.section-voksne div#content div.vaerelse-center div.pane-content{
+ 	margin-top:21px;
+ }
+ 
+/* body.section-voksne.page-without-picture div#content div.vaerelse-center div.pane-content{
+ 	margin-top:37px;
+ }*/
+ /*Hover effects for link-boxes on adult pages*/
+/*body.section-voksne div.vaerelse-center table{
+	border:2px solid #FFFBF5;
+}
+body.section-voksne div.vaerelse-center table.tablelink{
+	border:2px solid #77acd3;
+}*/
+body.section-voksne.page-without-picture div#content div.vaerelse-center div.pane-content div.node{
+	margin-top:55px;
+}
+
+body.section-voksne div.pane-views-voksensiderne-block-1 p {
+	padding-bottom: 20px;
+}
+
+body.section-voksne div.pane-node-content table.voksne-boks-tabel {
+	/*margin: -12px;*/
+	background-color: #e7e7e7;
+}
+
+body.section-voksne div.pane-node-content table.voksne-boks-tabel td {
+	padding: 10px;
+	width: 50%;
+}
+
+body.section-voksne div.pane-node-content a.voksne-boks-link,
+body.section-voksne div.pane-views-voksensiderne-block-1 a.voksne-boks-link {
+	display: block;
+	border: 2px solid transparent;
+}
+
+body.section-voksne div.pane-node-content a.voksne-boks-link:hover,
+body.section-voksne div.pane-views-voksensiderne-block-1 a.voksne-boks-link:hover {
+	border: 2px solid #77ACD3;
+}
+
+body.section-voksne div.pane-node-content a.voksne-boks-link strong,
+body.section-voksne div.pane-views-voksensiderne-block-1 a.voksne-boks-link strong {
+	color: #ffffff;
+}
+
+body.section-voksne div.pane-node-content a.voksne-boks-link .voksne-boks-ramme {
+	display: inline-block;
+	background-color: #999999;
+	width: 100%;
+}
+
+body.section-voksne div.pane-node-content a.voksne-boks-link .voksne-boks-tekst,
+body.section-voksne div.pane-views-voksensiderne-block-1 a.voksne-boks-link span {
+	display: block;
+	background-color: #999999;
+	color: #ffffff;
+	padding: 5px;
+}
+
+body.section-voksne div.pane-node-content a.voksne-boks-link .voksne-boks-ramme .voksne-boks-tekst {
+	padding-top: 20px;
+}
+
+body.section-voksne div.pane-node-content a.voksne-boks-link img.voksne-boks-billede,
+body.section-voksne div.pane-views-voksensiderne-block-1 a.voksne-boks-link img {
+	width: 100%;
+	margin-bottom: -2px;
+}
+
+body.section-voksne div.pane-node-content a.voksne-boks-link img.voksne-boks2-billede {
+	/*vertical-align: middle;*/
+	float: left;
+	margin-right: 5px;
+}
+
+/*voksen-sektionen finish */

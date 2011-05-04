@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Tilf&oslash;j nyt r&aring;dgivningssted</title>
+
+<script src="findhjaelp.js" language="JavaScript" type="text/javascript"></script>
+<script src="http://maps.google.com/maps?file=api&v=2&key=ABQIAAAAbma0EtBcKlwKZK-W54o2ixRDo8J9-qNMHSYdk0qFyHPGqQcYjBT8IAILDK3y3nDs6h0C2nNN-XkezQ" type="text/javascript"></script>
+
+<link href="http://ny.cyberhus.dk/files/styles/style_findhjaelp.css" rel="stylesheet" type="text/css" media="screen"><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><style type="text/css">
+<!--
+body {
+	background-color: #FFFFFF;
+}
+-->
+</style></head>
+<body>
+<div id="container_frame">
+  <p><strong>Send en email til  alle r&aring;dgivningssteder</strong></p>
+
+  <form method="POST" action="send_email_raadgivning2.html" onSubmit="return checkform(this);">
+    <p>
+      <input type="hidden" name="tilfoej_marker" value="true">
+    </p>
+    <table width="350" border="0" cellspacing="0" cellpadding="5">
+      <tr>
+        <td>Afsender (f.eks. Lars Hansen, findhj&aelig;lp.dk) :</td>
+        <td><input type="text" name="navn" size="25" value=""></td>
+      </tr>
+      <tr>
+        <td>Evt. organisation:</td>
+        <td><input type="text" name="navn2" size="25" value=""></td>
+      </tr>
+    </table>
+    <p align="left">
+      <textarea rows="15" name="email_indhold" cols="55"  ></textarea>
+      <br>
+      <br>
+      <input type="submit" value="Send besked" name="B1">
+    </p>
+  </form>
+
+</div>
+</body>
+
+</html>

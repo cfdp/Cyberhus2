@@ -1,0 +1,50 @@
+/*nyhedsbrev - knapperne forsvinder ud til venstre i IE6*/
+body.section-newsletter div.form-submit {
+	margin-left: 20px;
+}
+#lightContent{
+}
+#main{
+    margin-top: -12px;
+}
+#block-menu-secondary-links div.content ul.menu{
+    list-style-type:none;
+}
+#block-menu-secondary-links div.content ul.menu li.leaf{
+    float:left;
+    width:96px;
+    padding:0px;
+}
+
+#content, .no-sidebars #content{
+    float:left;
+    margin-left:0;
+    margin-right:-1000px;
+    padding:0;
+    width:1000px;
+}
+
+div#main ul.menu li.leaf{
+height:20px;}
+div#main ul.menu li.collapsed{
+height:20px;}
+div#main ul.menu li.expanded{
+}
+#header{
+    height: 130px;
+}
+.two-sidebars #content{
+    width: 700px;
+}
+div#flash_forside{
+margin-top:-12px;}
+
+#flashcontent #myContent{
+width:646px;
+}
+
+div.panel-flexible div.panel-row-2 div.panel-col-3 {
+width:170px;
+}
+div.kol_top_center{
+height:20px;}

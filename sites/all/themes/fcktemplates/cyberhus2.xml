@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+ * FCKeditor - The text editor for Internet - http://www.fckeditor.net
+ * Copyright (C) 2003-2008 Frederico Caldeira Knabben
+ *
+ * == BEGIN LICENSE ==
+ *
+ * Licensed under the terms of any of the following licenses at your
+ * choice:
+ *
+ *  - GNU General Public License Version 2 or later (the "GPL")
+ *    http://www.gnu.org/licenses/gpl.html
+ *
+ *  - GNU Lesser General Public License Version 2.1 or later (the "LGPL")
+ *    http://www.gnu.org/licenses/lgpl.html
+ *
+ *  - Mozilla Public License Version 1.1 or later (the "MPL")
+ *    http://www.mozilla.org/MPL/MPL-1.1.html
+ *
+ * == END LICENSE ==
+ *
+ * This is the sample templates definitions file. It makes the "templates"
+ * command completely customizable.
+ *
+ * See FCKConfig.TemplatesXmlPath in the configuration file.
+-->
+<Templates imagesBasePath="fck_template/images/">
+	<Template title="Stort billede og titel" image="template1.gif">
+		<Description>Et stort billede (200px bredt) og en titel, samt tekst der omslutter billedet.</Description>
+		<Html>
+			<![CDATA[
+				<div class="fcktemplate1_wrapper">
+				<table width="100%">
+				<tr><td width="200">
+				<img style="MARGIN-RIGHT: 10px" alt="Indsæt billede el. video her" width="200" height="200" align="left"/>
+				</td>
+				<td valign="top">
+				<div class="title"><h3>Skriv titlen her</h3></div>
+					Indsæt din tekst her
+				</td>
+				</tr>
+				<tr><td colspan="2">Indsæt evt. yderligere tekst her!</td></tr>
+				</table>
+				</div>
+				]]>
+		</Html>
+	</Template>
+	<Template title="Små billeder, megen tekst" image="template_kedelig.gif">
+		<Description>Skabelonen er mest tænkt til de teksttunge sider i voksenafdelingen. Billederne skal være 100px i bredden.</Description>
+		<Html>
+			<![CDATA[
+				<table class="fcktemplate_smaabilleder" width="100%">
+				<tr>
+				  <td colspan="2"><div class="title">
+				    <h3>Skriv  undertitel 1 her!</h3>
+			      </div></td>
+				  </tr>
+				<tr><td width="100">
+				<img style="MARGIN-RIGHT: 10px" alt="Indsæt billede el. video her" width="100" height="100" align="left"/>
+				</td>
+				<td valign="top">
+				Indsæt din brødtekst her	... mmm	brødtekst...		</td>
+				</tr>
+				<tr>
+				  <td colspan="2"><div class="title">
+                    <h3>Skriv  undertitel 2 her!</h3>
+			      </div></td>
+				  </tr>
+				<tr><td><img style="MARGIN-RIGHT: 10px" alt="Indsæt billede el. video her" width="100" height="100" align="left"/></td>
+				  <td> Indsæt din brødtekst her	... mmm	brødtekst... </td>
+				</tr>
+                				<tr>
+				  <td colspan="2"><div class="title">
+                    <h3>Skriv  undertitel 3 her!</h3>
+			      </div></td>
+				  </tr>
+				<tr><td><img style="MARGIN-RIGHT: 10px" alt="Indsæt billede el. video her" width="100" height="100" align="left"/></td>
+				  <td> Indsæt din brødtekst her	... mmm	brødtekst... </td>
+				</tr>
+                				<tr>
+				  <td colspan="2"><div class="title">
+                    <h3>Skriv  undertitel 4 her!</h3>
+			      </div></td>
+				  </tr>
+				<tr><td><img style="MARGIN-RIGHT: 10px" alt="Indsæt billede el. video her" width="100" height="100" align="left"/></td>
+				  <td> Indsæt din brødtekst her	... mmm	brødtekst... </td>
+				</tr>
+				<tr>
+            	<td colspan="2" align="right"><a href="#top" target="_top">top</a></td>
+      			</tr>
+				</table>
+			]]>
+		</Html>
+	</Template>
+	<Template title="Nye voksensider - hovedside" image="template_kedelig.gif">
+		<Description>Skabelonen er tænkt til voksenafdelingens hovedsider.</Description>
+		<Html>
+			<![CDATA[
+				<h1>Overskrift</h1>
+<table class="fcktemplate_smaabilleder" width="46%" bgcolor="#ececec" style="border-bottom: rgb(222,221,189) 1px solid; border-left: rgb(222,221,189) 1px solid; float: left; clear: left; border-top: rgb(222,221,189) 1px solid; border-right: rgb(222,221,189) 1px solid">
+    <tbody>
+        <tr valign="top">
+            <td colspan="2">
+            <div class="title">
+            <h4>Skriv introtext her</h4>
+            <br />
+            Inds&aelig;t din br&oslash;dtekst her ... mmm br&oslash;dtekst...</div>
+            </td>
+            <td width="75" colspan="2">
+            <p><img alt="Inds&aelig;t billede el. video her" align="right" width="100" height="100" style="margin-right: 10px" /></p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<table class="fcktemplate_smaabilleder" width="46%" bgcolor="#ececec" style="border-bottom: rgb(222,221,189) 1px solid; border-left: rgb(222,221,189) 1px solid; float: right; clear: right; border-top: rgb(222,221,189) 1px solid; border-right: rgb(222,221,189) 1px solid">
+    <tbody>
+        <tr>
+            <td width="75" colspan="2"><img alt="Inds&aelig;t billede el. video her" align="left" width="75" height="75" style="margin-right: 10px" />Inds&aelig;t din br&oslash;dtekst her ... mmm br&oslash;dtekst...fdsfs</td>
+        </tr>
+        <tr>
+            <td colspan="2"><img alt="Inds&aelig;t billede el. video her" align="left" width="75" height="75" style="margin-right: 10px" />Inds&aelig;t din br&oslash;dtekst her ... mmm br&oslash;dtekst...</td>
+        </tr>
+    </tbody>
+</table>
+<table class="fcktemplate_smaabilleder" width="46%" bgcolor="#ececec" style="border-bottom: rgb(222,221,189) 1px solid; border-left: rgb(222,221,189) 1px solid; float: left; clear: left; border-top: rgb(222,221,189) 1px solid; border-right: rgb(222,221,189) 1px solid">
+    <tbody>
+        <tr>
+            <td rowspan="2" colspan="2"><br />
+            Inds&aelig;t din br&oslash;dtekst her ... mmm br&oslash;dtekst...</td>
+        </tr>
+        <tr>
+        </tr>
+    </tbody>
+</table>
+<table class="fcktemplate_smaabilleder" width="46%" bgcolor="#ececec" style="border-bottom: rgb(222,221,189) 1px solid; border-left: rgb(222,221,189) 1px solid; float: right; clear: right; border-top: rgb(222,221,189) 1px solid; border-right: rgb(222,221,189) 1px solid">
+    <tbody>
+        <tr>
+            <td colspan="2">
+            <div class="title">
+            <h4>Skriv undertitel 1 her!</h4>
+            </div>
+            </td>
+        </tr>
+        <tr>
+            <td width="75" colspan="2">Inds&aelig;t din br&oslash;dtekst her ... mmm br&oslash;dtekst...</td>
+        </tr>
+    </tbody>
+</table>
+
+			]]>
+		</Html>
+	</Template>
+    <Template title="Små billeder, megen tekst - ekstra sektion" image="template_kedelig.gif">
+		<Description>Ekstra sektion til "Små billeder, megen tekst"-skabelonen</Description>
+		<Html>
+			<![CDATA[
+				<table class="fcktemplate_smaabilleder" width="100%">
+				<tr>
+				  <td colspan="2"><div class="title">
+				    <h3>Skriv  undertitel x her!</h3>
+			      </div></td>
+				  </tr>
+				<tr><td width="100">
+				<img style="MARGIN-RIGHT: 10px" alt="Indsæt billede el. video her" width="100" height="100" align="left"/>
+				</td>
+				<td valign="top">
+				Indsæt din brødtekst her	... mmm	brødtekst...		</td>
+				</tr>
+
+				<tr>
+            	<td colspan="2" align="right"><a href="#top" target="_top">top</a></td>
+      			</tr>
+				</table>
+			]]>
+		</Html>
+	</Template>
+	<Template title="Standard side" image="template_standard.gif">
+		<Description>Et topbanner, media i venstre side (250px bredde), tekst til højre.</Description>
+		<Html>
+			<![CDATA[
+				<table class="fcktemplate_standard_side" width="100%">
+				    <tbody>
+				        <tr>
+				            <td colspan="2"><img height="80" width="610" align="left" style="margin-right: 10px;" alt="Inds&aelig;t billede el. video her" /></td>
+				        </tr>
+				        <tr>
+				            <td colspan="2">
+				            <div class="title">
+				            <h3>Skriv  undertitel 1 her!</h3>
+				            </div>
+				            </td>
+				        </tr>
+				        <tr>
+				            <td width="250" valign="top"><img height="250" width="250" align="left" alt="Inds&aelig;t billede el. video her" style="margin-right: 10px;" /></td>
+				            <td valign="top" rowspan="2">Inds&aelig;t din br&oslash;dtekst her	... 	br&oslash;dtekst... "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+				Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</td>
+				        </tr>
+				        <tr>
+				            <td valign="top">
+				            <div class="media_beskrivelse">Beskrivende tekst</div>
+				            </td>
+				        </tr>
+				        <tr>
+				            <td align="right" colspan="2"><a href="#top">top</a></td>
+				        </tr>
+				        <tr>
+				            <td colspan="2">
+				            <div class="title">
+				            <h3>Skriv  undertitel 2 her!</h3>
+				            </div>
+				            </td>
+				        </tr>
+				        <tr>
+				            <td width="250" valign="top"><img height="250" width="250" align="left" alt="Inds&aelig;t billede el. video her" style="margin-right: 10px;" /></td>
+				            <td valign="top" rowspan="2">Inds&aelig;t din br&oslash;dtekst her	... 	br&oslash;dtekst..."Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+				Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</td>
+				        </tr>
+				        <tr>
+				          <td valign="top"><div class="media_beskrivelse">Beskrivende tekst</div></td>
+				        </tr>
+				        <tr>
+				            <td align="right" colspan="2"><a href="#top">top</a></td>
+				        </tr>
+				        <tr>
+				            <td colspan="2">
+				            <div class="title">
+				            <h3>Skriv  undertitel 3 her!</h3>
+				            </div>
+				            </td>
+				        </tr>
+				        <tr>
+				            <td width="250" valign="top"><img height="250" width="250" align="left" alt="Inds&aelig;t billede el. video her" style="margin-right: 10px;" /></td>
+				            <td valign="top" rowspan="2">Inds&aelig;t din br&oslash;dtekst her	... 	br&oslash;dtekst..."Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+				Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</td>
+				        </tr>
+				        <tr>
+				            <td valign="top">
+				            <div class="media_beskrivelse">Beskrivende tekst</div>
+				            </td>
+				        </tr>
+				        <tr>
+				            <td align="right" colspan="2"><a href="#top">top</a></td>
+				        </tr>
+				        <tr>
+				            <td colspan="2">
+				            <div class="title">
+				            <h3>Skriv  undertitel 4 her!</h3>
+				            </div>
+				            </td>
+				        </tr>
+				        <tr>
+				            <td width="250" valign="top"><img height="250" width="250" align="left" alt="Inds&aelig;t billede el. video her" style="margin-right: 10px;" /></td>
+				            <td valign="top" rowspan="2">Inds&aelig;t din br&oslash;dtekst her	... br&oslash;dtekst..."Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+				Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
+				            </td>
+				        </tr>
+				        <tr>
+				            <td valign="top">
+				            <div class="media_beskrivelse">Beskrivende tekst</div>
+				            </td>
+				        </tr>
+				        <tr>
+				            <td align="right" colspan="2"><a href="#top">top</a></td>
+				        </tr>
+				    </tbody>
+				</table>
+			]]>
+		</Html>
+	</Template>
+	<Template title="Standard side, ekstra sektion" image="template_standard.gif">
+		<Description>En ekstra sektion med et enkelt afsnit - overskrift, billede (250px bredde), tekst til højre.</Description>
+		<Html>
+			<![CDATA[
+				<table class="fcktemplate_standard_side" width="100%">
+				    <tbody>
+				        <tr>
+				            <td colspan="2">
+				              <div class="title">
+				            <h3>Skriv  undertitel 1 her!</h3>
+				              </div></td>
+				      </tr>
+				        
+				        <tr>
+				            <td width="250" valign="top"><img height="250" width="250" align="left" alt="Inds&aelig;t billede el. video her" style="margin-right: 10px;" /></td>
+				            <td valign="top" rowspan="2">Inds&aelig;t din br&oslash;dtekst her	... 	br&oslash;dtekst... "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+				Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC</td>
+				        </tr>
+				        <tr>
+				            <td valign="top">
+				            <div class="media_beskrivelse">Beskrivende tekst</div>            </td>
+				        </tr>
+				        <tr>
+				            <td align="right" colspan="2"><a href="#top">top</a></td>
+				        </tr>
+				       
+				    </tbody>
+				</table>
+			]]>
+		</Html>
+	</Template>
+	<Template title="Nyhedsbrev - eksternt" image="template_standard.gif">
+		<Description>Eksternt nyhedsbrev</Description>
+		<Html>
+			<![CDATA[
+
+<table width="600" style="border: solid 1px #CECECC" cellpadding="0" cellspacing="0">
+<tbody>
+        <tr>
+            <td height="169" colspan="2"><img border="0" alt="Cyberhus.dk - Online klubhus for b&oslash;rn og unge: Nyhedsbrev" src="http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/nyhedsbrev_eksternt/topbanner.jpg" /></td>
+    </tr>
+	<td> Har du problemer med at læse denne HTML mail, så klik <a href="!newsletter_url">her</a> for en online version.</td>
+        <tr>
+            <td>
+
+                        <table width="590" cellspacing="0" cellpadding="5" border="0">
+                            <tbody>
+                                <tr>
+                                    <td width="400" colspan="2"><h2> !newsletter_name </h2></td>
+                                    <td width="181" align="right" class="rteright">Indtast evt. dato:</td>
+                                </tr>
+					
+                            </tbody>
+							
+							<table width="590" cellspacing="0" cellpadding="5" border="0">
+                            <tbody>
+                       
+								<tr>
+                                    <td>&nbsp;<img src="http://www.cyberhus.dk/sites/default/files/imagecache/75px_height_flexible_width/blogimages/29f00e40-cccc-4d88-b0ef-5c074a4af27b.jpg" alt="" /></td>
+                                    <td valign="top" colspan="2">
+                                    <p>Husk nu at vælge &quot;Full HTML&quot; som inputformat!! ;) </p>
+                                    <p>&nbsp;</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><img src="http://www.cyberhus.dk/sites/default/files/imagecache/75px_height_flexible_width/blogimages/29f00e40-cccc-4d88-b0ef-5c074a4af27b.jpg" alt="" /></td>
+                                    <td colspan="2" valign="top">
+									<p>Husk nu at vælge &quot;Full HTML&quot; som inputformat! ;)</p>
+									<p>&nbsp;</p>
+									</td>
+                                </tr>
+                            </tbody>
+              </table>
+          </td>
+        </tr>
+        <tr>
+
+        </tr>
+    </tbody>
+</table>
+			]]>
+		</Html>
+	</Template>
+	<Template title="CyberAktiv - Kunstværkstedet" image="cyberaktiv.gif">
+		<Description>Standard struktur til den CyberAktive i Kunstværkstedet</Description>
+		<Html>
+			<![CDATA[
+<div style="clear: both; float: left; background-image:url('http://www.cyberhus.dk/sites/default/files/cyberhusdk/brugere/u18/topbanner_kunstv.jpg'); margin:0px; width: 620px; background-repeat: no-repeat; height: 130px;">
+<div style="margin: 23px 0px 0px 18px; float: left; width: 85px; height: 85px;"><a title="Vis brugerprofil." href="http://www.cyberhus.dk/user/84"><img style="border: 0px none ; height: 85px; width: 85px;" title="kristiank's billede" alt="kristiank's billede" src="http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/profilbilleder/picture-84.jpg" /></a></div>
+<div style="margin: 22px 0px 0px 6px; padding:3px; float: left; width: 340px; height: 80px; max-height:80px;">
+<strong>Navn: </strong>Dit navn <br />
+<strong>Emne: </strong>Dit emne <br />
+<strong>Beskrivelse: </strong>En kort beskrivelse </div>
+	<a href="http://www.cyberhus.dk/node/3379" style="display:block; position:relative; margin:23px 0px 0px 0px; left:18px; height:80px; width:130px;"></a>
+</div>
+
+<div style="margin: 10px 0px 0px 0px; padding: 0px; min-height: 200px; float: left; width: 620px; clear:both;">
+<div style="border-top: 1px solid rgb(119, 172, 211); border-left: 1px solid rgb(119, 172, 211); border-right: 1px solid rgb(119, 172, 211); margin: 0px; float: left; background-image: url('http://www.cyberhus.dk/sites/all/themes/cyberhus_test/images/koltop_center.png'); width: 620px; max-height: 21px; background-repeat: repeat-x; height: 20px;">
+  <div style="font-weight:bold; text-align:center;">Overskrift</div>
+</div>
+<div style="border: 1px solid rgb(119, 172, 211); min-height: 200px; float: left; width: 620px;">&nbsp;Her kan du inds&aelig;tte din tekst.</div>
+</div>
+			]]>
+		</Html>
+	</Template>
+		<Template title="CyberAktiv - Ekstra sektion" image="u_sektion.gif">
+		<Description>CyberAktiv indholds sektion</Description>
+		<Html>
+			<![CDATA[
+<div style="margin: 10px 0px 0px 0px; padding: 0px; min-height: 200px; float: left; width: 620px; clear:both;">
+<div style="border-top: 1px solid rgb(119, 172, 211); border-left: 1px solid rgb(119, 172, 211); border-right: 1px solid rgb(119, 172, 211); margin: 0px; float: left; background-image: url('http://www.cyberhus.dk/sites/all/themes/cyberhus_test/images/koltop_center.png'); width: 620px; max-height: 21px; background-repeat: repeat-x; height: 20px;">
+  <div style="font-weight:bold; text-align:center;">Overskrift</div>
+</div>
+<div style="border: 1px solid rgb(119, 172, 211); min-height: 200px; float: left; width: 620px;">&nbsp;Her kan du inds&aelig;tte din tekst.</div>
+</div>
+			]]>
+		</Html>
+	</Template>
+</Templates>

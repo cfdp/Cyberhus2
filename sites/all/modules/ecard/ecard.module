@@ -1,0 +1,628 @@
+<?php
+
+// $Id: ecard.module,v 1.1.4.7 2009/02/20 18:15:01 karst Exp $
+
+/**
+ * @file
+ * This module can be used to send any node as an ecard.
+ */
+
+/**
+ * Implementation of hook_perm().
+ */
+function ecard_perm() {
+  return array('view ecards', 'send ecards', 'send own content as ecard');
+}
+
+/**
+ * Implementation of hook_access().
+ * Used for checking if user has the rights to send ecard
+ */
+function ecard_form_access($uid) {
+  return user_access('send ecards') || (user_access('send own content as ecard') && ($GLOBALS['user']->uid == $uid));
+}
+
+/**
+ * Implementation of hook_menu().
+ */
+function ecard_menu() {
+  $items=array();
+  $items['admin/settings/ecard'] = array(
+    'title' => 'Ecard settings',
+    'description' => 'Change how ecards behave.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('ecard_admin'),
+    'access arguments' => array('administer site configuration'),
+  );
+  $items['ecard/view'] = array(
+    'page callback' => 'ecard_view',
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('view ecards'),
+  );
+  $items['ecard/thanks'] = array(
+    'page callback' => 'ecard_thanks',
+    'type' => MENU_CALLBACK,
+    'access arguments' => array('view ecards'),
+  );
+  return $items;
+}
+
+/**
+ * Define the settings form.
+ */
+
+function ecard_admin() {
+  $form['ecard_nodetypes'] = array(
+    '#type' => 'checkboxes',
+    '#title' => t('Choose the content types which you want to send as ecard'),
+    '#options' => node_get_types('names'),
+    '#default_value' => variable_get('ecard_nodetypes', array()),
+    '#description' => t('A form to send ecard will append to the content'),
+  );
+  $form['letter'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Letter customization'),
+  );
+  $form['letter']['ecard_subject'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Subject'),
+    '#default_value' => variable_get('ecard_subject', 'Postkort fra %site'),
+    '#size' => 70,
+    '#maxlength' => 70,
+    '#description' => t('Customize the subject for ecard'),
+  );
+  $form['letter']['ecard_letter'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Body'),
+    '#default_value' => variable_get('ecard_letter', _ecard_letter()),
+    '#cols' => 70,
+    '#rows' => 5,
+    '#description' => t('This text is the body of the email that the card recipient will see. These are the variables you may use: %site = your site name, %site_url = your site URL, %site_mail = your site email address, %card_url = the URL for the ecard, %sender = sender name, %sender_email = sender email, %recipient = recipient email'),
+  );
+  $form['copy'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Customization email send with copy of url'),
+  );
+  $form['copy']['ecard_copy_subject'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Subject'),
+    '#default_value' => variable_get('ecard_copy_subject', 'Link til dit postkort'),
+    '#size' => 70,
+    '#maxlenghth' => 70,
+    '#description' => t('Customize email send with copy of card url'),
+  );
+  $form['copy']['ecard_copy'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Body'),
+    '#default_value' => variable_get('ecard_copy', _ecard_copy()),
+    '#cols' => 70,
+    '#rows' => 5,
+    '#description' => t('This text is the body of the email to notify the sender than the card has been picked. These are the variables you may use: %site = your site name, %site_url = your site URL, %site_mail = your site email address, %card_url = the URL for the ecard'),
+  );
+  $form['notify'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Notification email customization'),
+  );
+  $form['notify']['ecard_notify_subject'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Subject'),
+    '#default_value' => variable_get('ecard_notify_subject', 'Your ecard has been just picked'),
+    '#size' => 70,
+    '#maxlength' => 70,
+    '#description' => t('Customize the subject for ecard'),
+  );
+  $form['notify']['ecard_notify'] = array(
+    '#type' => 'textarea',
+    '#title' => t('Body'),
+    '#default_value' => variable_get('ecard_notify', _ecard_notify()),
+    '#cols' => 70,
+    '#rows' => 5,
+    '#description' => t('This text is the body of the email to notify the sender than the card has been picked. These are the variables you may use: %site = your site name, %site_url = your site URL, %site_mail = your site email address, %card_url = the URL for the ecard, %sender = sender name, %recipient = recipient email'),
+  );
+  $form['misc'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Miscellaneous settings'),
+  );
+  $form['misc']['ecard_cron'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Days to keep ecards'),
+    '#description' => t('ecards that are aged more than the number of days entered above will automatically be deleted from the database. Use 0 to never delete. Note that this will only be checked when cron.php is run.'),
+    '#size' => '2',
+    '#default_value' => variable_get('ecard_cron', '0'),
+  );
+  $form['misc']['ecard_max_count'] = array(
+    '#type' => 'textfield',
+    '#title' => 'Maximum number of emails allowed to send at a time',
+    '#description' => 'Do not set it to very big values as it may cause spaming',
+    '#size' => '5',
+    '#default_value' => variable_get('ecard_max_count', '100'),
+  );
+  $form['misc']['ecard_site_email'] = array(
+    '#type' => 'textfield',
+    '#title' => 'This email used to send emails',
+    '#description' => 'eg: noreply@yoursitename.com or admin@sitename.com etc',
+    '#default_value' => variable_get('ecard_site_email', 'root@localhost'),
+  );
+  $form['misc']['ecard_hide_send_view'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Hide the send form when viewing ecard message'),
+    '#default_value' => variable_get('ecard_hide_send_view', 0),
+  );
+  $form['misc']['ecard_require_name'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Require the user to input a name in the ecard form?'),
+    '#default_value' => variable_get('ecard_require_name', 0),
+  );
+  $form['misc']['ecard_require_message'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Require the user to input a message in the ecard form?'),
+    '#default_value' => variable_get('ecard_require_message', 0),
+  );
+    $form['misc']['fieldset'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Fieldset settings'),
+  );
+  $form['misc']['fieldset']['ecard_is_fieldset'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Put the ecard form in a fieldset?'),
+    '#default_value' => variable_get('ecard_is_fieldset', 1),
+  );
+  $form['misc']['fieldset']['ecard_is_fieldset_collapsible'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Is the fieldset collapsible?'),
+    '#default_value' => variable_get('ecard_is_fieldset_collapsible', 1),
+  );
+  $form['misc']['fieldset']['ecard_is_fieldset_collapsed'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Is the fieldset collapsed?'),
+    '#default_value' => variable_get('ecard_is_fieldset_collapsed', 0),
+  );
+  $form['array_filter'] = array('#type' => 'hidden');
+  return system_settings_form($form);
+}
+
+/**
+ * Function for making cron job
+ */
+
+function ecard_cron() {
+  // convert cron days into timestamp
+  $ecard_cron = variable_get('ecard_cron', '0') * 86400;
+  // delete ecards older than setting
+  if (!empty($ecard_cron)) {
+  db_query('DELETE FROM {ecard} WHERE send_time < %d', time() - $ecard_cron);
+  }
+}
+
+/**
+ * Function for making letter to send
+ */
+
+function _ecard_letter() {
+  $output = t(
+"Hi,
+
+%sender_name made an ecard for you.
+At any time you may see your card by clicking this link:
+
+%card_url
+
+(if your email client doesn't allow you to click on the site link,
+then just copy and paste the URL into your browser)
+
+admin");
+  return $output;
+}
+
+/**
+ * Implementation of hook_nodeapi().
+ */
+
+function ecard_nodeapi(&$node, $op, $teaser, $page) {
+  switch ($op) {
+    case 'view':
+      $types_to_ecard = variable_get('ecard_nodetypes', array());
+      if (!in_array($node->type, $types_to_ecard)) {
+        break;
+      }
+    // Add our form as a content item.
+    if ($teaser == FALSE) {
+      //no form if ecard view is set
+      if ($node->content['ecard_view'] && variable_get('ecard_hide_send_view', 0)) {
+        return;
+      }
+      $node->content['ecard_form'] = array(
+        '#value' => drupal_get_form('ecard_form', $node),
+        '#weight' => 100,
+      );
+
+    }
+  }
+}
+
+/**
+ * Function to define the form.
+ */
+
+function ecard_form($form_state, &$node) {
+
+  if (!ecard_form_access($node->uid)) {
+    return $form;
+  }
+  //senders name
+  $form['name'] = array(
+    '#title' => t('Your name'),
+    '#type' => 'textfield',
+    '#required' => variable_get('ecard_require_name', 0)
+  );
+  //sending from
+  $form['from_email'] = array(
+    '#title' => t('Your email'),
+    '#type' => 'textfield',
+    '#required' => TRUE
+  );
+
+  //display box to type recipients emails
+  $form['to_email'] = array(
+    '#title' => t('E-mail(s) of recipient(s)'),
+    '#type' => 'textarea',
+    '#rows' => 3,
+    '#default_value' => '',
+    '#description' => t('You may enter multiple emails'),
+    '#required' => TRUE
+  );
+  //display textarea to type message
+  $form['message'] = array(
+    '#title' => t('Type your message'),
+    '#type' => 'textarea',
+    '#description' => t('Whatever you type here will be attached to ecard'),
+    '#required' => variable_get('ecard_require_message', 0)
+  );
+  //filterformat for the text
+  $form['filter'] = filter_form();
+  //Notification on pickup
+  $form['notify']=array(
+    '#type' => 'checkbox',
+    '#title' => t('Notify me when the card is picked'),
+    '#default_value' => 0
+  );
+  $form['nid'] = array(
+    '#type' => 'value',
+    '#value' => $node->nid
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Send This Card'),
+    '#weight' => 100
+  );
+  if (variable_get('ecard_is_fieldset', 1)) {
+    //make a fieldset
+    $form_fieldset['block'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('Send this ecard'),
+      '#collapsible' => variable_get('ecard_is_fieldset_collapsible', 1),
+      '#collapsed' => variable_get('ecard_is_fieldset_collapsed', 0),
+      $form
+    );
+    $form = $form_fieldset;
+  }
+  return $form;
+}
+
+/*
+ * Validation function for email syntax.
+ */
+
+function ecard_validate_emails($form_id, &$form_state) {
+  if (valid_email_address($form_state['values']['from_email']) != TRUE) {
+    form_set_error('from_email', t('Your email address is invalid'));
+  }
+  $valid_emails = $failed_emails = array();
+  $emails = array_unique(split("[,\n\r]", $form_state['values']['to_email']));
+  foreach ($emails as $email) {
+    $email = trim($email);
+    if ($email) {
+      if (valid_email_address($email)) {
+        $valid_emails[] = $email;
+      }
+      else {
+        $failed_emails[] = $email;
+      }
+    }
+  }
+  if (count($failed_emails)) {
+    form_set_error('to_email', t('This email has an error "@email"', array('@email' => $failed_emails[0])));
+  }
+  return $valid_emails;
+}
+
+/*
+ * Validation function for the form if call email_import of validate emails on respective steps.
+ */
+
+function ecard_form_validate($form_id, &$form_state) {
+  $emails = ecard_validate_emails($form_id, $form_state);
+  $count = count($emails);
+  $max_count = variable_get('max_count', 1000);
+  if ($count > $max_count) {
+    form_set_error('to_email', t('You are not allowed to send to more than !count emails , please delete few email address and send the card', array('!count' => $count)));
+  }
+  form_set_value(array('#parents' => array('valid_emails')), $emails, $form_state);
+}
+
+/**
+ * Submit handler for ecard_form
+ */
+
+function ecard_form_submit($form_id, &$form_state) {
+  unset($random);
+  global $base_url;
+  global $language;
+  $start = 0;
+  $timestamp = time();
+  $send = "y";
+  $notify = "n";
+  // set the base variable from the clean url value
+  if (variable_get('clean_url', 0)) {
+    $base = $base_url .'/';
+  }
+  else {
+    $base = $base_url .'/index.php?q=';
+  }
+
+  // making a random variable
+  // this loop generate a random and check whether it exist in database if not it will store that random else it will generate another one
+  while (!$random) {
+    $random = md5(microtime());
+    $result = db_fetch_object(db_query("SELECT random FROM {ecard} WHERE random = '%s'", $random));
+    if ($result) unset($random);
+  }
+  $card_copy_url = $base .'ecard/view/'. $random;
+
+  $sql = 'INSERT INTO {ecard} (
+  random,
+  nid,
+  sender_name,
+  sender_email,
+  recp_mail,
+  message,
+  send_time,
+  send,
+  notify,
+  format
+  ) VALUES (
+  "%s",
+  %d,
+  "%s",
+  "%s",
+  "%s",
+  "%s",
+  %d,
+  "%s",
+  "%s",
+  %d
+  )';
+
+  //making a copy for you else if you click any other recp link it will mail notification also there is some problem while we produce random
+  db_query(
+  $sql,
+  $random,
+  $form_state['values']['nid'],
+  $form_state['values']['name'],
+  $form_state['values']['from_email'],
+  $form_state['values']['from_email'],
+  $form_state['values']['message'],
+  $timestamp,
+  $send,
+  $notify,
+  $form_state['values']['format']
+  );
+  $cardid = $random;
+
+  //iterate through each emails and send them and store a random number for each
+  foreach ($form_state['values']['valid_emails'] as $email) {
+    if ($form_state['values']['notify'] == 1) {
+      $notify = "y";
+      $cardid = $random . $start;//append start value to random number to get cardid
+      $start = $start + 1; // making some number in increment order
+      db_query(
+      $sql,
+      $cardid,
+      $form_state['values']['nid'],
+      $form_state['values']['name'],
+      $form_state['values']['from_email'],
+      $email,
+      $form_state['values']['message'],
+      $timestamp,
+      $send,
+      $notify,
+      $form_state['values']['format']
+      );
+    }
+    $params['card'] = $base .'ecard/view/'. $cardid;
+    $params['sender'] = $form_state['values']['name'];
+    $params['sendermail'] = $form_state['values']['from_email'];
+    $params['recipient'] = $email;
+    drupal_mail('ecard', 'ecard-mail', $email, $language, $params, $form_state['values']['from_email']);
+  }
+  drupal_set_message(t("Your message has been sent and a copy is stored for your reference.<br />you can view the copy <a href='") . $card_copy_url . t("'>here</a>"));
+  $params['card_copy'] = $card_copy_url;
+  drupal_mail('ecard', 'ecard-copy', $form_state['values']['from_email'], $language, $params, variable_get('site_mail', 'nobody@localhost'));
+  $form_state['redirect'] = 'ecard/thanks';
+  $form_state['nid'] = $node->nid;
+}
+
+/**
+ * Function for making copy url letter
+ */
+
+function _ecard_copy() {
+  $output = t(
+"Hi,
+Here is the copy of your message you send
+%card_url
+
+(if your email client doesn't allow you to click on the site link,
+then just copy and paste the URL into your browser)
+admin");
+  return $output;
+}
+
+/**
+ * Function for making notification letter
+ */
+
+function _ecard_notify() {
+  $output = t(
+"Hi,
+
+%recipient has picked your card today.
+Here is the url to your card
+%card_url
+
+(if your email client doesn't allow you to click on the site link,
+then just copy and paste the URL into your browser)
+
+admin");
+  return $output;
+}
+
+/**
+ * Function to view the ecard , it also send an email to the sender to know the card is picked
+ */
+
+function ecard_view($arg1 = NULL) {
+  global $base_url;
+  // set the base variable from the clean url value
+  if (variable_get('clean_url', 0)) {
+    $base = $base_url .'/';
+  }
+  else {
+    $base = $base_url .'/index.php?q=';
+  }
+  if (isset($arg1)) {
+
+    $sql = '
+    SELECT
+    random,
+    nid,
+    message,
+    sender_name,
+    sender_email,
+    recp_mail,
+    notify,
+    format
+    FROM {ecard} AS n
+    WHERE n.random = "%s"';
+    $resource = db_query($sql, $arg1);
+    $result = db_fetch_object($resource);
+    if ($result != NULL) {
+      $node = node_load($result->nid);
+      $node->content['ecard_view'] = array(
+        '#value' => theme('ecard_message', check_markup($result->message, $result->format)),
+        '#weight' => 90,
+      );
+
+      $output = node_view($node, FALSE, TRUE, FALSE);
+
+      //sending email if notify == yes
+      if ($result->notify == y) {
+        $card_url = $base .'ecard/view/'. $result->random;
+
+        //making message
+        $site_email = variable_get('site_email', 'root@localhost');
+        $params['site'] = $site_email;
+        $params['card_url'] = $card_url;
+        $params['sender'] = $result->sender_name;
+        $params['recipient'] = $result->recp_mail;
+        $params['sender_email'] = $result->sender_email;
+        drupal_mail('ecard', 'ecard-view', $params['sender_email'], NULL, $params, $site_email);
+        db_query("UPDATE {ecard} SET notify='n' WHERE random='%s'", $result->random);
+      }
+    }
+    else {
+      return t("Your ecard id is not valid either it may be an error or it expired");
+    }
+    return $output;
+  }
+  else drupal_goto();
+}
+
+/**
+ * Implementation hook_mail().
+ */
+
+function ecard_mail($key, &$message, $params) {
+  global $base_url;
+  switch ($key) {
+    case 'ecard-mail':
+      $variables = array(
+        '%site' => variable_get('site_name', 'drupal'),
+        '%site_url' => $base_url,
+        '%site_mail' => variable_get('site_mail', 'root@localhost'),
+        '%card_url' => $params['card'],
+        '%sender' => $params['sender'],
+        '%sender_email' => $params['sendermail'],
+        '%recipient' => $params['recipient'],
+      );
+      $body = strtr(variable_get('ecard_letter', _ecard_letter()), $variables);
+      $subject = strtr(variable_get('ecard_subject', 'An Ecard from %sender_name'), $variables);
+      $message['subject'] = $subject;
+      $message['body'] = $body;
+      break;
+    case 'ecard-copy':
+      $variables = array(
+        '%site' => variable_get('site_name', 'drupal'),
+        '%site_url' => $base_url,
+        '%site_mail' => variable_get('site_mail', 'root@localhost'),
+        '%card_url' => $params['card_copy'],
+      );
+      $body = strtr(variable_get('ecard_copy', _ecard_copy()), $variables);
+      $subject = strtr(variable_get('ecard_copy_subject', 'Copy of your Ecard'), $variables);
+      $message['subject'] = $subject;
+      $message['body'] = $body;
+      break;
+    case 'ecard-view':
+      $variables = array(
+        '%site' => variable_get('site_name', 'drupal'),
+        '%site_url' => $base_url,
+        '%site_mail' => variable_get('site_mail', 'root@localhost'),
+        '%card_url' => $params['card_url'],
+        '%sender' => $params['sender'],
+        '%recipient' => $params['recipient'],
+        '%sender_email' => $params['sender_email'],
+      );
+      $body = strtr(variable_get('ecard_notify', _ecard_notify()), $variables);
+      $subject = strtr(variable_get('notify_subject', 'Dit kort er blevet læst af %recipient'), $variables);
+      $message['subject'] = $subject;
+      $message['body'] = $body;
+      break;
+    }
+}
+
+/**
+ * Function for the thankyou page
+ */
+
+function ecard_thanks() {
+  return t('Thanks, and have a nice day.');
+}
+
+function ecard_theme() {
+  return array(
+    'ecard_message' => array(
+      'arguments' => array('message'),
+    ),
+  );
+}
+
+function theme_ecard_message($message) {
+  return theme(
+    'fieldset',
+    array(
+      '#title' => t('Message'),
+      '#collapsible' => TRUE,
+      '#collapsed' => FALSE,
+      '#value' => $message)
+    );
+}

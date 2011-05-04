@@ -1,0 +1,55 @@
+# ignore specific files - just write the name of the files...
+
+# Drupal settings files #
+######################
+settings.php
+default.settings.php
+lokalt_settings.php
+cyberhus_udvikling_settings.php
+cyberhus_production_settings.php
+devel_settings.php
+
+# We dont want to include these files
+######################
+.project
+robots.txt
+.htaccess
+githubpull.php
+
+#the temp files should not be included
+######################
+*~
+
+#we dont want to include backups
+######################
+backup
+phpmyadmin
+
+#we dont want to include temp files
+######################
+tmp
+css
+js
+
+#we don't want dev modules included for now
+######################
+sites/all/modules/charts/*
+sites/all/modules/dtools/*
+
+#we don't want certain media files included
+######################
+sites/default/files/*
+*.avi
+*.mpeg
+*.flv
+*.mpg
+*.mp3
+*.mp4
+*.bmp
+*.wmv
+*.fla
+*.swc
+*.psd
+*.pdf
+*.odg
+*.doc
