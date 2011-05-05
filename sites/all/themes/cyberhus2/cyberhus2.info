@@ -33,6 +33,7 @@ stylesheets[all][]   = cyberhus_voksen.css
 stylesheets[all][]   = cybervox.css
 stylesheets[all][]   = enter.css
 stylesheets[all][]   = social_pejling.css
+stylesheets[all][]   = chrome.css
 stylesheets[all][] = stefan_term.css
 stylesheets[all][] = online4ever.css
 stylesheets[all][]   = cyberhus2_fckeditor.css

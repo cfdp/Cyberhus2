@@ -1,0 +1,15 @@
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    .front #main div#main-inner{
+        margin-top: 77px;
+    }
+    .front #content div#content-inner {
+        margin-top: -25px
+    }
+    .front div#navbar {
+        margin-top: -24px;
+    }
+    
+    #main div#main-inner {
+        margin-top: 53px;
+    }
+}
