@@ -542,9 +542,8 @@ div#sidebar-left  div.view-header p{
 div#sidebar-left h2.title,
 div.panels-flexible-region-first h2.pane-title {
     color: #823F0A;
-    font-family: 'GFS Neohellenic',serif;
+    font-family: 'Amaranth',serif;
     font-size: 19px;
-    font-weight: lighter;
     text-shadow: 2px 2px 2px #FFFFFF;
     word-spacing: 0em;
     
@@ -561,9 +560,8 @@ div.panels-flexible-region-first h2.pane-title {
 div#sidebar-right h2.title,
 div.panels-flexible-region-last h2.pane-title {
     color: #666666;
-    font-family: 'GFS Neohellenic',serif;
+    font-family: 'Amaranth',serif;
     font-size: 19px;
-    font-weight: lighter;
     text-shadow: 2px 2px 2px #FFFFFF;
     word-spacing: 0em;
     
@@ -858,8 +856,25 @@ div#mediehulen-panel div#vejleder-blok div.picture img,
 div#mediehulen-panel div#ekstra-vejlederblok div.picture img,
 div.view-id-kontakt_brugerliste_2.view-display-id-block_1 div.picture img,
 div.view-id-kontakt_brugerliste.view-display-id-block_1 div.picture img {
-	width:50px;
-	height:50px;
+	width: 50px;
+	height: 50px;
+}
+
+/*sizing of the profile thumbs in panel pages (rooms) */
+.thumbs table.views-view-grid td.col-1.not-empty, 
+.thumbs table.views-view-grid td.col-2.not-empty, 
+.thumbs table.views-view-grid td.col-3.not-empty {
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 1px;
+}
+.thumbs img {
+    height: 50px;
+    width: 50px;
+}
+
+.thumbs div.picture {
+	height: 50px;
 }
 /* Fix the extra space in between the rows of the profile pictures */
 div#it-vaerksted-panel div#vejleder-blok div.picture,

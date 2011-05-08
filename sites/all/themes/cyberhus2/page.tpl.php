@@ -176,7 +176,7 @@
           <?php global $node;?>
           <div id="content-header">
 
-            <?php if ($title && (!$node-> type == 'cyberflash')): ?>
+            <?php if ($title && (!$node-> type == 'cyberflash') && (!$node-> type =='cyberhus_image')): ?>
               <h1 class="title"><?php print $title; ?></h1>
 
             <?php endif; ?>
