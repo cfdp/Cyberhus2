@@ -1,5 +1,5 @@
 <?php
-// $Id: emaudio.module,v 1.1.4.22 2009/08/25 02:45:50 aaron Exp $
+// $Id: emaudio.module,v 1.1.4.23.2.2 2010/07/19 16:25:59 aaron Exp $
 
 /**
  * @file
@@ -29,6 +29,7 @@ function emaudio_emfield_info() {
   $name = t('Embedded Audio Field');
   return array(
     '#name' => $name,
+    '#settings_title' => t('Audio'),
     '#settings_description' => t('The following settings configure content with any fields controlled by @name.', array('@name' => $name)),
   );
 }
@@ -104,15 +105,15 @@ function emaudio_field_formatter_info() {
       'label' => t('Full Size Audio Player'),
       'field types' => $types,
     ),
-    'emaudio_preview' => array(
+    'audio_preview' => array(
       'label' => t('Preview Size Audio Player'),
       'field types' => $types,
     ),
-    'emaudio_thumbnail' => array(
+    'audio_thumbnail' => array(
       'label' => t('Image Thumbnail'),
       'field types' => $types,
     ),
-    'emaudio_embed' => array(
+    'audio_embed' => array(
       'label' => t('Embed Code'),
       'field types' => $types,
     ),
@@ -385,7 +386,7 @@ function emaudio_theme() {
       'file' => 'emaudio.theme.inc'
     ),
   );
-  $themes += module_invoke('emfield', 'provider_themes', 'emaudio');
+  $themes += emfield_provider_themes('emaudio');
 
   return $themes;
 }

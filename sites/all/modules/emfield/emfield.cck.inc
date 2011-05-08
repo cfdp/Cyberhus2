@@ -1,5 +1,5 @@
 <?php
-// $Id: emfield.cck.inc,v 1.1.2.30 2009/10/20 17:10:46 aaron Exp $
+// $Id: emfield.cck.inc,v 1.1.2.30.2.6 2010/07/21 20:12:01 aaron Exp $
 
 /**
  * @file
@@ -23,11 +23,14 @@ function _emfield_field_columns($field) {
     // An array for any extra data required by this media,
     // such as unique thumbnail requirements or rss feed data.
     'data' => array('type' => 'text', 'size' => 'big', 'not null' => TRUE, 'not null' => FALSE, 'sortable' => FALSE),
+    // Some providers may have media that appears in results, but may be
+    // unavailable or private.
+    'status' => array('description' => "The availability status of this media.", 'type' => 'int', 'unsigned' => 'TRUE', 'not null' => TRUE, 'default' => EMFIELD_STATUS_AVAILABLE),
     // The version of the provider's data, as an integer. In general, this
     // number will be increased incrementally as changes to the API are
     // introduced, or the module introduces or requires new data.
     // Emfield uses this periodically in its updates.
-    'version' => array('description' => t("The version of the provider's data."), 'type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE, 'default' => 0),
+    'version' => array('description' => "The version of the provider's data.", 'type' => 'int', 'unsigned' => TRUE, 'not null' => TRUE, 'default' => 0),
   );
 
   // Allow other modules to add new columns.
@@ -64,6 +67,17 @@ function _emfield_emfield_field($op, &$node, $field, &$items, $teaser, $page, $m
     case 'presave':
       foreach ($items as $delta => $item) {
         $items[$delta] = _emfield_field_submit_id($field, $item, $module);
+        // Remove empty fields
+        if (empty($item['embed'])) {
+          // Remove thumbnail files
+          if (module_exists('emthumb')) {
+            // see http://drupal.org/node/393490#comment-1328368
+            if (is_array($item) && !empty($item['emthumb']['emthumb']['emthumb']['emthumb']['file'])) {
+              _emthumb_file_delete($item['emthumb']['emthumb']['emthumb']['emthumb']['file'], $field['field_name']);
+            }
+          }
+          unset($items[$delta]);
+        }
       }
       break;
 
@@ -101,7 +115,9 @@ function _emfield_emfield_field($op, &$node, $field, &$items, $teaser, $page, $m
   if (in_array($op, array('insert', 'update'))) {
     foreach ($items as $delta => $item) {
       // We need to manually serialize the 'data' array.
-      $items[$delta]['data'] = serialize($items[$delta]['data']);
+      if(is_array($items[$delta]['data'])){
+        $items[$delta]['data'] = serialize($items[$delta]['data']);
+      }
     }
   }
   return $return;
@@ -229,7 +245,11 @@ function _emfield_emfield_widget(&$form, &$form_state, $field, $items, $delta = 
   // Allow other modules, such as Embedded Media Thumbnail,
   // to add additional elements to the widget.
   foreach (module_implements('emfield_widget_extra') as $module_extra) {
-    $tree[$module_extra] = module_invoke($module_extra, 'emfield_widget_extra', $form, $form_state, $field, $items, $delta, $module);
+    // Use call_user_func_array() rather than module module_invoke() to
+    // correctly pass the arguments as references.
+    $function = $module_extra .'_emfield_widget_extra';
+    $args = array(&$form, &$form_state, $field, $items, $delta, $module);
+    $tree[$module_extra] = call_user_func_array($function, $args);
 
     // In Drupal 6, we need to build multipart/form-data forms manually.
     if (function_exists($module_extra. '_emfield_widget_extra_file_included')) {
@@ -246,6 +266,8 @@ function _emfield_emfield_field_settings($op, $field) {
     case 'views data':
       $table_alias = content_views_tablename($field);
       $data = content_views_field_views_data($field);
+
+      // Add provider views support.
       $field_provider = $field['field_name'] .'_provider';
       $data[$table_alias][$field_provider] = $data[$table_alias][$field['field_name'] .'_embed'];
       $data[$table_alias][$field_provider]['title'] .= t(' - Provider');
@@ -258,6 +280,20 @@ function _emfield_emfield_field_settings($op, $field) {
       $data[$table_alias][$field_provider]['argument']['handler'] = 'emfield_handler_argument_provider';
       $data[$table_alias][$field_provider]['filter']['field'] = $field_provider;
       $data[$table_alias][$field_provider]['sort']['field'] = $field_provider;
+
+      // Add status views support.
+      $field_status = $field['field_name'] .'_status';
+      $data[$table_alias][$field_status] = $data[$table_alias][$field['field_name'] .'_embed'];
+      $data[$table_alias][$field_status]['title'] .= t(' - Status');
+      $data[$table_alias][$field_status]['field']['title'] = $data[$table_alias][$field_status]['title'];
+      $data[$table_alias][$field_status]['title short'] = t('Status');
+      $data[$table_alias][$field_status]['field']['title short'] = $data[$table_alias][$field_status]['title short'];
+      $data[$table_alias][$field_status]['field']['field'] = $field_status;
+      $data[$table_alias][$field_status]['field']['handler'] = 'emfield_handler_field_status';
+      $data[$table_alias][$field_status]['argument']['field'] = $field_status;
+      $data[$table_alias][$field_status]['argument']['handler'] = 'content_handler_argument_number';
+      $data[$table_alias][$field_status]['filter']['field'] = $field_status;
+      $data[$table_alias][$field_status]['sort']['field'] = $field_status;
       return $data;
     case 'database columns':
       return emfield_field_columns($field);
