@@ -25,12 +25,6 @@ githubpull.php
 backup
 phpmyadmin
 
-#we dont want to include temp files
-######################
-tmp
-css
-js
-
 #we don't want dev modules included for now
 ######################
 sites/all/modules/charts/*
