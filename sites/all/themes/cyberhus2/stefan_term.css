@@ -48,8 +48,8 @@
 
 /* ---------- Taxonomy All ----------*/
 
-#body.page-taxonomy-all #content-area .views-row-odd,
-#body.page-taxonomy-all #content-area .views-row-even                    	{border-bottom: 1px dashed #AAAAAA; margin: 10px 0; padding: 0 0 10px; }
+#body.page-taxonomy-all .views-row-odd,
+#body.page-taxonomy-all .views-row-even                    	{border-bottom: 1px dashed #AAAAAA; margin: 10px 0; padding: 0 0 10px; }
 
 #body.page-taxonomy-all .views-row .views-field-title,
 #body.page-taxonomy-all .views-row .views-field-created,					
