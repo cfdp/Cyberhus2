@@ -19,11 +19,14 @@ githubpull.php
 #the temp files should not be included
 ######################
 *~
+/js
+/css
+/googleanalytics
 
-#we dont want to include backups
+#we dont want to include backups or database files
 ######################
-backup
-phpmyadmin
+/backup
+/phpmyadmin
 
 #we don't want dev modules included for now
 ######################
