@@ -222,14 +222,18 @@ div.panels-flexible-region-inside-first,
   width: 200px;
   background-color: #F8F4ED;
   border: 1px solid #EBE2CF;
-  padding: 5px;
+  padding: 8px;
   margin: 5px 0 5px 5px;
 }
 
 /*related links box header*/
 #block-views-taxonomy_term-block_1 h2{
-   font-size: 1.1em;
-   letter-spacing: 1px;
+   font-size: 1.5em;
+   line-height: 1.3em;
+}
+
+#block-views-taxonomy_term-block_1 ul.links li {
+	padding: 0;
 }
 
 /*center content panels - remember to add "vaerelse-center" to the region in panels pages admin!*/	
