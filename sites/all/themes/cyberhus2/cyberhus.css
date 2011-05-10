@@ -543,8 +543,7 @@ div#sidebar-left h2.title,
 div.panels-flexible-region-first h2.pane-title {
     color: #823F0A;
     font-family: 'Amaranth',serif;
-    font-size: 19px;
-    text-shadow: 2px 2px 2px #FFFFFF;
+    font-size: 17px;
     word-spacing: 0em;
     
    /*the following fixes did not work out well with the chosen font */
@@ -561,8 +560,7 @@ div#sidebar-right h2.title,
 div.panels-flexible-region-last h2.pane-title {
     color: #666666;
     font-family: 'Amaranth',serif;
-    font-size: 19px;
-    text-shadow: 2px 2px 2px #FFFFFF;
+    font-size: 17px;
     word-spacing: 0em;
     
     /* For IE 8 */
