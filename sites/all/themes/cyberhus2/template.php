@@ -225,7 +225,7 @@ function cyberhus2_preprocess_page(&$vars, $hook) {
     //drupal_set_message("Cyberhus.dk er under opdatering og sitet kan være nede i kortere perioder her til morgen!");
     
     global $base_url;
-    /*adding external stylesheet to page templates*/
+	/*adding external stylesheet to page templates*/
 	$vars['styles'] .= "<link type=\"text/css\" rel=\"stylesheet\" href=\"http://fonts.googleapis.com/css?family=GFS+Neohellenic:regular,italic,bold,bolditalic&amp;subset=greek\" />";
 	$vars['styles'] .= "<link type=\"text/css\" rel=\"stylesheet\" href=\"http://fonts.googleapis.com/css?family=Amaranth:regular,400italic,700,700italic\" />";
 
@@ -250,9 +250,9 @@ function cyberhus2_preprocess_page(&$vars, $hook) {
 	$vars['title_image'] = $title_image;
 	
 	//if we are in the adult section, we need a different link on the topbanner and we don't want the title printed out via page.tpl.php
-	$vars['topbanner_link'] = $base_path;
+	$vars['topbanner_link'] = $base_url;
 	if (arg(0)=='voksne') {
-		$vars['topbanner_link'] =  $base_path . '/voksne';
+		$vars['topbanner_link'] =  $base_url . '/voksne';
 		$vars['adult_backlink_image'] = "sites/all/themes/cyberhus2/images/voksne/invisible.gif";
 		unset($vars['title']);
 	}
