@@ -771,17 +771,19 @@ div#content-header h1.title, body.node-type-views-embedding-page h1 {
 /****************************************************** Basic *************************************************/
 p{}
 h1{
-margin:0;
-padding:0;
+	margin:0;
+	padding:0;
 }
 h2{
-margin:0;
-padding:0;}
+	margin:0;
+	padding:0;
+}
 h3{
-font-size: 1.1em;
-letter-spacing: 1px;
-margin:0;
-padding:0;}
+	font-size: 1.1em;
+	letter-spacing: 1px;
+	margin:0;
+	padding:0;
+}
 h4{
 margin:0;
 padding:0;}
@@ -2294,6 +2296,7 @@ div.view-tegn-selv table.views-view-grid a {
 
 div.view-tegn-selv table.views-view-grid {
 	clear: right;
+	float:left;
 }
 
 div.view-tegn-selv table.views-view-grid td .views-field-title {
@@ -2305,6 +2308,11 @@ div.view-tegn-selv table.views-view-grid td .views-field-title {
 div.view-tegn-selv table.views-view-grid td .views-field-field-billede-fid {
 	float:none;
 	clear: both;
+}
+
+div.view-tegn-selv h3 {
+	float:left;
+	clear:both;
 }
 
 
