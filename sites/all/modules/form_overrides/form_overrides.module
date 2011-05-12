@@ -57,11 +57,7 @@ function form_overrides_form_alter(&$form, $form_state, $form_id) {
       /*anonymous users should not be presented for the tema-vocabulary, kunst-, the room- or the frie tags vocabulary on the mentioned content types*/
       case 'anmeldelse_bog_node_form':
       case 'forum_node_form':
-        global $user; 
-		/*debugging*/
-		if (in_array('Superadmin',$user->roles)){
-          	dpm($form);
-        }     
+        global $user;    
 
         if (in_array('anonymous user',$user->roles)){
           unset($form['taxonomy']['2']);
