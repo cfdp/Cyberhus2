@@ -15,38 +15,24 @@
       <div class="author-pane-line author-name"> 
       <?php 
       global $user;
-      if(!in_array('NUeH Ung',$account->roles) && !in_array('NUeH Ung Net',$account->roles)){	
-      print $account_name;}?> </div>
+
+      print $account_name;
+
+	?> </div>
 
       <?php /*if (!empty($facebook_status_status)): ?>
         <div class="author-pane-line author-facebook-status"><?php print $facebook_status_status;  ?></div>
       <?php endif; */?>
 
 	  
-	  <!-- hvis brugeren er vejleder eller koordinator, må billedet vises   (NUeH: Hvis det er en ven må billedet vises-->
+	  <!-- hvis brugeren er vejleder eller koordinator, må billedet vises   -->
 	  <?php if ((in_array('Vejleder',$account->roles) || in_array('Koordinator',$account->roles)) && !empty($picture)) : ?>
 	  
 	   <?php print $picture; ?>
 
 	  <?php endif; ?>
 	  
-	  <!-- NUeH: Friends should be able to see each other
-	  This feature is not yet implemented and the loop below is NOT working as intended, hence grayed out.
-	  Creates a loop running through all authors 'ven' relationships. If a 'ven' relationship exists between author and current user, it prints $picture and $account_name
-	  The iteration runs to 500, hence supporting no more than 500 friends in the network. This number can be incresed below if need be.
-	  <?php if (in_array('NueH Vejleder',$user>roles) || in_array('NUeH Ung',$user->roles)|| in_array('NUeH Ung Net',$user->roles)) : ?>
-	  			<?php
-	  				$ur=user_relationships_load(array('user' => $account->uid), array('sort' => 'name'));
-	  				if(array_key_exists('ven',$ur)){
-	  				for ( $i = 0; $i <= 500; $i=$i + 1) {
-	  					if ($ur['ven'][$i]->requester_id == $user->uid || $ur['ven'][$i]->requestee_id ==$user->uid){
-	  					print $account_name;	
-	   					print $picture;
-	  				}
-	  			}
-	  		}
-	  			?>
-	  <?php endif; ?>-->
+
 	  
 	  <!-- 
       <div class="author-pane-line author-pane-online">
