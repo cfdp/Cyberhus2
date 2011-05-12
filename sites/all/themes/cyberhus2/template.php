@@ -223,7 +223,7 @@ function _phptemplate_variables($hook, $vars) {
  */
 function cyberhus2_preprocess_page(&$vars, $hook) {
     //drupal_set_message("Cyberhus.dk er under opdatering og sitet kan være nede i kortere perioder her til morgen!");
-    
+    global $user;
     global $base_url;
 	/*adding external stylesheet to page templates*/
 	$vars['styles'] .= "<link type=\"text/css\" rel=\"stylesheet\" href=\"http://fonts.googleapis.com/css?family=GFS+Neohellenic:regular,italic,bold,bolditalic&amp;subset=greek\" />";
@@ -266,6 +266,16 @@ function cyberhus2_preprocess_page(&$vars, $hook) {
   if (!module_exists('conditional_styles')) {
     $vars['styles'] .= $vars['conditional_styles'] = variable_get('conditional_styles_' . $GLOBALS['theme'], '');
   }
+  
+  //if the user is logged in and want to post in the forum, they should get a notice
+  $curr_uri = check_plain(request_uri());
+  //under construction
+  if (($curr_uri=='node/add/forum') && ($user->uid)) {
+    //print '<div class="messages warning">Du er logget ind. Hvis du vil sikre din anonymitet kan du logge ud <a href="http://www.cyberhus.dk/logout">Her</a></div>';
+	//print_r($vars);
+  }
+  
+  
 
   // Classes for body element. Allows advanced theming based on context
   // (home page, node of certain type, etc.)
@@ -297,12 +307,7 @@ function cyberhus2_preprocess_page(&$vars, $hook) {
  	if ($node->type == 'cyberflash' && !$vars['node-type-cyberflash'] ){
   		$body_classes[] = 'node-type-cyberflash'; //add 'node-type-cyberflash' due to panels not printing 'node-type-cyberflash' class'
   	}
-  	if(arg(0) == 'user' && is_numeric(arg(1))){
-  	$userpage=user_load(arg(1));
-   		if (in_array('NUeH Ung',$userpage->roles)||in_array('NueH Vejleder',$userpage->roles)||in_array('NUeH Ung Net',$userpage->roles)){
-  			$body_classes[] = 'nueh-profile'; //add 'nueh-profile' class to nueh user pages
-   		}
-   	 }
+
    	if (arg(0) == 'voksne' && $node->type == 'page' && is_null($node->field_billede['0']) ){
   		$body_classes[] = 'page-without-picture'; //add 'page-without-picture' to seperate between two page layouts
   	}
@@ -437,7 +442,7 @@ function cyberhus2_preprocess_node_page(&$vars, $hook) {
 	else
 	// Houston we have a problem - the node id can't be determined
 	{
-		drupal_set_message("Node id kunne ikke bestemmes. Kontakt evt. support med denne meddelelse p� support@cyberhus.dk", "status");
+		drupal_set_message("Node id kunne ikke bestemmes. Kontakt evt. support med denne meddelelse på support@cyberhus.dk", "status");
 	}
 	//var_dump($node->field_billede);
 	$vars['title_image'] = $title_image;
