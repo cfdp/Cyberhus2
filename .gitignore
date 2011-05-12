@@ -22,6 +22,7 @@ githubpull.php
 /js
 /css
 /googleanalytics
+/languages
 
 #we dont want to include backups or database files
 ######################
