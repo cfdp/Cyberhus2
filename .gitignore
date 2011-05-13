@@ -51,3 +51,9 @@ sites/default/files/*
 *.pdf
 *.odg
 *.doc
+
+.htaccess_backup
+Cyberhus2 - Genvej (2).lnk
+Cyberhus2 - Genvej (3).lnk
+Cyberhus2 - Genvej (4).lnk
+Cyberhus2 - Genvej.lnk
