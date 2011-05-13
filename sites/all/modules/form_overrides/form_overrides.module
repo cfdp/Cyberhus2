@@ -31,6 +31,11 @@ function form_overrides_form_alter(&$form, $form_state, $form_id) {
       break;
 	  /*Skriveværkstedets historier skal kun have et begrænset antal termer tilknyttet*/
 	  case 'historie_node_form':
+          global $user;  
+		  //if the user is anonymous, he shouldnt get the taxonomy select boxes
+		  if (in_array('anonymous user',$user->roles)){
+		  	unset($form['taxonomy']);
+		  }
 		//drupal_set_message('Hej!! Det kan godt være at du ikke kan oploade din historie i dag, fordi vi er ved at arbejde på dem. Lige nu tester vi default values! OJOJ');	
 		//$form['taxonomy']['#pre_render'] = array(pre_ren_fortael);
 	  break;

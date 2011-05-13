@@ -103,7 +103,7 @@
       <div id="skip-to-nav"><a href="#navigation"><?php print t('Skip to Navigation'); ?></a></div>
     <?php endif; ?>
     <div id="header"><div id="header-inner" class="clear-block">
-      <a href="http://www.cyberhus.dk" class="homelink"><!-- /class homelink start --> 
+      <a href="<?php print $base_path; ?>" class="homelink"><!-- /class homelink start --> 
 
       <?php if ($logo or $site_name or $site_slogan): ?>
         <div id="logo-title">
