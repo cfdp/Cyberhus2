@@ -1607,10 +1607,10 @@ div.forum-post-wrapper div.forum-post-panel-main div.content{
 	border-top-width: 1px;
 	border-top-style: solid;
 	border-top-color: #CCCCCC;
-	padding-top: 6px;
+	padding-top: 0px;
 	padding-right: 4px;
 	padding-left: 4px;
-	margin-top: 0px;
+	margin-top: 10px;
 	margin-right: 5px;
 	margin-bottom: 0px;
 	margin-left: 5px;

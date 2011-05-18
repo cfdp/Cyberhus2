@@ -2,7 +2,7 @@
 /* Alternate widget CSS files */
 
 .vud-widget-cyberlike {
-
+	overflow: hidden;
 }
 
 .up-inactive,.up-active {
