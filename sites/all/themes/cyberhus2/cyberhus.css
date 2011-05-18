@@ -3976,3 +3976,18 @@ body.section-faq div#page div.content div.faq div.item-list li div.faq_qa_descri
 /*Brevkasseside - links i teksten der ikke er overskriften afsluttet*/
 
 /* Menu oveskrift i højre sidebar under panels og almindelige pages*/
+#life_story_banner{
+    background-image: url('images/livsfortaellinger.jpg');
+    width: 620px;
+    height: 180px;
+    position: relative;
+}
+
+p#life_story_desc {
+    background-image: url('images/transparent80.png');
+    color: #fff;
+    padding: 10px;
+    margin: 0;
+    bottom: 0;
+    position: absolute;
+}
