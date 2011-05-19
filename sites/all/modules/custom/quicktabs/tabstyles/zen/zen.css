@@ -27,7 +27,7 @@ ul.quicktabs_tabs.quicktabs-style-zen li{
 }
 ul.quicktabs_tabs.quicktabs-style-zen li a{
   font:bold 12px/170% Verdana;
-  font-size-adjust:none;
+  //font-size-adjust:none;
   display: block;
   margin: 0;
   padding:4px 17px 0px 12px;

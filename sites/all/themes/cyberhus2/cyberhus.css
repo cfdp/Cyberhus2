@@ -819,6 +819,7 @@ div.views-row-odd, div.views-row-even{
 	margin-bottom: 2px;
 	padding-right: 3px;
 	padding-left: 3px;
+	
 }
 
 /*********************************************RUM BLOKKE I SIDEBAR *******************************************************/
@@ -3991,3 +3992,37 @@ p#life_story_desc {
     bottom: 0;
     position: absolute;
 }
+/*rene styles begin*/
+#quicktabs_container_2 .views-row-odd , #quicktabs_container_2 .views-row-even {
+	border-bottom: 1px dashed #aaa;
+	padding: 10px 0;	
+}
+#quicktabs_container_2 a {
+	
+	font-size: 12px;
+}
+#quicktabs_container_2 .views-field-created {
+	float: right;
+	width:87%;	
+}
+#quicktabs_container_2 .views-field-field-anmeldelse-anm-navn-value {
+	width:13%;
+	
+}
+#quicktabs_container_2 .views-label-field-anmeldelse-anm-navn-value {
+	font-size:10px;
+}
+#quicktabs_container_2 .views-field-teaser {
+	padding:0;
+	width:85%;
+	float: right;
+	display:inline;
+	
+}
+#quicktabs_container_2 .views-field-field-billede-fid {
+	
+	width:15%;
+	display: inline;
+	
+}
+/*rene styles end*/
