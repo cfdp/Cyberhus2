@@ -3974,9 +3974,9 @@ body.section-ungeblogs div#content-inner div#content-area div.view-footer{
 body.section-faq div#page div.content div.faq div.item-list li div.faq_qa_description p a{
 	font-size: 12px;
 }
-/*Brevkasseside - links i teksten der ikke er overskriften afsluttet*/
 
-/* Menu oveskrift i højre sidebar under panels og almindelige pages*/
+
+/*style for life stories (livsfortællinger) begin*/
 #life_story_banner{
     background-image: url('images/livsfortaellinger.jpg');
     width: 620px;
@@ -3996,21 +3996,21 @@ p#life_story_desc {
 #life_story_content p{
 	line-height: 20px;
 }
-/*rene styles begin*/
+
 #quicktabs_container_2 .views-row-odd , #quicktabs_container_2 .views-row-even {
 	border-bottom: 1px dashed #aaa;
 	padding: 10px 0;	
+	overflow: hidden;
 }
 #quicktabs_container_2 a {
 	
 	font-size: 12px;
 }
 #quicktabs_container_2 .views-field-created {
-	float: right;
-	width:87%;	
+
 }
 #quicktabs_container_2 .views-field-field-anmeldelse-anm-navn-value {
-	width:13%;
+
 	
 }
 #quicktabs_container_2 .views-label-field-anmeldelse-anm-navn-value {
@@ -4018,15 +4018,12 @@ p#life_story_desc {
 }
 #quicktabs_container_2 .views-field-teaser {
 	padding:0;
-	width:85%;
-	float: right;
 	display:inline;
 	
 }
 #quicktabs_container_2 .views-field-field-billede-fid {
-	
-	width:15%;
+	float: left;
 	display: inline;
-	
+	padding-right: 5px;
 }
-/*rene styles end*/
+/*style for life stories (livsfortællinger) end*/
