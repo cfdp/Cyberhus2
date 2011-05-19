@@ -81,7 +81,7 @@
 			*/
 			//print $forum->icon;
 			if($forum_id == 0){
-				$forum_sc_topic_ids = array(317,329,322,330,331,325,617,901);
+				$forum_sc_topic_ids = array(317,329,322,330,331,325,617,901,1491);
 				
 				foreach($forum_sc_topic_ids as $forum_topic){
 					if($child_id == $forum_topic){

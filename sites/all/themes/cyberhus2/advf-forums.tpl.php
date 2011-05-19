@@ -37,7 +37,7 @@
 	 */
  		
 		
-		$forum_sc_topic_ids = array(317,329,322,330,331,325,617,901);
+		$forum_sc_topic_ids = array(317,329,322,330,331,325,617,901,1491);
 		$fforum_id = substr($links['forum']['href'],15);
 		foreach($forum_sc_topic_ids as $sc_forum_id){
 			if($sc_forum_id == $fforum_id){
