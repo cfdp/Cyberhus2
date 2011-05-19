@@ -33,6 +33,7 @@ githubpull.php
 ######################
 sites/all/modules/charts/*
 sites/all/modules/dtools/*
+sites/all/modules/devel_themer/*
 
 #we don't want certain media files included
 ######################
