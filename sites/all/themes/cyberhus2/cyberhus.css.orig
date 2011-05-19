@@ -3992,10 +3992,7 @@ p#life_story_desc {
     bottom: 0;
     position: absolute;
 }
-
-#life_story_content p{
-	line-height: 20px;
-}
+<<<<<<< HEAD
 /*rene styles begin*/
 #quicktabs_container_2 .views-row-odd , #quicktabs_container_2 .views-row-even {
 	border-bottom: 1px dashed #aaa;
@@ -4030,3 +4027,8 @@ p#life_story_desc {
 	
 }
 /*rene styles end*/
+=======
+#life_story_content p{
+	line-height: 20px;
+}
+>>>>>>> eab3017e836c314dfae17aec7d1a6022f34e5ada
