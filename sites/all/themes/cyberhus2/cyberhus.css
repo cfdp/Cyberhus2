@@ -4026,4 +4026,9 @@ p#life_story_desc {
 	display: inline;
 	padding-right: 5px;
 }
+
+#quicktabs_container_2 .views-field-comment-count {
+	float: left;
+	clear: left;
+}
 /*style for life stories (livsfortællinger) end*/
