@@ -4032,3 +4032,10 @@ p#life_story_desc {
 	clear: left;
 }
 /*style for life stories (livsfortællinger) end*/
+
+/*unpublished or content only visible to admins*/
+.node-unpublished,
+.admin-info,
+.author-pane-admin {
+	background-color: #FFf2d2;
+}	
