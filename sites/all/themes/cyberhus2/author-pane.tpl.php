@@ -87,7 +87,7 @@
 	  <!-- if the authorr has role Vejleder or Koordinater the image should be shown-->
 	  <?php if ((in_array('Vejleder',$account->roles) || in_array('Koordinator',$account->roles)) && !empty($picture)) : ?>
 	  
-	   <?php print $picture; ?>
+	   <?php print "<img src=\"/".$account->picture."\">"; ?>
 
 	  <?php endif; ?>
 
