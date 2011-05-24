@@ -81,6 +81,7 @@
 
 /** add javascripts*/
 drupal_add_js ('sites/findhjaelp.dk/findhjaelp.js', 'core');
+drupal_add_js ('sites/all/themes/cyberhus2/chatentry.js', 'core');
 
 /*we dont want the chat embedded on the pages for adults*/
 if (arg(0) != 'voksne') {

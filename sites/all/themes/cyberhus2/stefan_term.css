@@ -87,3 +87,26 @@
 #feedback_hover a               {color: #000;}
 
 /* -------------------------------- */
+
+/* CHAT ENTRY
+----------*/
+#chat_entry                     {position: fixed; top: 0; width: 100%; z-index: 999;}
+#panel                          {overflow: hidden; background: -moz-linear-gradient(0% 100% 90deg,#ffa84c, #ff7b0d);}
+#chat_content_wrapper			{overflow: hidden; width: 1000px; margin: 0 auto; padding: 30px 0 10px;}
+#chat_desc						{float: left; width: 500px;}
+#chat_desc h1					{font-family: 'Amaranth',serif; color: #fff; font-size: 32px; text-shadow: #333 2px 2px 4px;}
+#chat_desc>p 					{font-size: 14px; line-height: 24px; margin-bottom: 20px; color: #000;}
+#chat_form_wrapper				{float: right;}
+#chat_form ul					{list-style-type: none;}
+#chat_form li					{margin: 20px 0; overflow: hidden;}
+#chat_form input[type=text]		{width: 230px; padding: 8px; font-size: 18px;}
+#chat_form li span				{font-size: 16px; margin-right: 10px;}
+#chat_form li .radio_btn        {float: left; width: 50%;}
+#chat_form input[type=submit]	{float: right; font-size: 16px; padding: 5px; width: 100px;}
+#tab                            {height: 40px; position: relative; top: 0; border-top: 7px solid #000; z-index: 999;}
+#login                          {float: right; position: relative; right:0px; background: #000; padding: 5px 20px 10px 20px; font: 10px verdana; border-radius: 0 0 8px 8px; margin: 0;}
+#login li                       {display: inline-block;}
+#login li p						{color: #00ff00;}
+#login li:first-child           {margin-right: 10px;}
+#login li a                     {color: #fff; text-decoration: none;}
+#login li a:hover               {color: #77ACD3;}

@@ -100,6 +100,57 @@
   <script type="text/javascript"><?php /* Needed to avoid Flash of Unstyled Content in IE */ ?> </script>
 </head>
 <body id="body" class="<?php print $body_classes; ?>">
+	<div id="chat_entry">
+        <div id="panel">
+
+                <div id="chat_content_wrapper">
+                	
+                	<div id="chat_desc">
+                		<h1>Velkommen :)</h1> 
+						<p>
+							Chatrågivningen i Cyberhus er sikker chat. 
+							Så snart du er logget ind bliver chatten spærret, og der kan ikke komme andre ind. Du kan anonymt og i fortrolighed chatte med os.<br /> 
+							Vi har tavshedspligt - Du behøver ikke at opgive navn og adresse.
+						</p> 
+						<p>
+							Log på og hils på os...
+						</p>
+                	</div>
+                	
+                	<div id="chat_form_wrapper">
+                	
+                		<form id="chat_form" name="chat_login" action="#" method="post">
+                			
+                			<ul>
+                				<li>
+                					<input type="text" name="name" value="Anonym" />
+                				</li>
+                				<li>
+                					<input type="text" name="age" value="Alder" />
+                				</li>
+                				<li>
+                					<div class="radio_btn"><span>Mand</span><input type="radio" name="sex" value="male" /></div>
+                					<div class="radio_btn"><span>Kvinde</span><input type="radio" name="sex" value="female" /></div>
+                				</li>
+                				<li>
+                					<input type="submit" value="Log på" />
+                				</li>
+                			</ul>
+                			                			
+                		</form>
+                	
+                	</div>
+                	
+                </div>
+
+        </div>
+        <div id="tab">
+                <ul id="login">
+                    <li><p>Chatrådgivningen ÅBEN</p></li>
+                    <li><a href="#">Log på</a></li>
+                </ul>
+        </div>
+    </div>
 <div id="repeatbanner">
 </div>
 <div id="repeatnavbar">
