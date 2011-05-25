@@ -2040,6 +2040,7 @@ div.panel-2col-bricks .panel-col-last .panel-pane {
 	border: 1px solid #EBE2CF;
 	min-height:215px;
 	position: relative;
+	overflow: hidden;
 }
 
 div.panel-2col-bricks .panel-col-last .panel-pane div.views-row {
