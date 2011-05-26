@@ -1,6 +1,6 @@
 $(function() {
     //Chat entry point panel slide down
-    $("#panel, #feedback_hover").hide();
+    $("#panel").hide();
     $("#login").toggle(
         function(){
             $("#panel").slideDown('');
