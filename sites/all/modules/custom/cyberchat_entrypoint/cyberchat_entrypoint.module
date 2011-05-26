@@ -1,0 +1,173 @@
+<?php
+// $Id$
+
+/**
+* Display help and module information
+* @param path which path of the site we're displaying help
+* @param arg array that holds the current path as would be returned from arg() function
+* @return help text for the path
+*/
+function cyberchat_entrypoint_help($path, $arg) {
+  $output = '';  //declare your output variable
+  switch ($path) {
+    case "admin/help#cyberchat_entrypoint":
+      $output = '<p>'.  t("Integrates the Cyberhus chat software") .'</p>';
+      break;
+  }
+  return $output;
+} // function madregnskab_help
+
+
+
+/* here configuration for the settings page in the administration can be defined */
+function cyberchat_entrypoint_admin() {
+  $form = array();
+  $default_opening_hours = "Monday to friday, 14-19.";
+  $form['cyberchat_entrypoint_administration']['cyberchat_entrypoint_opening_hours'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Opening hours'),
+    '#default_value' => variable_get('cyberchat_entrypoint_opening_hours',$default_opening_hours),
+    '#size' => 80,
+    '#maxlength' => 200,
+    '#description' => t("The opening hours of the chat"),
+    '#required' => TRUE,
+  );
+  $default_closed_message = "The chat is closed.";
+  $form['cyberchat_entrypoint_administration']['cyberchat_entrypoint_closed_message'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Chat is closed message'),
+    '#default_value' => variable_get('cyberchat_entrypoint_closed_message', $default_closed_message),
+    '#size' => 80,
+    '#maxlength' => 200,
+    '#description' => t("The message to be shown to the users on hover over the chat entry point if the chat is closed"),
+    '#required' => TRUE,
+  );
+  $default_occupied_message = "The chat is occupied.";
+  $form['cyberchat_entrypoint_administration']['cyberchat_entrypoint_occupied_message'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Chat is occupied message'),
+    '#default_value' => variable_get('cyberchat_entrypoint_occupied_message', $default_occupied_message),
+    '#size' => 80,
+    '#maxlength' => 200,
+    '#description' => t("The message to be shown to the users on hover over the chat entry point if the chat is occupied"),
+    '#required' => TRUE,
+  );
+  $default_vacant_message = "The chat is vacant.";
+  $form['cyberchat_entrypoint_administration']['cyberchat_entrypoint_vacant_message'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Chat is vacant message'),
+    '#default_value' => variable_get('cyberchat_entrypoint_vacant_message', $default_vacant_message),
+    '#size' => 80,
+    '#maxlength' => 200,
+    '#description' => t("The message to be shown to the users on hover over the chat entry point if the chat is vacant"),
+    '#required' => TRUE,
+  );
+  return system_settings_form($form);
+}
+
+/* If we need an menu item, it can be defined here */
+
+function cyberchat_entrypoint_menu() {
+
+  $items = array();
+
+  $items['admin/settings/cyberchat_entrypoint'] = array(
+    'title' => 'Cyberhus chat entry point',
+    'description' => 'Here the integration of the Cyberhus Chat can be configured.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('cyberchat_entrypoint_admin'),
+    'access arguments' => array('access administration pages'),
+    'type' => MENU_NORMAL_ITEM,
+   );
+   
+  return $items;
+}
+
+/**
+* Valid permissions for this module
+* @return array An array of valid permissions for the cyberhat_entrypoint module
+*/
+function cyberchat_entrypoint_perm() {
+  return array('access cyberchat_entrypoint content', 'administer cyberchat_entrypoint');
+} // function madregnskab_perm()
+
+/**
+* Implementation of hook_block
+* @param string $op one of "list", "view", "save" and "configure"
+* @param integer $delta code to identify the block
+* @param array $edit only for "save" operation
+**/
+
+function cyberchat_entrypoint_block($op = 'list', $delta = 0, $edit = array()) {  
+  global $user;
+  $current_userid = $user->uid;
+  $opening_hours= variable_get("cyberchat_entrypoint_opening_hours", 995);
+
+  switch ($op) {
+    case 'list':
+    $blocks[0]['info'] = t('Cyberchat entry point');
+
+      return $blocks;
+    case 'view':
+		switch ($delta) {
+			case 0:
+				$block_content = '<div id="chat_entry">
+			        <div id="panel">
+			
+			                <div id="chat_content_wrapper">
+			                	
+			                	<div id="chat_desc">
+			                		<h1>Velkommen :)</h1> 
+									<p>
+										Chatrågivningen i Cyberhus er sikker chat. 
+										Så snart du er logget ind bliver chatten spærret, og der kan ikke komme andre ind. Du kan anonymt og i fortrolighed chatte med os.<br /> 
+										Vi har tavshedspligt - Du behøver ikke at opgive navn og adresse.
+									</p> 
+									<p>
+										Log på og hils på os...
+									</p>
+			                	</div>
+			                	
+			                	<div id="chat_form_wrapper">
+			                	
+			                		<form id="chat_form" name="chat_login" action="#" method="post">
+			                			
+			                			<ul>
+			                				<li>
+			                					<input type="text" name="name" value="Anonym" />
+			                				</li>
+			                				<li>
+			                					<input type="text" name="age" value="Alder" />
+			                				</li>
+			                				<li>
+			                					<div class="radio_btn"><span>Mand</span><input type="radio" name="sex" value="male" /></div>
+			                					<div class="radio_btn"><span>Kvinde</span><input type="radio" name="sex" value="female" /></div>
+			                				</li>
+			                				<li>
+			                					<input type="submit" value="Log på" />
+			                				</li>
+			                			</ul>
+			                			                			
+			                		</form>
+			                	
+			                	</div>
+			                	
+			                </div>
+			
+			        </div>
+			        <div id="tab">
+			                <ul id="login">
+			                    <li><p>Chatrådgivningen ÅBEN</p></li>
+			                    <li><a href="#">Log på</a></li>
+			                </ul>
+			        </div>
+			    </div>';
+
+		      $blocks['subject'] = t('Cyberhus chat');
+		      $blocks['content'] = $block_content;
+		      return $blocks;
+
+
+		}  
+  }  	
+} // function madregnskab_block
