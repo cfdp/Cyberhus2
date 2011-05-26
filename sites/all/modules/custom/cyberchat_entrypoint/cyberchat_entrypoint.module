@@ -99,8 +99,8 @@ function cyberchat_entrypoint_perm() {
 **/
 
 function cyberchat_entrypoint_block($op = 'list', $delta = 0, $edit = array()) {  
-  global $user;
-  $current_userid = $user->uid;
+  drupal_add_js(drupal_get_path('module', 'cyberchat_entrypoint') .'/js/chatentry.js');
+  drupal_add_js(drupal_get_path('module', 'cyberchat_entrypoint') .'/js/chat_update.js');
   $opening_hours= variable_get("cyberchat_entrypoint_opening_hours", 995);
 
   switch ($op) {
@@ -112,10 +112,11 @@ function cyberchat_entrypoint_block($op = 'list', $delta = 0, $edit = array()) {
 		switch ($delta) {
 			case 0:
 				$block_content = '<div id="chat_entry">
+				<!-- start the chat is open section-->
+				<div id="green">
 			        <div id="panel">
-			
 			                <div id="chat_content_wrapper">
-			                	
+
 			                	<div id="chat_desc">
 			                		<h1>Velkommen :)</h1> 
 									<p>
@@ -129,7 +130,7 @@ function cyberchat_entrypoint_block($op = 'list', $delta = 0, $edit = array()) {
 			                	</div>
 			                	
 			                	<div id="chat_form_wrapper">
-			                	
+			                		
 			                		<form id="chat_form" name="chat_login" action="#" method="post">
 			                			
 			                			<ul>
@@ -152,6 +153,8 @@ function cyberchat_entrypoint_block($op = 'list', $delta = 0, $edit = array()) {
 			                	
 			                	</div>
 			                	
+			                	
+								
 			                </div>
 			
 			        </div>
@@ -161,6 +164,68 @@ function cyberchat_entrypoint_block($op = 'list', $delta = 0, $edit = array()) {
 			                    <li><a href="#">Log på</a></li>
 			                </ul>
 			        </div>
+			    </div>
+			    <!-- end of the chat is open section -->
+			    
+				<!-- start the chat is occupied section-->
+				
+				<div id="yellow">
+			        <div id="panel">
+			                <div id="chat_content_wrapper">
+			               
+			                	<div id="chat_desc">
+			                		<h1>Velkommen :)</h1> 
+									<p>
+										Chatrågivningen i Cyberhus er optaget
+									</p> 
+									<p>
+										Log på når der bliver grønt
+									</p>
+			                	</div>
+			                	
+					
+			                </div>
+			
+			        </div>
+			        <div id="tab">
+			                <ul id="login">
+			                    <li><p>Chatrådgivningen optaget</p></li>
+			                    <li><a href="#">Log på</a></li>
+			                </ul>
+			        </div>
+			    </div>
+					
+				<!-- end the chat is occupied section-->
+				
+				<!-- start the chat is closed section-->
+				
+				<div id="red">
+			        <div id="panel">
+			                <div id="chat_content_wrapper">
+			               
+			                	<div id="chat_desc">
+			                		<h1>Velkommen :)</h1> 
+									<p>
+										Chatrågivningen i Cyberhus er lukket
+									</p> 
+									<p>
+										Log på når der bliver grønt
+									</p>
+			                	</div>
+			                	
+					
+			                </div>
+			
+			        </div>
+			        <div id="tab">
+			                <ul id="login">
+			                    <li><p>Chatrådgivningen lukket</p></li>
+			                    <li><a href="#">Log på</a></li>
+			                </ul>
+			        </div>
+			    </div>
+				<!-- end the chat is closed section-->
+				
 			    </div>';
 
 		      $blocks['subject'] = t('Cyberhus chat');
