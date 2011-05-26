@@ -111,7 +111,8 @@ function cyberchat_entrypoint_block($op = 'list', $delta = 0, $edit = array()) {
     case 'view':
 		switch ($delta) {
 			case 0:
-				$block_content = '<div id="chat_entry">
+				$block_content = '
+				<div id="chat_entry">
 				<!-- start the chat is open section-->
 				<div id="green">
 			        <div id="panel">
@@ -152,9 +153,6 @@ function cyberchat_entrypoint_block($op = 'list', $delta = 0, $edit = array()) {
 			                		</form>
 			                	
 			                	</div>
-			                	
-			                	
-								
 			                </div>
 			
 			        </div>
@@ -174,16 +172,11 @@ function cyberchat_entrypoint_block($op = 'list', $delta = 0, $edit = array()) {
 			                <div id="chat_content_wrapper">
 			               
 			                	<div id="chat_desc">
-			                		<h1>Velkommen :)</h1> 
-									<p>
-										Chatrågivningen i Cyberhus er optaget
-									</p> 
+			                		<h1>Chatrågivningen i Cyberhus er optaget/h1> 
 									<p>
 										Log på når der bliver grønt
 									</p>
 			                	</div>
-			                	
-					
 			                </div>
 			
 			        </div>
@@ -226,7 +219,7 @@ function cyberchat_entrypoint_block($op = 'list', $delta = 0, $edit = array()) {
 			    </div>
 				<!-- end the chat is closed section-->
 				
-			    </div>';
+			  </div>';
 
 		      $blocks['subject'] = t('Cyberhus chat');
 		      $blocks['content'] = $block_content;
