@@ -4,21 +4,17 @@
  */
 $(document).ready(function (){
 	//$('#green, #yellow, #red').hide();
-	$("#panel").hide();
-	 $("#login").toggle(
-        function(){
-            $("#panel").slideDown();
-        },
-        function(){
-            $("#panel").slideUp();
-        }
-    );
-    
+	function updateChat(){
+		var response = "<h1>Velkommen :)</h1><p>Chatrågivningen i Cyberhus er sikker chat. Så snart du er logget ind bliver chatten spærret, og der kan ikke komme andre ind. Du kan anonymt og i fortrolighed chatte med os.<br />Vi har tavshedspligt - Du behøver ikke at opgive navn og adresse.</p><p>	Log på og hils på os...</p>";
+		$('#chat_desc').html(response);
+		
+		var link = "<li><p>Chatrådgivningen ÅBEN</p></li><li><a href=\"#\">Log på</a></li>";
+		$('#login').html(link);
+	};
+	
+	//updateChat();
+	setInterval(updateChat, 4000);
 });
-
-updateChat(); 
-
-function updateChat(){
 
 	/* if (window.XMLHttpRequest){
 		// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -56,38 +52,7 @@ function updateChat(){
 			}
 		}
 	}
-	*/
-			var response = "<h1>Velkommen :)</h1><p>Chatrågivningen i Cyberhus er sikker chat. Så snart du er logget ind bliver chatten spærret, og der kan ikke komme andre ind. Du kan anonymt og i fortrolighed chatte med os.<br />Vi har tavshedspligt - Du behøver ikke at opgive navn og adresse.</p><p>	Log på og hils på os...</p>";
-			$('#chat_desc').html(response);
-			
-			var link = "<li><p>Chatrådgivningen ÅBEN</p></li><li><a href=\"#\">Log på</a></li>";
-			$('#login').html(link);
-			/*
-			//debugging
-			var state = 'green';
-			//alert(state);
-			//debugging
-			
-			if(state == 'red'){
-				//$('#green, #yellow, #red').hide();
-				//$('#red').show();
-				//$('.link').attr('href',tab_link);
-			}
-			if(state == 'green'){
-				//$('#green, #yellow, #red').hide();
-				//$('#green').show();
-			}
-			if(state == 'yellow'){
-				//$('#green, #yellow, #red').hide();
-				//$('#yellow').show();
-				//$('.link').attr('href',tab_link);
-			}
-			*/
-	//debugging
-	/*
+	
 	xmlhttp.open("GET", "http://chat.cybhus.dk/chat_status.php", true);
 	xmlhttp.send();
 	*/
-}
-updateChat();
-//setInterval(updateChat, 4000);
