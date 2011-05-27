@@ -3,7 +3,7 @@
 
   ; The name and description of the theme used on the admin/build/themes page.
 name        = Cyberhus 2.0
-description = Read the <a href="http://drupal.org/node/226507">online docs</a> on how to create a sub-theme.
+description = Cyberhus front end theme. Read the <a href="http://drupal.org/node/226507">online docs</a> on how to create a sub-theme.
 
   ; The screenshot used on the admin/build/themes page.
 screenshot = screenshot.png
@@ -16,9 +16,7 @@ screenshot = screenshot.png
 core       = 6.x
 base theme = zen
 
-;scripts[] = cyberhus_lykke.js
 ;scripts[] = AC_OETags.js
-scripts[] = dorollover.js
   ; This section adds CSS files to your theme. The media type is specified in
   ; the brackets. Typical CSS media types include "all", "screen", "print", and
   ; "handheld". See http://www.w3.org/TR/CSS21/media.html#media-types for a full
@@ -71,6 +69,7 @@ regions[navbar]         = navigation bar
 regions[content_top]    = content top
 regions[content_rightside]    = content rightside
 regions[content_bottom] = content bottom
+regions[header_top]     = header top
 regions[header]         = header
 regions[footer]         = footer
 regions[closure_region] = closure
