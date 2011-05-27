@@ -99,8 +99,8 @@ function cyberchat_entrypoint_perm() {
 **/
 
 function cyberchat_entrypoint_block($op = 'list', $delta = 0, $edit = array()) {  
-  drupal_add_js(drupal_get_path('module', 'cyberchat_entrypoint') .'/js/chatentry.js');
   drupal_add_js(drupal_get_path('module', 'cyberchat_entrypoint') .'/js/chat_update.js');
+  drupal_add_js(drupal_get_path('module', 'cyberchat_entrypoint') .'/js/chatentry.js');
   $opening_hours= variable_get("cyberchat_entrypoint_opening_hours", 995);
 
   switch ($op) {
@@ -111,7 +111,18 @@ function cyberchat_entrypoint_block($op = 'list', $delta = 0, $edit = array()) {
     case 'view':
 		switch ($delta) {
 			case 0:
+				
 				$block_content = '
+				<div id="panel">
+	               	<div id="chat_content_wrapper">
+	                	<div id="chat_desc"></div>
+	                </div>
+			        </div>
+			        <div id="tab">
+			            <ul id="login"></ul>
+		        </div>';
+					
+				/*$block_content = '
 				<div id="chat_entry">
 				<!-- start the chat is open section-->
 				<div id="green">
@@ -172,7 +183,7 @@ function cyberchat_entrypoint_block($op = 'list', $delta = 0, $edit = array()) {
 			                <div id="chat_content_wrapper">
 			               
 			                	<div id="chat_desc">
-			                		<h1>Chatrågivningen i Cyberhus er optaget/h1> 
+			                		<h1>Chatrågivningen i Cyberhus er optaget</h1> 
 									<p>
 										Log på når der bliver grønt
 									</p>
@@ -220,7 +231,7 @@ function cyberchat_entrypoint_block($op = 'list', $delta = 0, $edit = array()) {
 				<!-- end the chat is closed section-->
 				
 			  </div>';
-
+			*/
 		      $blocks['subject'] = t('Cyberhus chat');
 		      $blocks['content'] = $block_content;
 		      return $blocks;

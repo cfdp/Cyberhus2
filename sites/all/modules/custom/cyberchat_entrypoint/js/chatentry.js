@@ -1,12 +1,12 @@
 $(function() {
     //Chat entry point panel slide down
-    $("#panel").hide();
+    //$("#panel").hide();
     $("#login").toggle(
         function(){
-            $("#panel").slideDown('');
+            $("#panel").slideDown();
         },
         function(){
-            $("#panel").slideUp('');
+            $("#panel").slideUp();
         }
      )
 });
