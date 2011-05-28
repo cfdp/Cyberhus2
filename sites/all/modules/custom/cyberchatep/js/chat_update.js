@@ -14,14 +14,32 @@ $(document).ready(function (){
             $("#panel").slideUp();
         }
      )
+     var counter = "hej";
+     
+
      
 	//$('#green, #yellow, #red').hide();
 	function updateChat(){
 		var response = "<h1>Velkommen :)</h1><p>Chatrågivningen i Cyberhus er sikker chat. Så snart du er logget ind bliver chatten spærret, og der kan ikke komme andre ind. Du kan anonymt og i fortrolighed chatte med os.<br />Vi har tavshedspligt - Du behøver ikke at opgive navn og adresse.</p><p>	Log på og hils på os...</p>";
+		counter = "hej".counter;
+		link = link.counter;
 		$('#chat_desc').html(response);
 		
 		var link = "<li><p>Chatrådgivningen ÅBEN</p></li><li><a href=\"#\">Log på</a></li>";
 		$('#login').html(link);
+		
+		
+		
+		 //make AJAX call
+		 /*
+		 $.ajax({
+		 	type: 'POST',
+		 	url: this.href,
+		 	datatype: 'json',
+		 	success: chatUpdated,
+		 	data: 'js=1'
+		});
+		*/
 	};
 	
 	//updateChat();
