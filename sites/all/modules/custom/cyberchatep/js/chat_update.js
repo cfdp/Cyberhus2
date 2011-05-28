@@ -3,6 +3,18 @@
  * 
  */
 $(document).ready(function (){
+	
+	    //Chat entry point panel slide down
+    $("#panel").hide();
+    $("#login").toggle(
+        function(){
+            $("#panel").slideDown();
+        },
+        function(){
+            $("#panel").slideUp();
+        }
+     )
+     
 	//$('#green, #yellow, #red').hide();
 	function updateChat(){
 		var response = "<h1>Velkommen :)</h1><p>Chatrågivningen i Cyberhus er sikker chat. Så snart du er logget ind bliver chatten spærret, og der kan ikke komme andre ind. Du kan anonymt og i fortrolighed chatte med os.<br />Vi har tavshedspligt - Du behøver ikke at opgive navn og adresse.</p><p>	Log på og hils på os...</p>";

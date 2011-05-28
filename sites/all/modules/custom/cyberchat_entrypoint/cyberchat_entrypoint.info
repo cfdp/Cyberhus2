@@ -1,4 +1,0 @@
-; $Id$
-name = Cyberchat Entry Point
-description = Handles integration of Cyberhus chat
-core = 6.x
