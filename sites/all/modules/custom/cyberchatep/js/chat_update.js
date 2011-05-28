@@ -5,13 +5,13 @@
 $(document).ready(function (){
 	
 	    //Chat entry point panel slide down
-    $("#panel").hide();
-    $("#login").toggle(
+    $("#ccep_panel").hide();
+    $("#ccep_login").toggle(
         function(){
-            $("#panel").slideDown();
+            $("#ccep_panel").slideDown();
         },
         function(){
-            $("#panel").slideUp();
+            $("#ccep_panel").slideUp();
         }
      )
      var counter = "hej";
@@ -22,11 +22,12 @@ $(document).ready(function (){
 	function updateChat(){
 		var response = "<h1>Velkommen :)</h1><p>Chatrågivningen i Cyberhus er sikker chat. Så snart du er logget ind bliver chatten spærret, og der kan ikke komme andre ind. Du kan anonymt og i fortrolighed chatte med os.<br />Vi har tavshedspligt - Du behøver ikke at opgive navn og adresse.</p><p>	Log på og hils på os...</p>";
 		counter = "hej".counter;
-		link = link.counter;
+		//alert('que pasa?');
+
 		$('#chat_desc').html(response);
 		
 		var link = "<li><p>Chatrådgivningen ÅBEN</p></li><li><a href=\"#\">Log på</a></li>";
-		$('#login').html(link);
+		$('#ccep_login').html(link);
 		
 		
 		
@@ -42,7 +43,7 @@ $(document).ready(function (){
 		*/
 	};
 	
-	//updateChat();
+	updateChat();
 	setInterval(updateChat, 4000);
 });
 
