@@ -1,10 +1,10 @@
 /**
- * @author Daniel Mois
+ * @authors Daniel Mois and Benjamin Christensen
  * 
  */
 $(document).ready(function (){
 	
-	    //Chat entry point panel slide down
+	 //Chat entry point panel slide down
     $("#ccep_panel").hide();
     $("#ccep_login").toggle(
         function(){
@@ -14,37 +14,33 @@ $(document).ready(function (){
             $("#ccep_panel").slideUp();
         }
      )
-     var counter = "hej";
-     
 
-     
+	//on this url the chatep-module has a menu callback that delivers the json-data
+	var chat_update_url = "cyberchatep/returntext"; 
+
 	//$('#green, #yellow, #red').hide();
 	function updateChat(){
-		var response = "<h1>Velkommen :)</h1><p>Chatrågivningen i Cyberhus er sikker chat. Så snart du er logget ind bliver chatten spærret, og der kan ikke komme andre ind. Du kan anonymt og i fortrolighed chatte med os.<br />Vi har tavshedspligt - Du behøver ikke at opgive navn og adresse.</p><p>	Log på og hils på os...</p>";
-		counter = "hej".counter;
-		//alert('que pasa?');
+		//alert('hey');
 
-		$('#chat_desc').html(response);
-		
-		var link = "<li><p>Chatrådgivningen ÅBEN</p></li><li><a href=\"#\">Log på</a></li>";
-		$('#ccep_login').html(link);
-		
-		
-		
+		var chatUpdated = function (data){
+			//update the chat
+			$('#ccep_login').html(data.login_message);
+			$('#chat_desc').html(data.welcome_message);		
+		}
 		 //make AJAX call
-		 /*
 		 $.ajax({
 		 	type: 'POST',
-		 	url: this.href,
-		 	datatype: 'json',
+		 	url: chat_update_url,
+		 	dataType: 'json',
 		 	success: chatUpdated,
 		 	data: 'js=1'
 		});
-		*/
+		
 	};
 	
 	updateChat();
 	setInterval(updateChat, 4000);
+	
 });
 
 	/* if (window.XMLHttpRequest){
