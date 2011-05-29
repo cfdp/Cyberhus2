@@ -149,7 +149,7 @@ function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {
 function cyberchatep_returntext() {
   //here we check the status of the chat - a call should be made to a function, that looks into the chat.cyberhus.dk database etc
   
-  $status = "closed";
+  $status = cyberchatep_chatserverrequest();
   
   //get the array with the text for the chat slider panel
   $chattexts = cyberchatep_gettext();
@@ -172,6 +172,7 @@ function cyberchatep_returntext() {
 	  break;
   }
   
+  //the json object is returned to the javascript
   if (!empty($_POST['js'])) {
   	  drupal_json(array(
 	    'welcome_message' => $welcome_message,
@@ -182,9 +183,9 @@ function cyberchatep_returntext() {
 	  exit();
   }
 
-  //it was a non-javascript-call
-  $path = drupal_get_path_alias('node/666');
-  drupal_goto($path);
+  //it was a non-javascript-call - give the user explanation TODO
+  /* no javascript fallback */ 
+
   
 } // function cyberchatep_return_status
 
@@ -251,7 +252,10 @@ function cyberchatep_gettext(){
 	return $chatep_texts;
 }
 
+/*makes a request to the chat server and returns "vacant", "busy" or "closed" */
 function cyberchatep_chatserverrequest() {
-	return t('hello');
+	$status = "vacant";
+	//here some nice web service code
+	return $status;
 }
 
