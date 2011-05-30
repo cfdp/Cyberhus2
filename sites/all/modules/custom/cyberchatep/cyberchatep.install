@@ -2,44 +2,36 @@
 // $Id
 /**
  * @file
- * Installation file for cyberchat_entrypoint module.
+ * Installation file for cyberchatep module.
  */
-/*
-function cyberhat_entrypoint_schema() {
-  $schema['madregnskab_fravaersuger'] = array(
-    'description' => t('Tabel med beboernes fraværsuger.'),
+
+function cyberchatep_schema() {
+  $schema['cyberchatep_chatstatus'] = array(
+    'description' => t('The status of the chat.'),
     'fields' => array(
-      'uid' => array(
-        'description' => t('Brugerens ID bruges til som primary key.'),
+      'status' => array(
+        'description' => t('The status can be 0: closed, 1: vacant, 2: busy.'),
         'type' => 'int',
         'unsigned' => TRUE,
         'not null' => TRUE,
 		'default' => 0),
-      'uger' => array(
-        'description' => t('Uger hvor beboerne er fraværende.'),
-        'type' => 'varchar',
-        'length' => 32,
-        'not null' => TRUE,
-        'default' => ''),
       ),
     'unique keys' => array(
-      'uid' => array('uid'),
+      'status' => array('status'),
       ),
-    'primary key' => array('uid')
+    'primary key' => array('status')
     );
   return $schema;
 }
 
-function madregnskab_install() {
+function cyberchatep_install() {
   // Create my tables.
-  $feedback = drupal_install_schema('madregnskab');
-  //debugging
-  drupal_set_message(t("feedback v2"), print_r($feedback));
+  drupal_install_schema('cyberchatep');
+  drupal_set_message(t("The cyberchat entry point module has been installed"));
 }
 
-function madregnskab_uninstall() {
+function cyberchat_uninstall() {
   // Drop my tables.
-  drupal_uninstall_schema('madregnskab');
-  drupal_set_message(t("Madregnskabsmodulet er blevet afinstalleret"));
+  drupal_uninstall_schema('cyberhatep');
+  drupal_set_message(t("The cyberchat entry point module has been removed"));
 }
-*/

@@ -146,13 +146,16 @@ function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {
 /**
 * Called by JQuery - returns the right text according to the status of the chat
 */
-function cyberchatep_returntext() {
+function cyberchatep_returntext($oldstatus) {
+	
   //here we check the status of the chat - a call should be made to a function, that looks into the chat.cyberhus.dk database etc
-  
   $status = cyberchatep_chatserverrequest();
   
-  //get the array with the text for the chat slider panel
-  $chattexts = cyberchatep_gettext();
+  //if the status has changed: get the array with the text for the chat slider panel
+  if ($status != $oldstatus) {
+  	$chattexts = cyberchatep_gettext();
+  }
+  
   
   $welcome_message = $chattexts['welcome_messages'];
   $login_message = $chattexts['login_messages'];
@@ -176,7 +179,8 @@ function cyberchatep_returntext() {
   if (!empty($_POST['js'])) {
   	  drupal_json(array(
 	    'welcome_message' => $welcome_message,
-	    'login_message' => $login_message
+	    'login_message' => $login_message,
+	    'status' => $status
 		)
 	  );
 	  //
@@ -195,10 +199,8 @@ function cyberchatep_returntext() {
 function cyberchatep_gettext(){
 	
   //static $chatep_texts;
-  $chatep_texts = array();
+  static $chatep_texts;
   
-  //the data should only be fetched once (TODO or if it is changed under admin/settings)
-  if (empty($chatep_texts)){
   	$welcome_messages = array();
 	$login_messages = array();
 	$opening_hours = variable_get("cyberchatep_opening_hours", "hej");
@@ -245,17 +247,28 @@ function cyberchatep_gettext(){
         <li class="ccep_closed"><p>Chatrådgivningen er lukket lige nu</p></li>
         <li><a href="#">Læs mere</a></li>
 	<!-- end the chat is closed section-->';
-	}
 
 	$chatep_texts['welcome_messages'] = $welcome_messages;
 	$chatep_texts['login_messages'] = $login_messages;
 	return $chatep_texts;
 }
 
-/*makes a request to the chat server and returns "vacant", "busy" or "closed" */
+/*makes a request once every 5 seconds to the chat server and returns "vacant", "busy" or "closed" */
 function cyberchatep_chatserverrequest() {
-	$status = "vacant";
+	static $status;
+	if ($status == "vacant"){
+		$status = "busy";
+	}
+	else {
+		$status = "vacant";
+	}
+
 	//here some nice web service code
 	return $status;
 }
-
+function cyberchatep_cachedstatus() {
+	$query = "SELECT chatstatus FROM {cyberchatep_chatstatus}";
+	$query_result = db_query($query);
+	$status = db_fetch_object($query_result);
+	print $status;
+}
