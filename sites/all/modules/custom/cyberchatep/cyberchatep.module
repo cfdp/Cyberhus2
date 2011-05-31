@@ -125,14 +125,19 @@ function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {
 		switch ($delta) {
 			case 0:
 				$block_content = '
+				<div id="ccep">
 					<div id="ccep_panel">
-		                <div id="chat_content_wrapper">
-		                	<div id="chat_desc">'.$welcome_message.'</div>
-		                </div>
-			        </div>
-			        <div id="ccep_tab">
+						<div id="ccep_content_wrapper">	
+		                	<div id="ccep_desc">'.$welcome_message.'
+					        </div>
+					    </div>
+
+					</div> 	
+										    
+					<div id="ccep_tab">
 		                <ul id="ccep_login">'.$login_message.'</ul>
 			        </div>
+		        </div>
 				';
 
 		      $blocks['subject'] = t('Cyberhus chat');
@@ -155,12 +160,11 @@ function cyberchatep_returntext($oldstatus) {
   if ($status != $oldstatus) {
   	$chattexts = cyberchatep_gettext();
   }
-  
-  
+ 
   $welcome_message = $chattexts['welcome_messages'];
   $login_message = $chattexts['login_messages'];
   
-  switch ($status) {
+ switch ($status) {
   	case 'vacant':
 	  $welcome_message = $welcome_message['vacant'];
 	  $login_message = $login_message['vacant'];
@@ -187,7 +191,7 @@ function cyberchatep_returntext($oldstatus) {
 	  exit();
   }
 
-  //it was a non-javascript-call - give the user explanation TODO
+  //it was a non-javascript-call - fallback - give the user explanation TODO
   /* no javascript fallback */ 
 
   
@@ -208,12 +212,17 @@ function cyberchatep_gettext(){
 	$welcome_messages['busy'] = variable_get("cyberchatep_busy_message", "hey");
 	$welcome_messages['closed'] = variable_get("cyberchatep_closed_message", "hey").$opening_hours;
 	
+	
+	/*$welcome_messages['vacant'] = '<div id="ccep_desc">'.$welcome_messages['vacant']."</div>";
+	$welcome_messages['busy'] = '<div id="ccep_desc">'.$welcome_messages['busy']."</div>";
+	$welcome_messages['closed'] = '<div id="ccep_desc">'.$welcome_messages['closed']."</div>";*/
+	
 	//we add the form to the slide panel
 	$welcome_messages['vacant'] .='
 		<!-- start the chat is vacant section-->
 
-            	<div id="chat_form_wrapper">
-            		<form id="chat_form" name="chat_login" action="#" method="post">
+            	<div id="ccep_form_wrapper">
+            		<form id="ccep_form" name="ccep_login" action="#" method="post">
             			<ul>
             				<li>
             					<input type="text" name="name" value="Anonym" />
@@ -231,6 +240,10 @@ function cyberchatep_gettext(){
             			</ul>
             		</form>
             	</div>';
+				
+	$welcome_messages['busy'] .= "<div id=\"ccep_video_wrapper\"><iframe width=\"280\" height=\"175\" src=\"http://www.youtube.com/embed/m_tSm1ewGVA\" frameborder=\"0\" allowfullscreen></iframe></div>";
+	$welcome_messages['closed'] .= "<div id=\"ccep_video_wrapper\"><iframe width=\"280\" height=\"175\" src=\"http://www.youtube.com/embed/m_tSm1ewGVA\" frameborder=\"0\" allowfullscreen></iframe></div>";
+	
 	$login_messages['vacant'] ='
  
         <li class="ccep_vacant"><p>Chatrådgivningen er ÅBEN</p></li>
@@ -255,15 +268,12 @@ function cyberchatep_gettext(){
 
 /*makes a request once every 5 seconds to the chat server and returns "vacant", "busy" or "closed" */
 function cyberchatep_chatserverrequest() {
-	static $status;
-	if ($status == "vacant"){
-		$status = "busy";
-	}
-	else {
-		$status = "vacant";
-	}
 
-	//here some nice web service code
+	$status = file_get_contents('http://chat.cyberhus.dk/chat_status.php');
+	
+	/* for debugging */
+	//$status = file_get_contents('http://chat.cybhus.dk/chat_status.php');
+
 	return $status;
 }
 function cyberchatep_cachedstatus() {

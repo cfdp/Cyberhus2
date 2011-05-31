@@ -25,7 +25,7 @@ $(document).ready(function (){
 		var chatUpdated = function (data){
 			//update the chat
 			$('#ccep_login').html(data.login_message);
-			$('#chat_desc').html(data.welcome_message);
+			$('#ccep_desc').html(data.welcome_message);
 			chat_update_url = "cyberchatep/returntext/"+data.status;
 
 		}
