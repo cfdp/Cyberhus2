@@ -21,7 +21,8 @@
   */
 ?>
 <?php 
-	/*vi stripper alle undtagen nedenstående html-tags så views-listerne ser ordentlige ud*/
-	$output=strip_tags($output, '<a><img>');
-	print $output; 
-?>
+/*	$trans = array("<p>" => " ", "</p>" => "<br />", "&nbsp;" => " ");
+	strtr($output, $trans);
+*/
+ ?>
+<?php print $output; ?>
