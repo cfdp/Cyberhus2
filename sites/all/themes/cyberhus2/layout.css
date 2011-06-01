@@ -181,7 +181,7 @@
   .with-navbar #sidebar-left,
   .with-navbar #sidebar-right
   {
-    margin-top: 4.4em; /* Set this to the same value as the navbar height above. */
+    margin-top: 5.8em; /* Set this to the same value as the navbar height above. */
   }
 
   #navbar-inner
@@ -298,7 +298,7 @@
   #page { overflow-y: hidden; } /* CSS3 property */
  
  /* styles for the dropdown menu */
-ul#nice-menu-4 {margin-top:10px;border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;}
+ul#nice-menu-4 {margin-top:25px;border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;}
 #nice-menu-4 li {
 	padding: 0px;
 	margin:   0px 0px;
@@ -359,3 +359,5 @@ ul#nice-menu-4 {margin-top:10px;border-top: 1px solid #ccc;border-bottom: 1px so
 #nice-menu-4 li.menu-path-nueh-8416:hover {background-color:#3196C7;}
 
 #nice-menu-4 li.menu-path-nueh-8416 {border-right:1px solid #ccc;width:124px;}
+
+#stue-panel h2.pane-title {display:none;}

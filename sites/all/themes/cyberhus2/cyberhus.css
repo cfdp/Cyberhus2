@@ -518,7 +518,7 @@ body.page-cyberhus-image div#content-inner {
 	border: none;
 }
 div#content {
-	border-top: 1px solid #77ACD3;
+	
 }
 
 body.page-cyberhus-image div#content-inner div.christmas-sign {
@@ -3504,7 +3504,7 @@ body.front div#breadcrumb {
 	padding-top:18px;
 }
 .with-navbar #sidebar-left, .with-navbar #sidebar-right {
-	margin-top:10px;
+	margin-top:25px;
 }
 
 /*************************** Placering af karakterer *******************************/
