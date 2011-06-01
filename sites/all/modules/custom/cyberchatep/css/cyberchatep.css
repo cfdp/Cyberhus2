@@ -15,11 +15,17 @@
 #ccep_form li .radio_btn        {float: left; width: 50%;}
 #ccep_form input[type=submit]	{float: right; font-size: 16px; padding: 5px; width: 100px;}
 #ccep_tab                       {height: 40px; position: relative; top: 0; border-top: 7px solid #000; z-index: 999;}
-#ccep_login                     {float: right; position: relative; right:0px; background: #000; padding: 5px 20px 10px 20px; font: 10px verdana; border-radius: 0 0 8px 8px; margin: 0;}
-#ccep_login li                  {display: inline-block;}
-#ccep_login li.ccep_vacant p   	{color: #00ff00;}
-#ccep_login li.ccep_busy p 		{color: #ffff00;}
-#ccep_login li.ccep_closed p   	{color: #ff0000;}
-#ccep_login li:first-child      {margin-right: 10px;}
-#ccep_login li a                {color: #fff; text-decoration: none;}
-#ccep_login li a:hover          {color: #77ACD3;}
+#ccep_button                    {background-image: url('../images/ccep_bg_min.png'); height: 48px; width: 256px; padding: 4px; position: absolute; right: 20%;}
+#ccep_button p                  {color: #82BCE7; text-align: center; font-family: verdana; font-size: 12px; margin: 0px;}
+#ccep_status                    {list-style-type: none;}
+#ccep_status li                 {display: inline; float: left;}
+
+#ccep_status                    {float: right; position: relative; right:0px; padding: 5px 0px 6px 0px; font: 10px verdana; border-radius: 0 0 8px 8px; margin: 0;}
+/* NOT USED AT THE TIME
+#ccep_status li.ccep_vacant p   {color: #00ff00;}
+#ccep_status li.ccep_busy p 	{color: #ffff00;}
+#ccep_status li.ccep_closed p   {color: #ff0000;}
+#ccep_status li a               {color: #fff; text-decoration: none;}
+#ccep_status li a:hover         {color: #77ACD3;}
+*/
+#ccep_status li:last-child:hover {cursor: pointer;}

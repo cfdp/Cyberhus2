@@ -83,6 +83,7 @@ function cyberchatep_menu() {
    );
    
   /* menu callback to check status of chat*/
+
   $items['cyberchatep/returntext'] = array(
     'page callback' => 'cyberchatep_returntext',
     'access arguments' => array('access cyberchatep content'),
@@ -110,7 +111,8 @@ function cyberchatep_perm() {
 
 function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {  
   drupal_add_js(drupal_get_path('module', 'cyberchatep') .'/js/chat_update.js');
-  drupal_add_js(drupal_get_path('module', 'cyberchatep') .'/js/chatentry.js');
+  drupal_add_js(array('cyberchatep'=>array('basePath'=>'base_path()'), 'setting'));
+  //drupal_add_js(drupal_get_path('module', 'cyberchatep') .'/js/chatentry.js');
   drupal_add_css(drupal_get_path('module', 'cyberchatep') .'/css/cyberchatep.css');
   /*static $opening_hours;
   $opening_hours = variable_get("cyberchatep_opening_hours", 995);
@@ -135,7 +137,11 @@ function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {
 					</div> 	
 										    
 					<div id="ccep_tab">
-		                <ul id="ccep_login">'.$login_message.'</ul>
+			            <div id="ccep_button">
+			                <p>Chatrådgivningen er nu:</p>
+			                <ul id="ccep_status">'.$login_message.'
+			                </ul>
+			            </div>
 			        </div>
 		        </div>
 				';
@@ -181,10 +187,13 @@ function cyberchatep_returntext($oldstatus) {
   
   //the json object is returned to the javascript
   if (!empty($_POST['js'])) {
+  	  //global $base_url;
+	  $base = "http://cyberhus.devel:8082"; 
   	  drupal_json(array(
 	    'welcome_message' => $welcome_message,
 	    'login_message' => $login_message,
-	    'status' => $status
+	    'status' => $status,
+	    'path'=> $base
 		)
 	  );
 	  //
@@ -204,9 +213,11 @@ function cyberchatep_gettext(){
 	
   //static $chatep_texts;
   static $chatep_texts;
-  
+  	
+	$drupal_module_basepath =  base_path().drupal_get_path('module', 'cyberchatep');
   	$welcome_messages = array();
 	$login_messages = array();
+	
 	$opening_hours = variable_get("cyberchatep_opening_hours", "hej");
 	$welcome_messages['vacant'] = variable_get("cyberchatep_vacant_message", "hey ");
 	$welcome_messages['busy'] = variable_get("cyberchatep_busy_message", "hey");
@@ -244,22 +255,24 @@ function cyberchatep_gettext(){
 	$welcome_messages['busy'] .= "<div id=\"ccep_video_wrapper\"><iframe width=\"280\" height=\"175\" src=\"http://www.youtube.com/embed/m_tSm1ewGVA\" frameborder=\"0\" allowfullscreen></iframe></div>";
 	$welcome_messages['closed'] .= "<div id=\"ccep_video_wrapper\"><iframe width=\"280\" height=\"175\" src=\"http://www.youtube.com/embed/m_tSm1ewGVA\" frameborder=\"0\" allowfullscreen></iframe></div>";
 	
-	$login_messages['vacant'] ='
- 
-        <li class="ccep_vacant"><p>Chatrådgivningen er ÅBEN</p></li>
-        <li><a href="#">Log på</a></li>
-    	<!-- end of the chat is vacant section -->';		
+	$login_messages['vacant'] ="
+		<li><img src=".$drupal_module_basepath."/images/open_active_min.jpg width=68 height=26 /></li>
+		<li><img src=".$drupal_module_basepath."/images/busy_inactive_min.jpg width=85 height=26 /></li>
+		<li><img src=".$drupal_module_basepath."/images/closed_inactive_min.jpg width=75 height=26 /></li>
+		<li><img src=".$drupal_module_basepath."/images/arrows_min.jpg width=25 height=32 /></li>";
 
 
-	$login_messages['busy'] ='
-        <li class="ccep_busy"><p>Chatrådgivningen er optaget</p></li>
-        <li><a href="#">Læs mere</a></li>
-        <!-- end the chat is busy section-->';
+	$login_messages['busy'] ="
+		<li><img src=".$drupal_module_basepath."/images/open_inactive_min.jpg width=68 height=26 /></li>
+		<li><img src=".$drupal_module_basepath."/images/busy_active_min.jpg width=85 height=26 /></li>
+		<li><img src=".$drupal_module_basepath."/images/closed_inactive_min.jpg width=75 height=26 /></li>
+		<li><img src=".$drupal_module_basepath."/images/arrows_min.jpg width=25 height=32 /></li>";
 
-	$login_messages['closed'] ='
-        <li class="ccep_closed"><p>Chatrådgivningen er lukket lige nu</p></li>
-        <li><a href="#">Læs mere</a></li>
-	<!-- end the chat is closed section-->';
+	$login_messages['closed'] ="
+		<li><img src=".$drupal_module_basepath."/images/open_inactive_min.jpg width=68 height=26 /></li>
+		<li><img src=".$drupal_module_basepath."/images/busy_inactive_min.jpg width=85 height=26 /></li>
+		<li><img src=".$drupal_module_basepath."/images/closed_active_min.jpg width=75 height=26 /></li>
+		<li><img src=".$drupal_module_basepath."/images/arrows_min.jpg width=25 height=32 /></li>";
 
 	$chatep_texts['welcome_messages'] = $welcome_messages;
 	$chatep_texts['login_messages'] = $login_messages;
