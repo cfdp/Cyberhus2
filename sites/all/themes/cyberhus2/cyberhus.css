@@ -554,6 +554,7 @@ div.panels-flexible-region-first h2.pane-title {
     font-family: 'Amaranth',serif;
     font-size: 17px;
     word-spacing: 0em;
+    margin-top:13px;
     
    /*the following fixes did not work out well with the chosen font */
         /* For IE 8 */
