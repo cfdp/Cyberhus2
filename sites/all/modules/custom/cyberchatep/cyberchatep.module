@@ -187,8 +187,8 @@ function cyberchatep_returntext($oldstatus) {
   
   //the json object is returned to the javascript
   if (!empty($_POST['js'])) {
-  	  //global $base_url;
-	  $base = "http://cyberhus.devel:8082"; 
+  	  global $base_url;
+	  $base = $base_url; 
   	  drupal_json(array(
 	    'welcome_message' => $welcome_message,
 	    'login_message' => $login_message,
