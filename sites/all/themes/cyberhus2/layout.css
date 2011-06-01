@@ -321,6 +321,7 @@ ul#nice-menu-4 {margin-top:10px;border-top: 1px solid #ccc;border-bottom: 1px so
 	font-weight: bold;
 	/*text-shadow: black 0.1em 0.1em 0.2em}*/
 }
+#nice-menu-4 li a:hover {color:#eee;}
 #nice-menu-4 ul li a{
 	text-align: left;
 	padding: 3px 0px 0px 2px;
@@ -348,13 +349,13 @@ ul#nice-menu-4 {margin-top:10px;border-top: 1px solid #ccc;border-bottom: 1px so
 	top:0px;
 	border-top: 1px solid #ccc;
 }
-#nice-menu-4 li.menu-path-stue-705:hover, #nice-menu-4 li.menu-path-stue-705 a:hover {background-color:#D90000;color:#eee;}
-#nice-menu-4 li.menu-path-badevaerelse-707:hover,#nice-menu-4 li.menu-path-badevaerelse-707 a:hover {background-color:#36A8D9;color:#eee;}
-#nice-menu-4 li.menu-path-lystvaerelse-708:hover,#nice-menu-4 li.menu-path-lystvaerelse-708 a:hover {background-color:#CD29D9;color:#eee;}
-#nice-menu-4 li.menu-path-bibliotek-703:hover,#nice-menu-4 li.menu-path-bibliotek-703 a:hover {background-color:#FF8800;color:#eee;}
-#nice-menu-4 li.menu-path-lovstue-709:hover,#nice-menu-4 li.menu-path-lovstue-709 a:hover {background-color:#A46B3C;color:#eee;}
-#nice-menu-4 li.menu-path-mediehulen-699:hover, #nice-menu-4 li.menu-path-mediehulen-699 a:hover {background-color:#82BCE7;color:#eee;}
-#nice-menu-4 li.menu-path-kunstvaerksted-698:hover,#nice-menu-4 li.menu-path-kunstvaerksted-698 a:hover {background-color:#97B383;color:#eee;}
-#nice-menu-4 li.menu-path-nueh-8416:hover,#nice-menu-4 li.menu-path-nueh-8416 a:hover {background-color:#3196C7;color:#eee;}
+#nice-menu-4 li.menu-path-stue-705:hover {background-color:#D90000;}
+#nice-menu-4 li.menu-path-badevaerelse-707:hover {background-color:#36A8D9;}
+#nice-menu-4 li.menu-path-lystvaerelse-708:hover{background-color:#CD29D9;}
+#nice-menu-4 li.menu-path-bibliotek-703:hover {background-color:#FF8800;}
+#nice-menu-4 li.menu-path-lovstue-709:hover {background-color:#A46B3C;}
+#nice-menu-4 li.menu-path-mediehulen-699:hover{background-color:#82BCE7;}
+#nice-menu-4 li.menu-path-kunstvaerksted-698:hover {background-color:#97B383;}
+#nice-menu-4 li.menu-path-nueh-8416:hover {background-color:#3196C7;}
 
 #nice-menu-4 li.menu-path-nueh-8416 {border-right:1px solid #ccc;width:124px;}
