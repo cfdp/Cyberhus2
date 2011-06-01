@@ -100,6 +100,10 @@
   <script type="text/javascript"><?php /* Needed to avoid Flash of Unstyled Content in IE */ ?> </script>
 </head>
 <body id="body" class="<?php print $body_classes; ?>">
+<?php if ($header_top): ?>
+  <div id="header-top"><?php print $header_top; ?></div>
+  
+<?php endif; ?>
 <div id="repeatbanner">
 </div>
 <div id="repeatnavbar">
