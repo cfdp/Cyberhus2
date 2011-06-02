@@ -161,7 +161,8 @@ function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {
 function cyberchatep_returntext($oldstatus) {
 	
   //here we check the status of the chat - a call should be made to a function, that looks into the chat.cyberhus.dk database etc
-  $status = cyberchatep_chatserverrequest();
+  $status = cyberchatep_cachedstatus();
+
   
   //if the status has changed: get the array with the text for the chat slider panel
   if ($status != $oldstatus) {
@@ -184,6 +185,9 @@ function cyberchatep_returntext($oldstatus) {
 	  $welcome_message = $welcome_message['closed'];
 	  $login_message = $login_message['closed'];
 	  break;
+	case 'fail':
+	  $welcome_message = "aaaah";
+	  $login_message = "aaaah";
   }
   
   //the json object is returned to the javascript
@@ -193,8 +197,7 @@ function cyberchatep_returntext($oldstatus) {
   	  drupal_json(array(
 	    'welcome_message' => $welcome_message,
 	    'login_message' => $login_message,
-	    'status' => $status,
-	    'path'=> $base
+	    'status' => $status
 		)
 	  );
 	  //
@@ -283,16 +286,31 @@ function cyberchatep_gettext(){
 /*makes a request once every 5 seconds to the chat server and returns "vacant", "busy" or "closed" */
 function cyberchatep_chatserverrequest() {
 
-	$status = file_get_contents('http://chat.cyberhus.dk/chat_status.php');
+	$status = file_get_contents('http://chat.cybhus.dk/chat_test.php');
 	
 	/* for debugging */
-	//$status = file_get_contents('http://chat.cybhus.dk/chat_status.php');
-
 	return $status;
 }
 function cyberchatep_cachedstatus() {
-	$query = "SELECT chatstatus FROM {cyberchatep_chatstatus}";
-	$query_result = db_query($query);
-	$status = db_fetch_object($query_result);
-	print $status;
+		
+	//$status = cyberchatep_chatserverrequest();
+	$status = "vacant";
+	$table = "cyberchatep_chatstatus";
+	$record = new stdClass();
+	$record->status = 1;
+	$record->timer = 30000;
+	drupal_write_record($table, $record, 'status');
+	
+	$status = db_result(db_query('SELECT (status) FROM {cyberchatep_chatstatus}'));
+	$timer = db_result(db_query('SELECT (timer) FROM {cyberchatep_chatstatus}'));
+	
+	if ($status == 1) {
+		$status = "busy";
+	}
+	else {
+		$status = "closed";
+	}
+	
+
+	return $status;
 }
