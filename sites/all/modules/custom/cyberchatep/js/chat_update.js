@@ -4,6 +4,9 @@
  */
 $(document).ready(function (){
 	
+	//the url of the menu item defined by the cyberchatep module, that returns the json object with the markup for the panel
+	var chat_update_url;
+	
 	 //Chat entry point panel slide down
     $("#ccep_panel").hide();
     $("#ccep_status").toggle(
@@ -14,17 +17,20 @@ $(document).ready(function (){
             $("#ccep_panel").slideUp();
         }
      )
+	
+	if (chat_update_url == undefined) {
+		chat_update_url = Drupal.settings.cyberchatep.baseurl+"/cyberchatep/returntext"; 
+	}
 
-	//on this url the chatep-module has a menu callback that delivers the json-data
-	var chat_update_url = "http://cyberhus.devel:8082/cyberchatep/returntext"; 
-
+	//alert(chat_update_url);
+	
 	function updateChat(){
 		//alert('hey');
 		var chatUpdated = function (data){
-			//update the chat
+			//update the chat panel divs
 			$('#ccep_status').html(data.login_message);
 			$('#ccep_desc').html(data.welcome_message);
-			chat_update_url = data.path+"/cyberchatep/returntext/"+data.status;
+			chat_update_url = Drupal.settings.cyberchatep.baseurl+"/cyberchatep/returntext/"+data.status;
 
 		}
 		 //make AJAX call
@@ -39,6 +45,8 @@ $(document).ready(function (){
 	};
 	
 	updateChat();
+	
+	//we look for news every 4th second
 	setInterval(updateChat, 4000);
 	
 });

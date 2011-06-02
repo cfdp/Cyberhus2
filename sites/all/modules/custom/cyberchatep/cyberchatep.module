@@ -109,14 +109,15 @@ function cyberchatep_perm() {
 * @param array $edit only for "save" operation
 **/
 
-function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {  
+function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {
+  
+  //we send the base url of the installation to the javascript to enable easy portability
+  global $base_url;
+  drupal_add_js(array('cyberchatep' => array('baseurl' => $base_url)), 'setting');
+
   drupal_add_js(drupal_get_path('module', 'cyberchatep') .'/js/chat_update.js');
-  drupal_add_js(array('cyberchatep'=>array('basePath'=>'base_path()'), 'setting'));
-  //drupal_add_js(drupal_get_path('module', 'cyberchatep') .'/js/chatentry.js');
   drupal_add_css(drupal_get_path('module', 'cyberchatep') .'/css/cyberchatep.css');
-  /*static $opening_hours;
-  $opening_hours = variable_get("cyberchatep_opening_hours", 995);
-  $chattexts = cyberchatep_gettext();*/
+ 
   $welcome_message = '';
   $login_message = '';
   switch ($op) {
