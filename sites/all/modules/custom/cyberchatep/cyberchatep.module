@@ -290,6 +290,7 @@ function cyberchatep_chatserverrequest() {
 	/* for debugging */
 	return $status;
 }
+
 function cyberchatep_cachedstatus() {
 		
 	//$status = cyberchatep_chatserverrequest();
@@ -298,7 +299,7 @@ function cyberchatep_cachedstatus() {
 	$record = new stdClass();
 	$record->status = 1;
 	$record->timer = 30000;
-	drupal_write_record($table, $record, 'status');
+	drupal_write_record($table, $record, 'id');
 	
 	$status = db_result(db_query('SELECT (status) FROM {cyberchatep_chatstatus}'));
 	$timer = db_result(db_query('SELECT (timer) FROM {cyberchatep_chatstatus}'));

@@ -6,28 +6,31 @@
  */
 
 function cyberchatep_schema() {
+  	
   $schema['cyberchatep_chatstatus'] = array(
     'description' => t('The status of the chat.'),
     'fields' => array(
+	  'id' => array(
+        'description' => t('The id to identity the right row in the table'),
+        'type' => 'serial',
+        'not null' => TRUE,
+		'default' => 0,
+		),
       'status' => array(
         'description' => t('The status can be 0: closed, 1: vacant, 2: busy.'),
         'type' => 'int',
-        'unsigned' => TRUE,
         'not null' => TRUE,
-		'default' => 0
+		'default' => 0,
 		),
 	  'timer' => array(
         'description' => t('the timer is counting the interval until next chat server request'),
         'type' => 'int',
-        'unsigned' => TRUE,
         'not null' => TRUE,
-		'default' => 0
+		'default' => 0,
 		),
       ),
-    'unique keys' => array(
-      'status' => array('status'),
-      ),
-    'primary key' => array('status')
+
+    'primary key' => array('id'),
     );
   return $schema;
 }
