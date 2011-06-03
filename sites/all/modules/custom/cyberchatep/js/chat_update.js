@@ -16,8 +16,7 @@ $(document).ready(function (){
         function(){
             $("#ccep_panel").slideUp();
         }
-     )
-	
+     );
 	if (chat_update_url == undefined) {
 		chat_update_url = Drupal.settings.cyberchatep.baseurl+"/cyberchatep/returntext"; 
 	}
