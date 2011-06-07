@@ -59,7 +59,8 @@
   
   <div class="content">
     <?php if (!$page): ?>
-      <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
+    <!-- out comment the title it will be insertet into the breadcrumbs insted René-->
+     <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
     <?php endif; ?>
     <?php print $content ?>
   </div>

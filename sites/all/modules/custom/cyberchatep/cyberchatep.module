@@ -89,7 +89,6 @@ function cyberchatep_menu() {
     'access arguments' => array('access cyberchatep content'),
     'type' => MENU_CALLBACK,
    );
-  
    
   return $items;
 }
@@ -117,6 +116,8 @@ function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {
 
   drupal_add_js(drupal_get_path('module', 'cyberchatep') .'/js/chat_update.js');
   drupal_add_css(drupal_get_path('module', 'cyberchatep') .'/css/cyberchatep.css');
+  
+  
  
   $welcome_message = '';
   $login_message = '';
@@ -161,7 +162,8 @@ function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {
 function cyberchatep_returntext($oldstatus) {
 	
   //here we check the status of the chat - a call should be made to a function, that looks into the chat.cyberhus.dk database etc
-  $status = cyberchatep_chatserverrequest();
+  $status = cyberchatep_cachedstatus();
+
   
   //if the status has changed: get the array with the text for the chat slider panel
   if ($status != $oldstatus) {
@@ -184,17 +186,18 @@ function cyberchatep_returntext($oldstatus) {
 	  $welcome_message = $welcome_message['closed'];
 	  $login_message = $login_message['closed'];
 	  break;
+	case 'fail':
+	  $welcome_message = "aaaah";
+	  $login_message = "aaaah";
   }
   
   //the json object is returned to the javascript
   if (!empty($_POST['js'])) {
-  	  //global $base_url;
-	  $base = "http://cyberhus.devel:8082"; 
+
   	  drupal_json(array(
 	    'welcome_message' => $welcome_message,
 	    'login_message' => $login_message,
-	    'status' => $status,
-	    'path'=> $base
+	    'status' => $status
 		)
 	  );
 	  //
@@ -234,20 +237,21 @@ function cyberchatep_gettext(){
 		<!-- start the chat is vacant section-->
 
             	<div id="ccep_form_wrapper">
-            		<form id="ccep_form" name="ccep_login" action="#" method="post">
+            		<form id="ccep_form" name="ccep_login" action="'.$drupal_module_basepath.'/includes/curl.php" method="post">
             			<ul>
             				<li>
-            					<input type="text" name="name" value="Anonym" />
+            					<input type="text" name="guest_navn" value="Anonym" />
             				</li>
             				<li>
-            					<input type="text" name="age" value="Alder" />
+            					<input type="text" name="guest_age" value="Alder" />
             				</li>
             				<li>
-            					<div class="radio_btn"><span>Mand</span><input type="radio" name="sex" value="male" /></div>
-            					<div class="radio_btn"><span>Kvinde</span><input type="radio" name="sex" value="female" /></div>
+            					<div class="radio_btn"><span>Mand</span><input type="radio" name="guest_sex" value="male" /></div>
+            					<div class="radio_btn"><span>Kvinde</span><input type="radio" name="guest_sex" value="female" /></div>
             				</li>
             				<li>
             					<input type="submit" value="Log på" />
+            					<input type="hidden" name="action" value="openchat" />
             				</li>
             			</ul>
             		</form>
@@ -283,16 +287,28 @@ function cyberchatep_gettext(){
 /*makes a request once every 5 seconds to the chat server and returns "vacant", "busy" or "closed" */
 function cyberchatep_chatserverrequest() {
 
-	$status = file_get_contents('http://chat.cyberhus.dk/chat_status.php');
+	$status = file_get_contents('http://chat.cybhus.dk/chat_test.php');
+	
 	
 	/* for debugging */
-	//$status = file_get_contents('http://chat.cybhus.dk/chat_status.php');
+	return $status;
+}
+
+function cyberchatep_cachedstatus() {
+		
+	$status = cyberchatep_chatserverrequest();
+	
+	$status = "vacant";
+	$table = "cyberchatep_chatstatus";
+	$record = new stdClass();
+	$record->status = 1;
+	$record->timer = 30000;
+	drupal_write_record($table, $record, 'id');
+	
+	//$status = db_result(db_query('SELECT (status) FROM {cyberchatep_chatstatus}'));
+	$timer = db_result(db_query('SELECT (timer) FROM {cyberchatep_chatstatus}'));
 
 	return $status;
 }
-function cyberchatep_cachedstatus() {
-	$query = "SELECT chatstatus FROM {cyberchatep_chatstatus}";
-	$query_result = db_query($query);
-	$status = db_fetch_object($query_result);
-	print $status;
-}
+
+

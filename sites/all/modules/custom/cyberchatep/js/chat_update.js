@@ -16,8 +16,7 @@ $(document).ready(function (){
         function(){
             $("#ccep_panel").slideUp();
         }
-     )
-	
+     );
 	if (chat_update_url == undefined) {
 		chat_update_url = Drupal.settings.cyberchatep.baseurl+"/cyberchatep/returntext"; 
 	}
@@ -30,6 +29,7 @@ $(document).ready(function (){
 			//update the chat panel divs
 			$('#ccep_status').html(data.login_message);
 			$('#ccep_desc').html(data.welcome_message);
+			//alert(data.welcome_message);
 			chat_update_url = Drupal.settings.cyberchatep.baseurl+"/cyberchatep/returntext/"+data.status;
 
 		}
@@ -46,7 +46,7 @@ $(document).ready(function (){
 	
 	updateChat();
 	
-	//we look for news every 4th second
-	setInterval(updateChat, 4000);
+	//we look for news every 40th second
+	setInterval(updateChat, 10000);
 	
 });

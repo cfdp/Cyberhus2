@@ -6,20 +6,31 @@
  */
 
 function cyberchatep_schema() {
+  	
   $schema['cyberchatep_chatstatus'] = array(
     'description' => t('The status of the chat.'),
     'fields' => array(
+	  'id' => array(
+        'description' => t('The id to identify the right row in the table'),
+        'type' => 'serial',
+        'not null' => TRUE,
+		'default' => 0,
+		),
       'status' => array(
         'description' => t('The status can be 0: closed, 1: vacant, 2: busy.'),
         'type' => 'int',
-        'unsigned' => TRUE,
         'not null' => TRUE,
-		'default' => 0),
+		'default' => 0,
+		),
+	  'timer' => array(
+        'description' => t('the timer is counting the interval until next chat server request'),
+        'type' => 'int',
+        'not null' => TRUE,
+		'default' => 0,
+		),
       ),
-    'unique keys' => array(
-      'status' => array('status'),
-      ),
-    'primary key' => array('status')
+
+    'primary key' => array('id'),
     );
   return $schema;
 }
@@ -30,8 +41,12 @@ function cyberchatep_install() {
   drupal_set_message(t("The cyberchat entry point module has been installed"));
 }
 
-function cyberchat_uninstall() {
-  // Drop my tables.
+function cyberchatep_uninstall() {
+  // Drop the tables and variables tables.
   drupal_uninstall_schema('cyberhatep');
+  variable_del('cyberchatep_vacant_message');
+  variable_del('cyberchatep_busy_message');
+  variable_del('cyberchatep_closed_message');
+  variable_del('cyberchatep_opening_hours');
   drupal_set_message(t("The cyberchat entry point module has been removed"));
 }

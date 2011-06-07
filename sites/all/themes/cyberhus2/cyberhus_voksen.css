@@ -95,22 +95,7 @@ body.section-voksne div.termsbeskrivelse !important {
 	display: none;
 }
 
-/*new image title for the blog*/
-body.section-voksne div#vejleder-blok h2 {
-	background-image:url("images/voksne/cyberblog_voksne_panel.png");
-	background-position:left center;
-	background-repeat:no-repeat;
-	display:block;
-	font-size:12px;
-	height:25px;
-	padding-top:2px;
-}
-body.section-voksne  div#voksne-cyberskole div#vejleder-blok h2 {
-	background-image:url("images/voksne/overskrift_voksne_cyberskoleblog.png");
-	}
-body.section-voksne  div#voksne-english div#vejleder-blok h2 {
-	background-image:url("images/voksne/overskrift_english_blog.png");
-	}
+
 /*styling for blogpost listing in left sidebar*/
 body.section-voksne .panels-flexible-region-first .views-row {
 	margin-bottom: 10px;
@@ -329,7 +314,7 @@ body.section-voksne div#content div.vaerelse-center div.pane-content div.changed
     text-decoration: none;
     color: #005577;
     background-color: #333333;
-	background-color: transparent
+	background-color: transparent;
 	background-image: none;
     background: url(images/voksne/voksne_tab-left.png) no-repeat left -38px;
   }

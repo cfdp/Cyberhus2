@@ -182,7 +182,7 @@ div.panels-flexible-row {
 div.panels-flexible-region-first,
 div#sidebar-left {
 	background-color: #FFAF37;
-	background-image: url(images/koltop_left.png);
+	/*background-image: url(images/koltop_left.png);*/
 	background-position: left top;
 	background-repeat: repeat-x;
 	margin-right: 5px;
@@ -196,7 +196,7 @@ div.panels-flexible-region-inside-first,
 	background-image: url(images/leftbar.png);
 	background-repeat: no-repeat;
 	background-position: left top;
-	margin-top: 20px;
+	margin-top: 0px;
 	margin-right: 0px;
 	padding: 2px;
 }
@@ -244,7 +244,8 @@ div.panels-flexible-region.vaerelse-center {
 body.front div#content-inner{
 	width: 652px;
 	margin:0;
-	padding: 21px 0 0;
+	padding: 0px 0 0;
+	border-top:1px solid #77ACD3;
 }
 
 
@@ -252,13 +253,14 @@ body.front div#content-inner{
 div.panels-flexible-region.vaerelse-center,
 body.two-sidebars div#content-inner,
 body.one-sidebar div#content-inner {
-	background-image: url(images/koltop_center.png);
+	/*background-image: url(images/koltop_center.png);*/
 	background-color:#fffbf5;
 	background-position: left top;
 	background-repeat: repeat-x;
 	border-bottom:1px solid #77ACD3;
 	border-left:1px solid #77ACD3;
 	border-right:1px solid #77ACD3;
+	border-top:1px solid #77ACD3;
 }
 
 
@@ -353,7 +355,7 @@ div.panels-flexible-region-inside-last,
 	background-image: url(images/rightbar.png);
 	background-repeat: no-repeat;
 	background-position: left top;
-	margin-top: 20px;
+	margin-top: 0px;
 	margin-left: 0px;
 	padding: 4px;
 }
@@ -361,12 +363,13 @@ div.panels-flexible-region-inside-last,
 div.panels-flexible-region-last,
 #sidebar-right {
 	background-color: #E7E7E7;
-	background-image: url(images/koltop_right.png);
+	/*background-image: url(images/koltop_right.png);*/
 	background-position: left top;
 	background-repeat: repeat-x;
-	margin-left:5px;
+	margin-left:7px;
 	width:165px;
 	border: 1px solid #CCCCCC;
+	margin-top:-1px;
 }
 
 #sidebar-right {
@@ -515,6 +518,9 @@ body.page-cyberhus-image div#content-inner {
 	background-color: transparent;*/
 	border: none;
 }
+div#content {
+	
+}
 
 body.page-cyberhus-image div#content-inner div.christmas-sign {
   position: absolute;
@@ -549,6 +555,7 @@ div.panels-flexible-region-first h2.pane-title {
     font-family: 'Amaranth',serif;
     font-size: 17px;
     word-spacing: 0em;
+    margin-top:13px;
     
    /*the following fixes did not work out well with the chosen font */
         /* For IE 8 */
@@ -1121,7 +1128,7 @@ span.view-field-content a:hover{
 
 /*** main flash div ***/
 body.not-front div#flashcontent {
-	margin-top:12px;
+	margin-top:0px;
 	height: 487px;
 	border-bottom:1px solid #77ACD3;
 	border-left:1px solid #77ACD3;
@@ -2040,6 +2047,7 @@ div.panel-2col-bricks .panel-col-last .panel-pane {
 	border: 1px solid #EBE2CF;
 	min-height:215px;
 	position: relative;
+	overflow: hidden;
 }
 
 div.panel-2col-bricks .panel-col-last .panel-pane div.views-row {
@@ -2200,7 +2208,7 @@ body.section-user .view-id-min_side.view-display-id-page_2 .view-content div.ite
 /*fanlinks - links til sociale medier, facebook mv*/
 #fanlinks {
 	float: right;
-	margin-top: -19px;
+	margin-top: -39px;
 	padding-right: 10px;
 }
 
@@ -3497,7 +3505,7 @@ body.front div#breadcrumb {
 	padding-top:18px;
 }
 .with-navbar #sidebar-left, .with-navbar #sidebar-right {
-	margin-top:0;
+	margin-top:25px;
 }
 
 /*************************** Placering af karakterer *******************************/
