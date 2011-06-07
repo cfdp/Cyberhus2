@@ -11,7 +11,7 @@ function cyberchatep_schema() {
     'description' => t('The status of the chat.'),
     'fields' => array(
 	  'id' => array(
-        'description' => t('The id to identity the right row in the table'),
+        'description' => t('The id to identify the right row in the table'),
         'type' => 'serial',
         'not null' => TRUE,
 		'default' => 0,

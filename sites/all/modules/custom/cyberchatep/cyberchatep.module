@@ -89,7 +89,6 @@ function cyberchatep_menu() {
     'access arguments' => array('access cyberchatep content'),
     'type' => MENU_CALLBACK,
    );
-  
    
   return $items;
 }
@@ -117,6 +116,8 @@ function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {
 
   drupal_add_js(drupal_get_path('module', 'cyberchatep') .'/js/chat_update.js');
   drupal_add_css(drupal_get_path('module', 'cyberchatep') .'/css/cyberchatep.css');
+  
+  
  
   $welcome_message = '';
   $login_message = '';
@@ -236,7 +237,7 @@ function cyberchatep_gettext(){
 		<!-- start the chat is vacant section-->
 
             	<div id="ccep_form_wrapper">
-            		<form id="ccep_form" name="ccep_login" action="http://chat.cybhus.dk/client.php" method="get">
+            		<form id="ccep_form" name="ccep_login" action="'.$drupal_module_basepath.'/includes/curl.php" method="post">
             			<ul>
             				<li>
             					<input type="text" name="guest_navn" value="Anonym" />
@@ -288,6 +289,7 @@ function cyberchatep_chatserverrequest() {
 
 	$status = file_get_contents('http://chat.cybhus.dk/chat_test.php');
 	
+	
 	/* for debugging */
 	return $status;
 }
@@ -295,7 +297,7 @@ function cyberchatep_chatserverrequest() {
 function cyberchatep_cachedstatus() {
 		
 	$status = cyberchatep_chatserverrequest();
-	/*
+	
 	$status = "vacant";
 	$table = "cyberchatep_chatstatus";
 	$record = new stdClass();
@@ -303,16 +305,10 @@ function cyberchatep_cachedstatus() {
 	$record->timer = 30000;
 	drupal_write_record($table, $record, 'id');
 	
-	$status = db_result(db_query('SELECT (status) FROM {cyberchatep_chatstatus}'));
+	//$status = db_result(db_query('SELECT (status) FROM {cyberchatep_chatstatus}'));
 	$timer = db_result(db_query('SELECT (timer) FROM {cyberchatep_chatstatus}'));
-	
-	if ($status == 1) {
-		$status = "busy";
-	}
-	else {
-		$status = "closed";
-	}*/
-	
 
 	return $status;
 }
+
+
