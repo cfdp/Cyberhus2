@@ -366,9 +366,10 @@ div.panels-flexible-region-last,
 	/*background-image: url(images/koltop_right.png);*/
 	background-position: left top;
 	background-repeat: repeat-x;
-	margin-left:5px;
+	margin-left:7px;
 	width:165px;
 	border: 1px solid #CCCCCC;
+	margin-top:-1px;
 }
 
 #sidebar-right {
@@ -1127,7 +1128,7 @@ span.view-field-content a:hover{
 
 /*** main flash div ***/
 body.not-front div#flashcontent {
-	margin-top:12px;
+	margin-top:0px;
 	height: 487px;
 	border-bottom:1px solid #77ACD3;
 	border-left:1px solid #77ACD3;
