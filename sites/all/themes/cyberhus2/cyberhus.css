@@ -1130,9 +1130,7 @@ span.view-field-content a:hover{
 body.not-front div#flashcontent {
 	margin-top:0px;
 	height: 487px;
-	border-bottom:1px solid #77ACD3;
-	border-left:1px solid #77ACD3;
-	border-right:1px solid #77ACD3;
+	border: 1px solid #77ACD3;
 }
 
 
