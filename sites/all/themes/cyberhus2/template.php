@@ -439,11 +439,6 @@ function cyberhus2_preprocess_node_page(&$vars, $hook) {
 			$title_image = $node->field_billede[0]["filepath"];
 		}
 	}
-	else
-	// if the node id cant be determined - on urls like comment/reply/12601#comment-form, we don't need the title image
-	{
-		//drupal_set_message("Node id kunne ikke bestemmes.", "status");
-	}
 
 	$vars['title_image'] = $title_image;
 }
