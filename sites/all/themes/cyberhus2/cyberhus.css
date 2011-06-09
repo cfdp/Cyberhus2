@@ -557,12 +557,6 @@ div.panels-flexible-region-first h2.pane-title {
     word-spacing: 0em;
     margin-top:13px;
     
-   /*the following fixes did not work out well with the chosen font */
-        /* For IE 8 */
-	/*-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#ffffff')";*/
-
-	/* For IE 5.5 - 7 */
-	/*filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#ffffff');*/
 }
 
 /*************************************************************SIDEBAR RIGHT*************************************************************/
@@ -574,11 +568,7 @@ div.panels-flexible-region-last h2.pane-title {
     font-size: 17px;
     word-spacing: 0em;
     
-    /* For IE 8 */
-	/*-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#ffffff')";*/
 
-	/* For IE 5.5 - 7 */
-	/*filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#ffffff');*/
 }
 
 /****************************************************** DIV.NODE *******************************************************/
@@ -3491,7 +3481,7 @@ div.termsbeskrivelse ul.links li{
 	padding:0px;
 }
 
-/**************************Placering af brødkrummestien************************/
+/************************** breadcrumb ************************/
 
 /*moves the breadcrumb to the correct height*/
 div#breadcrumb{
@@ -4045,3 +4035,69 @@ p#life_story_desc {
 .author-pane-admin {
 	background-color: #FFf2d2;
 }	
+
+
+ /* styles for the dropdown menu */
+ul#nice-menu-4 {margin-top:25px;border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;}
+#nice-menu-4 li {
+	padding: 0px;
+	margin:   0px 0px;
+	position: relative;
+	width:    123px;
+	z-index:  5000;
+	background: #ececec;
+	border:0px;
+	min-height: 22px;
+	border-left: 1px solid #ccc;
+	
+}
+#nice-menu-4 li a {
+	padding:3px 0px 0px 0px;
+	color: #823f0a;
+	text-align: center;
+	padding-right: 0px;
+	font-size:9px;
+	font-family: Verdana,sans-serif;
+	font-weight: bold;
+	/*text-shadow: black 0.1em 0.1em 0.2em}*/
+}
+#nice-menu-4 li a:hover {color:#eee;}
+#nice-menu-4 ul li a{
+	text-align: left;
+	padding: 3px 0px 0px 2px;
+	color: #823F0A;
+	font-weight: normal;
+}
+#nice-menu-4 ul li a:hover {color: #e48515;}
+#nice-menu-4 ul li:hover {background-color:#b3b3b3}
+#nice-menu-4 ul li {
+	min-height: 22px;
+	width: 123px;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	
+}
+#nice-menu-4 ul {
+	
+	margin-top: 0px;
+	top:22px;
+	border-top: 1px solid #ccc;
+	left:-1px;
+}
+#nice-menu-4 ul ul {
+	left:122px;
+	top:0px;
+	border-top: 1px solid #ccc;
+}
+#nice-menu-4 li.menu-path-stue-705:hover {background-color:#D90000;}
+#nice-menu-4 li.menu-path-badevaerelse-707:hover {background-color:#36A8D9;}
+#nice-menu-4 li.menu-path-lystvaerelse-708:hover{background-color:#CD29D9;}
+#nice-menu-4 li.menu-path-bibliotek-703:hover {background-color:#FF8800;}
+#nice-menu-4 li.menu-path-lovstue-709:hover {background-color:#A46B3C;}
+#nice-menu-4 li.menu-path-mediehulen-699:hover{background-color:#82BCE7;}
+#nice-menu-4 li.menu-path-kunstvaerksted-698:hover {background-color:#97B383;}
+#nice-menu-4 li.menu-path-nueh-8416:hover {background-color:#3196C7;}
+
+#nice-menu-4 li.menu-path-nueh-8416 {border-right:1px solid #ccc;width:124px;}
+
+.node-type-cyberflash .vaerelse-center h2 {display:none;}
