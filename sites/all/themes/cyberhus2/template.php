@@ -440,11 +440,11 @@ function cyberhus2_preprocess_node_page(&$vars, $hook) {
 		}
 	}
 	else
-	// Houston we have a problem - the node id can't be determined
+	// if the node id cant be determined - on urls like comment/reply/12601#comment-form, we don't need the title image
 	{
-		drupal_set_message("Node id kunne ikke bestemmes. Kontakt evt. support med denne meddelelse på support@cyberhus.dk", "status");
+		//drupal_set_message("Node id kunne ikke bestemmes.", "status");
 	}
-	//var_dump($node->field_billede);
+
 	$vars['title_image'] = $title_image;
 }
 
