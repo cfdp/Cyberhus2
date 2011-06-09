@@ -185,8 +185,8 @@ div#sidebar-left {
 	/*background-image: url(images/koltop_left.png);*/
 	background-position: left top;
 	background-repeat: repeat-x;
-	margin-right: 5px;
-	width: 163px;
+	margin-right: -1px;
+	width: 166px;
 	background-color: #ffcd78;
 	border: 1px solid #e78516;
 }
@@ -207,7 +207,7 @@ div.panels-flexible-region-inside-first,
 
 /*center content standard region */
 .two-sidebars #content {
-	margin-left:170px;
+	margin-left:167px;
 	margin-right:-875px;
 	width: 650px;
 }
@@ -249,7 +249,7 @@ body.front div#content-inner{
 }
 
 
-/*centercolumn with main content - the blue border on top and blue borders around content*/
+/*centercolumn with main content - the blue border on top and grey borders around content*/
 div.panels-flexible-region.vaerelse-center,
 body.two-sidebars div#content-inner,
 body.one-sidebar div#content-inner {
@@ -257,10 +257,11 @@ body.one-sidebar div#content-inner {
 	background-color:#fffbf5;
 	background-position: left top;
 	background-repeat: repeat-x;
-	border-bottom:1px solid #77ACD3;
-	border-left:1px solid #77ACD3;
-	border-right:1px solid #77ACD3;
-	border-top:1px solid #77ACD3;
+	border-bottom:1px solid;
+	border-left:1px solid;
+	border-right:1px solid;
+	border-top:1px solid;
+	border-color: #cccccc;
 }
 
 
@@ -366,14 +367,13 @@ div.panels-flexible-region-last,
 	/*background-image: url(images/koltop_right.png);*/
 	background-position: left top;
 	background-repeat: repeat-x;
-	margin-left:7px;
-	width:165px;
+	margin-left:-1px;
+	width:166px;
 	border: 1px solid #CCCCCC;
-	margin-top:-1px;
 }
 
 #sidebar-right {
-	margin-left:657px;
+	margin-left:649px;
 	margin-right:-960px;
 }
 
@@ -3493,7 +3493,7 @@ body.front div#breadcrumb {
 	padding-top:18px;
 }
 .with-navbar #sidebar-left, .with-navbar #sidebar-right {
-	margin-top:25px;
+	margin-top:2.1em;
 }
 
 /*************************** Placering af karakterer *******************************/
