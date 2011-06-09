@@ -186,7 +186,7 @@ div#sidebar-left {
 	background-position: left top;
 	background-repeat: repeat-x;
 	margin-right: -1px;
-	width: 166px;
+	width: 170px;
 	background-color: #ffcd78;
 	border: 1px solid #e78516;
 }
@@ -207,7 +207,7 @@ div.panels-flexible-region-inside-first,
 
 /*center content standard region */
 .two-sidebars #content {
-	margin-left:167px;
+	margin-left:171px;
 	margin-right:-875px;
 	width: 650px;
 }
@@ -364,11 +364,10 @@ div.panels-flexible-region-inside-last,
 div.panels-flexible-region-last,
 #sidebar-right {
 	background-color: #E7E7E7;
-	/*background-image: url(images/koltop_right.png);*/
 	background-position: left top;
 	background-repeat: repeat-x;
 	margin-left:-1px;
-	width:166px;
+	width:170px;
 	border: 1px solid #CCCCCC;
 }
 
@@ -3492,7 +3491,9 @@ body.front div#breadcrumb {
 	clear: right;
 	padding-top:18px;
 }
-.with-navbar #sidebar-left, .with-navbar #sidebar-right {
+.with-navbar #sidebar-left, 
+.with-navbar #sidebar-right,
+body.section-user .with-navbar #content {
 	margin-top:2.1em;
 }
 
@@ -3901,9 +3902,7 @@ body.section-user div#content{
 	margin-right:0px!important;
 	width:824px!important;
 }
-body.section-user .with-navbar #content{
-	margin-top:1px!important;
-}
+
 body.section-user div#content-inner{
 	 	width:792px!important;
 }
