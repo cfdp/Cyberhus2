@@ -82,6 +82,11 @@
 /** add javascripts*/
 drupal_add_js ('sites/findhjaelp.dk/findhjaelp.js', 'core');
 
+/*add javascript for chat - but not on the pages for adults*/
+if (arg(0) != 'voksne') {
+  drupal_add_js ('sites/all/themes/scripts/chatscript.js', 'core');
+}
+
 
 /**
 * Override or insert PHPTemplate variables into the search_block_form template.
@@ -436,12 +441,7 @@ function cyberhus2_preprocess_node_page(&$vars, $hook) {
 			$title_image = $node->field_billede[0]["filepath"];
 		}
 	}
-	else
-	// Houston we have a problem - the node id can't be determined
-	{
-		drupal_set_message("Node id kunne ikke bestemmes. Kontakt evt. support med denne meddelelse på support@cyberhus.dk", "status");
-	}
-	//var_dump($node->field_billede);
+
 	$vars['title_image'] = $title_image;
 }
 
