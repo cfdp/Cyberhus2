@@ -290,6 +290,7 @@
   #navbar
   {
     /*overflow: hidden; May need to be removed if using a dynamic drop-down menu */
+   
   }
 
   /* If a div.clear-block doesn't have any content after it, Firefox and Safari
@@ -361,3 +362,24 @@ ul#nice-menu-4 {margin-top:25px;border-top: 1px solid #ccc;border-bottom: 1px so
 #nice-menu-4 li.menu-path-nueh-8416 {border-right:1px solid #ccc;width:124px;}
 
 .node-type-cyberflash h2 {display:none;}
+/* styles for the primary(voksen) and primary2(ung til ung) menus*/
+#block-menu-primary-links h2.title, #block-menu-menu-primary-links-2 h2.title {
+	width:auto;
+	font-size: 12pt;
+	float: left;
+	margin-right: 5px;
+	color:#8CC6E8;
+	line-height: 0.9em;
+	font-family:'Amaranth',serif;
+	}
+#block-menu-primary-links ul, #block-menu-menu-primary-links-2 ul {float:left;}
+#block-menu-primary-links ul li, #block-menu-menu-primary-links-2 ul li {list-style: none;}
+#block-menu-primary-links ul li a, #block-menu-menu-primary-links-2 ul li a {
+	color:#ffffff;
+	font-weight: bold;
+}
+#block-menu-primary-links ul li a:hover, #block-menu-menu-primary-links-2 ul li a:hover {
+	text-decoration: underline;
+}
+#block-menu-primary-links.block {margin-left:150px}
+

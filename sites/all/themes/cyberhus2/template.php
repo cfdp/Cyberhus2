@@ -234,6 +234,8 @@ function cyberhus2_preprocess_page(&$vars, $hook) {
 	//we need a special menu for the adult section - cyberhus.dk/voksne
 	$menu = menu_navigation_links("menu-adult-links");
     $vars['adult_links'] = theme('links', $menu);
+	
+
     
     //if we are on a page we want to check if we have an image as background for the title (primarily in use in the adult section)
 	$title_image = false;
