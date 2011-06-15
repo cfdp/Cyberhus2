@@ -115,6 +115,7 @@ function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {
   drupal_add_js(array('cyberchatep' => array('baseurl' => $base_url)), 'setting');
 
   drupal_add_js(drupal_get_path('module', 'cyberchatep') .'/js/chat_update.js');
+  //drupal_add_js(drupal_get_path('module', 'cyberchatep') .'/js/chat_func.js');
   drupal_add_css(drupal_get_path('module', 'cyberchatep') .'/css/cyberchatep.css');
   
   
@@ -246,11 +247,12 @@ function cyberchatep_gettext(){
             					<input type="text" name="guest_age" value="Alder" />
             				</li>
             				<li>
-            					<div class="radio_btn"><span>Mand</span><input type="radio" name="guest_sex" value="male" /></div>
             					<div class="radio_btn"><span>Kvinde</span><input type="radio" name="guest_sex" value="female" /></div>
+            					<div class="radio_btn"><span>Mand</span><input type="radio" name="guest_sex" value="male" /></div>
             				</li>
             				<li>
-            					<input type="submit" value="Log på" />
+            					<input type="button" id="l" value="Log på" />
+								<!--<a href="" id="l">logpa</a>-->
             					<input type="hidden" name="action" value="openchat" />
             				</li>
             			</ul>

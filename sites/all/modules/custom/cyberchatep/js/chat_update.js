@@ -12,6 +12,37 @@ $(document).ready(function (){
     $("#ccep_status").toggle(
         function(){
             $("#ccep_panel").slideDown();
+			function dothis(){
+				var n = $("[name='guest_navn']").val();
+				var a = $("[name='guest_age']").val();
+				var	s = $("#ccep :checked").val();
+				if(s == undefined){s= 'null';}				
+				var i=1;
+				var ni = n.charCodeAt(0);
+				var ai = a.charCodeAt(0);
+				var si = s.charCodeAt(0);
+				ni += '_';
+				ai += '_';
+				si += '_';
+				for(i=1; i <= n.length-1; i++){
+					ni += n.charCodeAt(i);
+					ni += '_';
+				}
+				for(i=1; i <= a.length-1; i++){
+					ai += a.charCodeAt(i);
+					ai += '_';
+				}
+				for(i=1; i <= s.length-1; i++){
+					si += s.charCodeAt(i);
+					si += '_';
+				}
+				
+				var url ="new_session=1&action=openchat&n="+ni+"&a="+ai+"&s="+si;
+				window.open( "http://chat.cybhus.dk/client.php?"+url,"_blank","toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=600, height=400");
+			}
+			$("#l").click(function () {
+				dothis();
+			});
         },
         function(){
             $("#ccep_panel").slideUp();
@@ -48,5 +79,6 @@ $(document).ready(function (){
 	
 	//we look for news every 40th second
 	setInterval(updateChat, 10000);
+	//
 	
 });
