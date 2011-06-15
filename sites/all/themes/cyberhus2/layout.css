@@ -307,7 +307,15 @@
 	color:#8CC6E8;
 	line-height: 0.9em;
 	font-family:'Amaranth',serif;
+
 	}
+#block-menu-primary-links h2,#block-menu-menu-primary-links-2 h2 {
+	-moz-text-shadow: 0px 0px 3px #000;
+	-webkit-text-shadow: 0px 0px 2px #000;
+	text-shadow: 0px 0px 2px #000;
+	/* For IE 8 */
+	
+}
 #block-menu-primary-links ul, #block-menu-menu-primary-links-2 ul {float:left;}
 #block-menu-primary-links ul li, #block-menu-menu-primary-links-2 ul li {list-style: none;}
 #block-menu-primary-links ul li a, #block-menu-menu-primary-links-2 ul li a {
