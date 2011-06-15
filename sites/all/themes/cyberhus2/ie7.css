@@ -1,0 +1,21 @@
+.with-navbar #sidebar-left, 
+.with-navbar #sidebar-right,
+body.section-user .with-navbar #content {
+	margin-top:3.9em;
+}
+#main div#main-inner {margin-top:24px;}
+#fanlinks {margin-top:-30px;}
+#block-menu-primary-links h2.title, #block-menu-menu-primary-links-2 h2.title {
+    color: #8CC6E8;
+    float: left;
+    font-family: 'Amaranth',serif;
+    font-size: 11pt;
+    line-height: 1.056em;
+    margin-right: 5px;
+    width: auto;
+    z-index: 1;
+    
+    
+}
+
+

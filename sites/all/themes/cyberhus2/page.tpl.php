@@ -90,13 +90,7 @@
   <?php print $head; ?>
   <?php print $styles; ?>
   <?php print $scripts; ?>
-<!--[if IE]>
-    <link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/cyberhus2/ie.css?J" />
-    <![endif]-->
-<!--[if IE 6]>
-    <link type="text/css" rel="stylesheet" media="all" href="/sites/all/themes/cyberhus2/ie6.css?J" />
-    <script type="text/javascript" src="/sites/all/themes/cyberhus2/supersleight-min.js?J"></script>
-    <![endif]-->
+
   <script type="text/javascript"><?php /* Needed to avoid Flash of Unstyled Content in IE */ ?> </script>
 </head>
 <body id="body" class="<?php print $body_classes; ?>">
