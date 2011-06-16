@@ -12,6 +12,7 @@ $(document).ready(function (){
     $("#ccep_status").toggle(
         function(){
             $("#ccep_panel").slideDown();
+			//DANIEL 16.06.2011
 			function dothis(){
 				var n = $("[name='guest_navn']").val();
 				var a = $("[name='guest_age']").val();
@@ -39,6 +40,7 @@ $(document).ready(function (){
 				
 				var url ="action=openchat&n="+ni+"&a="+ai+"&s="+si;
 				window.open( "http://chat.cybhus.dk/client.php?"+url,"_blank","toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=600, height=400");
+				//
 			}
 			$("#l").click(function () {
 				dothis();
@@ -51,8 +53,6 @@ $(document).ready(function (){
 	if (chat_update_url == undefined) {
 		chat_update_url = Drupal.settings.cyberchatep.baseurl+"/cyberchatep/returntext"; 
 	}
-
-	//alert(chat_update_url);
 	
 	function updateChat(){
 		//alert('hey');
