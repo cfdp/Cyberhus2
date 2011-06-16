@@ -6,6 +6,8 @@
 #ccep_desc						{float: left; width: 500px;}
 #ccep_desc h1					{font-family: 'Amaranth',serif; color: #fff; font-size: 32px; text-shadow: #333 2px 2px 4px;}
 #ccep_desc>p 					{font-size: 14px; line-height: 24px; margin-bottom: 20px; color: #000;}
+#ccep_fallback					{float:left; width: 400px; margin-left: 20px;}
+#ccep_fallback p					{margin-top: 10px;}
 #ccep_form_wrapper				{float: right;}
 #ccep_video_wrapper				{float: right;}
 #ccep_form ul					{list-style-type: none;}
