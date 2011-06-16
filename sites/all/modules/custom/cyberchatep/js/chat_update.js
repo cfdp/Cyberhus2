@@ -13,6 +13,8 @@ $(document).ready(function (){
         function(){
             $("#ccep_panel").slideDown();
 			//DANIEL 16.06.2011
+			$("#ccep_status img:last").attr('src','/sites/all/modules/custom/cyberchatep/images/arrows_min_up.jpg');
+			
 			function dothis(){
 				var n = $("[name='guest_navn']").val();
 				var a = $("[name='guest_age']").val();
@@ -60,6 +62,9 @@ $(document).ready(function (){
         },
         function(){
             $("#ccep_panel").slideUp();
+			//DANIEL 16.06.2011
+			$("#ccep_status img:last").attr('src','/sites/all/modules/custom/cyberchatep/images/arrows_min.jpg');
+			//
         }
      );
 	if (chat_update_url == undefined) {
