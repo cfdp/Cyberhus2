@@ -252,7 +252,6 @@ function cyberchatep_gettext(){
             				</li>
             				<li>
             					<input type="button" id="l" value="Log på" />
-								<!--<a href="" id="l">logpa</a>-->
             					<input type="hidden" name="action" value="openchat" />
             				</li>
             			</ul>

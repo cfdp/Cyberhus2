@@ -16,7 +16,7 @@ $(document).ready(function (){
 				var n = $("[name='guest_navn']").val();
 				var a = $("[name='guest_age']").val();
 				var	s = $("#ccep :checked").val();
-				if(s == undefined){s= 'null';}				
+				if(s == undefined){s= 'none';}				
 				var i=1;
 				var ni = n.charCodeAt(0);
 				var ai = a.charCodeAt(0);
@@ -37,7 +37,7 @@ $(document).ready(function (){
 					si += '_';
 				}
 				
-				var url ="new_session=1&action=openchat&n="+ni+"&a="+ai+"&s="+si;
+				var url ="action=openchat&n="+ni+"&a="+ai+"&s="+si;
 				window.open( "http://chat.cybhus.dk/client.php?"+url,"_blank","toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=600, height=400");
 			}
 			$("#l").click(function () {
