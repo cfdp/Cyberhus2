@@ -15,7 +15,7 @@
 #ccep_form input[type=text]		{width: 230px; padding: 8px; font-size: 18px;}
 #ccep_form li span				{font-size: 16px; margin-right: 10px;}
 #ccep_form li .radio_btn        {float: left; width: 50%;}
-#ccep_form input[type=submit]	{float: right; font-size: 16px; padding: 5px; width: 100px;}
+#ccep_form input[type=button]	{float: right; font-size: 16px; padding: 5px; width: 100px;}
 #ccep_tab                       {height: 40px; position: relative; top: 0; border-top: 7px solid #000; z-index: 999;}
 #ccep_button                    {background-image: url('../images/ccep_bg_min.png'); height: 48px; width: 256px; padding: 4px; position: absolute; right: 20%;}
 #ccep_button p                  {color: #82BCE7; text-align: center; font-family: verdana; font-size: 12px; margin: 0px;}
