@@ -11,16 +11,17 @@
 #ccep_form_wrapper				{float: right;}
 #ccep_video_wrapper				{float: right;}
 #ccep_form ul					{list-style-type: none;}
-#ccep_form li					{margin: 20px 0; overflow: hidden;}
+#ccep_form li						{margin: 20px 0; overflow: hidden;}
 #ccep_form input[type=text]		{width: 230px; padding: 8px; font-size: 18px;}
-#ccep_form li span				{font-size: 16px; margin-right: 10px;}
-#ccep_form li .radio_btn        {float: left; width: 50%;}
-#ccep_form input[type=button]	{float: right; font-size: 16px; padding: 5px; width: 100px;}
-#ccep_tab                       {height: 40px; position: relative; top: 0; border-top: 7px solid #000; z-index: 999;}
-#ccep_button                    {background-image: url('../images/ccep_bg_min.png'); height: 48px; width: 256px; padding: 4px; position: absolute; right: 20%;}
-#ccep_button p                  {color: #82BCE7; text-align: center; font-family: verdana; font-size: 12px; margin: 0px;}
-#ccep_status                    {list-style-type: none;}
-#ccep_status li                 {display: inline; float: left;}
+#ccep_form input:focus			{background-color: #FEFEFE;}
+#ccep_form li span					{font-size: 16px; margin-right: 10px;}
+#ccep_form li .radio_btn        		{float: left; width: 50%;}
+#ccep_form input[type=button]		{float: right; font-size: 16px; padding: 5px; width: 100px;}
+#ccep_tab                      			 {height: 40px; position: relative; top: 0; border-top: 7px solid #000; z-index: 999;}
+#ccep_button                    			{background-image: url('../images/ccep_bg_min.png'); height: 48px; width: 256px; padding: 4px; position: absolute; right: 20%;}
+#ccep_button p                  			{color: #82BCE7; text-align: center; font-family: verdana; font-size: 12px; margin: 0px;}
+#ccep_status                   			{list-style-type: none;}
+#ccep_status li                 			{display: inline; float: left;}
 
 #ccep_status                    {float: right; position: relative; right:0px; padding: 5px 0px 6px 0px; font: 10px verdana; border-radius: 0 0 8px 8px; margin: 0;}
 /* NOT USED AT THE TIME

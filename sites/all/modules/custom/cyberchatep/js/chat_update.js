@@ -45,6 +45,18 @@ $(document).ready(function (){
 			$("#l").click(function () {
 				dothis();
 			});
+			//Clear text fields on click event
+			$("[name='guest_navn']").click(
+				function(){	$(this).val(''); }
+			).blur(
+				function(){	$(this).val('Anonym'); }
+			)
+			$("[name='guest_age']").click(
+				function(){	$(this).val(''); }
+			).blur(
+				function(){	$(this).val('Alder'); }
+			);
+			//
         },
         function(){
             $("#ccep_panel").slideUp();
