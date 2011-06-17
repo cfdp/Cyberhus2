@@ -311,10 +311,11 @@
 #block-menu-primary-links ul, #block-menu-menu-primary-links-2 ul {float:left;}
 #block-menu-primary-links ul li, #block-menu-menu-primary-links-2 ul li {list-style: none;}
 #block-menu-primary-links ul li a, #block-menu-menu-primary-links-2 ul li a {
-	color:#ffffff;
-	font-weight: bold;
+	color:#cccccc;
+
 }
 #block-menu-primary-links ul li a:hover, #block-menu-menu-primary-links-2 ul li a:hover {
 	text-decoration: underline;
 }
 #block-menu-primary-links.block {margin-left:150px}
+#block-menu-menu-primary-links-2.block {margin-left:500px}
