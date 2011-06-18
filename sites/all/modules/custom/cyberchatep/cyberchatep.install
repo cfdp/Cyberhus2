@@ -13,23 +13,19 @@ function cyberchatep_schema() {
 	  'id' => array(
         'description' => t('The id to identify the right row in the table'),
         'type' => 'serial',
-        'not null' => TRUE,
-		'default' => 0,
-		),
+        'unsigned' => TRUE,
+        'not null' => TRUE),
       'status' => array(
         'description' => t('The status can be 0: closed, 1: vacant, 2: busy.'),
         'type' => 'int',
         'not null' => TRUE,
-		'default' => 0,
-		),
+		'default' => 0),
 	  'timer' => array(
         'description' => t('the timer is counting the interval until next chat server request'),
         'type' => 'int',
         'not null' => TRUE,
-		'default' => 0,
-		),
+		'default' => 0),
       ),
-
     'primary key' => array('id'),
     );
   return $schema;

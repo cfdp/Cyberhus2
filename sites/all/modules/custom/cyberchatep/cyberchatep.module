@@ -89,7 +89,7 @@ function cyberchatep_menu() {
     'access arguments' => array('access cyberchatep content'),
     'type' => MENU_CALLBACK,
    );
-   
+  
   return $items;
 }
 
@@ -180,21 +180,23 @@ function cyberchatep_returntext($oldstatus) {
   $login_message = $chattexts['login_messages'];
   
  switch ($status) {
-  	case 'vacant':
+ 	//chat is vacant
+  	case 2:
 	  $welcome_message = $welcome_message['vacant'];
 	  $login_message = $login_message['vacant'];
 	  break;
-  	case 'busy':
+	//chat is busy
+  	case 1:
 	  $welcome_message = $welcome_message['busy'];
 	  $login_message = $login_message['busy'];
 	  break;
-   	case 'closed':
+	//chat is closed
+   	case 0:
 	  $welcome_message = $welcome_message['closed'];
 	  $login_message = $login_message['closed'];
 	  break;
-	case 'fail':
-	  $welcome_message = "aaaah";
-	  $login_message = "aaaah";
+    $welcome_message = "aaaah";
+    $login_message = "aaaah";
   }
   
   //the json object is returned to the javascript
@@ -290,31 +292,36 @@ function cyberchatep_gettext(){
 	return $chatep_texts;
 }
 
-/*makes a request once every 5 seconds to the chat server and returns "vacant", "busy" or "closed" */
+/*makes a request to the chat server and returns a value, where 2 = "vacant", 1= "busy" or 0 = "closed" */
 function cyberchatep_chatserverrequest() {
 
-	$status = file_get_contents('http://chat.cybhus.dk/chat_test.php');
-	
-	
+	//$status = file_get_contents('http://chat.cybhus.dk/chat_test.php');
+	$status = 0;
 	/* for debugging */
 	return $status;
 }
 
 function cyberchatep_cachedstatus() {
-		
-	$status = cyberchatep_chatserverrequest();
-	
-	$status = "vacant";
-	$table = "cyberchatep_chatstatus";
-	$record = new stdClass();
-	$record->status = 1;
-	$record->timer = 30000;
-	drupal_write_record($table, $record, 'id');
-	
-	//$status = db_result(db_query('SELECT (status) FROM {cyberchatep_chatstatus}'));
-	$timer = db_result(db_query('SELECT (timer) FROM {cyberchatep_chatstatus}'));
+						
+	/*if more than 10 sec has passed, its time to check the chat server status and insert the value in the database*/
+	$timer = db_result(db_query('SELECT (timer) FROM {cyberchatep_chatstatus} WHERE id = %d',1));	
+			
+	if ((time()-10) > $timer) {
+		$status = cyberchatep_chatserverrequest();
+		$table = "cyberchatep_chatstatus";
+		$record = new stdClass();
+		$record->id = 1;
+		$record->status = $status;
+		$record->timer = time();
+		drupal_write_record($table, $record, 'id');
 
+	}
+	//else just pass the cached status
+	{
+		$status = db_result(db_query('SELECT (status) FROM {cyberchatep_chatstatus} WHERE id = %d',1));
+	}
 	return $status;
 }
+
 
 

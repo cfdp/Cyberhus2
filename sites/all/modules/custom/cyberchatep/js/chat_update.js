@@ -94,7 +94,7 @@ $(document).ready(function (){
 	
 	updateChat();
 	
-	//we look for news every 40th second
+	//look for the chat status every 10th second
 	setInterval(updateChat, 10000);
 	//
 	
