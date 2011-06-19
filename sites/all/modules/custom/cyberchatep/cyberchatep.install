@@ -34,6 +34,8 @@ function cyberchatep_schema() {
 function cyberchatep_install() {
   // Create my tables.
   drupal_install_schema('cyberchatep');
+  //install the row to hold the chat status
+  
   drupal_set_message(t("The cyberchat entry point module has been installed"));
 }
 

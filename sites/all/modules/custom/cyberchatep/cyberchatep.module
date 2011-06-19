@@ -82,8 +82,7 @@ function cyberchatep_menu() {
     'type' => MENU_NORMAL_ITEM,
    );
    
-  /* menu callback to check status of chat*/
-
+  /* menu callback to check status of chat, called by chat_update.js*/
   $items['cyberchatep/returntext'] = array(
     'page callback' => 'cyberchatep_returntext',
     'access arguments' => array('access cyberchatep content'),
@@ -112,14 +111,12 @@ function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {
   
   //we send the base url of the installation to the javascript to enable easy portability
   global $base_url;
+  //send the baseurl to chat_update.js
   drupal_add_js(array('cyberchatep' => array('baseurl' => $base_url)), 'setting');
 
   drupal_add_js(drupal_get_path('module', 'cyberchatep') .'/js/chat_update.js');
-  //drupal_add_js(drupal_get_path('module', 'cyberchatep') .'/js/chat_func.js');
   drupal_add_css(drupal_get_path('module', 'cyberchatep') .'/css/cyberchatep.css');
   
-  
- 
   $welcome_message = '';
   $login_message = '';
   switch ($op) {
@@ -167,10 +164,9 @@ function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {
 */
 function cyberchatep_returntext($oldstatus) {
 	
-  //here we check the status of the chat - a call should be made to a function, that looks into the chat.cyberhus.dk database etc
+  //here we check the status of the chat: vacant, closed or busy
   $status = cyberchatep_cachedstatus();
 
-  
   //if the status has changed: get the array with the text for the chat slider panel
   if ($status != $oldstatus) {
   	$chattexts = cyberchatep_gettext();
@@ -182,21 +178,23 @@ function cyberchatep_returntext($oldstatus) {
  switch ($status) {
  	//chat is vacant
   	case 2:
-	  $welcome_message = $welcome_message['vacant'];
-	  $login_message = $login_message['vacant'];
+  	  $welcome_message = $welcome_message['vacant'];
+  	  $login_message = $login_message['vacant'];
 	  break;
 	//chat is busy
   	case 1:
-	  $welcome_message = $welcome_message['busy'];
-	  $login_message = $login_message['busy'];
+  	  $welcome_message = $welcome_message['busy'];
+  	  $login_message = $login_message['busy'];
 	  break;
 	//chat is closed
    	case 0:
-	  $welcome_message = $welcome_message['closed'];
-	  $login_message = $login_message['closed'];
+  	  $welcome_message = $welcome_message['closed'];
+  	  $login_message = $login_message['closed'];
 	  break;
-    $welcome_message = "aaaah";
-    $login_message = "aaaah";
+    case -1:
+      $welcome_message = t("There is a problem with the connection to the chat server");
+      $login_message = t("There is a problem with the connection to the chat server");
+    break;
   }
   
   //the json object is returned to the javascript
@@ -212,15 +210,15 @@ function cyberchatep_returntext($oldstatus) {
 	  exit();
   }
 
-  //it was a non-javascript-call - fallback - give the user explanation TODO
-  /* no javascript fallback */ 
+  //it was a non-javascript-call - fallback - give the user explanation of what happened
+  /* TODO */ 
 
   
 } // function cyberchatep_return_status
 
 
 /*this function returns an array with the texts to be shown in the chatep-panel
- * TODO we ought to make it themable */
+ * TODO we ought to make this function themable */
 function cyberchatep_gettext(){
 	
   //static $chatep_texts;
@@ -234,7 +232,6 @@ function cyberchatep_gettext(){
 	$welcome_messages['vacant'] = variable_get("cyberchatep_vacant_message", "hey ");
 	$welcome_messages['busy'] = variable_get("cyberchatep_busy_message", "hey");
 	$welcome_messages['closed'] = variable_get("cyberchatep_closed_message", "hey").$opening_hours;
-	
 	
 	/*$welcome_messages['vacant'] = '<div id="ccep_desc">'.$welcome_messages['vacant']."</div>";
 	$welcome_messages['busy'] = '<div id="ccep_desc">'.$welcome_messages['busy']."</div>";
@@ -274,7 +271,6 @@ function cyberchatep_gettext(){
 		<li><img src=".$drupal_module_basepath."/images/closed_inactive_min.jpg width=75 height=26 /></li>
 		<li><img src=".$drupal_module_basepath."/images/arrows_min.jpg width=25 height=32 /></li>";
 
-
 	$login_messages['busy'] ="
 		<li><img src=".$drupal_module_basepath."/images/open_inactive_min.jpg width=68 height=26 /></li>
 		<li><img src=".$drupal_module_basepath."/images/busy_active_min.jpg width=85 height=26 /></li>
@@ -295,18 +291,36 @@ function cyberchatep_gettext(){
 /*makes a request to the chat server and returns a value, where 2 = "vacant", 1= "busy" or 0 = "closed" */
 function cyberchatep_chatserverrequest() {
 
-	//$status = file_get_contents('http://chat.cybhus.dk/chat_test.php');
-	$status = 0;
+  //the @ before the function suppresses error warnings
+  $status = @file_get_contents('http://chat.cybhus.dk/chat_status.php');
+  
+  //error handling
+	if ($status == FALSE) {
+		//theres a problem opening the stream
+		$status = -1;
+	}
+	else if ($status == (0 || 1 || 2)) {
+	  //the request went well
+	}
+  else {
+    //unknown error
+    $status = -1;
+  };
+	
 	/* for debugging */
+	//$status = 0;
 	return $status;
 }
 
 function cyberchatep_cachedstatus() {
 						
-	/*if more than 10 sec has passed, its time to check the chat server status and insert the value in the database*/
+	/*if more than n seconds have passed, its time to check the chat server status and insert the value in the database*/
 	$timer = db_result(db_query('SELECT (timer) FROM {cyberchatep_chatstatus} WHERE id = %d',1));	
+	
+	//the number of seconds that should pass between each check for a new status from the chat server
+	$n = 5;
 			
-	if ((time()-10) > $timer) {
+	if ((time()-$n) > $timer) {
 		$status = cyberchatep_chatserverrequest();
 		$table = "cyberchatep_chatstatus";
 		$record = new stdClass();
@@ -316,12 +330,9 @@ function cyberchatep_cachedstatus() {
 		drupal_write_record($table, $record, 'id');
 
 	}
-	//else just pass the cached status
-	{
+	//pass the cached status
+  else	{
 		$status = db_result(db_query('SELECT (status) FROM {cyberchatep_chatstatus} WHERE id = %d',1));
 	}
 	return $status;
 }
-
-
-
