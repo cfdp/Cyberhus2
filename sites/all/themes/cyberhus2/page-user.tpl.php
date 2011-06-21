@@ -159,13 +159,6 @@
             </div> <!-- /#search-box -->
           <?php endif; ?>
 
-          <?php if ($primary_links): ?>
-            <div id="primary">
-              <?php print theme('links', $primary_links); ?>
-            </div> <!-- /#primary -->
-          <?php endif; ?>
-
-
           <?php print $navbar; ?>
 
         </div></div> <!-- /#navbar-inner, /#navbar -->
