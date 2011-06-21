@@ -33,6 +33,7 @@
       <?php if ($logo || $site_name || $site_slogan): ?>
       <div id="header-site-info" class="header-site-info block">
         <div id="header-site-info-inner" class="header-site-info-inner inner">
+        <a href="<?php print check_url($front_page); ?>" title="<?php print t('Home'); ?>">hjemad</a>
           <?php if ($logo): ?>
           <div id="logo">
             <a href="<?php print check_url($front_page); ?>" title="<?php print t('Home'); ?>"><img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" /></a>
@@ -63,7 +64,7 @@
     <div id="main" class="main row clearfix <?php print $grid_width; ?>">
       <div id="main-group" class="main-group row nested <?php print $main_group_width; ?>">
         <div id="content-group" class="content-group row nested <?php print $content_group_width; ?>">
-          <?php print theme('grid_block', $breadcrumb, 'breadcrumbs'); ?>
+          <?php //print theme('grid_block', $breadcrumb, 'breadcrumbs'); ?>
           <?php print theme('grid_block', $help, 'content-help'); ?>
           <?php print theme('grid_block', $messages, 'content-messages'); ?>
           <a name="main-content-area" id="main-content-area"></a>

@@ -158,7 +158,8 @@ margin-right: 3px;
 
 /* Content Regions
 -------------------------------------------------------------- */
-.content {
+#content-inner .content {
+  background-color: #f1f1f1;
 }
 
 /*  Footer Region
@@ -183,7 +184,12 @@ h1.title {
 }
 
 /* Typography for node titles */
-h2.title {
+h2.title, h3, .view-temasorteret-udtraek .views-field-title {
+  background: url('../graphics/views/view.png') no-repeat;
+}
+
+h3.views-accordion-mobiletracker-page {
+  background: none;
 }
 
 /* Colors and styles for linked node titles, ie. teaser listing at /node */
@@ -194,6 +200,7 @@ h2.title a:visited {
 h2.title a:hover,
 h2.title a:focus,
 h2.title a:active {
+  background: url('../graphics/views/view_click.png') no-repeat;
 }
 
 /* Separators and padding for node teasers */
@@ -264,8 +271,21 @@ h2.block-title {
 .breadcrumb {
   background: url('../graphics/backbutton/back.png') no-repeat;
   margin-top: 2%;
-  padding: 9px 30px;
-  height: 20px;
+  padding: 0px 30px 9px;
+}
+
+.breadcrumb a {
+  background: url('../graphics/bluebuttons/little_blue.png') no-repeat;
+  background-size: 100%;
+  margin: 10px;
+  padding: 9px;
+  line-height: 35px;
+}
+
+.breadcrumb>:first-child {
+  background: none;
+  margin: 0;
+  padding: 0;
 }
 
 .breadcrumbs a:link,
@@ -639,4 +659,11 @@ div.poll div.bar div.foreground {
 .forum-top-links ul li .nolink {
   width: 90%;
   height: 60px;
+}
+
+/* Lifestories
+/-------------------------------------------------------------- */
+
+ul.quicktabs-style-lifestories {
+  display: none;
 }
