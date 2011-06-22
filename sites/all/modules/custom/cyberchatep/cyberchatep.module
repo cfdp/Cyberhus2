@@ -308,7 +308,7 @@ function cyberchatep_chatserverrequest() {
   };
 	
 	/* for debugging */
-	//$status = 0;
+	$status = 2;
 	return $status;
 }
 
