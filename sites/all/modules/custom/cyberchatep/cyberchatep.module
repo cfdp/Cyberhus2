@@ -143,9 +143,8 @@ function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {
 										    
 					<div id="ccep_tab">
 			            <div id="ccep_button">
-			                <p>Chatrådgivningen er nu:</p>
-			                <ul id="ccep_status">'.$login_message.'
-			                </ul>
+			                <span id="ccep_status">'.$login_message.'
+			                </span>
 			            </div>
 			        </div>
 		        </div>
@@ -266,22 +265,13 @@ function cyberchatep_gettext(){
 	$welcome_messages['closed'] .= "<div id=\"ccep_video_wrapper\"><iframe width=\"280\" height=\"175\" src=\"http://www.youtube.com/embed/m_tSm1ewGVA\" frameborder=\"0\" allowfullscreen></iframe></div>";
 	
 	$login_messages['vacant'] ="
-		<li><img src=".$drupal_module_basepath."/images/open_active_min.jpg width=68 height=26 /></li>
-		<li><img src=".$drupal_module_basepath."/images/busy_inactive_min.jpg width=85 height=26 /></li>
-		<li><img src=".$drupal_module_basepath."/images/closed_inactive_min.jpg width=75 height=26 /></li>
-		<li><img src=".$drupal_module_basepath."/images/arrows_min.jpg width=25 height=32 /></li>";
+		<img src=".$drupal_module_basepath."/images/ccep_open.png width=233 height=60 />";
 
 	$login_messages['busy'] ="
-		<li><img src=".$drupal_module_basepath."/images/open_inactive_min.jpg width=68 height=26 /></li>
-		<li><img src=".$drupal_module_basepath."/images/busy_active_min.jpg width=85 height=26 /></li>
-		<li><img src=".$drupal_module_basepath."/images/closed_inactive_min.jpg width=75 height=26 /></li>
-		<li><img src=".$drupal_module_basepath."/images/arrows_min.jpg width=25 height=32 /></li>";
+		<img src=".$drupal_module_basepath."/images/ccep_busy.png width=233 height=60 />";
 
 	$login_messages['closed'] ="
-		<li><img src=".$drupal_module_basepath."/images/open_inactive_min.jpg width=68 height=26 /></li>
-		<li><img src=".$drupal_module_basepath."/images/busy_inactive_min.jpg width=85 height=26 /></li>
-		<li><img src=".$drupal_module_basepath."/images/closed_active_min.jpg width=75 height=26 /></li>
-		<li><img src=".$drupal_module_basepath."/images/arrows_min.jpg width=25 height=32 /></li>";
+		<img src=".$drupal_module_basepath."/images/ccep_closed.png width=233 height=60 />";
 
 	$chatep_texts['welcome_messages'] = $welcome_messages;
 	$chatep_texts['login_messages'] = $login_messages;
