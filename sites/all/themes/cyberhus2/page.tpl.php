@@ -219,12 +219,13 @@
             </div> <!-- /#search-box -->
           <?php endif; ?>
 			
-			<!-- print out the primary links menu - unless we are in the adult section -->
-          <?php if ($primary_links && arg(0)!='voksne'): ?>
+			<!-- print out the adult section -->
+         <!-- <?php if ($primary_links && arg(0)!='voksne'): ?>
             <div id="primary">
               <?php print theme('links', $primary_links); ?>
-            </div> <!-- /#primary -->
-          <?php endif; ?>
+            </div> 
+         <?php endif; ?> -->
+
 
           <?php if (arg(0) == 'voksne'): ?>
             <div id="primary">

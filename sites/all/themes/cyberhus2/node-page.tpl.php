@@ -72,6 +72,8 @@
     <?php print $content ?>
   </div>
 
+  <?php print $links; ?>
+
   <?php if ($terms): ?>
 	
    	<div class="termsbeskrivelse">

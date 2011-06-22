@@ -185,8 +185,8 @@ div#sidebar-left {
 	/*background-image: url(images/koltop_left.png);*/
 	background-position: left top;
 	background-repeat: repeat-x;
-	margin-right: 5px;
-	width: 163px;
+	margin-right: -1px;
+	width: 170px;
 	background-color: #ffcd78;
 	border: 1px solid #e78516;
 }
@@ -207,7 +207,7 @@ div.panels-flexible-region-inside-first,
 
 /*center content standard region */
 .two-sidebars #content {
-	margin-left:170px;
+	margin-left:171px;
 	margin-right:-875px;
 	width: 650px;
 }
@@ -249,7 +249,7 @@ body.front div#content-inner{
 }
 
 
-/*centercolumn with main content - the blue border on top and blue borders around content*/
+/*centercolumn with main content - the blue border on top and grey borders around content*/
 div.panels-flexible-region.vaerelse-center,
 body.two-sidebars div#content-inner,
 body.one-sidebar div#content-inner {
@@ -257,10 +257,11 @@ body.one-sidebar div#content-inner {
 	background-color:#fffbf5;
 	background-position: left top;
 	background-repeat: repeat-x;
-	border-bottom:1px solid #77ACD3;
-	border-left:1px solid #77ACD3;
-	border-right:1px solid #77ACD3;
-	border-top:1px solid #77ACD3;
+	border-bottom:1px solid;
+	border-left:1px solid;
+	border-right:1px solid;
+	border-top:1px solid;
+	border-color: #cccccc;
 }
 
 
@@ -363,17 +364,15 @@ div.panels-flexible-region-inside-last,
 div.panels-flexible-region-last,
 #sidebar-right {
 	background-color: #E7E7E7;
-	/*background-image: url(images/koltop_right.png);*/
 	background-position: left top;
 	background-repeat: repeat-x;
-	margin-left:7px;
-	width:165px;
+	margin-left:-1px;
+	width:170px;
 	border: 1px solid #CCCCCC;
-	margin-top:-1px;
 }
 
 #sidebar-right {
-	margin-left:657px;
+	margin-left:649px;
 	margin-right:-960px;
 }
 
@@ -557,12 +556,6 @@ div.panels-flexible-region-first h2.pane-title {
     word-spacing: 0em;
     margin-top:13px;
     
-   /*the following fixes did not work out well with the chosen font */
-        /* For IE 8 */
-	/*-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#ffffff')";*/
-
-	/* For IE 5.5 - 7 */
-	/*filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#ffffff');*/
 }
 
 /*************************************************************SIDEBAR RIGHT*************************************************************/
@@ -574,11 +567,7 @@ div.panels-flexible-region-last h2.pane-title {
     font-size: 17px;
     word-spacing: 0em;
     
-    /* For IE 8 */
-	/*-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#ffffff')";*/
 
-	/* For IE 5.5 - 7 */
-	/*filter: progid:DXImageTransform.Microsoft.Shadow(Strength=2, Direction=135, Color='#ffffff');*/
 }
 
 /****************************************************** DIV.NODE *******************************************************/
@@ -1130,9 +1119,7 @@ span.view-field-content a:hover{
 body.not-front div#flashcontent {
 	margin-top:0px;
 	height: 487px;
-	border-bottom:1px solid #77ACD3;
-	border-left:1px solid #77ACD3;
-	border-right:1px solid #77ACD3;
+	border: 1px solid #77ACD3;
 }
 
 
@@ -3493,7 +3480,7 @@ div.termsbeskrivelse ul.links li{
 	padding:0px;
 }
 
-/**************************Placering af brødkrummestien************************/
+/************************** breadcrumb ************************/
 
 /*moves the breadcrumb to the correct height*/
 div#breadcrumb{
@@ -3504,8 +3491,10 @@ body.front div#breadcrumb {
 	clear: right;
 	padding-top:18px;
 }
-.with-navbar #sidebar-left, .with-navbar #sidebar-right {
-	margin-top:25px;
+.with-navbar #sidebar-left, 
+.with-navbar #sidebar-right,
+body.section-user .with-navbar #content {
+	margin-top:2.1em;
 }
 
 /*************************** Placering af karakterer *******************************/
@@ -3913,9 +3902,7 @@ body.section-user div#content{
 	margin-right:0px!important;
 	width:824px!important;
 }
-body.section-user .with-navbar #content{
-	margin-top:1px!important;
-}
+
 body.section-user div#content-inner{
 	 	width:792px!important;
 }
@@ -4047,3 +4034,69 @@ p#life_story_desc {
 .author-pane-admin {
 	background-color: #FFf2d2;
 }	
+
+
+ /* styles for the dropdown menu */
+ul#nice-menu-4 {margin-top:25px;border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;}
+#nice-menu-4 li {
+	padding: 0px;
+	margin:   0px 0px;
+	position: relative;
+	width:    123px;
+	z-index:  5000;
+	background: #ececec;
+	border:0px;
+	min-height: 22px;
+	border-left: 1px solid #ccc;
+	
+}
+#nice-menu-4 li a {
+	padding:3px 0px 0px 0px;
+	color: #823f0a;
+	text-align: center;
+	padding-right: 0px;
+	font-size:9px;
+	font-family: Verdana,sans-serif;
+	font-weight: bold;
+	/*text-shadow: black 0.1em 0.1em 0.2em}*/
+}
+#nice-menu-4 li a:hover {color:#eee;}
+#nice-menu-4 ul li a{
+	text-align: left;
+	padding: 3px 0px 0px 2px;
+	color: #823F0A;
+	font-weight: normal;
+}
+#nice-menu-4 ul li a:hover {color: #e48515;}
+#nice-menu-4 ul li:hover {background-color:#b3b3b3}
+#nice-menu-4 ul li {
+	min-height: 22px;
+	width: 123px;
+	border-bottom: 1px solid #ccc;
+	border-right: 1px solid #ccc;
+	
+}
+#nice-menu-4 ul {
+	
+	margin-top: 0px;
+	top:22px;
+	border-top: 1px solid #ccc;
+	left:-1px;
+}
+#nice-menu-4 ul ul {
+	left:122px;
+	top:0px;
+	border-top: 1px solid #ccc;
+}
+#nice-menu-4 li.menu-path-stue-705:hover {background-color:#D90000;}
+#nice-menu-4 li.menu-path-badevaerelse-707:hover {background-color:#36A8D9;}
+#nice-menu-4 li.menu-path-lystvaerelse-708:hover{background-color:#CD29D9;}
+#nice-menu-4 li.menu-path-bibliotek-703:hover {background-color:#FF8800;}
+#nice-menu-4 li.menu-path-lovstue-709:hover {background-color:#A46B3C;}
+#nice-menu-4 li.menu-path-mediehulen-699:hover{background-color:#82BCE7;}
+#nice-menu-4 li.menu-path-kunstvaerksted-698:hover {background-color:#97B383;}
+#nice-menu-4 li.menu-path-nueh-8416:hover {background-color:#3196C7;}
+
+#nice-menu-4 li.menu-path-nueh-8416 {border-right:1px solid #ccc;width:122px;}
+
+.node-type-cyberflash .vaerelse-center h2 {display:none;}
