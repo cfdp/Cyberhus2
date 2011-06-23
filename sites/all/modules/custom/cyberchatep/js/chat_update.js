@@ -48,7 +48,7 @@ $(document).ready(function (){
 				dothis();
 			});
 			//Clear text fields on click event
-			$("[name='guest_navn']").click(
+			/*$("[name='guest_navn']").click(
 				function(){	$(this).val(''); }
 			).blur(
 				function(){	$(this).val('Anonym'); }
@@ -57,7 +57,7 @@ $(document).ready(function (){
 				function(){	$(this).val(''); }
 			).blur(
 				function(){	$(this).val('Alder'); }
-			);
+			);*/
 			//
         },
         function(){
