@@ -79,6 +79,16 @@ body {
 
 /* Site info + Header Region
 -------------------------------------------------------------- */
+a.homelink{
+position: absolute;
+top: 0px;
+left: 0px;
+height: 70%;
+width: 60%;
+background-color: transparent;
+z-index: 100;
+}
+
 .header-group {
   background: url('../graphics/header/header.png') no-repeat;
   background-size: 100%;
@@ -102,6 +112,15 @@ margin-right: 3px;
 /-------------------------------------------------------------- */
 /* Add general styles for primary menu here, such as typography, borders, floats,
   or spacing above/below */
+#primary-menu .block {
+  width: 50%;
+}
+
+#primary-menu h2 {
+  background: none;
+  font-size: 100%;
+}
+
 .primary-menu {
   margin-top: 2%;
 }

@@ -27,9 +27,9 @@
     </div>
 
     <div id="header-group" class="header-group row clearfix <?php print $grid_width; ?>">
+      <a href="<?php print check_url($front_page); ?>" title="<?php print t('Home'); ?>" class="homelink"></a>
       <?php print theme('grid_block', $header, 'header'); ?>
       <?php print theme('grid_block', $search_box, 'search-box'); ?>
-
       <?php if ($logo || $site_name || $site_slogan): ?>
       <div id="header-site-info" class="header-site-info block">
         <div id="header-site-info-inner" class="header-site-info-inner inner">
