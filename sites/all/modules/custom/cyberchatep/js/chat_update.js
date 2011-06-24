@@ -41,7 +41,7 @@ $(document).ready(function (){
 				}
 				
 				var url ="action=openchat&n="+ni+"&a="+ai+"&s="+si;
-				window.open( "http://chat2.cybhus.dk/client.php?"+url,"_blank","toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=600, height=400");
+				window.open( "http://chat2.cybhus.dk/client.php?"+url,"_blank","toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=650, height=700");
 				//
 			}
 			$("#l").click(function () {
