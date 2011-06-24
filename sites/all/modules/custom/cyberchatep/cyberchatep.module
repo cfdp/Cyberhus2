@@ -135,7 +135,7 @@ function cyberchatep_block($op = 'list', $delta = 0, $edit = array()) {
 							<div id="ccep_fallback">
 								<p>If you are experiencing difficulties logging in the chat, you can use the link below to use the previous version of the chat!</p>
 								<p>Sorry for the inconvenience!</p>
-								<a href="http://chat.cybhus.dk/client_fallback.php">Log på</a>
+								<a href="http://chat2.cybhus.dk/client_fallback.php">Log på</a>
 							</div>
 					    </div>
 
@@ -282,7 +282,7 @@ function cyberchatep_gettext(){
 function cyberchatep_chatserverrequest() {
 
   //the @ before the function suppresses error warnings
-  $status = @file_get_contents('http://chat.cybhus.dk/chat_status.php');
+  $status = @file_get_contents('http://chat2.cybhus.dk/chat_status.php');
   
   //error handling
 	if ($status == FALSE) {
