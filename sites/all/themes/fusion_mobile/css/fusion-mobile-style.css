@@ -596,6 +596,28 @@ div.poll div.bar div.foreground {
 
 /* FAQ
 /-------------------------------------------------------------- */
+.faq .item-list li div.taxonomy_image_wrapper {
+  float:right;
+  padding-right:5px;
+  width:150px;
+}
+
+.faq .taxonomy_image_wrapper img {
+  float:right;
+  margin-top:45px;
+  width: 125px;
+  height: 125px;
+}
+
+.faq .faq_qa_description {
+  width:50%;
+  padding-left:5px;
+}
+
+.faq .taxonomy_image_wrapper a:first-child {
+  float: right;
+}
+
 .faq_question {
   background: url('../graphics/views/view.png');
   width: 90%;
@@ -604,6 +626,8 @@ div.poll div.bar div.foreground {
 }
 .faq .item-list li {
   background: url('../graphics/views/view.png') no-repeat;
+  padding: 13px 0 0 10px;
+  min-height: 200px;
 }
 .faq .item-list li:hover,
 .faq .item-list li:focus,
@@ -630,6 +654,11 @@ div.poll div.bar div.foreground {
 }
 .accordion-content {
   padding-top: 13px;
+}
+
+.view-Brevkasse .views-field-nothing .field-content {
+  text-align: center;
+  margin: 5px;
 }
 
 /* Forum
@@ -700,3 +729,4 @@ div.poll div.bar div.foreground {
 ul.quicktabs-style-lifestories {
   display: none;
 }
+
