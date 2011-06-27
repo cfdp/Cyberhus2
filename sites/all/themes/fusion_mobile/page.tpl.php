@@ -54,6 +54,10 @@
       <?php endif; ?>
     </div><!-- /header-group -->
 
+	<?php if (!$is_front): ?>
+    <div id="backnav"><a class="back" href="javascript:history.go(-1)">Back</a></div>
+	<?php endif; ?>
+	
     <!-- add primary menu as a block region so mobile site can have different links -->
     <?php if ($primary_menu): ?>
     <div id="primary-menu" class="primary-menu row <?php print $grid_width; ?>">

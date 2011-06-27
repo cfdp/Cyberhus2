@@ -285,6 +285,20 @@ div.content-help-inner div.help {
 h2.block-title {
 }
 
+/* Backnavigation
+/-------------------------------------------------------------- */
+
+#backnav {
+  margin-top: 20px;
+}
+#backnav a.back {
+  background: url('../graphics/backbutton/back.png') no-repeat;
+  margin-top: 10px;
+  margin-left: 20px;
+  padding: 8px 30px;
+}
+
+
 /* Breadcrumbs
 -------------------------------------------------------------- */
 .breadcrumb {
