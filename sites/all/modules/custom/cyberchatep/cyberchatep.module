@@ -176,23 +176,27 @@ function cyberchatep_returntext($oldstatus) {
   
  switch ($status) {
  	//chat is vacant
-  	case 2:
+  	case 3:
   	  $welcome_message = $welcome_message['vacant'];
   	  $login_message = $login_message['vacant'];
 	  break;
 	//chat is busy
-  	case 1:
+  	case 2:
   	  $welcome_message = $welcome_message['busy'];
   	  $login_message = $login_message['busy'];
 	  break;
 	//chat is closed
-   	case 0:
+   	case 1:
   	  $welcome_message = $welcome_message['closed'];
   	  $login_message = $login_message['closed'];
 	  break;
     case -1:
-      $welcome_message = t("There is a problem with the connection to the chat server");
-      $login_message = t("There is a problem with the connection to the chat server");
+      $welcome_message = t("There chat_status.php-file could not be opened for reading");
+      $login_message = t("There chat_status.php-file could not be opened for reading");
+    break;
+    case -2:
+      $welcome_message = t("There is an unknown problem with the connection to the chat server");
+      $login_message = t("There chat_status.php-file could not be opened for reading");
     break;
   }
   
@@ -289,16 +293,16 @@ function cyberchatep_chatserverrequest() {
 		//theres a problem opening the stream
 		$status = -1;
 	}
-	else if ($status == (0 || 1 || 2)) {
+	else if ($status == ( 1 || 2 || 3)) {
 	  //the request went well
 	}
   else {
     //unknown error
-    $status = -1;
+    $status = -2;
   };
 	
 	/* for debugging */
-	$status = 2;
+	//$status = 2;
 	return $status;
 }
 
