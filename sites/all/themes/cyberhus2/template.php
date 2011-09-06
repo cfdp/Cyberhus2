@@ -507,12 +507,14 @@ function cyberhus2_preprocess_panels_pane($vars) {
 	else
 	// Houston we have a problem - the node id can't be determined
 	{
-		drupal_set_message(t("Node ID kunne ikke bestemmes. Rapporter gerne fejl til administrator p� support@cyberhus.dk"), "warning");
+		drupal_set_message(t("Node ID kunne ikke bestemmes. Rapporter gerne fejl til administrator på support@cyberhus.dk"), "warning");
 	}
 	$vars['title_image'] = $title_image;
 }
 
-/*Adds a span tag to menus on voksne-pages. This is used for tab styling. It has not yet been optimized  for the node content only, hence adding a <span> to the primary menu in header as well.*/
+/*Adds a span tag to menus on voksne-pages. This is used for tab styling. 
+ * It has not yet been optimized for the node content only, hence adding 
+ * a <span> to the primary menu in header as well.*/
 function cyberhus2_links($links, $attributes = array('class' => 'links')) {
   $output = '';
 
@@ -603,13 +605,7 @@ function STARTERKIT_theme(&$existing, $type, $theme, $path) {
   $hooks['simplenews_subscription_manager_form'] = array( 
     array(array('arguments' => array('form' => NULL))));
   return $hooks;
-  //return array(
-  //  'simplenews_subscription_manager_form' => array(
-  //    'arguments' => array('form' => NULL),
-      // and if I use a template file, ie: user-register.tpl.php
-      //'template' => 'simplenews-subscription-manager-form',
-  //  ),
-  //  );
+
 }
 /**
 * Implementation of hook_theme.
