@@ -191,11 +191,7 @@ function cyberhus2_username($object) {
   else {
     $output = variable_get('anonymous', t('Anonymous'));
   }
- //NUeH if object is Ung or Ung net make the user anonymous. This is needed for the forums
-  $bruger=user_load($object->uid);
-  if(in_array('NUeH Ung',$bruger->roles) || in_array('NUeH Ung Net',$bruger->roles)){
-    $output = variable_get('anonymous', t('Anonymous'));
-  }
+
   return $output;
 }
 /*aktivering af Page Title-modulets (SEO-optimering) funktionalitet*/
