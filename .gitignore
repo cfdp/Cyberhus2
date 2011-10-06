@@ -15,6 +15,10 @@ devel_settings.php
 robots.txt
 .htaccess
 githubpull.php
+php5.fcgi
+sites/findhjaelp.dk/xmlfilnavn.txt
+sites/findhjaelp.dk
+suexec.log
 
 #the temp files should not be included
 ######################
