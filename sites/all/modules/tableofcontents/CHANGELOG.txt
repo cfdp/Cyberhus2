@@ -1,5 +1,0 @@
-2007 February 4:
- * Added <div class="toc">...</div> for theming
-
-2006 December 4:
- * Initial release to CVS
