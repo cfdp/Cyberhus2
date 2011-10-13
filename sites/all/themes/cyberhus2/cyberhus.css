@@ -2311,6 +2311,18 @@ div.view-tegn-selv h3 {
 	clear:both;
 }
 
+div.view-tegn-selv .views-field-comments-link a {
+  float: left;
+  background-color: #FACE69;
+  border: 1px solid #9A6D05;
+  color: #823F0A;
+  display: block;
+  width: 110px;
+  padding: 5px;
+  text-decoration: none;
+}
+
+
 
 /*Cyberskolens menu*/
 div#cyberskole_menu ul.menu {
