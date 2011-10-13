@@ -112,8 +112,11 @@ function pre_ren_fortael($element) {
 }
 
 /*Gæstebogsmail overwrite*/
+/*
 function form_overrides_mail_alter(&$message, $params) {
   if ($message['id'] == 'guestbook_notification') {
     $message['body'] = drupal_html_to_text($message['body']).PHP_EOL.'Gå til gæstebogen:'.PHP_EOL.'http://www.cyberhus.dk/user/'.arg(1).'/guestbook';
   }
 }
+ * */
+ */
