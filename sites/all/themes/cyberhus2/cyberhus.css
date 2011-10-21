@@ -880,7 +880,7 @@ div.view-id-kontakt_brugerliste.view-display-id-block_1 div.picture img {
 
 /* Where name is shown beneath profile thumb, add padding between picture and name */
 .thumbs div.views-field-value {
-	padding-top: 2px;
+	padding-top: 4px;
 } 
 
  
