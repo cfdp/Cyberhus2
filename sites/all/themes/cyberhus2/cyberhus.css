@@ -877,6 +877,13 @@ div.view-id-kontakt_brugerliste.view-display-id-block_1 div.picture img {
 .thumbs div.picture {
 	height: 50px;
 }
+
+/* Where name is shown beneath profile thumb, add padding between picture and name */
+.thumbs div.views-field-value {
+	padding-top: 2px;
+} 
+
+ 
 /* Fix the extra space in between the rows of the profile pictures */
 div#it-vaerksted-panel div#vejleder-blok div.picture,
 div#it-vaerksted-panel div#ekstra-vejlederblok div.picture,
