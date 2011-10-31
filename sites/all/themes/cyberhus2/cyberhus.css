@@ -877,6 +877,13 @@ div.view-id-kontakt_brugerliste.view-display-id-block_1 div.picture img {
 .thumbs div.picture {
 	height: 50px;
 }
+
+/* Where name is shown beneath profile thumb, add padding between picture and name */
+.thumbs div.views-field-value {
+	padding-top: 4px;
+} 
+
+ 
 /* Fix the extra space in between the rows of the profile pictures */
 div#it-vaerksted-panel div#vejleder-blok div.picture,
 div#it-vaerksted-panel div#ekstra-vejlederblok div.picture,
@@ -4112,3 +4119,97 @@ ul#nice-menu-4 {margin-top:25px;border-top: 1px solid #ccc;border-bottom: 1px so
 #nice-menu-4 li.menu-path-nueh-8416 {border-right:1px solid #ccc;width:122px;}
 
 .node-type-cyberflash .vaerelse-center h2 {display:none;}
+
+/* Fra stefan_term.css */
+
+#taxonomy_page{}
+    #taxonomy_page .vaerelse-center                         {width: 620px; padding: 25px 15px 15px;}
+    #tax_video .views-field-title                           {margin-top: 5px;}
+    #tax_video .views-field-created                         {margin-bottom: 5px;}
+    #tax_video .views-field-field-anmeldelse-video-embed    {margin: 5px 0;}
+    
+    #tax_video, #tax_debat, #tax_faq                        {background-color: #F8F4ED;border: 1px solid #EBE2CF; padding: 8px; width:175px; float: left; height: 180px;}
+    #tax_debat                                              {margin: 0 20px;}
+        #tax_debat .views-row-odd, 
+        #tax_debat .views-row-even,
+        #tax_faq .views-row-odd,
+        #tax_faq .views-row-even                            {margin: 5px 0; padding: 0;}
+    #tax_articles                                           {float: left; margin-top: 20px;}
+        #tax_articles .views-row-odd,
+        #tax_articles .views-row-even                       {border-bottom: 1px dashed #AAAAAA; padding:10px 0;}
+        
+        
+/* ---------- Tax Term Desc ---------- */
+#tax_term_desc                                              {float: left; overflow: hidden; width: 620px; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 1px dashed #999;}
+
+				/*nesting*/
+#tax_term_desc 	.view-content 
+.views-row.views-row-1.views-row-odd,
+#tax_term_desc 	.view-content 
+.views-row.views-row-1.views-row-even                       {padding: 0;}
+
+#tax_term_desc .pane-title                                  {margin-bottom: 10px;}
+#tax_term_desc .views-field-description .field-content      {float: left; width: 455px; margin-left: 10px;}
+#tax_term_desc .views-field-description .field-content p    {margin: 0; font-size: 14px; line-height: 20px;}
+#tax_term_desc .taxonomy_image_wrapper                      {float: left;}
+
+/* ---------- Debatten Table ---------- */
+#forum td.container                                         {border-top:0 none; margin-top:0; padding-left:9px; padding-top:5px;}
+#forum table.forum-table td.container                       {background-color: #fff;}
+#forum tr.even                                              {background-color:#EEEEEE; border-bottom: 1px dotted #999; border-top: 1px dotted #999;}
+#forum tr.odd                                               {background-color: #f8f8f8;}
+#forum div.forum-details div.name                           {margin: 5px 0;}
+#forum .container-30 div.forum-details div.name a,
+#forum .container-31 div.forum-details div.name a,
+#forum .container-316 div.forum-details div.name a			{text-decoration: underline;}
+#forum td.forum-icon                                        {padding: 6px 4px 4px 9px;}
+
+#forum .forum-top-links										{display: block;}
+#forum .forum-top-links ul li 								{padding: 0;}
+#forum dl													{float: left; display: block; padding: 0 0 0 10px; margin: 20px 0 10px 0;}
+#forum dd 													{margin-right: 20px;}
+#forum dt													{margin-right: 5px;}
+
+/* ---------- Taxonomy All ----------*/
+
+#body.page-taxonomy-all .views-row-odd,
+#body.page-taxonomy-all .views-row-even                    	{border-bottom: 1px dashed #AAAAAA; margin: 10px 0; padding: 0 0 10px; }
+
+#body.page-taxonomy-all .views-row .views-field-title,
+#body.page-taxonomy-all .views-row .views-field-created,					
+#body.page-taxonomy-all .views-row .views-field-type,
+#body.page-taxonomy-all .views-row .views-field-teaser		{display: block; margin: 5px 0;}
+
+#body.page-taxonomy-all .views-field-created span,
+#body.page-taxonomy-all .views-field-type span				{font-size: 10px; color: #666;}
+
+
+/* ---------- Sub forum ---------- */
+
+#subforum_icon												{float: left; margin-right: 20px;}
+#forum .forum-description									{float: left; width: 500px; margin: 0 0 5px 0; min-height: 50px;}
+#forum .item-list 											{display: block; float: right; margin-top: 10px;}
+
+/* -------FEEDBACK BUTTON ---------*/
+
+#feedback_btn                   {cursor: pointer; font-family: verdana; position: relative; bottom: 44px; left: 127px;width:100px;z-index: 10;}
+#feedback_btn>p               {font-weight: bold; background: -moz-linear-gradient(0% 100% 90deg,#FFD589, #FFBC36); border: 1px solid #999; border-bottom-width: 0px; border-radius: 5px 5px 0 0; -moz-border-radius:5px 5px 0 0; color: #fff; padding: 4px 10px 6px; display: inline-block; font-size: 14px; text-shadow: 1px 1px 1px #666}
+#feedback_btn>p   		{filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFD589', endColorstr='#FFBC36');}
+#feedback_btn>p   		{background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFD589), to(#FFBC36));
+						-webkit-border-radius: 5px 5px 0 0;}
+#feedback_btn>p:hover     {background: -moz-linear-gradient(0% 100% 90deg,#FFBC36, #FF8800);
+						 -moz-border-radius:5px 5px 0 0;}
+#feedback_btn>p:hover	{background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFBC36), to(#F80));}
+#feedback_btn>p:hover	{filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFBC36', endColorstr='#FF8800');}
+#feedback_btn a                 {color: #fff;}
+
+#feedback_hover                 {text-align: center; z-index: 100; position: absolute;bottom: 45px}
+#feedback_hover p               {background: -moz-linear-gradient(top, #CCCCCC 0%, #FFFFFF 100%); border: 1px solid #888; border-radius: 5px; -moz-border-radius: 5px 5px 5px 5px; color: #000; margin: 0 0 20px 50px; width: 110px; font-size: 13px; line-height: 16px; padding: 5px;}
+#feedback_hover p               {background: -webkit-gradient(linear,0% 0%,0% 100%,from(#CCC),to(#FFF));
+							 -webkit-border-radius: 5px 5px 5px 5px;}
+#feedback_hover p               {filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#CCCCCC', endColorstr='#FFFFFF');}
+#feedback_hover a               {color: #000;}
+
+/* -------------------------------- */
+
+

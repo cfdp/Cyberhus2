@@ -5,6 +5,7 @@ core = 6.x
 engine = phptemplate
 
 stylesheets[all][] = css/fusion-mobile-style.css
+stylesheets[all][] = css/doru.css
 
 regions[header] = header
 regions[primary_menu] = primary menu

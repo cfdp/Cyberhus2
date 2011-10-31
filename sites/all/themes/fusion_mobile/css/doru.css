@@ -1,0 +1,42 @@
+/*Dorus smooth css-codes*/
+
+.accordion-content {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+h3.views-accordion-mobiletracker-page {
+    background: url("../graphics/views/view.png") repeat-x scroll 0 0 transparent;
+}
+
+h2.title a:link, h2.title a:visited {
+    padding-left: 10px;
+}
+
+#comment-form {
+    padding-left:10px;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+
+#edit-subject-wrapper {
+    margin-top: 0px;
+}
+
+.views-field-tid{
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.views-field-description {
+    padding-left: 10px;
+}
+
+.faq_title {
+    height: 35px;
+}
+
+.faq_qa_description {
+    margin-top: 5px;
+}

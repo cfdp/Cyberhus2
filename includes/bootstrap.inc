@@ -854,7 +854,9 @@ function check_plain($text) {
   // @todo remove this when support for either IE6 or PHP < 5.2.5 is dropped.
 
   if ($php525) {
-    return htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
+//Org: return htmlspecialchars($text, ENT_QUOTES, ‘UTF-8′);
+//Fix:
+  return (preg_match('/^./us', (string) $text) == 1) ? htmlspecialchars((string) $text, ENT_QUOTES, 'UTF-8') : '';
   }
   return (preg_match('/^./us', $text) == 1) ? htmlspecialchars($text, ENT_QUOTES, 'UTF-8') : '';
 }
