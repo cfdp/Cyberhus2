@@ -51,8 +51,6 @@
  *
  * - $og_groups: Linked list of Organic Groups that the author is a member of.
  *
- * - $location_user_location: User location as reported by the Location module.
- *
  * - $fasttoggle_block_author: Link to toggle the author blocked/unblocked.
  *
  * - $troll_ban_author: Link to ban author via the Troll module.
@@ -116,13 +114,6 @@
         </div>
       <?php endif; ?>
 
-      <?php /* Location */ ?>
-      <?php if (!empty($location_user_location)): ?>
-        <div class="author-pane-line author-location">
-          <?php print $location_user_location;  ?>
-        </div>
-      <?php endif; ?>
-
       <?php /* Joined */ ?>
       <?php if (!empty($joined)): ?>
         <div class="author-pane-line author-joined">
@@ -144,7 +135,7 @@
         </div>
       <?php endif; ?>
     </div>
-
+    
     <?php /* Contact section */ ?>
     <div class="author-pane-section author-pane-contact">
       <?php /* Contact / Email */ ?>
