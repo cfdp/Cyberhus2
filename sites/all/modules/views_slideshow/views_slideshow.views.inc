@@ -1,4 +1,5 @@
 <?php
+// $Id: views_slideshow.views.inc,v 1.1.2.1.2.1 2010/02/23 22:21:44 psynaptic Exp $
 
 /**
  * @file
@@ -15,16 +16,11 @@ function views_slideshow_views_plugins() {
         'title' => t('Slideshow'),
         'help' => t('Display the results as a slideshow.'),
         'handler' => 'views_slideshow_plugin_style_slideshow',
+        'theme' => 'views_slideshow',
         'uses options' => TRUE,
         'uses row plugin' => TRUE,
-        'uses grouping' => FALSE,
-        'uses row class' => TRUE,
         'type' => 'normal',
         'parent' => 'list',
-        'path' => drupal_get_path('module', 'views_slideshow'),
-        'theme' => 'views_slideshow',
-        'theme path' => drupal_get_path('module', 'views_slideshow') . '/theme',
-        'theme file' => 'views_slideshow.theme.inc',
       ),
     ),
   );
