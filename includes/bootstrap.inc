@@ -1,5 +1,4 @@
 <?php
-// $Id: bootstrap.inc,v 1.206.2.29 2010/08/06 11:50:24 goba Exp $
 
 /**
  * @file
@@ -376,7 +375,7 @@ function conf_init() {
   global $base_url, $base_path, $base_root;
 
   // Export the following settings.php variables to the global namespace
-  global $db_url, $db_prefix, $cookie_domain, $conf, $installed_profile, $update_free_access;
+  global $db_url, $db_prefix, $db_collation, $cookie_domain, $conf, $installed_profile, $update_free_access;
   $conf = array();
 
   if (isset($_SERVER['HTTP_HOST'])) {
@@ -488,7 +487,7 @@ function conf_init() {
  * the above, depending on where the module is located.
  *
  * @param $type
- *   The type of the item (i.e. theme, theme_engine, module).
+ *   The type of the item (i.e. theme, theme_engine, module, profile).
  * @param $name
  *   The name of the item for which the filename is requested.
  * @param $filename
@@ -687,7 +686,7 @@ function bootstrap_invoke_all($hook) {
  * including a theme, engine, module, etc., more than once.
  *
  * @param $type
- *   The type of item to load (i.e. theme, theme_engine, module).
+ *   The type of item to load (i.e. theme, theme_engine, module, profile).
  * @param $name
  *   The name of the item to load.
  *
@@ -854,9 +853,7 @@ function check_plain($text) {
   // @todo remove this when support for either IE6 or PHP < 5.2.5 is dropped.
 
   if ($php525) {
-//Org: return htmlspecialchars($text, ENT_QUOTES, ‘UTF-8′);
-//Fix:
-  return (preg_match('/^./us', (string) $text) == 1) ? htmlspecialchars((string) $text, ENT_QUOTES, 'UTF-8') : '';
+    return htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
   }
   return (preg_match('/^./us', $text) == 1) ? htmlspecialchars($text, ENT_QUOTES, 'UTF-8') : '';
 }
