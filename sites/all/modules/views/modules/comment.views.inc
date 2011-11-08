@@ -1,5 +1,4 @@
 <?php
-// $Id: comment.views.inc,v 1.33 2009/09/15 16:48:51 merlinofchaos Exp $
 /**
  * @file
  * Provide views data and handlers for comment.module
@@ -86,7 +85,7 @@ function comment_views_data() {
       'handler' => 'views_handler_sort',
     ),
     'argument' => array(
-      'handler' => 'views_handler_argument',
+      'handler' => 'views_handler_argument_numeric',
     ),
   );
 
@@ -185,14 +184,14 @@ function comment_views_data() {
   // status (approved or not)
   $data['comments']['status'] = array(
     'title' => t('In moderation'),
-    'help' => t('Whether or not the comment is currently in moderation.'),
+    'help' => t('Whether or not the comment is currently in the moderation queue.'),
     'field' => array(
       'handler' => 'views_handler_field_boolean',
       'click sortable' => TRUE,
     ),
     'filter' => array(
       'handler' => 'views_handler_filter_boolean_operator',
-      'label' => t('Moderated'),
+      'label' => t('In the moderation queue'),
       'type' => 'yes-no',
     ),
     'sort' => array(
@@ -236,14 +235,6 @@ function comment_views_data() {
     ),
   );
 
-  $data['comments']['node_link'] = array(
-    'field' => array(
-      'title' => t('Node link'),
-      'help' => t('Display the standard comment link used on regular nodes.'),
-      'handler' => 'views_handler_field_comment_node_link',
-    ),
-  );  
-
   $data['comments']['thread'] = array(
     'field' => array(
       'title' => t('Depth'),
@@ -262,7 +253,7 @@ function comment_views_data() {
     'help' => t('The node the comment is a reply to.'),
     'relationship' => array(
       'base' => 'node',
-      'field' => 'nid',
+      'base field' => 'nid',
       'handler' => 'views_handler_relationship',
       'label' => t('Node'),
     ),
@@ -273,7 +264,7 @@ function comment_views_data() {
     'help' => t("The User ID of the comment's author."),
     'relationship' => array(
       'base' => 'users',
-      'field' => 'uid',
+      'base field' => 'uid',
       'handler' => 'views_handler_relationship',
       'label' => t('User'),
     ),
@@ -289,7 +280,7 @@ function comment_views_data() {
       'title' => t('Parent comment'),
       'help' => t('The parent comment.'),
       'base' => 'comments',
-      'field' => 'cid',
+      'base field' => 'cid',
       'handler' => 'views_handler_relationship',
       'label' => t('Parent comment'),
     ),
@@ -305,7 +296,7 @@ function comment_views_data() {
   $data['node_comment_statistics']['table']['join'] = array(
     //...to the node table
     'node' => array(
-      'type' => 'INNER',      
+      'type' => 'INNER',
       'left_field' => 'nid',
       'field' => 'nid',
      ),
@@ -316,7 +307,7 @@ function comment_views_data() {
     'title' => t('Last comment time'),
     'help' => t('Date and time of when the last comment was posted.'),
     'field' => array(
-      'handler' => 'views_handler_field_date',
+      'handler' => 'views_handler_field_last_comment_timestamp',
       'click sortable' => TRUE,
     ),
     'sort' => array(
@@ -389,6 +380,14 @@ function comment_views_data_alter(&$data) {
     'help' => t('The number of new comments on the node.'),
     'field' => array(
       'handler' => 'views_handler_field_node_new_comments',
+    ),
+  );
+
+  $data['node']['comments_link'] = array(
+    'field' => array(
+      'title' => t('Add comment link'),
+      'help' => t('Display the standard add comment link used on regular nodes, which will only display if the viewing user has access to add a comment.'),
+      'handler' => 'views_handler_field_comment_node_link',
     ),
   );
 
@@ -505,6 +504,9 @@ function comment_views_handlers() {
       'views_handler_field_node_comment' => array(
         'parent' => 'views_handler_field',
       ),
+      'views_handler_field_last_comment_timestamp' => array(
+        'parent' => 'views_handler_field_date',
+      ),
 
       // sort handlers
       'views_handler_sort_comment_thread' => array(
@@ -548,7 +550,7 @@ function template_preprocess_views_view_row_comment(&$vars) {
   // Put the view on the node so we can retrieve it in the preprocess.
   $node->view = &$view;
 
-  $links = '';
+  $links = array();
   if (!empty($options['links'])) {
     $links = module_invoke_all('link', 'comment', $comment, 0);
     drupal_alter('link', $links, $node);

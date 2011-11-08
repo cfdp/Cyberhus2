@@ -25,7 +25,13 @@ function user_badges_preprocess_author_pane(&$variables) {
       $variables['user_badges'] = $cached_user_badges[$account_id];
     }
     else {
-      $variables['user_badges'] = user_badges_for_uid($account_id);
+      if(isset($variables['account']->badges)) {
+        $sHtml = '';
+        foreach($variables['account']->badges as $oBadge) {
+          $sHtml .= theme('user_badge', $oBadge, $variables['account']);
+        }
+      }
+      $variables['user_badges'] = $sHtml;
       $cached_user_badges[$account_id] = $variables['user_badges'];
     }
   }

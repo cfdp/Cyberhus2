@@ -25,13 +25,6 @@ function getPixlrImage() {
 	$imagename = $_GET['title'];
 	
 	
-	//Verify that the URL is pointing to a file @ pixlr.com"
-	if (strpos($image, "pixlr.com") == 0){
-	//Handle the error:
-		drupal_set_message(t("Sorry, an error has ocurred. Invalid image referrer."), 'error') ;
-	exit;
-	}
-	
 	//Verify that the file is an image
 	$headers = get_headers($image, 1);
 	$content_type = explode("/", $headers['Content-Type']);

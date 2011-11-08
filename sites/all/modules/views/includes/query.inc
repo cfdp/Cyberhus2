@@ -1,5 +1,4 @@
 <?php
-// $Id: query.inc,v 1.50 2009/10/05 22:49:03 merlinofchaos Exp $
 /**
  * @file query.inc
  * Defines the query object which is the underlying layer in a View.
@@ -116,19 +115,7 @@ class views_query {
    */
   function set_distinct($value = TRUE) {
     if (!(isset($this->no_distinct) && $value)) {
-      // Hack in a check to see if node_access is going to add its own DISTINCT
-      // and break this query.
-      // See http://drupal.org/node/284392 for the core bug.
-      //
-      // We want to bypass views distinct code if this bug will be triggered so
-      // if the base table is node and there is a node access module, bypass
-      // views distinct code.
-      if ($this->base_table != 'node' || !node_access_view_all_nodes()) {
-        $this->distinct = FALSE;
-      }
-      else {
-        $this->distinct = $value;
-      }
+      $this->distinct = $value;
     }
   }
 
@@ -221,6 +208,12 @@ class views_query {
       'table' => $join->table,
       'base' => $base,
     );
+
+    $this->tables[$this->base_table][$alias] = array(
+      'count' => 1,
+      'alias' => $alias,
+    );
+
     return $alias;
   }
 
@@ -259,21 +252,19 @@ class views_query {
       return FALSE;
     }
 
-    if (!$join) {
-      $join = $this->get_join_data($table, $this->relationships[$relationship]['base']);
+    if ($join && $relationship) {
+      $join = $this->adjust_join($join, $relationship);
     }
-
-    $join = $this->adjust_join($join, $relationship);
 
     return $this->queue_table($table, $relationship, $join, $alias);
   }
 
   /**
-   * Add a table to the query, without ensuring the path.
+   * Add a table to the query without ensuring the path.
    *
-   * This function will test to ensure that the path back to the primary
-   * table is valid and exists; if you do not wish for this testing to
-   * occur, use $query->queue_table() instead.
+   * This is a pretty internal function to Views and add_table() or
+   * ensure_table() should be used instead of this one, unless you are
+   * absolutely sure this is what you want.
    *
    * @param $table
    *   The name of the table to add. It needs to exist in the global table

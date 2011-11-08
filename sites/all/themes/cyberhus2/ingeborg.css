@@ -1,0 +1,16 @@
+/* Fjerne bullets i cfdp-blogs på voksne-sider, left sidebar */
+#voksne-blog .item-list ul li {
+    list-style: none;
+}
+
+/* Fjerne visning af blog-it-ikon på cfdp-blogs på voksne-sider, left sidebar */
+
+#voksne-blog .item-list .icon {
+    display: none;  
+}
+
+
+/*div#vejleder-blok div.views-field-value{
+	text-align:center;
+}*/
+
