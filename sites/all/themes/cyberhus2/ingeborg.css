@@ -3,14 +3,20 @@
     list-style: none;
 }
 
-/* Fjerne visning af blog-it-ikon på cfdp-blogs på voksne-sider, left sidebar */
-
-#voksne-blog .item-list .icon {
+/* Fjerne visning af blog-it-ikon og more-link på cfdp-blogs på voksne-sider, left sidebar */
+#voksne-blog .item-list .icon, .more-link {
     display: none;  
 }
 
+/* Styling table showing chat opening hours, right sidebar */
+#opening-hours-table {
+	margin-left: 8px;
+}
 
-/*div#vejleder-blok div.views-field-value{
-	text-align:center;
-}*/
+#opening-hours-table td {
+    color: #666666;
+    font-weight: bold;
+}
+
+/* Husk at sætte CSS id til voksne-blog i panel page */
 
