@@ -1,14 +1,23 @@
-/* Fjerne bullets i cfdp-blogs på voksne-sider, left sidebar */
+/* Remove bullets in cfdp-blogs on adult pages, left sidebar */
 #voksne-blog .item-list ul li {
     list-style: none;
 }
 
-/* Fjerne visning af blog-it-ikon og more-link på cfdp-blogs på voksne-sider, left sidebar */
+/* Remove blog-it icon and more-link from cfdp-blogs on adult pages, left sidebar */
 #voksne-blog .item-list .icon, .more-link {
     display: none;  
 }
 
-/* Styling table showing chat opening hours, right sidebar */
+#voksne-blog {
+    background: #DDDDDD;
+}
+
+/* Style headers for the individual blog-blocks on adult pages, left sidebar */
+#voksne-blog h2 {
+    font-size: 15px;
+}
+
+/* Style table showing chat opening hours, right sidebar */
 #opening-hours-table {
 	margin-left: 8px;
 }
@@ -18,5 +27,4 @@
     font-weight: bold;
 }
 
-/* Husk at sætte CSS id til voksne-blog i panel page */
 
