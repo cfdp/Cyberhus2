@@ -57,6 +57,8 @@ function form_overrides_form_alter(&$form, $form_state, $form_id) {
         //unset($form['category']['#options']['883']);
         /*Musik og talentudvikling:*/
         //unset($form['category']['#options']['64']);
+        /*Kost og ernæring:*/
+        unset($form['category']['#options']['1040']);
       break;
       
       /*anonymous users should not be presented for the tema-vocabulary, kunst-, the room- or the frie tags vocabulary on the mentioned content types*/
