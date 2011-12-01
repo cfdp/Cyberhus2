@@ -27,4 +27,8 @@
     font-weight: bold;
 }
 
-
+/* Style header of page På den anden side */
+body.page-node-14447 div.title-image h2.title {
+    color: #FFFBF5;
+    padding-left: 4px;
+}
