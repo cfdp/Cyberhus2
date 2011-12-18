@@ -427,7 +427,7 @@ function cyberhus2_preprocess_node(&$vars, $hook) {
   }  
 }
 
-function cyberhus2_preprocess_node_page(&$vars, $hook) {
+function cyberhus2_preprocess_node_page(&$vars, $hook = NULL) {
 	/* is it a page with title image background? */
 	$title_image = false;
 	//we get the node id and load the node
