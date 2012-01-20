@@ -87,6 +87,27 @@ if (arg(0) != 'voksne') {
   drupal_add_js ('sites/all/themes/scripts/chatscript.js', 'core');
 }
 
+/**
+* remove user name from alt and title tags
+*/
+function cyberhus2_preprocess_user_picture(&$variables) {
+  $variables['picture'] = '';
+  if (variable_get('user_pictures', 0)) {
+    $account = $variables['account'];
+    if (!empty($account->picture) && file_exists($account->picture)) {
+      $picture = file_create_url($account->picture);
+    }
+    else if (variable_get('user_picture_default', '')) {
+      $picture = variable_get('user_picture_default', '');
+    }
+
+    if (isset($picture)) {
+      $alt = '';
+      $variables['picture'] = theme('image', $picture, $alt, $alt, '', 
+FALSE);
+    }
+  }
+}
 
 /**
 * Override or insert PHPTemplate variables into the search_block_form template.
