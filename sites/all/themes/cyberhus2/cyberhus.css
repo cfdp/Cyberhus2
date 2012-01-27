@@ -172,10 +172,8 @@ div.meta {
 	margin-top:0;}
 
 
-div.panel-flexible{}
-
 /*den overordnede bredde af panel pages*/
-div.panels-flexible-row {
+div.panel-flexible {
 	width:1000px;
 }
 /******************LEFTCOL ********************************/
