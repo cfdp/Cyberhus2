@@ -32,3 +32,10 @@ body.page-node-14447 div.title-image h2.title {
     color: #FFFBF5;
     padding-left: 4px;
 }
+
+/* Style header of page Din mening er vigtig! */
+body.page-node-15251 div.title-image h2.title {
+    color: #FF9900;
+    background-color: #000000;
+    opacity: 0.8;
+}
