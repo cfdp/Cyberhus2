@@ -84,13 +84,14 @@
       </div>
 
       <?php /* User picture / avatar (has div in variable) */ ?>
-	  <!-- if the authorr has role Vejleder or Koordinater the image should be shown-->
-	  <?php if ((in_array('Vejleder',$account->roles) || in_array('Koordinator',$account->roles)) && !empty($picture)) : ?>
-	  
-	   <?php print "<img src=\"/".$account->picture."\">"; ?>
-
-	  <?php endif; ?>
-
+	  <!-- if the author has role Vejleder or Koordinater the image should be shown-->
+	  <!-- first we check if there is a roles array, so the in_array function won't complain about anonymous users-->
+          <?php if (is_array($account->roles)) : ?>
+	    <?php if ((in_array('Vejleder',$account->roles) || in_array('Koordinator',$account->roles)) && !empty($picture)) : ?>
+	      <?php print "<img src=\"/".$account->picture."\">"; ?>
+            <?php endif; ?>
+          <?php endif; ?>
+      
       <?php /* start superadmin section */ ?>
       <?php if (in_array('Superadmin',$user->roles)): ?>
       <div class="admin-info">

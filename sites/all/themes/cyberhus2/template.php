@@ -87,6 +87,27 @@ if (arg(0) != 'voksne') {
   drupal_add_js ('sites/all/themes/scripts/chatscript.js', 'core');
 }
 
+/**
+* remove user name from alt and title tags
+*/
+function cyberhus2_preprocess_user_picture(&$variables) {
+  $variables['picture'] = '';
+  if (variable_get('user_pictures', 0)) {
+    $account = $variables['account'];
+    if (!empty($account->picture) && file_exists($account->picture)) {
+      $picture = file_create_url($account->picture);
+    }
+    else if (variable_get('user_picture_default', '')) {
+      $picture = variable_get('user_picture_default', '');
+    }
+
+    if (isset($picture)) {
+      $alt = '';
+      $variables['picture'] = theme('image', $picture, $alt, $alt, '', 
+FALSE);
+    }
+  }
+}
 
 /**
 * Override or insert PHPTemplate variables into the search_block_form template.
@@ -644,51 +665,58 @@ function STARTERKIT_theme(&$existing, $type, $theme, $path) {
 	  //return $output;
   }
 */
+
 /**
  * Draw the flexible layout.
  */
-function cyberhus2_panels_flexible($id, $content, $settings, $display) {
-  panels_flexible_convert_settings($settings);
+function cyberhus2_panels_flexible($id, $content, $settings, $display, $layout, $handler) {
+  panels_flexible_convert_settings($settings, $layout);
 
-  $renderer = new stdClass;
-  $renderer->settings = $settings;
-  $renderer->content = $content;
-  $renderer->css_id = $id;
-  $renderer->did = $display->did;
-  $renderer->id_str = $id ? 'id="' . $id . '"' : '';
-  $renderer->admin = FALSE;
+  $renderer = panels_flexible_create_renderer(FALSE, $id, $content, $settings, $display, $layout, $handler);
 
   // CSS must be generated because it reports back left/middle/right
   // positions.
   $css = panels_flexible_render_css($renderer);
 
-  if ($display->did && $display->did != 'new') {
+  if (!empty($renderer->css_cache_name) && empty($display->editing_layout)) {
     ctools_include('css');
     // Generate an id based upon rows + columns:
-    $css_id = 'flexible:' . $display->did;
-    $filename = ctools_css_retrieve($css_id);
+    $filename = ctools_css_retrieve($renderer->css_cache_name);
     if (!$filename) {
-      $filename = ctools_css_store($css_id, $css, FALSE);
+      $filename = ctools_css_store($renderer->css_cache_name, $css, FALSE);
     }
-    drupal_add_css($filename, 'module', 'all', FALSE);
+
+    // Give the CSS to the renderer to put where it wants.
+    if ($handler) {
+      $handler->add_css($filename, 'module', 'all', FALSE);
+    }
+    else {
+      ctools_css_add_css($filename, 'module', 'all', FALSE);
+    }
   }
   else {
     // If the id is 'new' we can't reliably cache the CSS in the filesystem
     // because the display does not truly exist, so we'll stick it in the
-    // head tag.
+    // head tag. We also do this if we've been told we're in the layout
+    // editor so that it always gets fresh CSS.
     drupal_set_html_head("<style type=\"text/css\">\n$css</style>\n");
   }
 
-  $output = "<div class=\"panel-flexible panel-flexible-$renderer->did clear-block\" $renderer->id_str>\n";
-  $output .= "<div class=\"panel-flexible-inside panel-flexible-$renderer->did-inside\">\n";
+  // Also store the CSS on the display in case the live preview or something
+  // needs it
+  $display->add_css = $css;
 
-  $output .= panels_flexible_render_items($renderer, $settings['items']['canvas']['children'], 'panel-flexible-' . $renderer->did);
+  $output = "<div class=\"panel-flexible " . $renderer->base['canvas'] . " clear-block\" $renderer->id_str>\n";
+  $output .= "<div class=\"panel-flexible-inside " . $renderer->base['canvas'] . "-inside\">\n";
+
+  $output .= panels_flexible_render_items($renderer, $settings['items']['canvas']['children'], $renderer->base['canvas']);
 
   // Wrap the whole thing up nice and snug
   $output .= "</div>\n</div>\n";
 
   return $output;
 }
+
 
 /**
  * Override or insert variables into all templates.
