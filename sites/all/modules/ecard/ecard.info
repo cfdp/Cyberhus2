@@ -1,11 +1,10 @@
-; $Id: ecard.info,v 1.1.4.2 2009/02/11 16:26:54 karst Exp $
 name = ecard
 description = This module allow your to send any content type as an ecard/postcard.
 core="6.x"
 
-; Information added by drupal.org packaging script on 2009-02-20
-version = "6.x-1.6"
+; Information added by drupal.org packaging script on 2011-09-28
+version = "6.x-1.10"
 core = "6.x"
 project = "ecard"
-datestamp = "1235154015"
+datestamp = "1317227804"
 
