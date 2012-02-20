@@ -519,7 +519,9 @@ function faq_ask_mail($key, &$message, $params) {
       $body[] = $params['question'];
 //      $body[] = t('In order to read it you will first need to <a href="!login_uri">login</a> to the site.', $variables, $language->language);
       $body[] = t('Once logged in, you may proceed <a href="!answer_uri">directly to the question</a> to answer it.', $variables, $language->language);
+      $body[] = 'Må vi stille dig nogle spørgsmål om din oplevelse med brevkassen? Det tager kun et minut.<br />Hvis ja: Klik venligst på følgende link og besvar spørgsmålene i spørgeskemaet.<br /><a href="http://www.cyberhus.dk/din_mening_er_vigtig">http://www.cyberhus.dk/din_mening_er_vigtig</a>';
       break;
+      
 
   }
   $message['body'] = drupal_wrap_mail(implode($newline, $body));
