@@ -40,3 +40,23 @@ body.page-din_mening_er_vigtig div.title-image h2.title {
     opacity: 0.8;
     padding: 5px;
 }
+
+/* CSS til fjernelse af forum fra oversigt */
+#forum-list-1966 {
+    display: none;
+}
+
+/* Remove possibility to change forum when adding a forum subject in "Vil du være med til at gøre Cyberhus endnu bedre?" */
+body.logged-in.page-node-add-forum-1966 div#edit-taxonomy-1-wrapper {
+   display: none;
+}
+/* Logged in looks good */
+body.not-logged-in.page-node-add-forum-1966 div#content-area fieldset.collapsible {
+   display: none;
+}
+   
+
+/* Fjerne "Opret nyt forumemne" og "Marker alle emner som læst" */
+body.page-forum-1966 #forum .forum-top-links {
+  display: none;
+}
