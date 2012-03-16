@@ -40,3 +40,27 @@ body.page-din_mening_er_vigtig div.title-image h2.title {
     opacity: 0.8;
     padding: 5px;
 }
+
+/* CSS for forum Ungeblogs v.2 */
+
+
+/* CSS to hide Ungeblogs v.2 in forum list */
+#forum-list-1970 {
+  display: none;
+}
+
+/* Remove possibility to change forum when adding a forum subject in "Ungeblogs v.2" */
+/* For logged in users */
+body.logged-in.page-node-add-forum-1970 div#edit-taxonomy-1-wrapper {
+  display: none;
+}
+
+/* For not logged in users */
+body.not-logged-in.page-node-add-forum-1970 div#content-area fieldset.collapsible {
+  display: none;
+} 
+
+/* Remove "Opret nyt forumemne" and "Marker alle emner som læst" links on Ungeblogs v. 2 forum page */
+body.page-forum-1970 #forum .forum-top-links {
+  display: none;
+}
