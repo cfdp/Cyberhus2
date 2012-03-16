@@ -41,26 +41,29 @@ body.page-din_mening_er_vigtig div.title-image h2.title {
     padding: 5px;
 }
 
-/* CSS for forum Ungeblogs v.2 */
+/* CSS for "hidden" forums "Vil du være med til at gøre Cyberhus endnu bedre" og "Ungeblogs v.2" */
 
-
-/* CSS to hide Ungeblogs v.2 in forum list */
-#forum-list-1970 {
+/* CSS to hide forums in forum list */
+#forum-list-1970,
+#forum-list-1966 {
   display: none;
 }
 
-/* Remove possibility to change forum when adding a forum subject in "Ungeblogs v.2" */
+/* Remove possibility to change forum when adding a forum subject */
 /* For logged in users */
-body.logged-in.page-node-add-forum-1970 div#edit-taxonomy-1-wrapper {
+body.logged-in.page-node-add-forum-1970 div#edit-taxonomy-1-wrapper,
+body.logged-in.page-node-add-forum-1966 div#edit-taxonomy-1-wrapper {
   display: none;
 }
 
 /* For not logged in users */
-body.not-logged-in.page-node-add-forum-1970 div#content-area fieldset.collapsible {
+body.not-logged-in.page-node-add-forum-1970 div#content-area fieldset.collapsible,
+body.not-logged-in.page-node-add-forum-1966 div#content-area fieldset.collapsible {
   display: none;
 } 
 
-/* Remove "Opret nyt forumemne" and "Marker alle emner som læst" links on Ungeblogs v. 2 forum page */
-body.page-forum-1970 #forum .forum-top-links {
+/* Remove "Opret nyt forumemne" and "Marker alle emner som læst" links on forum pages */
+body.page-forum-1970 #forum .forum-top-links,
+body.page-forum-1966 #forum .forum-top-links {
   display: none;
 }
