@@ -33,8 +33,9 @@ body.page-node-14447 div.title-image h2.title {
     padding-left: 4px;
 }
 
-/* Style header of page Din mening er vigtig! */
-body.page-din_mening_er_vigtig div.title-image h2.title {
+/* Style header of page "Din mening er vigtig!" and "Din mening om gruppechatten" */
+body.page-din_mening_er_vigtig div.title-image h2.title,
+body.page-din-mening-gruppechat div.title-image h2.title {
     color: #FF9900;
     background-color: #000000;
     opacity: 0.8;
