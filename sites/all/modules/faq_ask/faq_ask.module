@@ -284,14 +284,35 @@ function faq_ask_form($form_state, $tid, $node) {
     '#description' => t('Choose your sex here.'),
     '#options' => $form['sex_options']['#value'],
   );
+/* New age field with select list, ages 9-23*/
+ 	$ages=array();
+	$ages['unchosen']=t('Choose age');
+  	for ($i = 9; $i <= 23; $i++) {
+	  $ages[$i]=$i;
+	}
+    $form['age_options'] = array (
+      '#type' => 'value',
+      '#value' => $ages
+  );
     $form['age'] = array(
-    '#type' => 'textfield',
+    '#type' => 'select',
     '#title' => t('Age'),
     '#required' => true,
-    '#size' => 3,
     '#weight' => -7,
-    '#description' => t('Enter your age here.'),
+    '#description' => t('Choose your age here.'),
+    '#options' => $form['age_options']['#value'],
   );
+   /* 
+    * Original age textfield
+    * $form['age'] = array(
+    * '#type' => 'textfield',
+    * '#title' => t('Age'),
+    * '#required' => true,
+    * '#size' => 3,
+    * '#weight' => -7,
+    * '#description' => t('Enter your age here.'),
+    *); 
+    * */
     $form['county'] = array(
     '#type' => 'textfield',
     '#title' => t('County'),
@@ -337,9 +358,17 @@ function faq_ask_form($form_state, $tid, $node) {
 
 /**
  * Implementation of hook_form_validate().
- * This function checks if user has accepted the terms
  */
 function faq_ask_form_validate($form, &$form_state) {
+	
+// Validate Cyberhus select box for age - default value should not be considered valid.
+  $age = trim($form_state['values']['age']);
+  if ($age == 'unchosen') {
+  	//we notify the form API that this field has failed validation
+	form_set_error('age', t('The age field is required.'));
+  }
+	
+// This checks if user has accepted the terms
   //form-input skal åbenbart trimmes?!?
   $accept = trim($form_state['values']['accept_conditions']);
   if ($accept != 'Ja') {
