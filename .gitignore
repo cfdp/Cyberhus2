@@ -19,6 +19,7 @@ php5.fcgi
 sites/findhjaelp.dk/xmlfilnavn.txt
 sites/findhjaelp.dk
 suexec.log
+Thumbs.db
 
 #the temp files should not be included
 ######################
@@ -27,6 +28,8 @@ suexec.log
 /css
 /googleanalytics
 /languages
+/wwitest
+/sites/default
 
 #we dont want to include backups or database files
 ######################
