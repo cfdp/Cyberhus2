@@ -294,8 +294,8 @@ function faq_ask_form($form_state, $tid, $node) {
 */  
     $form['sex_options'] = array (
       '#type' => 'value',
-      '#value' => array(t('Choose sex'), t('Man')=>t('Man'), t('Woman')=>t('Woman'))
-    );
+      '#value' => array('unchosen'=>t('Choose sex'), t('Man')=>t('Man'), t('Woman')=>t('Woman'))
+  );
     $form['sex'] = array(
     '#type' => 'select',
     '#title' => t('Sex'),
@@ -387,6 +387,13 @@ function faq_ask_form_validate($form, &$form_state) {
   	//we notify the form API that this field has failed validation
 	form_set_error('category', t('The category field is required.'));
   } 
+
+// Validate Cyberhus sex select box - default value should not be considered valid.		
+    $sex = trim($form_state['values']['sex']);
+  if ($sex == 'unchosen') {
+  	//we notify the form API that this field has failed validation
+	form_set_error('sex', t('The sex field is required.'));
+  }
 	
 // Validate Cyberhus select box for age - default value should not be considered valid.
   $age = trim($form_state['values']['age']);
