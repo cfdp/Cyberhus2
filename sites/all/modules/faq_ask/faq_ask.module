@@ -236,27 +236,47 @@ function faq_ask_form($form_state, $tid, $node) {
     '#value' => $nid,
   );
 
+// Force asker to choose a category, instead of first category being chosen as default
+ if (!$tid) {
+     	
+     $keys=	array_keys($cat_list);
+	 array_unshift($keys,'unchosen');
+	 
+	 $values=array_values($cat_list);
+	 array_unshift($values,t('Choose a faq-category'));
+	 
+	 $cat_options=array_combine($keys,$values);
+	 
+	 $default_tid='unchosen';
+ } else {
+ 		
+ 	$cat_options=$cat_list;
+ } 	
+ 
   // Category.
   $form['category'] = array(
     '#title' => t('Category'),
     '#type' => 'select',
-    '#options' => $cat_list,
+    '#options' => $cat_options,
     '#default_value' => $default_tid,
     '#required' => true,
     '#weight' => -11,
     '#description' => t('Please select the correct category for your question.'),
   );
 
-  if (count($form_state['post']) > 0) {
-    if ($form_state['post']['category'] == 0) {
-      $form['new_cat'] = array(
-        '#title' => t('Suggested Category'),
-        '#type' => 'textfield',
-        '#weight' => -11,
-        '#default_value' => null,
-        '#description' => t('Please enter your suggested category for the question.'),
-        );
-    }
+// Ingeborg and Daniel added check for suggest category enabled, so this field only turns up if $suggest is true
+  if($suggest) {
+	  if (count($form_state['post']) > 0) {
+	    if ($form_state['post']['category'] == 0) {
+	      $form['new_cat'] = array(
+	        '#title' => t('Suggested Category'),
+	        '#type' => 'textfield',
+	        '#weight' => -11,
+	        '#default_value' => null,
+	        '#description' => t('Please enter your suggested category for the question.'),
+	        );
+	    }
+	  }
   }
 
   // Question.
@@ -360,6 +380,13 @@ function faq_ask_form($form_state, $tid, $node) {
  * Implementation of hook_form_validate().
  */
 function faq_ask_form_validate($form, &$form_state) {
+
+// Validate Cyberhus faq-category select box - default value should not be considered valid.	
+ $category = trim($form_state['values']['category']);
+  if ($category == 'unchosen') {
+  	//we notify the form API that this field has failed validation
+	form_set_error('category', t('The category field is required.'));
+  } 
 	
 // Validate Cyberhus select box for age - default value should not be considered valid.
   $age = trim($form_state['values']['age']);
