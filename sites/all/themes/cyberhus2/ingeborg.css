@@ -74,3 +74,8 @@ body.page-forum-1966 #forum .forum-top-links {
 body.section-ungeblogs div.view.view-blogs.view-id-blogs.view-display-id-page_3.view-dom-id-1{
    border: 1px solid #3399CC;
 }
+
+/* Limit max number of indentations on comments, to maintain readability */
+.indented .indented .indented .indented .indented .indented .indented .indented .indented .indented .indented .indented {
+  margin-left: 0;
+}
