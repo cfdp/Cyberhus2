@@ -71,7 +71,8 @@ function my_submit($form_id, $form_values) {
             array('@to' => $account->mail, '@cat' => $term->name), WATCHDOG_ERROR);
           drupal_set_message($msg, 'status');
         }
-        db_query('DELETE FROM {oushelper_email} WHERE faq_nid=%d', $nid);
+		/* Commenting out this line that deletes the entry - Ingeborg */
+        /* db_query('DELETE FROM {oushelper_email} WHERE faq_nid=%d', $nid); */
       }
    }   
 }
