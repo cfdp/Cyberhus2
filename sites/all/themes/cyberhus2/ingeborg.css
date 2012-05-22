@@ -68,3 +68,9 @@ body.page-forum-1970 #forum .forum-top-links,
 body.page-forum-1966 #forum .forum-top-links {
   display: none;
 }
+
+
+/* Highlight Blogmaster's blog on /ungeblogs */
+body.section-ungeblogs div.view.view-blogs.view-id-blogs.view-display-id-page_3.view-dom-id-1{
+   border: 1px solid #3399CC;
+}
