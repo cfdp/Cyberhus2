@@ -48,12 +48,13 @@
     <div class="unpublished"><?php print t('Unpublished'); ?></div>
   <?php endif; ?>
 
-  	  <!-- hvis brugeren er vejleder eller koordinator, må billedet vises -->
-	  <?php if ((in_array('Vejleder',$account->roles) || in_array('Koordinator',$account->roles)) && !empty($picture)) : ?>
-	  
-	   <?php print $picture; ?>
-
-	  <?php endif; ?>
+  	  <!-- hvis brugeren er vejleder eller koordinator, må billedet vises --> 	  
+      <!-- first we check if there is a roles array, so the in_array function won't complain about anonymous users-->
+      <?php if (is_array($account->roles)) : ?>
+	      <?php if ((in_array('Vejleder',$account->roles) || in_array('Koordinator',$account->roles)) && !empty($picture)) : ?>
+	        <?php print $picture; ?>
+    	  <?php endif; ?>
+      <?php endif; ?>
 
   <div class="submitted">
     <?php print $submitted; ?>

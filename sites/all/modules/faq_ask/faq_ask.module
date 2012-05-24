@@ -236,27 +236,47 @@ function faq_ask_form($form_state, $tid, $node) {
     '#value' => $nid,
   );
 
+// Force asker to choose a category, instead of first category being chosen as default
+ if (!$tid) {
+     	
+     $keys=	array_keys($cat_list);
+	 array_unshift($keys,'unchosen');
+	 
+	 $values=array_values($cat_list);
+	 array_unshift($values,t('Choose a faq-category'));
+	 
+	 $cat_options=array_combine($keys,$values);
+	 
+	 $default_tid='unchosen';
+ } else {
+ 		
+ 	$cat_options=$cat_list;
+ } 	
+ 
   // Category.
   $form['category'] = array(
     '#title' => t('Category'),
     '#type' => 'select',
-    '#options' => $cat_list,
+    '#options' => $cat_options,
     '#default_value' => $default_tid,
     '#required' => true,
     '#weight' => -11,
     '#description' => t('Please select the correct category for your question.'),
   );
 
-  if (count($form_state['post']) > 0) {
-    if ($form_state['post']['category'] == 0) {
-      $form['new_cat'] = array(
-        '#title' => t('Suggested Category'),
-        '#type' => 'textfield',
-        '#weight' => -11,
-        '#default_value' => null,
-        '#description' => t('Please enter your suggested category for the question.'),
-        );
-    }
+// Ingeborg and Daniel added check for suggest category enabled, so this field only turns up if $suggest is true
+  if($suggest) {
+	  if (count($form_state['post']) > 0) {
+	    if ($form_state['post']['category'] == 0) {
+	      $form['new_cat'] = array(
+	        '#title' => t('Suggested Category'),
+	        '#type' => 'textfield',
+	        '#weight' => -11,
+	        '#default_value' => null,
+	        '#description' => t('Please enter your suggested category for the question.'),
+	        );
+	    }
+	  }
   }
 
   // Question.
@@ -274,8 +294,8 @@ function faq_ask_form($form_state, $tid, $node) {
 */  
     $form['sex_options'] = array (
       '#type' => 'value',
-      '#value' => array(t('Choose sex'), t('Man')=>t('Man'), t('Woman')=>t('Woman'))
-    );
+      '#value' => array('unchosen'=>t('Choose sex'), t('Man')=>t('Man'), t('Woman')=>t('Woman'))
+  );
     $form['sex'] = array(
     '#type' => 'select',
     '#title' => t('Sex'),
@@ -284,14 +304,35 @@ function faq_ask_form($form_state, $tid, $node) {
     '#description' => t('Choose your sex here.'),
     '#options' => $form['sex_options']['#value'],
   );
+/* New age field with select list, ages 9-23*/
+ 	$ages=array();
+	$ages['unchosen']=t('Choose age');
+  	for ($i = 9; $i <= 23; $i++) {
+	  $ages[$i]=$i;
+	}
+    $form['age_options'] = array (
+      '#type' => 'value',
+      '#value' => $ages
+  );
     $form['age'] = array(
-    '#type' => 'textfield',
+    '#type' => 'select',
     '#title' => t('Age'),
     '#required' => true,
-    '#size' => 3,
     '#weight' => -7,
-    '#description' => t('Enter your age here.'),
+    '#description' => t('Choose your age here.'),
+    '#options' => $form['age_options']['#value'],
   );
+   /* 
+    * Original age textfield
+    * $form['age'] = array(
+    * '#type' => 'textfield',
+    * '#title' => t('Age'),
+    * '#required' => true,
+    * '#size' => 3,
+    * '#weight' => -7,
+    * '#description' => t('Enter your age here.'),
+    *); 
+    * */
     $form['county'] = array(
     '#type' => 'textfield',
     '#title' => t('County'),
@@ -337,9 +378,31 @@ function faq_ask_form($form_state, $tid, $node) {
 
 /**
  * Implementation of hook_form_validate().
- * This function checks if user has accepted the terms
  */
 function faq_ask_form_validate($form, &$form_state) {
+
+// Validate Cyberhus faq-category select box - default value should not be considered valid.	
+ $category = trim($form_state['values']['category']);
+  if ($category == 'unchosen') {
+  	//we notify the form API that this field has failed validation
+	form_set_error('category', t('The category field is required.'));
+  } 
+
+// Validate Cyberhus sex select box - default value should not be considered valid.		
+    $sex = trim($form_state['values']['sex']);
+  if ($sex == 'unchosen') {
+  	//we notify the form API that this field has failed validation
+	form_set_error('sex', t('The sex field is required.'));
+  }
+	
+// Validate Cyberhus select box for age - default value should not be considered valid.
+  $age = trim($form_state['values']['age']);
+  if ($age == 'unchosen') {
+  	//we notify the form API that this field has failed validation
+	form_set_error('age', t('The age field is required.'));
+  }
+	
+// This checks if user has accepted the terms
   //form-input skal åbenbart trimmes?!?
   $accept = trim($form_state['values']['accept_conditions']);
   if ($accept != 'Ja') {
@@ -519,7 +582,9 @@ function faq_ask_mail($key, &$message, $params) {
       $body[] = $params['question'];
 //      $body[] = t('In order to read it you will first need to <a href="!login_uri">login</a> to the site.', $variables, $language->language);
       $body[] = t('Once logged in, you may proceed <a href="!answer_uri">directly to the question</a> to answer it.', $variables, $language->language);
+      $body[] = 'Må vi stille dig nogle spørgsmål om din oplevelse med brevkassen? Det tager kun et minut.<br />Hvis ja: Klik venligst på følgende link og besvar spørgsmålene i spørgeskemaet.<br /><a href="http://www.cyberhus.dk/din_mening_er_vigtig">http://www.cyberhus.dk/din_mening_er_vigtig</a>';
       break;
+      
 
   }
   $message['body'] = drupal_wrap_mail(implode($newline, $body));

@@ -19,8 +19,14 @@
 
 <?php
 	/*vi skal have fat i data for den aktuelle brugers profil (alder og køn)*/
-	include_once(drupal_get_path('module', 'webform') .'/webform_report.inc');
-	include_once(drupal_get_path('module', 'webform') .'/webform_submissions.inc');
+	module_load_include('inc', 'webform', 'includes/webform.submissions');
+	module_load_include('inc', 'webform', 'includes/webform.report');
+	
+	/* The section above is replacing this, which worked for the old webform version:
+	 * include_once(drupal_get_path('module', 'webform') .'/webform_report.inc');
+	 * include_once(drupal_get_path('module', 'webform') .'/webform_submissions.inc'); 
+	 */
+	
 	$nid = arg(1); // need to hard-code nid if this is a custom page
 	$sid = $_GET['sid'];
 	$this_submission = webform_get_submission($nid, $sid);
