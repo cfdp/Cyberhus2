@@ -12,6 +12,8 @@ devel_settings.php
 # We dont want to include these files
 ######################
 .project
+*.sql
+*.mysql
 robots.txt
 .htaccess
 githubpull.php
