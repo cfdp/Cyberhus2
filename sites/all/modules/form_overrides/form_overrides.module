@@ -48,7 +48,7 @@ function form_overrides_form_alter(&$form, $form_state, $form_id) {
 	  /*Here you can remove FAQ's from the selection drop down in the form - useful for e.g. vacation closing*/
       case 'faq_ask_form':
 		/*Sundhed og sygdom:*/
-        //unset($form['category']['#options']['74']);
+        unset($form['category']['#options']['74']);
         /*Sorg:*/
         //unset($form['category']['#options']['62']);
         /*Skrivning og l�sning:*/
