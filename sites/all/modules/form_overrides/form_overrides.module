@@ -50,13 +50,27 @@ function form_overrides_form_alter(&$form, $form_state, $form_id) {
 		/*Sundhed og sygdom:*/
         unset($form['category']['#options']['74']);
         /*Sorg:*/
-        //unset($form['category']['#options']['62']);
+        unset($form['category']['#options']['62']);
         /*Skrivning og l�sning:*/
         unset($form['category']['#options']['627']);
         /*Voldt�gt og seksuelle overgreb:*/
-        //unset($form['category']['#options']['883']);
+        unset($form['category']['#options']['883']);
         /*Musik og talentudvikling:*/
-        //unset($form['category']['#options']['64']);
+        unset($form['category']['#options']['64']);
+		/*Spørg om sport og fritid:*/
+        unset($form['category']['#options']['71']);
+		/*Tandzonen:*/
+        unset($form['category']['#options']['651']);
+		/*Studievejlederen:*/
+        unset($form['category']['#options']['1834']);
+		/*Når ude er hjemme:*/
+        unset($form['category']['#options']['960']);
+		/*Spørg om Cyberhus:*/
+        unset($form['category']['#options']['77']);
+		/*Dig på nettet:*/
+        unset($form['category']['#options']['424']);
+		/*Dine rettigheder:*/
+        unset($form['category']['#options']['68']);
         /*Kost og ernæring:*/
         unset($form['category']['#options']['1040']);
       break;
