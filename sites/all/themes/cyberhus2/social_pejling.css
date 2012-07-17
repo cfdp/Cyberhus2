@@ -50,7 +50,7 @@ body.social-pejling .links a {
 #social-pejling-container {
 	width: 800px;
 	height: 600px;
-	background-image: url('http://www.cyberhus.dk/sites/default/files/social_pejling/baggrund.png');
+	background-image: url('/sites/default/files/social_pejling/baggrund.png');
 }
 
 #social-pejling-content  {

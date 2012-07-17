@@ -60,8 +60,8 @@
     <?php endif; ?>
 	
 	<?php print("<div class='tegn_selv_link'>
-	  <a href='http://www.cyberhus.dk/kunstvaerksted/5875'>
-      <img title='Tegn Selv forside' src='http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/tegn_selv_mini.jpg'>
+	  <a href='/kunstvaerksted/5875'>
+      <img title='Tegn Selv forside' src='/sites/default/files/cyberhusdk/billeder/layout/tegn_selv_mini.jpg'>
 	  </a></div>");
 	?>
 	  

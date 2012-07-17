@@ -164,7 +164,7 @@ body.enter .view-display-id-block_3 {
 	width: 100%;
 	margin-bottom: 10px;
 	border: 1px solid #c3c3c3;
-	background-image: url('http://www.cyberhus.dk/sites/default/files/enter/pil.png');
+	background-image: url('/sites/default/files/enter/pil.png');
 	background-position:right top;
 	background-repeat: no-repeat;
 	opacity: 70;
@@ -179,18 +179,18 @@ body.enter .view-display-id-block_3 {
 /*badeværelset*/
 body.enter .view-display-id-block_1 {
 	/*background-color:  #8abac8;*/
-	background-image: url('http://www.cyberhus.dk/sites/default/files/enter/pil_bad.png');
+	background-image: url('/sites/default/files/enter/pil_bad.png');
 	border: 1px solid #8abac8;
 }
 /*lystværelset*/
 body.enter .view-display-id-block_2 {
 	/*background-color: #d69fca;*/
-	background-image: url('http://www.cyberhus.dk/sites/default/files/enter/pil_lyst.png');
+	background-image: url('/sites/default/files/enter/pil_lyst.png');
 	border: 1px solid #d69fca;
 }
 /*køkkenet*/
 body.enter .view-display-id-block_3 {
 	/*background-color: #ccd2a2;*/
-	background-image: url('http://www.cyberhus.dk/sites/default/files/enter/pil_koekken.png');
+	background-image: url('/sites/default/files/enter/pil_koekken.png');
 	border: 1px solid #ccd2a2;
 }

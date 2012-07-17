@@ -1152,45 +1152,45 @@ max-width:400px;
 
 /*******************FLASH RUM****************************/
 body.section-nueh div#flashcontent{
-	background-image:url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/nueh.jpg);
+	background-image:url(/sites/default/files/cyberhusdk/billeder/layout/nueh.jpg);
 }
 body.section-lystvaerelse div#flashcontent{
-	background-image:url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/lystrum.jpg);
+	background-image:url(/sites/default/files/cyberhusdk/billeder/layout/lystrum.jpg);
 }
 body.section-mediehulen div#flashcontent{
-	background-image:url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/mediehulen.jpg);
+	background-image:url(/sites/default/files/cyberhusdk/billeder/layout/mediehulen.jpg);
 }
 body.section-lovstue div#flashcontent{
-	background-image:url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/lovstue.jpg);
+	background-image:url(/sites/default/files/cyberhusdk/billeder/layout/lovstue.jpg);
 }
 body.section-badevaerelse div#flashcontent{
-	background-image:url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/badevaerelse.jpg);
+	background-image:url(/sites/default/files/cyberhusdk/billeder/layout/badevaerelse.jpg);
 }
 body.section-gaestevaerelse div#flashcontent{
-	background-image:url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/gaestevaerelse.jpg);
+	background-image:url(/sites/default/files/cyberhusdk/billeder/layout/gaestevaerelse.jpg);
 }
 body.section-stue div#flashcontent{
-	background-image:url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/stue.jpg);
+	background-image:url(/sites/default/files/cyberhusdk/billeder/layout/stue.jpg);
 }
 body.section-koekken div#flashcontent{
-	background-image:url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/koekken.jpg);
+	background-image:url(/sites/default/files/cyberhusdk/billeder/layout/koekken.jpg);
 }
 body.section-bibliotek div#flashcontent{
-	background-image:url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/bibliotek.jpg);
+	background-image:url(/sites/default/files/cyberhusdk/billeder/layout/bibliotek.jpg);
 }
 body.section-it-vaerksted div#flashcontent{
-	background-image:url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/itvaerksted.jpg);
+	background-image:url(/sites/default/files/cyberhusdk/billeder/layout/itvaerksted.jpg);
 }
 body.section-filmvaerksted div#flashcontent{
-	background-image:url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/filmvaerksted.jpg);
+	background-image:url(/sites/default/files/cyberhusdk/billeder/layout/filmvaerksted.jpg);
 }
 body.section-kunstvaerksted div#flashcontent{
-	background-image:url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/kunstvaerksted.jpg);
+	background-image:url(/sites/default/files/cyberhusdk/billeder/layout/kunstvaerksted.jpg);
 }
 
 body.section-udenfor div#flashcontent {
-  //background-image:url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/aktivfritid.jpg);
-  background-image:url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/udenfor_vinter_dag.jpg);
+  //background-image:url(/sites/default/files/cyberhusdk/billeder/layout/aktivfritid.jpg);
+  background-image:url(/sites/default/files/cyberhusdk/billeder/layout/udenfor_vinter_dag.jpg);
   background-repeat:no-repeat;
 }
 
@@ -2331,7 +2331,7 @@ div.view-tegn-selv .views-field-comments-link a {
 
 /*Cyberskolens menu*/
 div#cyberskole_menu ul.menu {
-	background-image:url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/tavle_knap.gif);
+	background-image:url(/sites/default/files/cyberhusdk/billeder/layout/tavle_knap.gif);
 	background-repeat:no-repeat;
 	height:30px;
 	left:75px;
@@ -2393,7 +2393,7 @@ div.cyberflash_beskrivelse_tekstfelt {
 	width: 476px;
 	padding-top: 27px;
 	margin-left: 50px;
-	background-image: url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/SEO-boks.png);
+	background-image: url(/sites/default/files/cyberhusdk/billeder/layout/SEO-boks.png);
 	background-color: transparent;
 	background-repeat:no-repeat;
 	margin-top:-4px;
@@ -2426,7 +2426,7 @@ div.cyberflash_beskrivelse_tekstfelt a {
 /*the extra text box below the image */
 div.cyberflash_fanlink_tekstfelt {
 	background-color:transparent;
-	background-image:url(http://www.cyberhus.dk/sites/all/themes/cyberhus2/images/taleboble2.png);
+	background-image:url(/sites/all/themes/cyberhus2/images/taleboble2.png);
 	background-repeat:no-repeat;
 	font-size:10px;
 	height:108px;
@@ -2460,34 +2460,34 @@ a.fanlinklinie{
 }
 
 div.spring-day {
-	background-image: url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/forside_foraar_dag.jpg);
+	background-image: url(/sites/default/files/cyberhusdk/billeder/layout/forside_foraar_dag.jpg);
 }
 div.spring-night {
-	background-image: url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/forside_foraar_nat.jpg);
+	background-image: url(/sites/default/files/cyberhusdk/billeder/layout/forside_foraar_nat.jpg);
 }
 div.summer-day {
-	background-image: url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/forside_sommer_dag.jpg);
+	background-image: url(/sites/default/files/cyberhusdk/billeder/layout/forside_sommer_dag.jpg);
 }
 div.summer-night {
-	background-image: url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/forside_sommer_nat.jpg);
+	background-image: url(/sites/default/files/cyberhusdk/billeder/layout/forside_sommer_nat.jpg);
 }
 div.autumn-day {
-	background-image: url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/forside_efteraar_dag.jpg);
+	background-image: url(/sites/default/files/cyberhusdk/billeder/layout/forside_efteraar_dag.jpg);
 }
 div.autumn-night {
-	background-image: url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/forside_efteraar_nat.jpg);
+	background-image: url(/sites/default/files/cyberhusdk/billeder/layout/forside_efteraar_nat.jpg);
 }
 div.winter-day {
-	background-image: url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/forside_vinter_dag.jpg);
+	background-image: url(/sites/default/files/cyberhusdk/billeder/layout/forside_vinter_dag.jpg);
 }
 div.winter-night {
-	background-image: url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/forside_vinter_nat.jpg);
+	background-image: url(/sites/default/files/cyberhusdk/billeder/layout/forside_vinter_nat.jpg);
 }
 div.halloween-day {
-	background-image: url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/forside_halloween.jpg);
+	background-image: url(/sites/default/files/cyberhusdk/billeder/layout/forside_halloween.jpg);
 }
 div.christmas-day {
-	background-image: url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/forside_jul.jpg);
+	background-image: url(/sites/default/files/cyberhusdk/billeder/layout/forside_jul.jpg);
 }
 
 /*brevkassesvar-hack - visning af Svar: over svaret på node-visning*/
@@ -2691,7 +2691,7 @@ div.media_beskrivelse a {
 
 /*standard farve til voksensider*/
 div.fcktemplate_standard_wrapper div.title h3, table.fcktemplate_standard_side div.title h3 {
-	background-image: url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/text_spacer.png);
+	background-image: url(/sites/default/files/cyberhusdk/billeder/layout/text_spacer.png);
 	background-color: #cccccc;
 	background-position: left bottom;
 	color: #333333;
@@ -2699,7 +2699,7 @@ div.fcktemplate_standard_wrapper div.title h3, table.fcktemplate_standard_side d
 
 table.fcktemplate_smaabilleder div.title h3 {
 	background-color: #cccccc;
-	background-image: url(http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/text_spacer.png);
+	background-image: url(/sites/default/files/cyberhusdk/billeder/layout/text_spacer.png);
 	color: #333333;
 }
 	

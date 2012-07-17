@@ -94,12 +94,12 @@
 </head>
 <body class="<?php print $body_classes; ?>">
 
-<iframe src="http://www.cyberhus.dk/sites/default/files/flash/folder/topbar.html" height="25px" width="100%">
+<iframe src="/sites/default/files/flash/folder/topbar.html" height="25px" width="100%">
 	
 </iframe>
-<iframe src="http://www.cyberhus.dk/sites/default/files/flash/folder/index.html" width="100%" height="690px" 
+<iframe src="/sites/default/files/flash/folder/index.html" width="100%" height="690px" 
 	scrolling="auto" frameborder="0">
-  [Din browser understøtter ikke frames. <a href="http://www.cyberhus.dk/sites/default/files/flash/folder/index.html">Klik her</a> for at se folderen i hele vinduet.]</iframe>
+  [Din browser understøtter ikke frames. <a href="/sites/default/files/flash/folder/index.html">Klik her</a> for at se folderen i hele vinduet.]</iframe>
    
   <?php if ($closure_region): ?>
     <div id="closure-blocks" class="region region-closure"><?php print $closure_region; ?></div>

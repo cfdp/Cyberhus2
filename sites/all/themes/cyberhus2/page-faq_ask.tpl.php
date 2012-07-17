@@ -106,7 +106,7 @@
       <div id="skip-to-nav"><a href="#navigation"><?php print t('Skip to Navigation'); ?></a></div>
     <?php endif; ?>
     <div id="header"><div id="header-inner" class="clear-block">
-      <a href="http://www.cyberhus.dk" class="homelink"><!-- /class homelink start --> 
+      <a href="/" class="homelink"><!-- /class homelink start --> 
 
       <?php if ($logo or $site_name or $site_slogan): ?>
         <div id="logo-title">
@@ -158,7 +158,7 @@
         /*Besked til NUeH brugere der er logget ind og vil skrive i brevkassen*/
 		global $user;
 		if (in_array('NUeH Ung',$user->roles) || in_array('NUeH Ung Net',$user->roles)){
-			print '<div class="Advarsel">Du er logget ind, hvilket betyder at din kontaktperson kan se at du er afsender. Hvis du vil bevare din anonymitet kan du logge ud <a href="http://www.cyberhus.dk/logout">Her</a></div>';
+			print '<div class="Advarsel">Du er logget ind, hvilket betyder at din kontaktperson kan se at du er afsender. Hvis du vil bevare din anonymitet kan du logge ud <a href="/logout">Her</a></div>';
 		}
 		?>
         <?php if ($content_top): ?>
@@ -221,9 +221,9 @@
   		<span class='cyberflash_tekst'>Bliv fan:
 			<div id = "fanlinks-images">
 				<a href="http://www.facebook.com/pages/Cyberhus/174387481216"> 
-				<img src="http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/facebook-icon.png">
+				<img src="/sites/default/files/cyberhusdk/billeder/layout/facebook-icon.png">
 				</a><a class="fanlinklinie" href="http://www.habbo.dk/groups/cyberhus"> 
-				<img src="http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/habbo.png">
+				<img src="/sites/default/files/cyberhusdk/billeder/layout/habbo.png">
 				</a>
 			</div>
 		</span>

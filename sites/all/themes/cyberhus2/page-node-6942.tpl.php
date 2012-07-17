@@ -96,7 +96,7 @@
 
 <div id="enter-container">
 
-<div id="enter-topbanner"><a href="http://www.cyberhus.dk/enter"><img src="http://www.cyberhus.dk/sites/default/files/enter/enter_topbanner.png" alt="ENTER" /></a></div>
+<div id="enter-topbanner"><a href="/enter"><img src="/sites/default/files/enter/enter_topbanner.png" alt="ENTER" /></a></div>
 <div id="left-enter-column">
 
         <div id="enter-content-area">

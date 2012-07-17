@@ -290,7 +290,7 @@ function cyberhus2_preprocess_page(&$vars, $hook) {
   $curr_uri = check_plain(request_uri());
   //under construction
   if (($curr_uri=='node/add/forum') && ($user->uid)) {
-    //print '<div class="messages warning">Du er logget ind. Hvis du vil sikre din anonymitet kan du logge ud <a href="http://www.cyberhus.dk/logout">Her</a></div>';
+    //print '<div class="messages warning">Du er logget ind. Hvis du vil sikre din anonymitet kan du logge ud <a href="/logout">Her</a></div>';
 	//print_r($vars);
   }
   

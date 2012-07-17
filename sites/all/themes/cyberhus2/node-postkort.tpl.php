@@ -61,7 +61,7 @@
       <h2><a href="<?php print $node_url ?>" title="<?php print $title ?>"><?php print $title ?></a></h2>
     <?php endif; ?>
     <?php print $content ?>
-	<a class="laes_mere" href="http://www.cyberhus.dk/node/3341">Til postkort-galleriet</a>
+	<a class="laes_mere" href="/node/3341">Til postkort-galleriet</a>
   </div>
 
 <!--terms del fjernet*/-->

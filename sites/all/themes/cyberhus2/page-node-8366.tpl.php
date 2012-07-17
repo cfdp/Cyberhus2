@@ -96,7 +96,7 @@
 
 <div id="enter-container-3d">
 
-<div id="enter-topbanner-3d"><a href="http://www.cyberhus.dk/enter"><img src="http://www.cyberhus.dk/sites/default/files/enter/enter_topbanner.png" alt="ENTER" /></a></div>
+<div id="enter-topbanner-3d"><a href="/enter"><img src="/sites/default/files/enter/enter_topbanner.png" alt="ENTER" /></a></div>
 
          <div id="enter-content-area-3d">
           <?php print $content; ?>

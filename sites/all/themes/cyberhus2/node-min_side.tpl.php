@@ -85,7 +85,7 @@
 				<strong>CyberAktiv redakt&oslash;r: </strong><?php print $name; ?><br />
 				<?php print $node->field_min_side_beskrivelse[0]['value']; ?>
 			</div>
-			<a class="sign_link" href="http://www.cyberhus.dk/node/3379"></a>	
+			<a class="sign_link" href="/node/3379"></a>	
 		</div>
 		<div id="ca_content">
 		<div id="ca_bar"><?php print $title; ?></div>

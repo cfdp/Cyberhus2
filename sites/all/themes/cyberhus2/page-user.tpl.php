@@ -171,9 +171,9 @@
   		<span class='cyberflash_tekst'>Bliv fan:
 			<div id = "fanlinks-images">
 				<a href="http://www.facebook.com/pages/Cyberhus/174387481216"> 
-				<img src="http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/facebook-icon.png">
+				<img src="/sites/default/files/cyberhusdk/billeder/layout/facebook-icon.png">
 				</a><a class="fanlinklinie" href="http://www.habbo.dk/groups/cyberhus"> 
-				<img src="http://www.cyberhus.dk/sites/default/files/cyberhusdk/billeder/layout/habbo.png">
+				<img src="/sites/default/files/cyberhusdk/billeder/layout/habbo.png">
 				</a>
 			</div>
 		</span>
