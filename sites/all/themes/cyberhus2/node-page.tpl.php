@@ -102,7 +102,7 @@
 	    </script>
 	  </div>
 	  </div>
-	  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js?pub=xa-4a926ebb5df9df40"></script>
+	  <script type="text/javascript" src="https://s7.addthis.com/js/250/addthis_widget.js?pub=xa-4a926ebb5df9df40"></script>
 	  <!-- AddThis Button END -->	
 	</div>
 	</div>
