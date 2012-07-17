@@ -66,7 +66,7 @@
 
 
 <div class="links">
-  <a href="http://www.cyberhus.dk/sites/default/files/flash/socialpejling/CyberhusQuiz.swf">Tilbage til quizzen.</a>
+  <a href="/sites/default/files/flash/socialpejling/CyberhusQuiz.swf">Tilbage til quizzen.</a>
 </div>
 
 
