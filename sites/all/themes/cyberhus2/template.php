@@ -243,8 +243,8 @@ function cyberhus2_preprocess_page(&$vars, $hook) {
     global $user;
     global $base_url;
 	/*adding external stylesheet to page templates*/
-	$vars['styles'] .= "<link type=\"text/css\" rel=\"stylesheet\" href=\"http://fonts.googleapis.com/css?family=GFS+Neohellenic:regular,italic,bold,bolditalic&amp;subset=greek\" />";
-	$vars['styles'] .= "<link type=\"text/css\" rel=\"stylesheet\" href=\"http://fonts.googleapis.com/css?family=Amaranth:regular,400italic,700,700italic\" />";
+	$vars['styles'] .= "<link type=\"text/css\" rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=GFS+Neohellenic:regular,italic,bold,bolditalic&amp;subset=greek\" />";
+	$vars['styles'] .= "<link type=\"text/css\" rel=\"stylesheet\" href=\"https://fonts.googleapis.com/css?family=Amaranth:regular,400italic,700,700italic\" />";
 
 	/*Makes it possible to create page-templates pr node-type  */
 	$node = node_load(arg(1));
