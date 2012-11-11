@@ -5,6 +5,15 @@
 */
 
 /*
+Fil tilpasset af benjamin@cyberhus.dk
+*/
+/*
+Sti til fil med skabeloner
+*/
+FCKConfig.TemplatesXmlPath	= '/sites/all/themes/fcktemplates/cyberhus2.xml' ;
+/*
+
+/*
  Define as many toolbars as you need, you can change toolbar names
  DrupalBasic will be forced on some smaller textareas (if enabled)
  if you change the name of DrupalBasic, you have to update
@@ -20,24 +29,40 @@ FCKConfig.Plugins.Add( 'imgassist' ) ;
 //FCKConfig.Plugins.Add( 'drupalpagebreak', 'en,pl,ru' ) ;
 //FCKConfig.Plugins.Add( 'linktonode', 'en,pl' ) ;
 //FCKConfig.Plugins.Add( 'linktomenu', 'en,pl' ) ;
+
+/*cyberhus-toolbars*/
 /*
- This toolbar is dedicated to users with "Full HTML" access
- some of commands used here (like 'FontName') use inline styles,
- which unfortunately are stripped by "Filtered HTML" filter
- */
+This toolbar is dedicated to users with "Minimum" access
+*/
+FCKConfig.ToolbarSets["Minimum"] = [
+['Undo','Redo','RemoveFormat','Bold','Italic','Underline','TextColor','OrderedList','UnorderedList','JustifyLeft','JustifyCenter','JustifyRight'],
+['Smiley','Rule','Link','Unlink','SpecialChar'],
+['FontFormat'],
+] ;
+
+/*
+This toolbar is dedicated to users with "Limited" access
+*/
+FCKConfig.ToolbarSets["Middel"] = [
+['Undo','Redo','RemoveFormat','Bold','Italic','Underline','TextColor','OrderedList','UnorderedList','JustifyLeft','JustifyCenter','JustifyRight'],
+['Smiley','Image','Rule','Link','Unlink','SpecialChar','DrupalBreak'],
+'/',
+['FontFormat'],
+] ;
+
 FCKConfig.ToolbarSets['DrupalFull'] = [
-['Source'],
+['Source', 'Templates'],
 ['Cut','Copy','Paste','PasteText','PasteWord'],
 ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
 ['Bold','Italic','Underline','StrikeThrough','-','Subscript','Superscript'],
 ['OrderedList','UnorderedList','-','Outdent','Indent','Blockquote'],
 ['JustifyLeft','JustifyCenter','JustifyRight'],
 /*
- * EXPERIMENTAL
- * Uncomment the line below to enable linktonode and linktomenu buttons
- * ATTENTION: Link to Content module must be installed first!
- * Remember to load appropriate plugins with FCKConfig.Plugins.Add command a couple of lines above
- */
+* EXPERIMENTAL
+* Uncomment the line below to enable linktonode and linktomenu buttons
+* ATTENTION: Link to Content module must be installed first!
+* Remember to load appropriate plugins with FCKConfig.Plugins.Add command a couple of lines above
+*/
 //['Link','Unlink','LinkToNode','LinkToMenu','Anchor'],
 ['Link','Unlink','Anchor'],
 ['Image','Flash','Table','Rule','Smiley','SpecialChar','DrupalBreak'],
@@ -48,6 +73,7 @@ FCKConfig.ToolbarSets['DrupalFull'] = [
 ['FontFormat','FontName','FontSize'],
 ['TextColor','BGColor','ShowBlocks']
 ] ;
+/*cyberhus-toolbars end*/
 
 FCKConfig.ToolbarSets['DrupalBasic'] = [
 ['FontFormat','-','Bold','Italic','-','OrderedList','UnorderedList','-','Link','Unlink','Image']
