@@ -59,7 +59,7 @@ FCKeditor.MinHeight = 200 ;
  */
 FCKeditor.MinWidth = 750 ;
 
-FCKeditor.prototype.Version			= '2.6.6' ;
+FCKeditor.prototype.Version			= '2.6.8' ;
 FCKeditor.prototype.VersionBuild	= '25427' ;
 
 FCKeditor.prototype.Create = function()
@@ -300,10 +300,6 @@ FCKeditor.prototype._HTMLEncode = function( text )
 function FCKeditor_IsCompatibleBrowser()
 {
 	var sAgent = navigator.userAgent.toLowerCase() ;
-	
-	 if ( sAgent.indexOf( 'iphone' ) != -1 ) return false;
-	 
-	 if ( sAgent.indexOf( 'android' ) != -1 ) return false;
 
 	// Internet Explorer 5.5+
 	if ( /*@cc_on!@*/false && sAgent.indexOf("mac") == -1 )

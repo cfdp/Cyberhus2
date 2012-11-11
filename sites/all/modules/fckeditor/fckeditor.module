@@ -1,5 +1,4 @@
 <?php
-// $Id: fckeditor.module,v 1.20.2.34.2.91 2010/03/10 07:43:32 jorrit Exp $
 /**
  * FCKeditor - The text editor for Internet - http://www.fckeditor.net
  * Copyright (C) 2003-2008 Frederico Caldeira Knabben
@@ -41,6 +40,10 @@ global $_fckeditor_js_ids;
 
 $_fckeditor_configuration = array();
 $_fckeditor_js_ids = array();
+
+function _fckeditor_ckfinder_path() {
+  return drupal_get_path('module', 'fckeditor') . '/ckfinder/ckfinder.php';
+}
 
 /**
  * Implementation of hook_help().
@@ -109,16 +112,24 @@ function fckeditor_elements() {
  * AJAX callback - XSS filter
  */
 function fckeditor_filter_xss() {
+  global $user;
   $GLOBALS['devel_shutdown'] = FALSE;
 
-  if (!isset($_POST['text']) || !is_string($_POST['text']) || !is_array($_POST['filters'])) {
+  if (!isset($_POST['text']) || !is_string($_POST['text']) || !isset($_POST['token']) || !drupal_valid_token($_POST['token'], 'fckeditorAjaxCall', TRUE)) {
     exit;
   }
 
+  $profile = fckeditor_user_get_profile($user);
+
+  if ($profile == FALSE) {
+    exit;
+  }
+
+  $settings = $profile->settings;
   $text = $_POST['text'];
   $text = strtr($text, array('<!--' => '__COMMENT__START__', '-->' => '__COMMENT__END__'));
 
-  foreach ($_POST['filters'] as $module_delta) {
+  foreach ($settings['filters'] as $module_delta => $active) {
     $module = strtok($module_delta, "/");
     $delta = strtok("/");
     $format = strtok("/");
@@ -180,50 +191,54 @@ function fckeditor_process_form(&$form) {
           // The element before this element is the target form field.
           $field = &$form[$children[$index - 1]];
           $textarea_id = $field['#id'];
-          $js_id = $_fckeditor_js_ids[$textarea_id];
 
-          array_push($processed_textareas, $js_id);
+          // The following condition may fail when there are textareas with formats that do not have FCKeditor enabled.
+          if (isset($_fckeditor_js_ids[$textarea_id])) {
+            $js_id = $_fckeditor_js_ids[$textarea_id];
 
-          //search for checkxss1/2 class
-          if (empty($field['#attributes']['class']) || strpos($field['#attributes']['class'], "checkxss") === FALSE) {
-            continue;
-          }
+            array_push($processed_textareas, $js_id);
 
-          // Determine the available input formats. The last child element is a
-          // link to "More information about formatting options". When only one
-          // input format is displayed, we also have to remove formatting
-          // guidelines, stored in the child 'format'.
-          $formats = element_children($element);
-
-          foreach ($formats as $format_id) {
-            $format = !empty($element[$format_id]['#default_value']) ? $element[$format_id]['#default_value'] : $element[$format_id]['#value'];
-            break;
-          }
-
-          $enabled = filter_list_format($format);
-          $fckeditor_filters = array();
-
-          //loop through all enabled filters
-          foreach ($enabled as $id => $filter) {
-            //but use only that one selected in FCKeditor profile
-            if (in_array($id, array_keys($_fckeditor_configuration[$textarea_id]['filters'])) && $_fckeditor_configuration[$textarea_id]['filters'][$id]) {
-              if (!isset($fckeditor_filters[$js_id])) {
-                $fckeditor_filters[$js_id] = array();
-              }
-              $fckeditor_filters[$js_id][] = $id ."/". $format;
+            //search for checkxss1/2 class
+            if (empty($field['#attributes']['class']) || strpos($field['#attributes']['class'], "checkxss") === FALSE) {
+              continue;
             }
-          }
 
-          //No filters assigned, remove xss class
-          if (empty($fckeditor_filters[$js_id])) {
-            $field['#attributes']['class'] = preg_replace("/checkxss(1|2)/", "", $field['#attributes']['class']);
-          }
-          else {
-            $field['#attributes']['class'] = strtr($field['#attributes']['class'], array("checkxss1" => "filterxss1", "checkxss2" => "filterxss2"));
-          }
+            // Determine the available input formats. The last child element is a
+            // link to "More information about formatting options". When only one
+            // input format is displayed, we also have to remove formatting
+            // guidelines, stored in the child 'format'.
+            $formats = element_children($element);
 
-          array_pop($formats);
-          unset($formats['format']);
+            foreach ($formats as $format_id) {
+              $format = !empty($element[$format_id]['#default_value']) ? $element[$format_id]['#default_value'] : $element[$format_id]['#value'];
+              break;
+            }
+
+            $enabled = filter_list_format($format);
+            $fckeditor_filters = array();
+
+            //loop through all enabled filters
+            foreach ($enabled as $id => $filter) {
+              //but use only that one selected in FCKeditor profile
+              if (in_array($id, array_keys($_fckeditor_configuration[$textarea_id]['filters'])) && $_fckeditor_configuration[$textarea_id]['filters'][$id]) {
+                if (!isset($fckeditor_filters[$js_id])) {
+                  $fckeditor_filters[$js_id] = array();
+                }
+                $fckeditor_filters[$js_id][] = $id ."/". $format;
+              }
+            }
+
+            //No filters assigned, remove xss class
+            if (empty($fckeditor_filters[$js_id])) {
+              $field['#attributes']['class'] = preg_replace("/checkxss(1|2)/", "", $field['#attributes']['class']);
+            }
+            else {
+              $field['#attributes']['class'] = strtr($field['#attributes']['class'], array("checkxss1" => "filterxss1", "checkxss2" => "filterxss2"));
+            }
+
+            array_pop($formats);
+            unset($formats['format']);
+          }
         }
         // If this element is 'format', do not recurse further.
         continue;
@@ -607,6 +622,7 @@ function fckeditor_process_textarea($element) {
       drupal_add_js($module_drupal_path .'/fckeditor.utils.js');
       /* In D6 drupal_add_js() can't add external JS, in D7 use drupal_add_js(...,'external') */
       drupal_set_html_head('<script type="text/javascript" src="'. $editor_path .'/fckeditor.js?I"></script>');
+      drupal_add_js(array('fckeditor' => array('ajaxToken' => drupal_get_token('fckeditorAjaxCall'))), 'setting');
       $is_running = TRUE;
     }
 
@@ -668,6 +684,9 @@ function fckeditor_process_textarea($element) {
         $filebrowser = 'none';
       }
       if ($filebrowser == 'webfm' && !module_exists('webfm_popup')) {
+        $filebrowser = 'none';
+      }
+      if ($filebrowser == 'ckfinder' && !file_exists(_fckeditor_ckfinder_path())) {
         $filebrowser = 'none';
       }
       $quickupload = (!empty($conf['quickupload']) && $conf['quickupload'] == 't');
@@ -734,9 +753,9 @@ function fckeditor_process_textarea($element) {
           $js .= $js_id .".Config['ImageBrowser']= true;\n";
           $js .= $js_id .".Config['FlashBrowser']= true;\n";
           $js .= $js_id .".Config['ImageDlgHideLink']= true;\n";
-          $js .= $js_id .".Config['LinkBrowserURL']= '". $host ."index.php?q=webfm_popup&url=txtUrl';\n";
-          $js .= $js_id .".Config['ImageBrowserURL']= '". $host ."index.php?q=webfm_popup&url=txtUrl';\n";
-          $js .= $js_id .".Config['FlashBrowserURL']= '". $host ."index.php?q=webfm_popup&url=txtUrl';\n";
+          $js .= $js_id .".Config['LinkBrowserURL']= '". $host ."index.php?q=webfm_popup&url=txtUrl&caller=fckeditor';\n";
+          $js .= $js_id .".Config['ImageBrowserURL']= '". $host ."index.php?q=webfm_popup&url=txtUrl&caller=fckeditor';\n";
+          $js .= $js_id .".Config['FlashBrowserURL']= '". $host ."index.php?q=webfm_popup&url=txtUrl&caller=fckeditor';\n";
           break;
 
         case 'builtin':
@@ -758,6 +777,15 @@ function fckeditor_process_textarea($element) {
           $js .= $js_id .".Config['ImageBrowserWindowHeight'] = '439';";
           $js .= $js_id .".Config['LinkBrowserWindowWidth']= '680';";
           $js .= $js_id .".Config['LinkBrowserWindowHeight'] = '439';";
+          break;
+
+        case 'ckfinder':
+          $js .= $js_id .".Config['LinkBrowser'] = true;\n";
+          $js .= $js_id .".Config['ImageBrowser'] = true;\n";
+          $js .= $js_id .".Config['FlashBrowser'] = true;\n";
+          $js .= $js_id .".Config['LinkBrowserURL'] = '". $module_full_path ."/ckfinder/ckfinder.html';\n";
+          $js .= $js_id .".Config['ImageBrowserURL'] = '". $module_full_path ."/ckfinder/ckfinder.html?type=Images';\n";
+          $js .= $js_id .".Config['FlashBrowserURL'] = '". $module_full_path ."/ckfinder/ckfinder.html?type=Flash';\n";
           break;
 
         default:
@@ -1117,6 +1145,8 @@ function fckeditor_get_nodetype($get_q) {
   static $nodetype;
 
   if (!isset($nodetype)) {
+    $nodetypes = node_get_types('names');
+
     $menuitem = menu_get_item();
     $nodetype = '*';
     if (!empty($menuitem['page_arguments']) && is_array($menuitem['page_arguments'])) {
@@ -1133,7 +1163,21 @@ function fckeditor_get_nodetype($get_q) {
       $get_q = explode("/", $get_q, 3);
       if ($get_q[0] == "node" && $get_q[1] == "add" && !empty($get_q[2])) {
         $nodetype = $get_q[2];
+        // underscores are translated to dashes in node/add/ urls. try to translate it back
+        if (!isset($nodetypes[$nodetype])) {
+          foreach (array_keys($nodetypes) as $nt) {
+            if (strtr($nt, '_', '-') === $nodetype) {
+              $nodetype = $nt;
+              break;
+            }
+          }
+        }
       }
+    }
+
+    // Sanity check
+    if (!isset($nodetypes[$nodetype])) {
+      $nodetype = NULL;
     }
   }
 

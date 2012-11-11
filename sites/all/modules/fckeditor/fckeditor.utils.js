@@ -1,4 +1,3 @@
-// $Id: fckeditor.utils.js,v 1.2.2.8.2.32 2009/10/04 16:47:50 jorrit Exp $
 // map of instancename -> FCKeditor object
 var fckInstances = {};
 var fckActiveId = false;
@@ -26,8 +25,8 @@ Drupal.behaviors.fckeditor = function(context) {
       if (editorInstance.defaultState == 1) {
         if (textarea.attr('class').indexOf("filterxss1") != -1 || textarea.attr('class').indexOf("filterxss2") != -1) {
           $.post(Drupal.settings.basePath + 'index.php?q=fckeditor/xss', {
-            text: $('#' + taid).val(),
-            'filters[]': Drupal.settings.fckeditor_filters[fckInstances[taid].DrupalId]
+            'text': $('#' + taid).val(),
+            'token': Drupal.settings.fckeditor.ajaxToken
             },
             function(text) {
               textarea.val(text);
@@ -60,8 +59,8 @@ function Toggle(textareaID, TextTextarea, TextRTE, xss_check)
     fckInstances[textareaID].defaultState = 2;
     if ($('#' + textareaID).attr('class').indexOf("filterxss2") != -1) {
       $.post(Drupal.settings.basePath + 'index.php?q=fckeditor/xss', {
-        text: $('#' + textareaID).val(),
-        'filters[]': Drupal.settings.fckeditor_filters[fckInstances[textareaID].DrupalId]
+        'text': $('#' + textareaID).val(),
+        'token': Drupal.settings.fckeditor.ajaxToken
         },
         function(text) {
           $('#' + textareaID).val(text);
@@ -199,6 +198,8 @@ function FCKeditor_OnComplete(editorInstance) {
   // FCKeditor will happily update the fake textarea while we will use the proper one
   editorInstance.LinkedField2 = editorInstance.LinkedField;
   editorInstance.LinkedField = $('<textarea></textarea>');
+  // The save button in the FCKeditor toolbar needs the form property
+  editorInstance.LinkedField.form = editorInstance.LinkedField2.form;
 
   // Img_Assist integration
   IntegrateWithImgAssist();

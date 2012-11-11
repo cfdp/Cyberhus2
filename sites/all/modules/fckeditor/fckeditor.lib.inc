@@ -1,5 +1,4 @@
 <?php
-// $Id: fckeditor.lib.inc,v 1.1.2.7 2010/03/10 07:43:32 jorrit Exp $
 /**
  * FCKeditor - The text editor for Internet - http://www.fckeditor.net
  * Copyright (C) 2003-2008 Frederico Caldeira Knabben

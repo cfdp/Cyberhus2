@@ -1,20 +1,8 @@
-// $Id: fckeditor.config.js,v 1.5.2.5.2.15 2010/02/25 08:30:35 jorrit Exp $
 
 /*
  WARNING: clear browser's cache after you modify this file.
  If you don't do this, you may notice that browser is ignoring all your changes.
 */
-
-/*
- Fil tilpasset af benjamin@cyberhus.dk v. opdatering d. 17.05.09
- WARNING: clear browser's cache after you modify this file.
- If you don't do this, you may notice that browser is ignoring all your changes.
-*/
-/*
-Sti til fil med skabeloner
-*/
-FCKConfig.TemplatesXmlPath	= '/sites/all/themes/fcktemplates/cyberhus2.xml' ;
-/*
 
 /*
  Define as many toolbars as you need, you can change toolbar names
@@ -25,7 +13,6 @@ FCKConfig.TemplatesXmlPath	= '/sites/all/themes/fcktemplates/cyberhus2.xml' ;
 
 //uncomment these three lines to enable teaser break and page break plugins
 //remember to add 'DrupalBreak' and 'DrupalPageBreak' buttons to the toolbar
-FCKConfig.PluginsPath = '../../plugins/' ;
 FCKConfig.Plugins.Add( 'drupalbreak', 'en,pl,ru' ) ;
 FCKConfig.Plugins.Add( 'imgassist' ) ;
 //To enable plugins below you should install additional Drupal modules.
@@ -38,30 +25,8 @@ FCKConfig.Plugins.Add( 'imgassist' ) ;
  some of commands used here (like 'FontName') use inline styles,
  which unfortunately are stripped by "Filtered HTML" filter
  */
- 
-/*cyberhus-toolbars*/
-/*
- This toolbar is dedicated to users with "Minimum" access 
- */
-FCKConfig.ToolbarSets["Minimum"] = [
-['Undo','Redo','RemoveFormat','Bold','Italic','Underline','TextColor','OrderedList','UnorderedList','JustifyLeft','JustifyCenter','JustifyRight'],
-['Smiley','Rule','Link','Unlink','SpecialChar'],
-['FontFormat'],
-] ;
-
-/*
- This toolbar is dedicated to users with "Limited" access 
- */
-FCKConfig.ToolbarSets["Middel"] = [
-['Undo','Redo','RemoveFormat','Bold','Italic','Underline','TextColor','OrderedList','UnorderedList','JustifyLeft','JustifyCenter','JustifyRight'],
-['Smiley','Image','Rule','Link','Unlink','SpecialChar','DrupalBreak'],
-'/',
-['FontFormat'],
-] ;
-
-
 FCKConfig.ToolbarSets['DrupalFull'] = [
-['Source', 'Templates'],
+['Source'],
 ['Cut','Copy','Paste','PasteText','PasteWord'],
 ['Undo','Redo','-','Find','Replace','-','SelectAll','RemoveFormat'],
 ['Bold','Italic','Underline','StrikeThrough','-','Subscript','Superscript'],
@@ -83,7 +48,6 @@ FCKConfig.ToolbarSets['DrupalFull'] = [
 ['FontFormat','FontName','FontSize'],
 ['TextColor','BGColor','ShowBlocks']
 ] ;
-/*cyberhus-toolbars end*/
 
 FCKConfig.ToolbarSets['DrupalBasic'] = [
 ['FontFormat','-','Bold','Italic','-','OrderedList','UnorderedList','-','Link','Unlink','Image']

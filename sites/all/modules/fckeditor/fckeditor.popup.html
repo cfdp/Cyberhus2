@@ -1,7 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
   <title>FCKeditor</title>
-  <!-- $id$ -->
   
   <script type="text/javascript">
 document.write('<scr' + 'ipt src="' + window.opener['Drupal'].settings.basePath + 'misc/jquery.js"></scr' + 'ipt>');
@@ -85,9 +84,9 @@ function FCKeditor_OnComplete( editorInstance )
   var textarea = window.opener.document.getElementById( FCKURLParams[ 'el' ] );
   if ($(textarea).attr('class').indexOf("filterxss2") != -1) {
     $.post(window.opener['Drupal'].settings.basePath + 'index.php?q=fckeditor/xss', {
-      text: oFCKeditor.Value,
-      'filters[]': window.opener['Drupal'].settings.fckeditor_filters[FCKURLParams[ 'var' ]]
-      }, 
+      'text': oFCKeditor.Value,
+      'token': window.opener['Drupal'].settings.fckeditor.ajaxToken
+      },
       function(text) {
         oEditor.SetData(text);
       }

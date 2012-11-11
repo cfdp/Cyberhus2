@@ -21,8 +21,6 @@
  *
  * Configuration file for the File Manager Connector for PHP.
  */
- 
-
 
 global $Config ;
 
@@ -39,8 +37,6 @@ $Config['UserFilesPath'] = '/userfiles/' ;
 // link or alias. Examples: 'C:\\MySite\\userfiles\\' or '/root/mysite/userfiles/'.
 // Attention: The above 'UserFilesPath' must point to the same directory.
 $Config['UserFilesAbsolutePath'] = '' ;
- /*patch to ensure that imce file browser works*/
-require_once '../../../../../filemanager.config.php';
 
 // Due to security issues with Apache modules, it is recommended to leave the
 // following setting enabled.
