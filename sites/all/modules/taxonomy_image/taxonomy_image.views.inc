@@ -1,5 +1,4 @@
 <?php
-// $Id: taxonomy_image.views.inc,v 1.1.2.4 2008/09/13 22:37:47 nancyw Exp $
 
 /**
  * @file

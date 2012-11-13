@@ -1,5 +1,4 @@
 <?php
-// $Id: views_handler_field_taxonomy_image.inc,v 1.1.2.2 2008/11/19 16:02:10 nancyw Exp $
 
 /**
  * @file

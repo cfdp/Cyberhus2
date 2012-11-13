@@ -1,5 +1,4 @@
 <?php
-// $Id: taxonomy_image.admin.inc,v 1.1.2.9 2009/02/17 02:45:04 nancyw Exp $
 
 /**
  * @file
@@ -21,8 +20,19 @@ function taxonomy_image_admin_settings() {
 
 function taxonomy_image_admin_form() {
   $error = NULL;
-  if (!file_check_directory(file_create_path(variable_get('taxonomy_image_path', 'category_pictures')), FILE_CREATE_DIRECTORY)) {
-    $error = theme('error', t('The picture directory does not exist, or is not writable.'));
+
+  if (variable_get('file_downloads', FILE_DOWNLOADS_PUBLIC) == FILE_DOWNLOADS_PUBLIC) {
+    $download = t('This site is using the public file download option.');
+  }
+  else {
+    $download = t('This site is using the private file download option.');
+  }
+  
+  $form['download'] = array('#type' => 'markup', '#value' => "<p>$download</p>", '#weight' => -10); 
+
+  $ti_path = variable_get('taxonomy_image_path', 'category_pictures');
+  if (!file_check_directory(file_create_path($ti_path), FILE_CREATE_DIRECTORY)) {
+    drupal_set_message(t('The picture directory (%path) does not exist, or is not writable.', array('%path' => $ti_path)), 'error');
   }
 
   drupal_add_css(drupal_get_path('module', 'taxonomy_image') .'/taxonomy_image.css');
@@ -40,7 +50,7 @@ function taxonomy_image_admin_form() {
   $form['general']['taxonomy_image_path'] = array(
     '#type' => 'textfield',
     '#title' => t('Picture image path'),
-    '#default_value' => variable_get('taxonomy_image_path', 'category_pictures'),
+    '#default_value' => $ti_path,
     '#size' => 60,
     '#maxlength' => 255,
     '#field_prefix' => '<strong>'. $files_path .'</strong>',
@@ -72,6 +82,13 @@ function taxonomy_image_admin_form() {
     '#description' => t('If you specify a default image and the requested term has no image, the default will be used. You must enter the entire image path.'),
     '#size' => 80,
     '#maxlength' => 255,
+    );
+
+  $form['general']['taxonomy_image_verbose_delete'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show all delete messages'),
+    '#default_value' => variable_get('taxonomy_image_verbose_delete', FALSE),
+    '#description' => t('When a term or image is deleted, this option displays that the image is deleted from this module, the files table, and the disk.'),
     );
 
   $form['resizing'] = array(

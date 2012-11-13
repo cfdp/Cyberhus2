@@ -1,5 +1,4 @@
 <?php
-// $Id: taxonomy_image_blocks.module,v 1.1.2.19 2009/03/13 17:27:27 nancyw Exp $
 /**
  * @file
  * Add a block to show the images attached to the terms of a node.
@@ -70,7 +69,7 @@ function taxonomy_image_block($op = 'list', $delta = 0, $edit = array()) {
                   $edit_link = NULL;
                 }
                 
-                $rows[] = array(l($img, $term_path, array('html' => TRUE)) . $name_link . $edit_link);
+                $rows[] = theme('taxonomy_image_block_rows', $img, $term_path, $name_link, $edit_link);
                 ++$count;
               }
               // Have we hit the limit?
@@ -88,7 +87,7 @@ function taxonomy_image_block($op = 'list', $delta = 0, $edit = array()) {
               );
             $block = array(
               'subject' => strtr(variable_get('taxonomy_image_block_title', 'Term Images for "@title"'), $subs),
-              'content' => theme('table', array() , $rows, array('id' => 'taxonomy_image_terms')),
+              'content' => theme('taxonomy_image_block', $rows),
               );
           }
           break;
@@ -231,4 +230,23 @@ function taxonomy_image_blocks_form_alter(&$form, &$form_state, $form_id) {
       }
     }
   }
+}
+
+function taxonomy_image_blocks_theme($existing, $type, $theme, $path) {
+  return array(
+    'taxonomy_image_block' => array(
+      'arguments' => array('rows' => NULL),
+    ),
+    'taxonomy_image_block_rows' => array(
+      'arguments' => array('img' => NULL, 'term_path' => NULL, 'name_link' => NULL, 'edit_link' => NULL, ),
+    ),
+  );
+}
+
+function theme_taxonomy_image_block($rows) {
+  return theme('table', array() , $rows, array('id' => 'taxonomy-image-terms'));
+}
+
+function theme_taxonomy_image_block_rows($img, $term_path, $name_link, $edit_link) {
+  return array(l($img, $term_path, array('html' => true)) . $name_link . $edit_link);
 }

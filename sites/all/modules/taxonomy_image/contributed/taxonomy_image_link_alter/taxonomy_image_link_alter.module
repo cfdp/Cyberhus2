@@ -1,5 +1,4 @@
 <?php
-// $Id: taxonomy_image_link_alter.module,v 1.1.4.9 2009/03/13 17:28:21 nancyw Exp $
 /**
  * @file
  * Change taxonomy links to show term images.

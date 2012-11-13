@@ -1,5 +1,4 @@
 <?php
-// $Id: taxonomy_image_attach.module,v 1.1.4.8 2009/03/13 17:25:45 nancyw Exp $
 /**
  * @file
  * Add functionality to terms similar to the image_attach.module.

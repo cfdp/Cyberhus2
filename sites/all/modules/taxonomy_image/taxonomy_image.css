@@ -1,4 +1,3 @@
-/* $Id: taxonomy_image.css,v 1.1.4.13 2009/03/16 00:07:11 nancyw Exp $ */
 
 .taxonomy_image_checkboxes .form-item label.option {
   float: left;
@@ -34,9 +33,14 @@
   margin-bottom: 0;
 }
 
-#taxonomy_image_terms a.links {
+#taxonomy-image-terms a.links {
   font-size: 80%;
   float: right;
+}
+
+#taxonomy-image-terms img {
+  float: left;
+  margin-right: 1em;
 }
 
 #block-taxonomy_image-0 img {
@@ -44,9 +48,13 @@
   margin-right: 1em;
 }
 
+.taxonomy-image-block-name{
+  /*font-size: 89%; */
+}
+
 .taxonomy-image-block-edit {
   float: right;
-  font-size: 89%; 
+  font-size: 89%;
 }
 
 a.taxonomy-image-link-alter {

@@ -1,4 +1,3 @@
-$Id: README.txt,v 1.4.4.2 2008/03/03 02:00:32 nancyw Exp $
 Overview:
 --------
 The taxonomy_image module allows site administrators to associate images

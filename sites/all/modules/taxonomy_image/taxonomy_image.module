@@ -1,5 +1,4 @@
 <?php
-// $Id: taxonomy_image.module,v 1.12.4.13.2.44 2009/04/16 13:33:35 nancyw Exp $
 
 /**
  * @file
@@ -7,6 +6,8 @@
  *  Simple module for providing an association between taxonomy terms and images.
  *  Written by Jeremy Andrews <jeremy@kerneltrap.org>, May 2004.
  */
+
+define('TAXONOMY_IMAGE_IMAGE_EXTENSIONS', 'jpg gif png');
 
 /**
  * Function to display the image associated with the given term id.
@@ -69,6 +70,7 @@ function taxonomy_image_display($tid, $tags = NULL, $profile = NULL, $overrides 
       $my_attrs = array(
         'width' => $current->width,
         'height' => $current->height,
+        'class' => 'taxonomy-image-term-' . $current->tid .' taxonomy-image-vid-' . $current->vid
         );
       // $tag was originally an HTML attribute string. It should now be a standard attributes array.
       // If the caller provided the same key, this will force me to use those.
@@ -252,9 +254,9 @@ function taxonomy_image_get_object($tid, $recursive = NULL) {
   }
 
   // If there was no image, but there is a default, fake it.
+  $term = taxonomy_get_term($tid);
   if (!isset($image[$tid]->path) && ($default = variable_get('taxonomy_image_default', NULL))) {
     $image[$tid]->path = $default;
-    $term = taxonomy_get_term($tid);
     $image[$tid]->name = $term->name;
     $image[$tid]->description = $term->description;
 //    $image[$tid]->url = file_create_url($mypath . $image[$tid]->path);
@@ -263,8 +265,11 @@ function taxonomy_image_get_object($tid, $recursive = NULL) {
   // Get more properties if we had an image.
   if (!empty($image[$tid]->path)) {
     $image[$tid]->tid = $tid;
-//    $img = getimagesize($image[$tid]->path);
-    $img = getimagesize($image[$tid]->url);
+    $image[$tid]->vid = $term->vid;
+    $p = $fullpath . $image[$tid]->path;
+    if (is_readable($p) ) {
+      $img = getimagesize($p);
+    }
     // Make sure it worked.
     if (!$img) {
       return NULL;
@@ -570,8 +575,7 @@ function taxonomy_image_form_alter(&$form, &$form_state, $form_id) {
         '#title' => t('Use external image'),
         '#default_value' => $curr_path,
         '#cols' => 60,
-//        '#element_validate' => array('taxonomy_image_validate_external'),
-        '#description' => t('Enter a path to an external image. Note this image will be copied to this site.'),
+        '#description' => t('Enter the URL of an image to copy to this site. URL must end with one of these extensions: @exts.', array('@exts' => TAXONOMY_IMAGE_IMAGE_EXTENSIONS)),
         '#prefix' => '<strong>'. t('or:') .'</strong>',
         );
 
@@ -587,15 +591,29 @@ function taxonomy_image_form_alter(&$form, &$form_state, $form_id) {
 /**
  * Check an external link.
  */
-function _taxonomy_image_validate_external($form, &$form_state) {
+function taxonomy_image_validate_external($form, &$form_state) {
   if (empty($form_state['values']['taxonomy_image_external'])) {
     return;
   }
-  if (valid_url($form_state['values']['taxonomy_image_external'])
-    && substr($form_state['values']['taxonomy_image_external'], 0, 4) == 'http') {
+
+  $url = $form_state['values']['taxonomy_image_external'];
+  if (!valid_url($url)) {
+    form_set_error('taxonomy_image_external', t('The URL (@url) you entered does not appear to be valid.', array('@url' => $url)));
     return;
   }
-  form_set_error('taxonomy_image_external', t('The URL (@url) you entered does not appear to be valid.', array('@url' => $form['#value'])));
+
+  $pieces = parse_url($form_state['values']['taxonomy_image_external']);
+  if ($pieces['scheme'] != 'http' && $pieces['scheme'] != 'https') {
+    form_set_error('taxonomy_image_external', t('The URL (@url) you entered does not appear to be valid.', array('@url' => $url)));
+    return;
+  }
+
+  // Find the stuff after the last period (file type).
+  $type = drupal_strtolower(substr($pieces['path'], strrpos($pieces['path'], '.') + 1));
+  $permitted = explode(' ', TAXONOMY_IMAGE_IMAGE_EXTENSIONS);
+  if (!in_array($type, $permitted)) {
+    form_set_error('taxonomy_image_external', t('The URL (@url) you entered does not point to a valid image file (@exts).', array('@url' => $url, '@exts' => TAXONOMY_IMAGE_IMAGE_EXTENSIONS)));
+  }
 }
 
 /**
@@ -627,7 +645,8 @@ function taxonomy_image_taxonomy($op, $type, $form_values = NULL) {
       if (!empty($form_values['taxonomy_image_external'])) {
         $source = $form_values['taxonomy_image_external'];
         $filename = basename($source);
-        $where = file_directory_path() .'/'. variable_get('taxonomy_image_path', 'category_pictures') .'/'. $filename;
+        $filename = file_munge_filename($filename, TAXONOMY_IMAGE_IMAGE_EXTENSIONS);
+        $where = file_destination($directory . '/' . $filename, FILE_EXISTS_REPLACE);
 
         if (copy($source, $where)) {
           drupal_set_message(t('Copy from @source to @where successful.', array('@source' => $source, '@where' => $where)));
@@ -658,7 +677,9 @@ function taxonomy_image_taxonomy($op, $type, $form_values = NULL) {
       }
       break;
     case 'delete':
-      taxonomy_image_delete($tid);
+      if (_taxonomy_image_exists($tid)) {
+        taxonomy_image_delete($tid);
+      }
       break;
   }
 }
@@ -667,10 +688,10 @@ function taxonomy_image_taxonomy($op, $type, $form_values = NULL) {
  * Helper function for adding an image to a term
  */
 function taxonomy_image_add($tid, $filename) {
-
-  $count = db_result(db_query('SELECT COUNT(tid) FROM {term_image} WHERE tid=%d', $tid));
-  if ($count == 1) {
-    // Delete old image before saving the new one.
+  // @TODO: maybe we need to store also the FILE-ID from {files} table, better deletion and shared counts.
+  
+  // Delete old image before saving the new one.
+  if (_taxonomy_image_exists($tid)) {
     taxonomy_image_delete($tid);
   }
 
@@ -683,41 +704,87 @@ function taxonomy_image_add($tid, $filename) {
   }
 }
 
+/**
+ * Deletes the Taxonomy Image associated with the given termid.
+ * @param $tid - the id of the term to delete.
+ * return none - the association is broken, the path is removed from the files table,
+ *   and the image is deleted from the disk, if appropriate.
+ */
 function taxonomy_image_delete($tid) {
-  $old_path = db_result(db_query('SELECT path FROM {term_image} WHERE tid=%d', $tid));
-  $how_many = db_result(db_query("SELECT COUNT(path) FROM {term_image} WHERE path='%s'", $old_path));
+  $verbose = variable_get('taxonomy_image_verbose_delete', FALSE);
+  // Is there an image to delete?
+  $path = _taxonomy_image_exists($tid);
+  if (!$path) {
+    // No image, go back now.
+    return;
+  }
 
-  // Delete the cached version.
-  cache_clear_all("taxonomy_image:$tid", 'cache_tax_image');
+  // See how many terms are using this image.
+  $count = db_result(db_query("SELECT COUNT(path) FROM {term_image} WHERE path='%s'", $path));
+
+  // Get the term's name.
+  $term = taxonomy_get_term($tid);
+  $term_name = check_plain(taxonomy_image_tt("taxonomy:term:$term->tid:name", $term->name));
+
+  // Break the term to image association.
+  $del_tid = db_query('DELETE FROM {term_image} WHERE tid=%d', $tid);
+  if ($del_tid) {
+    if ($verbose) {
+      drupal_set_message(t('Term image association removed for !name.', array('!name' => $term_name)), 'status');
+    }
+    // Delete the cached version.
+    cache_clear_all("taxonomy_image:$tid", 'cache_tax_image');        
+  }
+  else {
+    drupal_set_message(t('Error deleting %path for !name.', array('%path' => $path, '!name' => $term_name)), 'error');
+    // Don't delete anything else either.
+    return;
+  }
+
+  if ($count > 1) {
+    // This file is shared, don't remove file.
+    if ($verbose) {
+      drupal_set_message(t('%path is used !count other places.', array('%path' => $full_path, '!count' => $count - 1)), 'status');
+    }
+    return;
+  }
 
   $taxonomy_image_path = file_directory_path() .'/'. variable_get('taxonomy_image_path', 'category_pictures') .'/';
-  $full_path = $taxonomy_image_path . $old_path;
-  if ($how_many == 1) {
-    // This is the only term using this file, so it is safe to delete it.
-    $file_del_ok = db_query("DELETE FROM {files} WHERE filepath='%s'", $full_path);
+  $full_path = $taxonomy_image_path . $path;
+ 
+  // This is the only term using this file, so it is safe to delete it
+  // The physical file will be deleted only if also removed from {files} table.
+  $file_del = db_query("DELETE FROM {files} WHERE filepath='%s'", $full_path);
+  if ($file_del) {
+    if ($verbose) {
+      drupal_set_message(t('%path deleted from database.', array('%path' => $full_path)), 'status');
+    }
   }
   else {
-    // Pretend we deleted it.
-    $file_del_ok = TRUE;
-    drupal_set_message(t('Not deleted from the files table because it is use on !count other terms.', array('!count' => $how_many - 1)));
+    drupal_set_message(t('Error deleting image %path.', array('%path' => $full_path)), 'error');
+    // Don't even try to delete from disk.
+    return;
   }
 
-  $db_del_ok = db_query('DELETE FROM {term_image} WHERE tid=%d', $tid);
-  if ($file_del_ok && $db_del_ok) {
-    drupal_set_message(t('!name image removed.', array('!name' => $old_path)));
+  $phys_del = file_delete($full_path);
+  if ($phys_del) {
+    if ($verbose) {
+      drupal_set_message(t('%path deleted from disk.', array('%path' => $full_path)), 'status');
+    }
   }
   else {
-    drupal_set_message(t('Image delete failed. File: !file, Db: !db.',
-      array('!file' => ($file_del_ok ? 'yes' : 'no'), '!db' => ($db_del_ok ? 'yes' : 'no'))));
+    drupal_set_message(t('Error deleting image file %path from disk.', array('%path' => $full_path)), 'warning');
   }
-  return;
 }
 
+/**
+ * Check if the given TID has an image associated.
+ *
+ * @param $tid: Term-ID to check
+ * @return the image filename or FALSE
+ */
 function _taxonomy_image_exists($tid) {
-  if (db_fetch_object(db_query('SELECT path FROM {term_image} WHERE tid=%d', $tid))) {
-    return TRUE;
-  }
-  return FALSE;
+  return db_result(db_query("SELECT path FROM {term_image} WHERE tid=%d", $tid));
 }
 
 /**
