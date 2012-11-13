@@ -85,6 +85,8 @@
                     <div id="content-group" class="content-group row nested <?php print $content_group_width; ?>">
                       <div id="content-group-inner" class="content-group-inner inner">
                         <?php print theme('grid_block', $breadcrumb, 'breadcrumbs'); ?>
+                      
+                      <?php print $header_center; ?>
 
                         <?php if ($content_top || $help || $messages): ?>
                         <div id="content-top" class="content-top row nested">
@@ -98,7 +100,7 @@
 
                         <div id="content-region" class="content-region row nested">
                           <div id="content-region-inner" class="content-region-inner inner">
-                            <a name="main-content-area" id="main-content-area"></a>
+                            <a id="main-content-area"></a>
                             <?php print theme('grid_block', $tabs, 'content-tabs'); ?>
                             <div id="content-inner" class="content-inner block">
                               <div id="content-inner-inner" class="content-inner-inner inner">

@@ -75,7 +75,9 @@ function fusion_core_preprocess_page(&$vars) {
   $body_classes[] = ($grid_type == 'fluid') ? theme_get_setting('fluid_grid_width') : '';            // Fluid grid width in %
   $body_classes = array_filter($body_classes);                                                       // Remove empty elements
   $vars['body_classes'] = implode(' ', $body_classes);                                               // Create class list separated by spaces
-  $vars['body_id'] = 'pid-' . strtolower(preg_replace('/[^a-zA-Z0-9-]+/', '-', drupal_get_path_alias($_GET['q'])));            // Add a unique page id
+  
+  // Add a unique css id for the body tag by converting / or + or _ in the current page alias into a dash (-).
+  $vars['body_id'] = 'pid-' . strtolower(fusion_core_clean_css_identifier(drupal_get_path_alias($_GET['q'])));
 
   // Generate links tree & add Superfish class if dropdown enabled, else make standard primary links
   $vars['primary_links_tree'] = '';
@@ -104,19 +106,20 @@ function fusion_core_preprocess_page(&$vars) {
   $grid_style = '/css/' . theme_get_setting('theme_grid');
   $themes = fusion_core_theme_paths($theme_key);
   $vars['setting_styles'] = $vars['ie6_styles'] = $vars['ie7_styles'] = $vars['ie8_styles'] = $vars['local_styles'] = '';
+  $query_string = '?'. substr(variable_get('css_js_query_string', '0'), 0, 1);
   foreach ($themes as $name => $path) {
     $link = '<link type="text/css" rel="stylesheet" media="all" href="' . base_path() . $path;
-    $vars['setting_styles'] .= (file_exists($path . $grid_style . '.css')) ? $link . $grid_style . '.css" />' . "\n" : '';
-    $vars['ie6_styles'] .= (file_exists($path . '/css/ie6-fixes.css')) ? $link . '/css/ie6-fixes.css" />' . "\n" : '';
-    $vars['ie7_styles'] .= (file_exists($path . '/css/ie7-fixes.css')) ? $link . '/css/ie7-fixes.css" />' . "\n" : '';
-    $vars['ie8_styles'] .= (file_exists($path . '/css/ie8-fixes.css')) ? $link . '/css/ie8-fixes.css" />' . "\n" : '';
-    $vars['local_styles'] .= (file_exists($path . '/css/local.css')) ? $link . '/css/local.css" />' . "\n" : '';
+    $vars['setting_styles'] .= (file_exists($path . $grid_style . '.css')) ? $link . $grid_style . '.css' . $query_string . '"/>' . "\n" : '';
+    $vars['ie6_styles'] .= (file_exists($path . '/css/ie6-fixes.css')) ? $link . '/css/ie6-fixes.css' . $query_string . '"/>' . "\n" : '';
+    $vars['ie7_styles'] .= (file_exists($path . '/css/ie7-fixes.css')) ? $link . '/css/ie7-fixes.css' . $query_string . '" />' . "\n" : '';
+    $vars['ie8_styles'] .= (file_exists($path . '/css/ie8-fixes.css')) ? $link . '/css/ie8-fixes.css' . $query_string . '" />' . "\n" : '';
+    $vars['local_styles'] .= (file_exists($path . '/css/local.css')) ? $link . '/css/local.css' . $query_string . '" />' . "\n" : '';
     if (defined('LANGUAGE_RTL') && $language->direction == LANGUAGE_RTL) {
       $vars['setting_styles'] .= (file_exists($path . $grid_style . '-rtl.css')) ? $link . $grid_style . '-rtl.css" />' . "\n" : '';
-      $vars['ie6_styles'] .= (file_exists($path . '/css/ie6-fixes-rtl.css')) ? $link . '/css/ie6-fixes-rtl.css" />' . "\n" : '';
-      $vars['ie7_styles'] .= (file_exists($path . '/css/ie7-fixes-rtl.css')) ? $link . '/css/ie7-fixes-rtl.css" />' . "\n" : '';
-      $vars['ie8_styles'] .= (file_exists($path . '/css/ie8-fixes-rtl.css')) ? $link . '/css/ie8-fixes-rtl.css" />' . "\n" : '';
-      $vars['local_styles'] .= (file_exists($path . '/css/local-rtl.css')) ? $link . '/css/local-rtl.css" />' . "\n" : '';
+      $vars['ie6_styles'] .= (file_exists($path . '/css/ie6-fixes-rtl.css')) ? $link . '/css/ie6-fixes-rtl.css' . $query_string . '" />' . "\n" : '';
+      $vars['ie7_styles'] .= (file_exists($path . '/css/ie7-fixes-rtl.css')) ? $link . '/css/ie7-fixes-rtl.css' . $query_string . '" />' . "\n" : '';
+      $vars['ie8_styles'] .= (file_exists($path . '/css/ie8-fixes-rtl.css')) ? $link . '/css/ie8-fixes-rtl.css' . $query_string . '" />' . "\n" : '';
+      $vars['local_styles'] .= (file_exists($path . '/css/local-rtl.css')) ? $link . '/css/local-rtl.css' . $query_string . '" />' . "\n" : '';
     }
   }
 
@@ -147,18 +150,22 @@ function fusion_core_preprocess_page(&$vars) {
   
   // Replace page title as Drupal core does, but strip tags from site slogan.
   // Site name and slogan do not need to be sanitized because the permission
-  // 'administer site configuration' is required to set and should be given to
+  // 'administer site configuration' is required to be set and should be given to
   // trusted users only.
-  if (drupal_get_title()) {
-    $head_title = array(strip_tags(drupal_get_title()), variable_get('site_name', 'Drupal'));
-  }
-  else {
-    $head_title = array(variable_get('site_name', 'Drupal'));
-    if (variable_get('site_slogan', '')) {
-      $head_title[] = strip_tags(variable_get('site_slogan', ''));
+  // No sanitization will be applied when using the page title module.
+  if (!module_exists('page_title')) {
+    if (drupal_get_title()) {
+      $head_title = array(strip_tags(drupal_get_title()), variable_get('site_name', 'Drupal'));
     }
-  }
-  $vars['head_title'] = implode(' | ', $head_title);  
+    else {
+      $head_title = array(variable_get('site_name', 'Drupal'));
+      if (variable_get('site_slogan', '')) {
+        $head_title[] = strip_tags(variable_get('site_slogan', ''));
+      }
+    }
+    if (is_array($head_title)) $head_title = implode(' | ', $head_title);  
+    $vars['head_title'] = $head_title;
+  } 
 }
 
 
@@ -241,6 +248,18 @@ function fusion_core_preprocess_comment_wrapper(&$vars) {
   $vars['comment_controls_state'] = COMMENT_CONTROLS_HIDDEN;
 }
 
+/**
+ * Returns a list of blocks.  
+ * Uses Drupal block interface and appends any blocks assigned by the Context module.
+ */
+function fusion_core_block_list($region) {
+  $drupal_list = block_list($region);
+  if (module_exists('context') && $context = context_get_plugin('reaction', 'block')) {
+    $context_list = $context->block_list($region);
+    $drupal_list = array_merge($context_list, $drupal_list);
+  }
+  return $drupal_list;
+}
 
 /**
  * Block preprocessing
@@ -262,13 +281,13 @@ function fusion_core_preprocess_block(&$vars) {
     $grid_name = substr(theme_get_setting('theme_grid'), 0, 7);
     $grid_width = (int)substr($grid_name, 4, 2);
     $grid_fixed = (substr(theme_get_setting('theme_grid'), 7) != 'fluid') ? 1 : 0;
-    $sidebar_first_width = (block_list('sidebar_first')) ? theme_get_setting('sidebar_first_width') : 0;
-    $sidebar_last_width = (block_list('sidebar_last')) ? theme_get_setting('sidebar_last_width') : 0;
+    $sidebar_first_width = (fusion_core_block_list('sidebar_first')) ? theme_get_setting('sidebar_first_width') : 0;
+    $sidebar_last_width = (fusion_core_block_list('sidebar_last')) ? theme_get_setting('sidebar_last_width') : 0;
     $regions = fusion_core_set_regions($grid_width, $sidebar_first_width, $sidebar_last_width);
   }
 
   // Increment block count for current block's region, add first/last position class
-  $regions[$vars['block']->region]['count'] ++;
+  $regions[$vars['block']->region]['count']++;
   $region_count = $regions[$vars['block']->region]['count'];
   $total_blocks = $regions[$vars['block']->region]['total'];
   $vars['position'] = ($region_count == 1) ? 'first' : '';
@@ -448,20 +467,20 @@ function fusion_core_grid_block($element, $name) {
 function fusion_core_set_regions($grid_width, $sidebar_first_width, $sidebar_last_width) {
   $sidebar_total = $sidebar_first_width + $sidebar_last_width;
   $regions = array(
-    'header_top' => array('width' => $grid_width, 'total' => count(block_list('header_top')), 'count' => 0),
-    'header' => array('width' => $grid_width, 'total' => count(block_list('header')), 'count' => 0),
-    'preface_top' => array('width' => $grid_width, 'total' => count(block_list('preface_top')), 'count' => 0),
-    'preface_bottom' => array('width' => $grid_width - $sidebar_first_width, 'total' => count(block_list('preface_bottom')), 'count' => 0),
-    'sidebar_first' => array('width' => $sidebar_first_width, 'total' => count(block_list('sidebar_first')), 'count' => 0),
-    'content_top' => array('width' => $grid_width - $sidebar_total, 'total' => count(block_list('content_top')), 'count' => 0),
-    'content' => array('width' => $grid_width - $sidebar_total, 'total' => count(block_list('content')), 'count' => 0),
-    'node_top' => array('width' => $grid_width - $sidebar_total, 'total' => count(block_list('node_top')), 'count' => 0),
-    'node_bottom' => array('width' => $grid_width - $sidebar_total, 'total' => count(block_list('node_bottom')), 'count' => 0),
-    'content_bottom' => array('width' => $grid_width - $sidebar_total, 'total' => count(block_list('content_bottom')), 'count' => 0),
-    'sidebar_last' => array('width' => $sidebar_last_width, 'total' => count(block_list('sidebar_last')), 'count' => 0),
-    'postscript_top' => array('width' => $grid_width - $sidebar_first_width, 'total' => count(block_list('postscript_top')), 'count' => 0),
-    'postscript_bottom' => array('width' => $grid_width, 'total' => count(block_list('postscript_bottom')), 'count' => 0),
-    'footer' => array('width' => $grid_width, 'total' => count(block_list('footer')), 'count' => 0)
+    'header_top' => array('width' => $grid_width, 'total' => count(fusion_core_block_list('header_top')), 'count' => 0),
+    'header' => array('width' => $grid_width, 'total' => count(fusion_core_block_list('header')), 'count' => 0),
+    'preface_top' => array('width' => $grid_width, 'total' => count(fusion_core_block_list('preface_top')), 'count' => 0),
+    'preface_bottom' => array('width' => $grid_width - $sidebar_first_width, 'total' => count(fusion_core_block_list('preface_bottom')), 'count' => 0),
+    'sidebar_first' => array('width' => $sidebar_first_width, 'total' => count(fusion_core_block_list('sidebar_first')), 'count' => 0),
+    'content_top' => array('width' => $grid_width - $sidebar_total, 'total' => count(fusion_core_block_list('content_top')), 'count' => 0),
+    'content' => array('width' => $grid_width - $sidebar_total, 'total' => count(fusion_core_block_list('content')), 'count' => 0),
+    'node_top' => array('width' => $grid_width - $sidebar_total, 'total' => count(fusion_core_block_list('node_top')), 'count' => 0),
+    'node_bottom' => array('width' => $grid_width - $sidebar_total, 'total' => count(fusion_core_block_list('node_bottom')), 'count' => 0),
+    'content_bottom' => array('width' => $grid_width - $sidebar_total, 'total' => count(fusion_core_block_list('content_bottom')), 'count' => 0),
+    'sidebar_last' => array('width' => $sidebar_last_width, 'total' => count(fusion_core_block_list('sidebar_last')), 'count' => 0),
+    'postscript_top' => array('width' => $grid_width - $sidebar_first_width, 'total' => count(fusion_core_block_list('postscript_top')), 'count' => 0),
+    'postscript_bottom' => array('width' => $grid_width, 'total' => count(fusion_core_block_list('postscript_bottom')), 'count' => 0),
+    'footer' => array('width' => $grid_width, 'total' => count(fusion_core_block_list('footer')), 'count' => 0)
   );
   return $regions;
 }
@@ -536,3 +555,35 @@ function fusion_core_theme_paths($theme) {
 function fusion_core_themesettings_link($prefix, $suffix, $text, $path, $options) {
   return $prefix . (($text) ? l($text, $path, $options) : '') . $suffix;
 }
+
+/**
+ * @function fusion_core_clean_css_identifier()
+ *   backport of drupal_clean_css_identifier() from Drupal 7.x
+ *
+ * @param $identifier
+ *   the identifier to clean
+ * @param $filter
+ *   an array of string replacements to use on the identifier 
+ *
+ * @return
+ *   A string safe for use as a CSS class or ID
+ **/
+ 
+ function fusion_core_clean_css_identifier($identifier, $filter = array(' ' => '-', '_' => '-', '/' => '-', '[' => '-', ']' => '')) {
+ 
+   // By default, we filter using Drupal's coding standards.
+   $identifier = strtr($identifier, $filter);
+ 
+   // Valid characters in a CSS identifier are:
+   // - the hyphen (U+002D)
+   // - a-z (U+0030 - U+0039)
+   // - A-Z (U+0041 - U+005A)
+   // - the underscore (U+005F)
+   // - 0-9 (U+0061 - U+007A)
+   // - ISO 10646 characters U+00A1 and higher
+   // We strip out any character not in the above list.
+   $identifier = preg_replace('/[^\x{002D}\x{0030}-\x{0039}\x{0041}-\x{005A}\x{005F}\x{0061}-\x{007A}\x{00A1}-\x{FFFF}]/u', '', $identifier);
+ 
+   return $identifier;
+ 
+ }
