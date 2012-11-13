@@ -1,5 +1,4 @@
 <?php
-// $Id: vud_comment.views.inc,v 1.1.2.2 2010/08/02 05:14:51 marvil07 Exp $
 
 /**
  * @file
@@ -12,7 +11,7 @@
 function vud_comment_views_data_alter(&$data) {
   $data['comments']['vud_comment_widget'] = array(
     'group' => t('Vote Up/Down'),
-    'title' => t('Comment Widget'),
+    'title' => t('Comment widget'),
     'help' => t('Provide a comment widget for the Vote up/Down module.'),
     'field' => array(
       'handler' => 'vud_comment_handler_field_widget',

@@ -1,5 +1,4 @@
 <?php
-// $Id: vud_term.views.inc,v 1.1.2.2 2010/08/02 05:14:51 marvil07 Exp $
 
 /**
  * @file
@@ -13,7 +12,7 @@
 function vud_term_views_data_alter(&$data) {
   $data['node']['vud_term_widget'] = array(
     'group' => t('Vote Up/Down'),
-    'title' => t('Term Widget'),
+    'title' => t('Term widget'),
     'help' => t('Provide a term widget for the Vote up/Down module.'),
     'field' => array(
       'handler' => 'vud_term_handler_field_widget',

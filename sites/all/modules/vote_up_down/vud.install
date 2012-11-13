@@ -1,5 +1,4 @@
 <?php
-// $Id: vud.install,v 1.1.2.5 2009/08/16 19:22:05 lut4rp Exp $
 
 /**
  * @file
@@ -48,4 +47,22 @@ function vud_update_6200() {
   }
 
   return $ret;
+}
+
+/**
+ * Rebuild menu for the path change on user statistics.
+ */
+function vud_update_6300() {
+  $ret = array();
+  menu_rebuild();
+  return $ret;
+}
+
+/**
+ * Rebuild menu for 'votereset/%/%/%/%/%'.
+ */
+function vud_update_6301() {
+  $result = array();
+  menu_rebuild();
+  return $result;
 }

@@ -1,5 +1,4 @@
 <?php
-// $Id: vud_node.views.inc,v 1.1.2.2 2010/08/02 05:14:51 marvil07 Exp $
 
 /**
  * @file
@@ -12,7 +11,7 @@
 function vud_node_views_data_alter(&$data) {
   $data['node']['vud_node_widget'] = array(
     'group' => t('Vote Up/Down'),
-    'title' => t('Node Widget'),
+    'title' => t('Node widget'),
     'help' => t('Provide a node widget for the Vote up/Down module.'),
     'field' => array(
       'handler' => 'vud_node_handler_field_widget',

@@ -1,5 +1,4 @@
 <?php
-// $Id: vud_comment.module,v 1.1.2.30 2010/12/18 08:21:46 marvil07 Exp $
 
 /**
  * @file
@@ -107,12 +106,16 @@ function vud_comment_admin_settings_validate($form, &$form_state) {
 function vud_comment_comment(&$comment, $op) {
   switch ($op) {
     case 'view':
+      if (!isset($comment->cid)) {
+        return;
+      }
       $type = _vud_comment_get_node_type($comment->nid);
       $comment_allow = in_array($type, variable_get('vud_comment_node_types', array()), TRUE);
       if ($comment_allow && user_access('use vote up/down on comments')) {
         $tag = variable_get('vud_tag', 'vote');
+        $read_only = !vud_access_callback('use vote up/down', 'comment', $comment->cid, 0, $tag);
         $widget = variable_get('vud_comment_widget', 'plain');
-        $comment->vud_comment_widget = theme('vud_widget', $comment->cid, 'comment', $tag, $widget);
+        $comment->vud_comment_widget = theme('vud_widget', $comment->cid, 'comment', $tag, $widget, $read_only, VUD_WIDGET_MESSAGE_DENIED);
         if (variable_get('vud_comment_widget_display', VUD_COMMENT_DISPLAY_NORMAL) == VUD_COMMENT_DISPLAY_NORMAL) {
           $comment->comment = $comment->vud_comment_widget . $comment->comment;
         }
@@ -152,7 +155,11 @@ function vud_comment_preprocess_comment(&$variables) {
  * Function to return the node type of a particular node ID.
  */
 function _vud_comment_get_node_type($nid) {
-  return db_result(db_query("SELECT type from {node} where nid = %d", $nid));
+  static $node_types_by_nid = array();
+  if (!isset($node_types_by_nid[$nid])) {
+    $node_types_by_nid[$nid] = db_result(db_query("SELECT type from {node} WHERE nid = %d", $nid));
+  }
+  return $node_types_by_nid[$nid];
 }
 
 /**
@@ -183,10 +190,10 @@ function vud_comment_link($type, $object, $teaser = FALSE) {
         $criteria += votingapi_current_user_identifier();
         $user_vote = votingapi_select_single_vote_value($criteria);
         if (!is_null($user_vote)) {
-          $reset_token = drupal_get_token("votereset/comment/$comment->cid/$tag");
+          $reset_token = drupal_get_token("votereset/comment/$comment->cid/$tag/$widget_theme");
           $links['vud_comment_votes_reset_link'] = array(
             'title' => t('Reset your vote'),
-            'href'  => "votereset/comment/$comment->cid/$tag/$reset_token",
+            'href'  => "votereset/comment/$comment->cid/$tag/$widget_theme/$reset_token",
             'attributes' => array('rel' => 'nofollow'),
             'html'  => TRUE,
           );

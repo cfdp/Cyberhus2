@@ -1,5 +1,4 @@
 <?php
-// $Id: vud.module,v 1.1.2.36 2010/11/01 04:57:25 marvil07 Exp $
 
 /**
  * @file
@@ -60,8 +59,8 @@ function vud_menu() {
   $items = array();
 
   $items['admin/settings/voteupdown'] = array(
-    'title'            => 'Vote Up/Down',
-    'description'      => 'Control the functioning of Vote Up/Down.',
+    'title'            => 'Vote up/down',
+    'description'      => 'Control the functioning of Vote up/down.',
     'page callback'    => 'drupal_get_form',
     'page arguments'   => array('vud_admin_advanced_settings'),
     'access arguments' => array('administer vote up/down'),
@@ -70,6 +69,7 @@ function vud_menu() {
 
   $items['admin/settings/voteupdown/advanced'] = array(
     'title'  => 'General',
+    'description' => 'Advanced configuration for Vote up/down.',
     'type'   => MENU_DEFAULT_LOCAL_TASK,
     'weight' => -10,
   );
@@ -78,24 +78,28 @@ function vud_menu() {
     'title'            => 'Vote',
     'page callback'    => 'vud_vote',
     'page arguments'   => array(1, 2, 3, 4, 5, 6),
-    'access arguments' => array('use vote up/down'),
+    'access callback'  => 'vud_access_callback',
+    'access arguments' => array('use vote up/down', 1, 2, 3, 4),
     'type'             => MENU_CALLBACK,
     'file'             => 'vud.theme.inc',
   );
 
-  $items['votereset/%/%/%/%'] = array(
+  $items['votereset/%/%/%/%/%'] = array(
     'title'            => 'Reset vote',
     'page callback'    => 'vud_reset',
-    'page arguments'   => array(1, 2, 3, 4),
-    'access arguments' => array('reset vote up/down votes'),
+    'page arguments'   => array(1, 2, 3, 4, 5),
+    'access callback'  => 'vud_access_callback',
+    'access arguments' => array('reset vote up/down votes', 1, 2, 3, 4),
     'type'             => MENU_CALLBACK,
+    'file'             => 'vud.theme.inc',
   );
 
-  $items['user/%user/votes'] = array(
+  $items['user/%user/vote_up_down/votes'] = array(
     'title'            => 'Votes',
     'page callback'    => 'vud_user_votes',
     'page arguments'   => array(1),
-    'access arguments' => array('access vote up/down statistics'),
+    'access callback'  => 'vud_can_see_votes',
+    'access arguments' => array(1),
     'type'             => MENU_LOCAL_TASK,
   );
 
@@ -111,6 +115,50 @@ function vud_menu() {
 }
 
 /**
+ * Access callback for votes.
+ *
+ * @param $perm
+ *   A string containing the permission required to modify the vote.
+ * @param $content_type
+ *   A string containing the type of content being voted on.
+ * @param $content_id
+ *   An integer containing the unique ID of the content being voted on.
+ * @param $value
+ *   An integer containing the vote value, 1 for an up vote, -1 for a down vote.
+ * @param $tag
+ *   A string containing the voting API tag.
+ * $param $account
+ *   An object containing the user voting on the content, NULL for the current
+ *   user.
+ *
+ * @return
+ *   A boolean flagging whether or not the user has access to the vote.
+ */
+function vud_access_callback($perm, $content_type, $content_id, $value, $tag, $account = NULL) {
+  if ($account === NULL) {
+    global $user;
+    $account = $user;
+  }
+
+  // If user do not pass system permissions, deny soon.
+  if (user_access($perm, $account) !== TRUE) {
+    return FALSE;
+  }
+
+  // Invokes hook_vud_access(), gives modules ability to allow or disallow access.
+  $access_array = module_invoke_all('vud_access', $perm, $content_type, $content_id, $value, $tag, $account);
+  foreach ($access_array as $access_result) {
+    // If one hook implementation want to deny, end there.
+    if ($access_result !== TRUE) {
+      return FALSE;
+    }
+  }
+
+  // If we are here, account should pass.
+  return TRUE;
+}
+
+/**
  * Implementation of hook_perm().
  */
 function vud_perm() {
@@ -118,67 +166,47 @@ function vud_perm() {
 }
 
 /**
- * Menu callback; display all votes for a user.
+ * Menu access callback for 'user/%user/vote_up_down/votes'.
+ *
+ * @see user_view_access()
  */
-function vud_user_votes() {
-  if ($account = user_load(array('uid' => arg(1), 'status' => 1))) {
-    if ($account->status || user_access('administer users')) {
-      $header = array(
-        array('data' => t('Node')),
-        array('data' => t('Vote')),
-        array('data' => t('Date'))
-      );
-      $sql = db_rewrite_sql("SELECT n.nid, n.title, v.value, v.timestamp FROM {node} n LEFT JOIN {votingapi_vote} v
-                             ON n.nid = v.content_id
-                             WHERE v.uid = %d AND v.tag = '%s' AND v.content_type = 'node' AND n.status = 1
-                             ORDER BY v.timestamp DESC");
-      $result = pager_query($sql, 25, 0, NULL, $account->uid, variable_get('vud_tag', 'vote'));
-      $rows = array();
-      while ($node = db_fetch_object($result)) {
-        $rows[] = array(
-          l($node->title, 'node/'. $node->nid),
-          $node->value,
-          t('!time ago', array('!time' => format_interval(time() - $node->timestamp)))
-        );
-      }
-      drupal_set_title(check_plain($account->name));
-      $output = theme('table', $header, $rows);
-      $output .= theme('pager', NULL, 25);
-
-      return $output;
-    }
-    else {
-      drupal_access_denied();
-    }
-  }
-  else {
-    drupal_not_found();
-  }
+function vud_can_see_votes($account) {
+  return $account && $account->uid &&
+    (
+      // Administrators can view all accounts.
+      user_access('administer users') ||
+      // The user is enabled and logged in at least once.
+      ($account->access && ($account->status == 1) && user_access('access vote up/down statistics'))
+    );
 }
 
 /**
- * Callback to reset votes on an object.
+ * Menu callback; display all votes for a user.
  */
-function vud_reset($type, $content_id, $tag, $token) {
-  if (drupal_valid_token($token, "votereset/$type/$content_id/$tag", TRUE)) {
-    $uid = votingapi_current_user_identifier();
-    $criteria = array(
-      'content_type' => $type,
-      'content_id' => $content_id,
-      'tag' => $tag,
+function vud_user_votes($account) {
+  $header = array(
+    array('data' => t('Node')),
+    array('data' => t('Vote')),
+    array('data' => t('Date'))
+  );
+  $sql = db_rewrite_sql("SELECT n.nid, n.title, v.value, v.timestamp FROM {node} n LEFT JOIN {votingapi_vote} v
+    ON n.nid = v.content_id
+    WHERE v.uid = %d AND v.tag = '%s' AND v.content_type = 'node' AND n.status = 1
+    ORDER BY v.timestamp DESC");
+  $result = pager_query($sql, 25, 0, NULL, $account->uid, variable_get('vud_tag', 'vote'));
+  $rows = array();
+  while ($node = db_fetch_object($result)) {
+    $rows[] = array(
+      l($node->title, 'node/'. $node->nid),
+      $node->value,
+      t('!time ago', array('!time' => format_interval(time() - $node->timestamp)))
     );
-    $fullc = $criteria + $uid;
-    votingapi_delete_votes(votingapi_select_votes($fullc));
-    votingapi_recalculate_results($type, $content_id);
+  }
+  drupal_set_title(check_plain($account->name));
+  $output = theme('table', $header, $rows);
+  $output .= theme('pager', NULL, 25);
 
-    drupal_goto($_SERVER['HTTP_REFERER']);
-  }
-  else {
-    watchdog('vud',
-      'Could not reset votes on @type @content_id, with value @value, tag @tag and token @token',
-      array('@type' => $type, '@content_id' => $content_id, '@value' => $value, '@tag' => $tag, '@token' => $token));
-    drupal_set_message(t("Oops! There was an error in resetting your vote!", 'warning'));
-  }
+  return $output;
 }
 
 /**
@@ -201,8 +229,9 @@ function vud_denied_vote($js = FALSE, $code=VUD_WIDGET_MESSAGE_ERROR) {
 }
 
 /**
- * Implementation of hook_ctools_plugin_dierctory() to let the system know
- * we implement widget plugins.
+ * Implementation of ctools hook_ctools_plugin_dierctory().
+ *
+ * Let the system know we implement widget plugins.
  */
 function vud_ctools_plugin_directory($module, $plugin) {
   if ($module == 'vud') {

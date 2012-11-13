@@ -1,5 +1,4 @@
 <?php
-// $Id: vud.test,v 1.1.2.1 2010/05/30 23:00:45 marvil07 Exp $
 
 /**
  * @file
@@ -7,9 +6,11 @@
  */
 
 /**
- * TODO test casting vote
- * TODO test changing voting api tag after casting votes, and see if votes change
- * TODO test vote reset
+ * Basic test for vote up/down.
+ *
+ * @todo test casting vote
+ * @todo test changing voting api tag after casting votes, and see if votes change
+ * @todo test vote reset
  */
 class VudWebTestCase extends DrupalWebTestCase {
   /**
@@ -49,7 +50,7 @@ class VudWebTestCase extends DrupalWebTestCase {
         'reset vote up/down votes',
       )
     );
-    //TODO more users with less privileges
+    // @todo more users with less privileges
 
     // Create a vud restricted user (can not interact with vud)
     $this->restricted_user = $this->drupalCreateUser();

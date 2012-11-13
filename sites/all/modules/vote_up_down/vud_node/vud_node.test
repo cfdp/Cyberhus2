@@ -1,5 +1,4 @@
 <?php
-// $Id: vud_node.test,v 1.1.2.1 2010/05/30 23:00:45 marvil07 Exp $
 
 /**
  * @file
@@ -53,7 +52,7 @@ class VudNodeWebTestCase extends DrupalWebTestCase {
         'view vote up/down count on nodes',
       )
     );
-    //TODO more users with less privileges
+    //@todo more users with less privileges
 
     // Create a vud restricted user (can not interact with vud)
     $this->restricted_user = $this->drupalCreateUser();

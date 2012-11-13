@@ -1,12 +1,11 @@
 <?php
-// $Id: widget.tpl.php,v 1.1.2.4 2010/12/05 07:50:06 marvil07 Exp $
 
 /**
  * @file
  * widget.tpl.php
  *
  * UpAndDown widget theme for Vote Up/Down
- * TODO use $show_up_as_link and $show_down_as_link
+ * @todo use $show_up_as_link and $show_down_as_link
  */
 ?>
 <div class="vud-widget vud-widget-upanddown" id="<?php print $id; ?>">
@@ -37,4 +36,11 @@
     <?php endif; ?>
     <span class="down-current-score"><?php print $down_points; ?></span>
   </div>
+  <?php if ($show_reset): ?>
+    <a href="<?php print $link_reset; ?>" rel="nofollow" class="<?php print $link_class_reset; ?>" title="<?php print $reset_long_text; ?>">
+      <div class="<?php print $class_reset; ?>">
+        <?php print $reset_short_text; ?>
+      </div>
+    </a>
+  <?php endif; ?>
 </div>
