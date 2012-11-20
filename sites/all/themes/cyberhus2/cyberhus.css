@@ -4005,41 +4005,40 @@ p#life_story_desc {
     position: absolute;
 }
 
-#life_story_content p{
+#life_story_content p {
 	line-height: 20px;
 }
 
-#quicktabs_container_2 .views-row-odd , #quicktabs_container_2 .views-row-even {
+#quicktabs_container_livsfort_llinger .views-row-odd , #quicktabs_container_livsfort_llinger .views-row-even {
 	border-bottom: 1px dashed #aaa;
 	padding: 10px 0;	
 	overflow: hidden;
 }
-#quicktabs_container_2 a {
-	
+#quicktabs_container_livsfort_llinger a {
 	font-size: 12px;
 }
-#quicktabs_container_2 .views-field-created {
+#quicktabs_container_livsfort_llinger .views-field-created {
 
 }
-#quicktabs_container_2 .views-field-field-anmeldelse-anm-navn-value {
+#quicktabs_container_livsfort_llinger .views-field-field-anmeldelse-anm-navn-value {
 
 	
 }
-#quicktabs_container_2 .views-label-field-anmeldelse-anm-navn-value {
+#quicktabs_container_livsfort_llinger .views-label-field-anmeldelse-anm-navn-value {
 	font-size:10px;
 }
-#quicktabs_container_2 .views-field-teaser {
+#quicktabs_container_livsfort_llinger .views-field-teaser {
 	padding:0;
 	display:inline;
 	
 }
-#quicktabs_container_2 .views-field-field-billede-fid {
+#quicktabs_container_livsfort_llinger .views-field-field-billede-fid {
 	float: left;
 	display: inline;
 	padding-right: 5px;
 }
 
-#quicktabs_container_2 .views-field-comment-count {
+#quicktabs_container_livsfort_llinger .views-field-comment-count {
 	float: left;
 	clear: left;
 }
