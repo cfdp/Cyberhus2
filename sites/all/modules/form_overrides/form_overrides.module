@@ -46,7 +46,7 @@ function form_overrides_form_alter(&$form, $form_state, $form_id) {
 	  break;
       
 	  /*Here you can remove FAQ's from the selection drop down in the form - useful for e.g. vacation closing*/
-      //case 'faq_ask_form':
+      case 'faq_ask_form':
 		/*Sundhed og sygdom:*/
         //unset($form['category']['#options']['74']);
         /*Sorg:*/
@@ -54,7 +54,7 @@ function form_overrides_form_alter(&$form, $form_state, $form_id) {
         /*Voldt�gt og seksuelle overgreb:*/
         //unset($form['category']['#options']['883']);
         /*Musik og talentudvikling:*/
-        //unset($form['category']['#options']['64']);
+        unset($form['category']['#options']['64']);
 		/*Spørg om sport og fritid:*/
         //unset($form['category']['#options']['71']);
 		/*Tandzonen:*/
@@ -67,7 +67,7 @@ function form_overrides_form_alter(&$form, $form_state, $form_id) {
         //unset($form['category']['#options']['424']);
 		/*Dine rettigheder:*/
         //unset($form['category']['#options']['68']);
-      //break;
+      break;
       
       /*anonymous users should not be presented for the tema-vocabulary, kunst-, the room- or the frie tags vocabulary on the mentioned content types*/
       case 'anmeldelse_bog_node_form':
