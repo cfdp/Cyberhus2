@@ -1351,7 +1351,7 @@ div.faq div.item-list ul li faq_qa_description ,div.faq div.item-list ul li faq_
 	line-height:20px;}
 
 .write_to_faq_button {
-	float: right;
+	/*float: right;*/
 }
 .faq_qa div.faq_question,
 body.section-faq .views-accordion-item {
