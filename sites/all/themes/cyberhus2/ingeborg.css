@@ -43,7 +43,7 @@ body.page-din-mening-gruppechat div.title-image h2.title {
 }
 
 /* Style header of page "Vi sover lige nu i kunstværkstedet" */
-body.page-node-19086 div.title-image h2.title {
+body.page-node-19086 div#content-header h2.title {
     color: #34A1CF;
     background-color: #000000;
     opacity: 0.8;
