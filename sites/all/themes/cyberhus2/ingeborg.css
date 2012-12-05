@@ -42,6 +42,14 @@ body.page-din-mening-gruppechat div.title-image h2.title {
     padding: 5px;
 }
 
+/* Style header of page "Vi sover lige nu i kunstværkstedet" */
+body.page-node-19086 div.title-image h2.title {
+    color: #34A1CF;
+    background-color: #000000;
+    opacity: 0.8;
+    padding: 5px;
+}
+
 /* CSS for "hidden" forums "Vil du være med til at gøre Cyberhus endnu bedre" og "Ungeblogs v.2" */
 
 /* CSS to hide forums in forum list */
