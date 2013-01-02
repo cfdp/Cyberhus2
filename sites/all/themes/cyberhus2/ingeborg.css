@@ -91,19 +91,19 @@ body.section-ungeblogs div.view.view-blogs.view-id-blogs.view-display-id-page_3.
 /*Vacation closing for FAQ (supplement to form-overrides): Remove "Skriv til Brevkassen"-button*/
 
 /*Sundhed og sygdom:*/
-.page-faq-74 .write_to_faq_button,
+/*.page-faq-74 .write_to_faq_button,*/
 /*Klar, parat, teenageliv*/
-.page-faq-75 .write_to_faq_button,
+/*.page-faq-75 .write_to_faq_button,*/
 /*Sport og fritid:*/
 /*.page-faq-71 .write_to_faq_button,*/
 /*Tandzonen*/
-.page-faq-651 .write_to_faq_button,
+/*.page-faq-651 .write_to_faq_button,*/
 /*At miste og sorgen der følger med*/
-.page-faq-62 .write_to_faq_button,
+/*.page-faq-62 .write_to_faq_button,*/
 /*Studievejlederne*/
-.page-faq-1834 .write_to_faq_button,
+/*.page-faq-1834 .write_to_faq_button,*/
 /*Musik og talentudvikling*/
-.page-faq-64 .write_to_faq_button
+/*.page-faq-64 .write_to_faq_button*/
 /*Voldtægt og seksuelle overgreb*/
 /*.page-faq-883 .write_to_faq_button,*/
 /*Spørg om Cyberhus*/
@@ -112,7 +112,7 @@ body.section-ungeblogs div.view.view-blogs.view-id-blogs.view-display-id-page_3.
 /*.page-faq-424 .write_to_faq_button,*/
 /*Dine rettigheder*/
 /*.page-faq-68 .write_to_faq_button*/
-{
-display: none;
-}
+/*{*/
+/*display: none;*/
+/*}*/
 

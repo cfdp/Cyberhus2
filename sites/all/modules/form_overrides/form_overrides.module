@@ -48,21 +48,21 @@ function form_overrides_form_alter(&$form, $form_state, $form_id) {
 	  /*Here you can remove FAQ's from the selection drop down in the form - useful for e.g. vacation closing*/
       case 'faq_ask_form':
 		/*Sundhed og sygdom:*/
-        unset($form['category']['#options']['74']);
-        /*Klar, parat, teenageliv:*/
-        unset($form['category']['#options']['75']);
-        /*Sorg:*/
-        unset($form['category']['#options']['62']);
-        /*Voldtægt og seksuelle overgreb:*/
+        //unset($form['category']['#options']['74']);
+    /*Klar, parat, teenageliv:*/
+        //unset($form['category']['#options']['75']);
+    /*Sorg:*/
+        //unset($form['category']['#options']['62']);
+    /*Voldtægt og seksuelle overgreb:*/
         //unset($form['category']['#options']['883']);
-        /*Musik og talentudvikling:*/
-        unset($form['category']['#options']['64']);
+    /*Musik og talentudvikling:*/
+        //unset($form['category']['#options']['64']);
 		/*Spørg om sport og fritid:*/
         //unset($form['category']['#options']['71']);
 		/*Tandzonen:*/
-        unset($form['category']['#options']['651']);
+        //unset($form['category']['#options']['651']);
 		/*Studievejlederen:*/
-        unset($form['category']['#options']['1834']);
+        //unset($form['category']['#options']['1834']);
 		/*Spørg om Cyberhus:*/
         //unset($form['category']['#options']['77']);
 		/*Dig på nettet:*/
