@@ -57,14 +57,10 @@
   $loggedin_user_owns_profile = ($user->uid == arg(1));
   $authenticated_user = in_array('authenticated user',$user->roles);
   $cyberaktive = (in_array('Cyberaktiv',$user->roles) || in_array('Cyberaktiv +18',$user->roles));
-  $nueh_ung = in_array('NUeH Ung',$user->roles);
-  $nueh_ung_net = in_array('NUeH Ung Net',$user->roles);
-  $nueh_vejleder = in_array('NueH Vejleder',$user->roles);
   $moderator = (in_array('Koordinator',$user->roles) || in_array('Vejleder',$user->roles));
-  $standard_cyberhus = ($authenticated_user && (!($nueh_ung_net || $nueh_ung)));
+  $standard_cyberhus = $authenticated_user;
   /*now we know *who* the logged in user is - but we also need to know *which profile* he is looking at ! */
-  $standard_cyberhus_profiles = (in_array('authenticated user',$account->roles) && !(in_array('NUeH Ung Net',$account->roles) || in_array('NUeH Ung',$account->roles) || in_array('NueH Vejleder',$account->roles)));
-  $nueh_profiles = (in_array('NUeH Ung',$account->roles) || in_array('NueH Vejleder',$account->roles) || in_array('NUeH Ung Net',$account->roles));
+  $standard_cyberhus_profiles = (in_array('authenticated user',$account->roles));
   
   if ($standard_cyberhus){ 
   	//print "standard cyberhus user = true";
@@ -82,43 +78,6 @@
   }
   ?>
 </div>
-
-<?php 
-/*---- NUeH ----
- *  * Deny access to other NUeH Ung or NUeH Ung Net profiles for NUeH Ung roles*/
-
-global $user;
-if ($nueh_ung && $nueh_profiles && !(arg(1)==$user->uid || in_array('NueH Vejleder',$account->roles))){
-	$destination = "Location:".$base_url."/node/1898";
-	header($destination);
-}
-
-?>
-<?php 
-/*---- NUeH ----
- *  * Deny access to NUeH Ung profiles for NUeH Ung Net roles*/
-
-global $user;
-if ($nueh_ung_net && $nueh_profiles && !(in_array('NUeH Ung Net',$account->roles) || in_array('NueH Vejleder',$account->roles))){
-  $destination = "Location:".$base_url."/node/1898";
-  header($destination);
-}
-
-?>
-
-
-<?php 
-/*---- NUeH ----
- * Deny access to Cyberhus profiles for NUeH Ung roles*/
-if (($nueh_ung_net || $nueh_ung) && $standard_cyberhus_profiles ){
-  $destination = "Location:".$base_url."/node/1898";
-  header($destination);
-}
-
-?>
-
-
-
 <!--  users with standard cyberhus access should see the standard cyberhus profiles in the 3 columns style layout -->
 <?php if ($standard_cyberhus && $standard_cyberhus_profiles) : ?>
 <!--  if-conditional: AA start --> 
@@ -222,98 +181,5 @@ if (($nueh_ung_net || $nueh_ung) && $standard_cyberhus_profiles ){
   <?php endif; ?>
   <!-- if-conditional: DD end- --> 
 </div> <!-- end of profile-wrapper --> 
-  
-
-<!-- the following section is for the nueh profiles -->   
-<?php elseif ($nueh_profiles): ?>
-<!-- ----NUeH---- if-conditional: AA else if --> 
-	<?php 
-	/*---- NUeH ----
-	 * 
-	 * Is user pageowner & NUeH Ung - Redirect to private page.*/
-	/* this functionality is maybe not needed - we comment it out as a test*/
-	/*::Martin:: This functionality was created for the most private profile (NUeH Ung) who at some point in the project
-   *  was not meant to have a public NUeH page. */
-	/*
-	if (($profile_uid==$user->uid)&&(in_array('NUeH Ung',$user->roles))){
-		$destination = "Location:".$base_url.'/user/'.arg(1).'/privat';
-		header($destination);
-	}*/
-	global $user;
-	$profile_uid = arg(1);
-	  ?>
-	<div id="profile-wrapper-NUeH" class="clear-block">
-    <div id="pageownerpic">
-  	<?php				  
-	  global $user;
-	  print $profile['user_picture'];
-	?>
-	  </div>
-	  <div id="statustextNUeH">
-	  </div>
-	<?php
-		/*Defines the NUeH public page. Which blocks to use, and create relationship links.*/
-	  $arg_bruger=user_load(arg(1));
-	  print views_embed_view('facebook_recent_userbased', $display_id = 'block_2');
-	  print views_embed_view('facebook_recent_userbased', $display_id = 'block_4');
-	  /*Link til nyoprettede unge. Vejlederen klikker på link og bliver derved vejleder.
-	   *Linket er kun tilstede hvis brugeren er vejleder og den unge endnu ikke har fået tilknyttet en vejleder*/
-	  $alleredetilknyttet=user_relationships_load(array('user' => arg(1)), array('sort' => 'name'));
-	  if($nueh_vejleder && array_key_exists('vejleder for',$alleredetilknyttet)==false && ($nueh_ung_net || $nueh_ung)){
-	  print '<center><a href="'.base_path().'/relationship/'.arg(1).'/request/1?destination=user/'.arg(1).'">Bliv vejleder for denne bruger</a></center>';
-	  }
-	  /*Udskriver væggen til de enkelte profiler*/
-	  $block = module_invoke('facebook_status' ,'block', 'view', facebook_status-block_1);
-	  print $block['content'];
-	  print views_embed_view('facebook_recent_userbased', $display_id = 'block_5');
-	?>
-	
-	</div> <!-- end of profile-wrapper-NUeH -->
-
-<!-- ----NUeH---- if-conditional: AA else --> 
-<?php else: 
-	/*---- NUeH ----
-	 * Deny access to Cyberhus profiles for NUeH Ung roles*/
-	global $user;
-	if (($nueh_ung_net || $nueh_ung) && $standard_cyberhus_profiles){
-		$destination = "Location:".$base_url."/node/1898";
-		header($destination);
-	}
-	print $user_profile;?>
-	<!-- ----NUeH----
-	 Admin specific blok on the admins user profile.
-	 Designed for the admin to create friendships between users. -->
-
-	<?php if (($user->name == 'martin yde' && $account->name == 'martin yde') || ($user->name == 'lundse' && $account->name == 'lundse')) :?>
-	<!-- ----NUeH---- if-conditional: BB starts-->
-		<div id="nueh-admin">
-		<div id="nueh-admin-overskrift">
-		<?php print '<BR>Skab venskaber for NUeH unge';?>
-		</div>
-		<div id="nueh-admin-indhold"> 
-	
-		<?php if (is_numeric(arg(2))&& is_numeric(arg(3))):?>
-		<!-- ----NUeH---- if-conditional: CC starts -->
-			<?php $bruger1_navn=user_load(arg(2))->name;$bruger2_navn=user_load(arg(3))->name;?>
-			<?php $bruger1_uid=arg(2);$bruger2_uid=arg(3);?>
-			<INPUT TYPE="button" NAME="opretvenskab" VALUE="Opret venskab" onClick="clickFunction()">
-			<script type="text/javascript">
-			function clickFunction(){
-				<?php user_relationships_request_relationship($bruger1_uid,$bruger2_uid,'7',TRUE);?>
-				
-				alert("<?php print $bruger1_navn.' og '.$bruger2_navn.' er nu venner.';?>");
-				}
-			</script>
-		<?php else :?>
-		<!-- ----NUeH---- if-conditional: CC else-->
-			<p>Der mangler et eller to argumenter i urlen for at du kan oprette venskaber.</p>
-		<?php endif?>
-		<!-- ----NUeH---- if-conditional: CC ends-->
-		</div>
-		</div>	
-	<?php endif; ?>
-	<!-- ----NUeH---- if-conditional:BB ends -->
-	<!-- ----NUeH---- Admin specific blok afsluttet -->
 <?php endif; ?>
 <!-- ----NUeH---- if-conditional: AA ends --> 
- 
