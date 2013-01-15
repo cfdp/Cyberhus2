@@ -123,4 +123,5 @@ body.page-faq .taxonomy_image_wrapper {
 
 body.page-faq .faq-table-right {
     padding: 10px;
+    vertical-align: top;
 }
