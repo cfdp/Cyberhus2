@@ -125,3 +125,7 @@ body.page-faq .faq-table-right {
     padding: 10px;
     vertical-align: top;
 }
+
+body.page-faq .h1 {
+	font-weight: lighter;
+}
