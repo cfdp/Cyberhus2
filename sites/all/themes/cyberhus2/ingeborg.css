@@ -131,7 +131,7 @@ body.page-faq h1 {
 }
 
 /* Match Chatrådgivning page title style with FAQ page*/
-body.page-stue-397 h2.pane-title {
+body.page-stue-397 div.panels-flexible-region.vaerelse-center h2.pane-title {
 	font-size: 24px;
     font-weight: lighter;
     padding-bottom: 10px;
