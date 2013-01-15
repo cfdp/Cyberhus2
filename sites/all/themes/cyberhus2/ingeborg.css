@@ -117,7 +117,7 @@ body.section-ungeblogs div.view.view-blogs.view-id-blogs.view-display-id-page_3.
 /*}*/
 
 /*New CSS for FAQ front page*/
-body.page-faq.section-faq .taxonomy_image_wrapper, body.page-faq.section-faq div#content-header {
+body.page-faq.section-faq .img.faq_tax_image, body.page-faq.section-faq div#content-header {
     display: none;
 }
 
