@@ -116,3 +116,7 @@ body.section-ungeblogs div.view.view-blogs.view-id-blogs.view-display-id-page_3.
 /*display: none;*/
 /*}*/
 
+/*New CSS for FAQ front page*/
+body.page-faq .taxonomy_image_wrapper {
+    display: none;
+}
