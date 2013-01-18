@@ -112,9 +112,11 @@ body.section-ungeblogs div.view.view-blogs.view-id-blogs.view-display-id-page_3.
 /*.page-faq-424 .write_to_faq_button,*/
 /*Dine rettigheder*/
 /*.page-faq-68 .write_to_faq_button*/
-/*{*/
-/*display: none;*/
-/*}*/
+/*Sex, lyst og erotik:*/
+.page-faq-67 .write_to_faq_button
+{
+display: none;
+}
 
 /*New CSS for FAQ front page*/
 body.page-faq.section-faq .faq_tax_image {

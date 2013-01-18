@@ -69,6 +69,8 @@ function form_overrides_form_alter(&$form, $form_state, $form_id) {
         //unset($form['category']['#options']['424']);
 		/*Dine rettigheder:*/
         //unset($form['category']['#options']['68']);
+        /*Sex, lyst og erotik:*/
+        unset($form['category']['#options']['67']);
       break;
       
       /*anonymous users should not be presented for the tema-vocabulary, kunst-, the room- or the frie tags vocabulary on the mentioned content types*/
