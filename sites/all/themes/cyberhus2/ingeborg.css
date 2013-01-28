@@ -1,4 +1,4 @@
-/* Remove bullets in cfdp-blogs on adult pages, left sidebar */
+﻿/* Remove bullets in cfdp-blogs on adult pages, left sidebar */
 #voksne-blog .item-list ul li {
     list-style: none;
 }
@@ -113,10 +113,10 @@ body.section-ungeblogs div.view.view-blogs.view-id-blogs.view-display-id-page_3.
 /*Dine rettigheder*/
 /*.page-faq-68 .write_to_faq_button*/
 /*Sex, lyst og erotik:*/
-.page-faq-67 .write_to_faq_button
-{
+/*.page-faq-67 .write_to_faq_button*/
+/*{
 display: none;
-}
+}*/
 
 /*New CSS for FAQ front page*/
 body.page-faq.section-faq .faq_tax_image {

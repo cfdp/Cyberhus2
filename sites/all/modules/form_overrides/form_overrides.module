@@ -1,4 +1,4 @@
-<?php  
+﻿<?php  
 /** 
 *  Implementation of hook_form_alter().
 *  To find the form_id, look in the page source of the form for 
@@ -70,7 +70,7 @@ function form_overrides_form_alter(&$form, $form_state, $form_id) {
 		/*Dine rettigheder:*/
         //unset($form['category']['#options']['68']);
         /*Sex, lyst og erotik:*/
-        unset($form['category']['#options']['67']);
+        //unset($form['category']['#options']['67']);
       break;
       
       /*anonymous users should not be presented for the tema-vocabulary, kunst-, the room- or the frie tags vocabulary on the mentioned content types*/
