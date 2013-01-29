@@ -4058,7 +4058,7 @@ ul#nice-menu-4 {margin-top:25px;border-top: 1px solid #ccc;border-bottom: 1px so
 	padding: 0px;
 	margin:   0px 0px;
 	position: relative;
-	width:    123px;
+	width:    141px;
 	z-index:  5000;
 	background: #ececec;
 	border:0px;
@@ -4087,7 +4087,7 @@ ul#nice-menu-4 {margin-top:25px;border-top: 1px solid #ccc;border-bottom: 1px so
 #nice-menu-4 ul li:hover {background-color:#b3b3b3}
 #nice-menu-4 ul li {
 	min-height: 22px;
-	width: 123px;
+	width: 140px;
 	border-bottom: 1px solid #ccc;
 	border-right: 1px solid #ccc;
 	
@@ -4100,20 +4100,20 @@ ul#nice-menu-4 {margin-top:25px;border-top: 1px solid #ccc;border-bottom: 1px so
 	left:-1px;
 }
 #nice-menu-4 ul ul {
-	left:122px;
+	left:140px;
 	top:0px;
 	border-top: 1px solid #ccc;
 }
 #nice-menu-4 li.menu-path-stue-705:hover {background-color:#D90000;}
 #nice-menu-4 li.menu-path-badevaerelse-707:hover {background-color:#36A8D9;}
 #nice-menu-4 li.menu-path-lystvaerelse-708:hover{background-color:#CD29D9;}
-#nice-menu-4 li.menu-path-bibliotek-703:hover {background-color:#FF8800;}
+/*#nice-menu-4 li.menu-path-bibliotek-703:hover {background-color:#FF8800;}*/
 #nice-menu-4 li.menu-path-lovstue-709:hover {background-color:#A46B3C;}
 #nice-menu-4 li.menu-path-mediehulen-699:hover{background-color:#82BCE7;}
 #nice-menu-4 li.menu-path-kunstvaerksted-698:hover {background-color:#97B383;}
 #nice-menu-4 li.menu-path-nueh-8416:hover {background-color:#3196C7;}
 
-#nice-menu-4 li.menu-path-nueh-8416 {border-right:1px solid #ccc;width:122px;}
+#nice-menu-4 li.menu-path-nueh-8416 {border-right:1px solid #ccc;width:138px;}
 
 .node-type-cyberflash .vaerelse-center h2 {display:none;}
 
