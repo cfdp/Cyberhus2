@@ -1,6 +1,6 @@
 ﻿/* Remove bullets in cfdp-blogs on adult pages, left sidebar */
 #voksne-blog .item-list ul li {
-    list-style: none;
+    list-style: none outside none;
 }
 
 /* Remove blog-it icon and more-link from cfdp-blogs on adult pages, left sidebar */
