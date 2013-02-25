@@ -1,19 +1,19 @@
 ﻿/* Remove bullets in cfdp-blogs on adult pages, left sidebar */
-#voksne-blog .item-list ul li {
-    list-style: none outside none;
+.voksne-blog ul {
+    list-style-type: none;
 }
 
 /* Remove blog-it icon and more-link from cfdp-blogs on adult pages, left sidebar */
-#voksne-blog .item-list .icon, .more-link {
+.voksne-blog .item-list .icon, .voksne-blog .more-link {
     display: none;  
 }
 
-#voksne-blog {
+.voksne-blog {
     background: #DDDDDD;
 }
 
 /* Style headers for the individual blog-blocks on adult pages, left sidebar */
-#voksne-blog h2 {
+div#voksne-generelt.panel-flexible .voksne-blog h2.pane-title {
     font-size: 15px;
 }
 
