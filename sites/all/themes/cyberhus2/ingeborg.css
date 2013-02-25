@@ -3,6 +3,10 @@ div#voksne-generelt.panel-flexible ul {
     list-style-type: none;
 }
 
+div#voksne-generelt.panel-flexible .item-list ul li {
+    list-style: none outside none;
+}
+
 /* Remove blog-it icon and more-link from cfdp-blogs on adult pages, left sidebar */
 .voksne-blog .item-list .icon, .voksne-blog .more-link {
     display: none;  
