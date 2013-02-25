@@ -1,5 +1,5 @@
 ﻿/* Remove bullets in cfdp-blogs on adult pages, left sidebar */
-.voksne-blog ul {
+div#voksne-generelt.panel-flexible ul {
     list-style-type: none;
 }
 
