@@ -79,14 +79,6 @@
 /** add (local) css scripts*/
 //drupal_add_css($path);
 
-/** add javascripts*/
-drupal_add_js ('sites/findhjaelp.dk/findhjaelp.js', 'core');
-
-/*add javascript for chat - but not on the pages for adults*/
-if (arg(0) != 'voksne') {
-  drupal_add_js ('sites/all/themes/scripts/chatscript.js', 'core');
-}
-
 /**
 * remove user name from alt and title tags
 */
