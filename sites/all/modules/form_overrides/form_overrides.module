@@ -47,30 +47,32 @@ function form_overrides_form_alter(&$form, $form_state, $form_id) {
       
 	  /*Here you can remove FAQ's from the selection drop down in the form - useful for e.g. vacation closing*/
       case 'faq_ask_form':
-		/*Sundhed og sygdom:*/
+	/*Når det gør ondt...:*/
+        unset($form['category']['#options']['73']);
+	/*Sundhed og sygdom:*/
         //unset($form['category']['#options']['74']);
-    /*Klar, parat, teenageliv:*/
+	/*Klar, parat, teenageliv:*/
         //unset($form['category']['#options']['75']);
-    /*Sorg:*/
+	/*Sorg:*/
         //unset($form['category']['#options']['62']);
-    /*Voldtægt og seksuelle overgreb:*/
+	/*Voldtægt og seksuelle overgreb:*/
         //unset($form['category']['#options']['883']);
-    /*Musik og talentudvikling:*/
+	/*Musik og talentudvikling:*/
         //unset($form['category']['#options']['64']);
-		/*Spørg om sport og fritid:*/
+	/*Spørg om sport og fritid:*/
         //unset($form['category']['#options']['71']);
-		/*Tandzonen:*/
+	/*Tandzonen:*/
         //unset($form['category']['#options']['651']);
-		/*Studievejlederen:*/
+	/*Studievejlederen:*/
         //unset($form['category']['#options']['1834']);
-		/*Spørg om Cyberhus:*/
+	/*Spørg om Cyberhus:*/
         //unset($form['category']['#options']['77']);
-		/*Dig på nettet:*/
+	/*Dig på nettet:*/
         //unset($form['category']['#options']['424']);
-		/*Dine rettigheder:*/
+	/*Dine rettigheder:*/
         //unset($form['category']['#options']['68']);
         /*Sex, lyst og erotik:*/
-        //unset($form['category']['#options']['67']);
+        unset($form['category']['#options']['67']);
       break;
       
       /*anonymous users should not be presented for the tema-vocabulary, kunst-, the room- or the frie tags vocabulary on the mentioned content types*/
